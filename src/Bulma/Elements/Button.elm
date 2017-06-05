@@ -35,7 +35,7 @@ module Bulma.Elements.Button exposing ( Button
 
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma exposing ( Size(..), Helpers, defaultHelpers, node )
+import Bulma.Helpers exposing ( Size(..), Helpers, defaultHelpers, node )
 
 import Html exposing ( Html, Attribute )
 

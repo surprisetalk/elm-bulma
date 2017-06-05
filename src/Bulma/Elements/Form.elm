@@ -17,7 +17,7 @@ module Bulma.Elements.Form exposing ( Field
 
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma exposing ( Helpers, defaultHelpers, node )
+import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
 
 import Bulma.Elements.Form.Control exposing ( Control )
 

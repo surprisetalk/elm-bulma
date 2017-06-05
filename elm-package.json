@@ -4,19 +4,13 @@
     "repository": "https://github.com/user/project.git",
     "license": "BSD3",
     "source-directories": [
-
         "src"
-
     ],
     "exposed-modules": [
-
         "Bulma.CDN",
-
         "Bulma.Helpers",
-
         "Bulma.Grid.Columns",
         "Bulma.Grid.Tiles",
-
         "Bulma.Elements.Box",
         "Bulma.Elements.Button",
         "Bulma.Elements.Content",
@@ -30,7 +24,6 @@
         "Bulma.Elements.Table",
         "Bulma.Elements.Tag",
         "Bulma.Elements.Title",
-
         "Bulma.Components.Card",
         "Bulma.Components.Level",
         "Bulma.Components.Media",
@@ -41,14 +34,13 @@
         "Bulma.Components.Pagination",
         "Bulma.Components.Panel",
         "Bulma.Components.Tabs",
-
         "Bulma.Layout.Container",
         "Bulma.Layout.Footer",
         "Bulma.Layout.Hero",
         "Bulma.Layout.Section"
-
     ],
     "dependencies": {
+        "Fresheyeball/elm-font-awesome": "2.0.2 <= v < 3.0.0",
         "elm-lang/core": "5.1.1 <= v < 6.0.0",
         "elm-lang/html": "2.0.0 <= v < 3.0.0"
     },

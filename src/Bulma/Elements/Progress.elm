@@ -7,7 +7,7 @@ module Bulma.Elements.Progress exposing ( Progress
                                         
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma exposing ( Helpers, defaultHelpers, node )
+import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
 
 import Html exposing ( Html, Attribute )
 

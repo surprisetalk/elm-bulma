@@ -1,12 +1,12 @@
 
-module Bulma.Elements.Form exposing ( Control
-                                    , toHtml
-                                    , setHelpers
-                                    )
+module Bulma.Elements.Form.Control exposing ( Control
+                                            , toHtml
+                                            , setHelpers
+                                            )
 
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma exposing ( Helpers, defaultHelpers, node )
+import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
 
 import Html exposing ( Html, Attribute )
 

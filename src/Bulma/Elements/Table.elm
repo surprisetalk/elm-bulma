@@ -7,7 +7,7 @@ module Bulma.Elements.Table exposing ( Table
                                         
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma exposing ( Helpers, defaultHelpers, node )
+import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
 
 import Html exposing ( Html, Attribute )
 

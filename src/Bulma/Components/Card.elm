@@ -7,7 +7,7 @@ module Bulma.Components.Card exposing ( Card
 
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma exposing ( Helpers, defaultHelpers, node )
+import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
 
 import Html exposing ( Html, Attribute )
 

@@ -12,7 +12,7 @@ module Bulma.Elements.Content exposing ( Content
 
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma exposing ( Helpers, defaultHelpers, node )
+import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
 
 import Html exposing ( Html, Attribute )
 

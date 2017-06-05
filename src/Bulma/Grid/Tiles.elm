@@ -5,7 +5,7 @@ module Bulma.Grid.Tiles exposing ( Size
 
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma exposing ( Devices )
+import Bulma.Helpers exposing ( Devices )
 
 import Html exposing ( Html, Attribute )
 import Html.Attributes exposing ( classList )
