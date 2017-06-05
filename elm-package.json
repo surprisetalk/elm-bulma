@@ -10,6 +10,10 @@
     ],
     "exposed-modules": [
 
+        "Bulma.CDN",
+
+        "Bulma.Helpers",
+
         "Bulma.Grid.Columns",
         "Bulma.Grid.Tiles",
 
@@ -18,6 +22,7 @@
         "Bulma.Elements.Content",
         "Bulma.Elements.Delete",
         "Bulma.Elements.Form",
+        "Bulma.Elements.Form.Control",
         "Bulma.Elements.Icon",
         "Bulma.Elements.Image",
         "Bulma.Elements.Notification",
@@ -26,9 +31,21 @@
         "Bulma.Elements.Tag",
         "Bulma.Elements.Title",
 
-        "Bulma.Components",
+        "Bulma.Components.Card",
+        "Bulma.Components.Level",
+        "Bulma.Components.Media",
+        "Bulma.Components.Menu",
+        "Bulma.Components.Message",
+        "Bulma.Components.Modal",
+        "Bulma.Components.Nav",
+        "Bulma.Components.Pagination",
+        "Bulma.Components.Panel",
+        "Bulma.Components.Tabs",
 
-        "Bulma.Layout"
+        "Bulma.Layout.Container",
+        "Bulma.Layout.Footer",
+        "Bulma.Layout.Hero",
+        "Bulma.Layout.Section"
 
     ],
     "dependencies": {

@@ -1,16 +1,10 @@
 
-module Bulma exposing ( Helpers
-                      , defaultHelpers
-                      , node
-                      )
+module Bulma.Helpers exposing ( Helpers
+                              , defaultHelpers
+                              , node
+                              )
 
 -- IMPORTS ---------------------------------------------------------------------
-
-
--- CDN -------------------------------------------------------------------------
-
--- TODO: cdn
--- TODO: font awesome ?
 
 
 -- NODE ------------------------------------------------------------------------
