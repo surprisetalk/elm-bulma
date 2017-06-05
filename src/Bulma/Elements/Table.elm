@@ -1,34 +1,51 @@
 
--- MODIFIERS -------------------------------------------------------------------
+module Bulma.Elements.Table exposing ( Table
+                                     , table
+                                     , toHtml
+                                     , setHelpers
+                                     )
+                                        
+-- IMPORTS ---------------------------------------------------------------------
 
-type alias Modifiers = { borders : Bool
-                       , stripes : Bool
-                       , narrow  : Bool
-                       }
+import Bulma exposing ( Helpers, defaultHelpers, node )
 
-defaultModifiers : Modifiers
-defaultModifiers = { borders = False
-                   , stripes = False
-                   , narrow  = False
-                   }
-
-
--- TRANSFORMS ------------------------------------------------------------------
-
-
+import Html exposing ( Html, Attribute )
 
 
 -- TABLE -----------------------------------------------------------------------
 
 -- TODO: selected row
 
-table : Modifiers -> List (Attribute msg) -> Maybe (Head msg) -> Body msg -> Maybe (Foot msg) -> Html msg
+table : List (Attribute msg) -> Maybe (Head msg) -> Body msg -> Maybe (Foot msg) -> Html msg
 
-easyTable : Modifiers -> Body msg -> Html msg
+easyTable : Head msg -> Body msg -> Html msg
 
-easierTable : Modifiers -> List (Row msg) -> Html msg
+easierTable : Row msg -> List (Row msg) -> Html msg
 
-easiestTable : Modifiers -> List (List (Html msg)) -> Html msg
+easiestTable : List (Html msg) -> List (List (Html msg)) -> Html msg
+
+easiestestTable : List (List String) -> Html msg
+
+
+-- BORDERS --
+
+unsetBordered : Table msg -> Table msg
+
+setBordered : Table msg -> Table msg
+
+
+-- STRIPES --
+
+unsetStriped : Table msg -> Table msg
+
+setStriped : Table msg -> Table msg
+
+
+-- NARROW --
+
+unsetNarrow : Table msg -> Table msg
+
+setNarrow : Table msg -> Table msg
 
 
 -- HEAD ------------------------------------------------------------------------
@@ -48,11 +65,29 @@ foot : List (Attribute msg) -> List (Row msg) -> Foot msg
 
 -- ROW -------------------------------------------------------------------------
 
-row : Bool -> List (Attribute msg) -> List (Column msg) -> Row msg
-row selected attrs cols
+row : List (Attribute msg) -> List (Column msg) -> Row msg
+
+easyRow : Bool -> List (Column msg) -> Row msg
+
+easierRow : List String -> Row msg
+
+unsetHighlighted : Row msg -> Row msg
+
+setHighlighted : Row msg -> Row msg
 
 
 -- COLUMN ----------------------------------------------------------------------
 
 col : List (Attribute msg) -> List (Html msg) -> Column msg
 
+easyCol : String -> Column msg
+
+
+-- TRANSFORMS ------------------------------------------------------------------
+
+toHtml : Table msg -> Html msg
+
+
+-- HELPERS ---------------------------------------------------------------------
+
+setHelpers : Helpers -> Table msg -> Table msg

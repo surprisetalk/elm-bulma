@@ -40,27 +40,6 @@ import Bulma exposing ( Size(..), Helpers, defaultHelpers, node )
 import Html exposing ( Html, Attribute )
 
 
--- TRANSFORMS ------------------------------------------------------------------
-
-toHtml : Button msg -> Html msg
-toHtml (Button helps {color,size,outline,invert,state} attrs htmls)
-  = let classes : List String
-        classes = (::) "button"
-                <| Maybe_.values
-                <| [ outlineClass outline
-                  ,  invertClass invert
-                  ,   colorClass color
-                  ,   stateClass state
-                  ,    sizeClass size
-                  ]
-                  
-    in node helps "a" classes attrs htmls
-
-buttonGroup : List (Button msg) -> Html msg
-
-connectedButtonGroup : List (Button msg) -> Html msg
-
-
 -- BUTTON ----------------------------------------------------------------------
 
 type Button msg = Button Helpers Modifiers (List (Html msg)) (List (Html msg))
@@ -75,33 +54,28 @@ iconButton attrs icon htmls
     , span [] htmls
     ]
 
-easyButton : Icon msg -> String -> Button msg
+easyButton : msg -> Icon msg -> String -> Button msg
 easyButton icon = text >> singleton >> iconButton icon
+
+easierButton : msg -> String -> Button msg
+easierButton icon = text >> singleton >> button []
+
+
+-- GROUPS ----------------------------------------------------------------------
+
+buttonGroup : List (Button msg) -> Html msg
+
+connectedButtonGroup : List (Button msg) -> Html msg
 
 
 -- MODIFIERS -------------------------------------------------------------------
 
-type alias Modifiers = { size    : Maybe Size
-                       , state   : Maybe State
-                       , color   : Maybe Color 
-                       , invert  : Bool
-                       , outline : Bool
-                       }
-
-defaultModifiers : Modifiers
-defaultModifiers = { size     : Nothing
-                   , state    : Nothing
-                   , color    : Nothing
-                   , invert   : False
-                   , outline  : False
-                   }
-
-setModifiers : Modifiers -> Button msg -> Button msg
-setModifiers mods_ (Button helps _ htmls attrs)
-  = Box helps mods_ htmls attrs
-
 
 -- OUTLINE --
+
+unsetOutline : Button msg -> Button msg
+
+setOutline : Button msg -> Button msg
 
 outlineClass : Bool -> Maybe String
 outlineClass outline = if   outline
@@ -110,6 +84,10 @@ outlineClass outline = if   outline
 
 
 -- INVERT --
+
+unsetInverted : Button msg -> Button msg
+
+setInverted : Button msg -> Button msg
 
 invertClass : Bool -> Maybe String
 invertClass invert = if   invert
@@ -122,14 +100,13 @@ type Size = Small
           | Medium
           | Large
 
-small : Size
-small = Small
+unsetSize : Button msg -> Button msg
 
-medium : Size
-medium = Medium
+setSmall : Button msg -> Button msg
 
-large : Size
-large = Large
+setMedium : Button msg -> Button msg
+
+setLarge : Button msg -> Button msg
 
 sizeClass : Maybe Size -> Maybe String
 sizeClass size
@@ -148,20 +125,17 @@ type State = Hover
            | Loading
            | Static
 
-hover : State
-hover = Hover
+unsetState : Button msg -> Button msg
 
-focus : State
-focus = Focus
+setHover : Button msg -> Button msg
 
-active : State
-active = Active
+setFocus : Button msg -> Button msg
 
-loading : State
-loading = Loading
+setActive : Button msg -> Button msg
 
-static : State
-static = Static
+setLoading : Button msg -> Button msg
+
+setStatic : Button msg -> Button msg
 
 stateClass : Maybe State -> Maybe String
 stateClass state
@@ -187,35 +161,27 @@ type Color = White
            | Warning
            | Danger
 
-black : Color
-black = Black
+unsetColor : Button msg -> Button msg
 
-dark : Color
-dark = Dark
+setBlack : Button msg -> Button msg
+
+setDark : Button msg -> Button msg
        
-light : Color
-light = Light
+setLight : Button msg -> Button msg
 
-white : Color
-white = White
+setWhite : Button msg -> Button msg
 
-link : Color
-link = Link
+setLink : Button msg -> Button msg
 
-primary : Color
-primary = Primary
+setPrimary : Button msg -> Button msg
 
-info : Color
-info = Info
+setInfo : Button msg -> Button msg
 
-success : Color
-success = Success
+setSuccess : Button msg -> Button msg
 
-warning : Color
-warning = Warning
+setWarning : Button msg -> Button msg
 
-danger : Color
-danger = Danger
+setDanger : Button msg -> Button msg
                            
 colorClass : Maybe Color -> Maybe String
 colorClass color
@@ -231,6 +197,23 @@ colorClass color
       Just Success -> Just "is-success"
       Just Warning -> Just "is-warning"
       Just Danger  -> Just "is-danger"
+
+
+-- TRANSFORMS ------------------------------------------------------------------
+
+toHtml : Button msg -> Html msg
+toHtml (Button helps {color,size,outline,invert,state} attrs htmls)
+  = let classes : List String
+        classes = (::) "button"
+                <| Maybe_.values
+                <| [ outlineClass outline
+                  ,  invertClass invert
+                  ,   colorClass color
+                  ,   stateClass state
+                  ,    sizeClass size
+                  ]
+                  
+    in node helps "a" classes attrs htmls
 
 
 -- HELPERS ---------------------------------------------------------------------

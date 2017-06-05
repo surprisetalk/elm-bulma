@@ -13,13 +13,6 @@ import Bulma exposing ( Helpers, defaultHelpers, node )
 import Html exposing ( Html, Attribute )
 
 
--- TRANSFORMS ------------------------------------------------------------------
-
-toHtml : Box msg -> Html msg
-toHtml (Box helps attrs htmls)
-  = node helps "div" [ "box" ] attrs htmls
-
-
 -- BOX -------------------------------------------------------------------------
 
 type Box msg = Box Helpers (List (Attribute msg)) (List (Html msg))
@@ -29,6 +22,13 @@ easyBox = box defaultHelpers []
 
 box : List (Attribute msg) -> List (Html msg) -> Box msg
 box = Box defaultHelpers
+
+
+-- TRANSFORMS ------------------------------------------------------------------
+
+toHtml : Box msg -> Html msg
+toHtml (Box helps attrs htmls)
+  = node helps "div" [ "box" ] attrs htmls
 
 
 -- HELPERS ---------------------------------------------------------------------

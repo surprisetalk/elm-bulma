@@ -1,4 +1,13 @@
 
+-- IMAGE -----------------------------------------------------------------------
+
+image : List (Attribute msg) -> List (Html msg) -> Image msg
+
+easyImage : AspectRatio -> Size -> String -> Image msg
+
+easierImage : String -> Image msg
+
+
 -- SIZE ------------------------------------------------------------------------
 
 type Size = X16
@@ -9,21 +18,21 @@ type Size = X16
           | X96
           | X128
 
-size : Int -> Maybe Size
+unsetSize : Image msg -> Image msg
 
-x16  : Size
-
-x24  : Size
-
-x32  : Size
-
-x48  : Size
-
-x64  : Size
-
-x96  : Size
-
-x128 : Size
+set16  : Image msg -> Image msg
+         
+set24  : Image msg -> Image msg
+         
+set32  : Image msg -> Image msg
+         
+set48  : Image msg -> Image msg
+         
+set64  : Image msg -> Image msg
+         
+set96  : Image msg -> Image msg
+         
+set128 : Image msg -> Image msg
 
 
 -- ASPECT RATIO ----------------------------------------------------------------
@@ -34,27 +43,20 @@ type AspectRatio = OneByOne
                  | SixteenByNine
                  | TwoByOne
 
-aspectRatio : Int -> Int -> Maybe AspectRatio
+unsetAspectRatio : Image msg -> Image msg
 
-oneByOne : AspectRatio
-
-fourByThree : AspectRatio
-
-threeByTwo : AspectRatio
-
-sixteenByNine : AspectRatio
-
-twoByOne : AspectRatio
+setOneByOne : Image msg -> Image msg
+              
+setFourByThree : Image msg -> Image msg
+                 
+setThreeByTwo : Image msg -> Image msg
+                
+setSixteenByNine : Image msg -> Image msg
+                   
+setTwoByOne : Image msg -> Image msg
 
 
 -- TRANSFORMS ------------------------------------------------------------------
 
 toHtml : Image msg -> Html msg
-
-
--- IMAGE -----------------------------------------------------------------------
-
-image : AspectRatio -> Size -> List (Attribute msg) -> List (Html msg) -> Image msg
-
-easyImage : AspectRatio -> Size -> Image.Modifiers -> String -> Image msg
 

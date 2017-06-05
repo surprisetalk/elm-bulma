@@ -1,4 +1,30 @@
 
+module Bulma.Elements.Tag exposing ( Tag
+                                   , tag
+                                   , toHtml
+                                   , setHelpers
+                                   )
+                                        
+-- IMPORTS ---------------------------------------------------------------------
+
+import Bulma exposing ( Helpers, defaultHelpers, node )
+
+import Html exposing ( Html, Attribute )
+
+
+-- TAGS ------------------------------------------------------------------------
+
+tag : List (Attribute msg) -> List (Html msg) -> Html msg
+
+tagWithDelete : List (Attribute msg) -> msg -> List (Html msg) -> Html msg
+
+easyTag : String -> Html msg
+
+easyIconTag : Icon -> String -> Html msg
+
+easyTagWithDelete : msg -> String -> Html msg
+
+
 -- COLOR -----------------------------------------------------------------------
 
 type Color = Black
@@ -11,33 +37,26 @@ type Color = Black
            | Warning
            | Danger
 
-black : Color
-black = Black
+unsetColor : Tag msg -> Tag msg
 
-dark : Color
-dark = Dark
-       
-light : Color
-light = Light
-
-white : Color
-white = White
-
-primary : Color
-primary = Primary
-
-info : Color
-info = Info
-
-success : Color
-success = Success
-
-warning : Color
-warning = Warning
-
-danger : Color
-danger = Danger
-
+setBlack : Tag msg -> Tag msg
+           
+setDark : Tag msg -> Tag msg
+          
+setLight : Tag msg -> Tag msg
+           
+setWhite : Tag msg -> Tag msg
+           
+setPrimary : Tag msg -> Tag msg
+             
+setInfo : Tag msg -> Tag msg
+          
+setSuccess : Tag msg -> Tag msg
+             
+setWarning : Tag msg -> Tag msg
+             
+setDanger : Tag msg -> Tag msg
+            
 
 -- SIZE ------------------------------------------------------------------------
 
@@ -45,30 +64,20 @@ type Size = Normal
           | Medium
           | Large
 
-normal : Size
-normal = Normal
+unsetSize : Tag msg -> Tag msg
 
-medium : Size
-medium = Medium
-
-large : Size
-large = Large
+setNormal : Tag msg -> Tag msg
+            
+setMedium : Tag msg -> Tag msg
+            
+setLarge : Tag msg -> Tag msg
 
 
 -- TRANSFORMS ------------------------------------------------------------------
 
--- TODO: do we want to make a tag type?
+toHtml : Tag msg -> Html msg
 
 
--- TAGS ------------------------------------------------------------------------
+-- HELPERS ---------------------------------------------------------------------
 
-tag : Size -> Color -> List (Attribute msg) -> List (Html msg) -> Html msg
-
-tagWithDelete : Size -> Color -> msg -> List (Attribute msg) -> List (Html msg) -> Html msg
-
-simpleTag : Size -> Color -> String -> Html msg
-
-simpleIconTag : Size -> Color -> Icon -> String -> Html msg
-
-simpleTagWithDelete : Size -> Color -> msg -> String -> Html msg
-
+setHelpers : Helpers -> Tag msg -> Tag msg

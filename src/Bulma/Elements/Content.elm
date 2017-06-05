@@ -25,6 +25,29 @@ content : List (Attribute msg) -> List (Html msg) -> Content msg
 content = Content defaultHelpers
 
 
+-- SIZE ------------------------------------------------------------------------
+
+type Size = Small
+          | Medium
+          | Large
+
+unsetSize : Content msg -> Content msg
+
+setSmall : Content msg -> Content msg
+
+setMedium : Content msg -> Content msg
+
+setLarge : Content msg -> Content msg
+
+sizeClass : Maybe Size -> Maybe String
+sizeClass size
+  = case size of
+      Nothing     -> Nothing
+      Just Small  -> Just "is-small"
+      Just Medium -> Just "is-medium"
+      Just Large  -> Just "is-large"
+
+
 -- TRANSFORMS ------------------------------------------------------------------
 
 toHtml : Content msg -> Html msg
@@ -38,36 +61,10 @@ toHtml (Content helps size attrs htmls)
     in node helps "div" classes attrs htmls
 
 
--- SIZE ------------------------------------------------------------------------
-
-type Size = Small
-          | Medium
-          | Large
-
-small : Size
-small = Small
-
-medium : Size
-medium = Medium
-
-large : Size
-large = Large
-
-sizeClass : Maybe Size -> Maybe String
-sizeClass size
-  = case size of
-      Nothing     -> Nothing
-      Just Small  -> Just "is-small"
-      Just Medium -> Just "is-medium"
-      Just Large  -> Just "is-large"
-
-setSize : Size -> Content msg -> Content msg
-setSize size (Content helps _ attrs htmls)
-  = Content helps (Just size) attrs htmls
-
-
 -- HELPERS ---------------------------------------------------------------------
 
 setHelpers : Helpers -> Content msg -> Content msg
 setHelpers helps_ (Content _ size attrs htmls)
   = Content helps_ size attrs htmls
+
+

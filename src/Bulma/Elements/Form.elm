@@ -32,6 +32,7 @@ field : List (Attribute msg) -> List (Control msg) -> Field msg
 field = Field defaultHelpers Separate
 
 horizontalField : List (Attribute msg) -> Label msg -> Field msg -> Field msg
+-- TODO: make sure to set the label size equal to the field size
 
 
 -- TRANSFORMS --------------------------------------------------------------------
