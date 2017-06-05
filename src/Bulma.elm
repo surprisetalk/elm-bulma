@@ -32,8 +32,8 @@ type Emphasis = DefaultEmphasis
               | Warning
               | Danger
 
-type Size = DefaultSize
-          | Small
+type Size = Small
+          | Normal
           | Medium
           | Large
 
@@ -94,38 +94,6 @@ type DisplayType = DefaultDisplay
 
 type Orientation = Vertical
                  | Horizontal
-
-
--- GRID ------------------------------------------------------------------------
-
--- TODO: each of these should get its own unique modifiers record
-
-
--- COLUMNS --
-
-type Gaps = Gaps
-          | Gapless
-
-type alias GridDisplay = Devices Bool
-
-multiline : GridDisplay -> List (Column msg) -> Html msg
--- TODO: gaps
-
-columns : GridDisplay -> List (Column msg) -> Html msg
--- TODO: gaps
-
-type Narrow = Narrow
-            | Flexible
-
-column : ColumnDisplay -> Offset -> ColumnSize -> List (Attribute msg) -> List (Html msg) -> Html msg
--- TODO: narrow
-
-
--- TILES --
-
-tiles : List Tile -> Html msg
-
-tile : Orientation -> ColumnSize -> List (Attribute msg) -> List (Html msg) -> Tile
 
 
 -- ELEMENTS --------------------------------------------------------------------
@@ -199,7 +167,7 @@ notificationWithDelete : Notification.Modifiers -> msg -> List (Attribute msg) -
 
 -- TODO: percentage
 
-progress : Float -> List (Attribute msg) ->  Html msg
+progress : Float -> List (Attribute msg) -> Html msg
 
 
 -- TABLE --
