@@ -64,6 +64,8 @@ setHelpers = Entity.setHelpers
 
 -- ICONS -----------------------------------------------------------------------
 
+-- TODO: minimize dependencies using "fa fa-..."
+
 {-| TODO
 -}
 adjust                              : Icon msg
