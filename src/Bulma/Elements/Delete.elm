@@ -1,68 +1,115 @@
 
 module Bulma.Elements.Delete exposing ( Delete
                                       , delete
-                                      , toHtml
-                                      , Size
                                       , small
+                                      , normal
                                       , medium
                                       , large
-                                      , setSize
+                                      , toHtml
+                                      , addClass
                                       , setHelpers
                                       )
-                                      
+
+-- DOCS ------------------------------------------------------------------------
+
+{-| TODO 
+
+@docs Delete, delete
+
+@docs small, normal, medium, large
+
+@docs toHtml, addClass, setHelpers
+
+-}
+
+
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
+import Helpers exposing (..)
+import Bulma.Entity as Entity exposing (..)
+import Bulma.Helpers exposing ( Helpers )
 
 import Html exposing ( Html, Attribute )
 
 
--- DELETE ----------------------------------------------------------------------
+-- DELETE ---------------------------------------------------------------------
 
-type Delete msg = Delete Helpers (Maybe Size) (List (Attribute msg)) (List (Html msg))
+{-| TODO
+-}
+type alias Modifiers = { size : Size }
 
+{-| TODO
+-}
+type alias Delete msg = Entity Modifiers (Htmls msg) msg
+
+{-| TODO
+-}
 delete : List (Attribute msg) -> List (Html msg) -> Delete msg
-delete = Delete defaultHelpers
+delete = entity "a" [ "delete" ] { size = Normal }
 
 
 -- SIZE ------------------------------------------------------------------------
 
+{-| TODO
+-}
 type Size = Small
+          | Normal
           | Medium
           | Large
 
-unsetSize : Delete msg -> Delete msg
+{-| TODO
+-}
+setSize : Size -> Modifiers -> Modifiers
+setSize size_ mods = { mods | size = size_ }
 
-setSmall : Delete msg -> Delete msg
+{-| TODO
+-}
+small : Delete msg -> Delete msg
+small = mapMods <| setSize Small
 
-setMedium : Delete msg -> Delete msg
+{-| TODO
+-}
+normal : Delete msg -> Delete msg
+normal = mapMods <| setSize Normal
 
-setLarge : Delete msg -> Delete msg
+{-| TODO
+-}
+medium : Delete msg -> Delete msg
+medium = mapMods <| setSize Medium
 
-sizeClass : Maybe Size -> Maybe String
+{-| TODO
+-}
+large : Delete msg -> Delete msg
+large = mapMods <| setSize Large
+
+{-| TODO
+-}
+sizeClass : Size -> String
 sizeClass size
   = case size of
-      Nothing     -> Nothing
-      Just Small  -> Just "is-small"
-      Just Medium -> Just "is-medium"
-      Just Large  -> Just "is-large"
+      Small  -> "is-small"
+      Normal -> ""
+      Medium -> "is-medium"
+      Large  -> "is-large"
 
 
--- TRANSFORMS ------------------------------------------------------------------
+-- HTML ------------------------------------------------------------------------
 
+{-| TODO
+-}
 toHtml : Delete msg -> Html msg
-toHtml (Delete helps size attrs htmls)
-  = let classes : List String
-        classes = (::) "delete"
-                <| Maybe_.values
-                <| [ sizeClass size
-                  ]
-                  
-    in node helps "a" classes attrs htmls
+toHtml = Entity.toHtml (\_ -> []) identity
+
+{-| TODO
+-}
+addClass : String -> Delete msg -> Delete msg
+addClass = Entity.addClass
 
 
 -- HELPERS ---------------------------------------------------------------------
 
+{-| TODO
+-}
 setHelpers : Helpers -> Delete msg -> Delete msg
-setHelpers helps_ (Delete _ size attrs htmls)
-  = Delete helps_ size attrs htmls
+setHelpers = Entity.setHelpers
+

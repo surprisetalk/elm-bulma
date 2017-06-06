@@ -83,9 +83,11 @@ col : List (Attribute msg) -> List (Html msg) -> Column msg
 easyCol : String -> Column msg
 
 
--- TRANSFORMS ------------------------------------------------------------------
+-- HTML ------------------------------------------------------------------------
 
 toHtml : Table msg -> Html msg
+
+addClass : String -> Table msg -> Table msg
 
 
 -- HELPERS ---------------------------------------------------------------------

@@ -1,29 +1,23 @@
 
 module Bulma.Helpers exposing ( Helpers
                               , defaultHelpers
-                              , node
+                              , toClassStrings
                               )
+
+{-| TODO 
+
+@docs Helpers, defaultHelpers, toClassStrings
+
+-}
 
 -- IMPORTS ---------------------------------------------------------------------
 
 import List exposing ( map, filter, singleton )
 import Tuple exposing ( first, second )
-import String exposing ( join )
 
 import Html exposing ( Html, Attribute )
 import Html.Attributes exposing ( class )
 
-
--- NODE ------------------------------------------------------------------------
-
-node : Helpers -> String -> List String -> List (Attribute msg) -> List (Html msg) -> Html msg
-node helps tag classes attrs
-  = Html.node tag
-  <| flip (::) attrs
-  <| class
-  <| join " "
-  <| (++) classes
-  <| helperClasses helps
 
 -- HELPERS ---------------------------------------------------------------------
 
@@ -52,6 +46,8 @@ type Display = Block
              | InlineBlock
              | InlineFlex
 
+{-| TODO
+-}
 type alias Helpers = { float        : Maybe Float
                      , textAlign    : Maybe TextAlign
                      , overlay      : Bool
@@ -63,6 +59,8 @@ type alias Helpers = { float        : Maybe Float
                      , display      : Devices (Maybe Display)
                      }
 
+{-| TODO
+-}
 defaultHelpers : Helpers
 defaultHelpers = { float        = Nothing
                  , textAlign    = Nothing
@@ -82,8 +80,10 @@ defaultHelpers = { float        = Nothing
 (=>) : a -> b -> ( a, b )
 (=>) = (,)
 
-helperClasses : Helpers -> List String
-helperClasses {float,textAlign,overlay,fullWidth,clearfix,marginless,paddingless,unselectable,display}
+{-| TODO
+-}
+toClassStrings : Helpers -> List String
+toClassStrings {float,textAlign,overlay,fullWidth,clearfix,marginless,paddingless,unselectable,display}
   = map first
   <| filter (second)
   <| [ "is-overlay"      => overlay

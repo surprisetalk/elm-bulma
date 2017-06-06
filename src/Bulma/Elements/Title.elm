@@ -76,11 +76,13 @@ unsetSpaced : Title msg -> Title msg
 setSpaced : Title msg -> Title msg
 
 
--- TRANSFORMS ------------------------------------------------------------------
+-- HTML ------------------------------------------------------------------------
 
 toHtml : Title msg -> Html msg
 
 toHtmls : List (Title msg) -> List (Html msg)
+
+addClass : String -> Title msg -> Title msg
 
 
 -- HELPERS ---------------------------------------------------------------------

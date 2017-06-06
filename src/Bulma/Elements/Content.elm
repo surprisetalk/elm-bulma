@@ -2,69 +2,114 @@
 module Bulma.Elements.Content exposing ( Content
                                        , content
                                        , toHtml
-                                       , Size
                                        , small
+                                       , normal
                                        , medium
                                        , large
-                                       , setSize
+                                       , addClass
                                        , setHelpers
                                        )
 
+-- DOCS ------------------------------------------------------------------------
+
+{-| TODO 
+
+@docs Content, content
+
+@docs small, normal, medium, large
+
+@docs toHtml, addClass, setHelpers
+
+-}
+
+
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
+import Helpers exposing (..)
+import Bulma.Entity as Entity exposing (..)
+import Bulma.Helpers exposing ( Helpers )
 
 import Html exposing ( Html, Attribute )
 
 
 -- CONTENT ---------------------------------------------------------------------
 
-type Content msg = Content Helpers (Maybe Size) (List (Attribute msg)) (List (Html msg))
+{-| TODO
+-}
+type alias Modifiers = { size : Size }
 
+{-| TODO
+-}
+type alias Content msg = Entity Modifiers (Htmls msg) msg
+
+{-| TODO
+-}
 content : List (Attribute msg) -> List (Html msg) -> Content msg
-content = Content defaultHelpers
+content = entity "div" [ "content" ] { size = Normal }
 
 
 -- SIZE ------------------------------------------------------------------------
 
+{-| TODO
+-}
 type Size = Small
+          | Normal
           | Medium
           | Large
 
-unsetSize : Content msg -> Content msg
+{-| TODO
+-}
+setSize : Size -> Modifiers -> Modifiers
+setSize size_ mods = { mods | size = size_ }
 
-setSmall : Content msg -> Content msg
+{-| TODO
+-}
+small : Content msg -> Content msg
+small = mapMods <| setSize Small
 
-setMedium : Content msg -> Content msg
+{-| TODO
+-}
+normal : Content msg -> Content msg
+normal = mapMods <| setSize Normal
 
-setLarge : Content msg -> Content msg
+{-| TODO
+-}
+medium : Content msg -> Content msg
+medium = mapMods <| setSize Medium
 
-sizeClass : Maybe Size -> Maybe String
+{-| TODO
+-}
+large : Content msg -> Content msg
+large = mapMods <| setSize Large
+
+{-| TODO
+-}
+sizeClass : Size -> String
 sizeClass size
   = case size of
-      Nothing     -> Nothing
-      Just Small  -> Just "is-small"
-      Just Medium -> Just "is-medium"
-      Just Large  -> Just "is-large"
+      Small  -> "is-small"
+      Normal -> ""
+      Medium -> "is-medium"
+      Large  -> "is-large"
 
 
--- TRANSFORMS ------------------------------------------------------------------
+-- HTML ------------------------------------------------------------------------
 
+{-| TODO
+-}
 toHtml : Content msg -> Html msg
-toHtml (Content helps size attrs htmls)
-  = let classes : List String
-        classes = (::) "content"
-                <| Maybe_.values
-                <| [ sizeClass size
-                  ]
-                  
-    in node helps "div" classes attrs htmls
+toHtml = Entity.toHtml (\_ -> []) identity
+
+{-| TODO
+-}
+addClass : String -> Content msg -> Content msg
+addClass = Entity.addClass
 
 
 -- HELPERS ---------------------------------------------------------------------
 
+{-| TODO
+-}
 setHelpers : Helpers -> Content msg -> Content msg
-setHelpers helps_ (Content _ size attrs htmls)
-  = Content helps_ size attrs htmls
-
+setHelpers = Entity.setHelpers
 

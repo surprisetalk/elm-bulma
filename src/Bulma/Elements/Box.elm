@@ -1,39 +1,63 @@
 
 module Bulma.Elements.Box exposing ( Box
                                    , box
-                                   , easyBox
                                    , toHtml
+                                   , addClass
                                    , setHelpers
                                    )
 
+-- DOCS ------------------------------------------------------------------------
+
+{-| TODO 
+
+@docs Box, box
+
+@docs toHtml, addClass, setHelpers
+
+-}
+
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
+import Helpers exposing (..)
+import Bulma.Entity as Entity exposing (..)
+import Bulma.Helpers exposing ( Helpers )
 
 import Html exposing ( Html, Attribute )
 
 
 -- BOX -------------------------------------------------------------------------
 
-type Box msg = Box Helpers (List (Attribute msg)) (List (Html msg))
+{-| TODO
+-}
+type alias Modifiers = {}
 
-easyBox : List (Html msg) -> Box msg
-easyBox = box defaultHelpers []
+{-| TODO
+-}
+type alias Box msg = Entity Modifiers (Htmls msg) msg
 
+{-| TODO
+-}
 box : List (Attribute msg) -> List (Html msg) -> Box msg
-box = Box defaultHelpers
+box = entity "div" [ "box" ] {}
 
 
--- TRANSFORMS ------------------------------------------------------------------
+-- HTML ------------------------------------------------------------------------
 
+{-| TODO
+-}
 toHtml : Box msg -> Html msg
-toHtml (Box helps attrs htmls)
-  = node helps "div" [ "box" ] attrs htmls
+toHtml = Entity.toHtml (\_ -> []) identity
+
+{-| TODO
+-}
+addClass : String -> Box msg -> Box msg
+addClass = Entity.addClass
 
 
 -- HELPERS ---------------------------------------------------------------------
 
+{-| TODO
+-}
 setHelpers : Helpers -> Box msg -> Box msg
-setHelpers helps_ (Box _ htmls attrs)
-  = Box helps_ htmls attrs
+setHelpers helps = Entity.setHelpers helps
 

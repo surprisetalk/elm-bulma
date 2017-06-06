@@ -135,7 +135,7 @@ aspectRatioClass ratio
       TwoByOne      -> "is-2by1"
 
 
--- TRANSFORMS ------------------------------------------------------------------
+-- HTML ------------------------------------------------------------------------
 
 toHtml : Image msg -> Html msg
 toHtml {helps,size,ratio,attrs,body}
@@ -153,3 +153,4 @@ toHtml {helps,size,ratio,attrs,body}
                   
     in node helps "figure" classes attrs htmls
 
+addClass : String -> Image msg -> Image msg

@@ -24,7 +24,7 @@ easyNotification : String -> Html msg
 easyNotificationWithDelete : msg -> String -> Html msg
 
 
--- NOTIFICATION ----------------------------------------------------------------
+-- EMPHASIS --------------------------------------------------------------------
 
 type Emphasis = Primary
               | Info
@@ -47,9 +47,11 @@ setDanger : Notification msg -> Notification msg
 emphasisClass : Maybe Emphasis -> Maybe String
 
 
--- TRANSFORMS ------------------------------------------------------------------
+-- HTML ------------------------------------------------------------------------
 
 toHtml : Notification msg -> Html msg
+
+addClass : String -> Notification msg -> Notification msg
 
 
 -- HELPERS ---------------------------------------------------------------------

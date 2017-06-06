@@ -142,11 +142,6 @@ help : List (Attribute msg) -> List (Html msg) -> Help msg
 easyHelp : String -> Help msg
 
 
--- TRANSFORMS --------------------------------------------------------------------
-
-toHtml : Control msg -> Html msg
-
-
 -- MODIFIERS -------------------------------------------------------------------
 
 
@@ -205,6 +200,13 @@ setIconLeft : Icon -> Control msg -> Control msg
 unsetIconRight : Control msg -> Control msg
 
 setIconRight : Icon -> Control msg -> Control msg
+
+
+-- TRANSFORMS --------------------------------------------------------------------
+
+toHtml : Control msg -> Html msg
+
+addClass : String -> Control msg -> Control msg
 
 
 -- HELPERS ---------------------------------------------------------------------

@@ -28,13 +28,13 @@ tile : List (Attribute msg) -> List (Html msg) -> Tile msg
 
 -- tileWithHelpers : Helpers -> List (Attribute msg) -> List (Html msg) -> Tile msg
 
-toTile : Box msg -> Tile msg
+boxTile : Box msg -> Tile msg
 -- TODO: move to box?
 
-toTile : Notification msg -> Tile msg
+notificationTile : Notification msg -> Tile msg
 -- TODO: move to notification?
 
-toTile : Card msg -> Tile msg
+cardTile : Card msg -> Tile msg
 -- TODO: move to card?
 
 -- TODO: more tile types

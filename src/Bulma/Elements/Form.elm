@@ -35,19 +35,6 @@ horizontalField : List (Attribute msg) -> Label msg -> Field msg -> Field msg
 -- TODO: make sure to set the label size equal to the field size
 
 
--- TRANSFORMS --------------------------------------------------------------------
-
-toHtml : Field msg -> Html msg
-toHtml (Field helps group attrs htmls)
-  = let classes : List String
-        classes = (::) "field"
-                <| Maybe_.unwrap [] singleton
-                <| groupingClass
-                <| group
-
-    in node helps "div" classes attrs htmls
-
-
 -- GROUPING --------------------------------------------------------------------
 
 type Alignment = Default
@@ -108,6 +95,21 @@ groupingClass group
       Grouped Right   -> Just "is-grouped-right"
       Separate        -> Nothing
                 
+
+-- TRANSFORMS --------------------------------------------------------------------
+
+toHtml : Field msg -> Html msg
+toHtml (Field helps group attrs htmls)
+  = let classes : List String
+        classes = (::) "field"
+                <| Maybe_.unwrap [] singleton
+                <| groupingClass
+                <| group
+
+    in node helps "div" classes attrs htmls
+
+addClass : String -> Field msg -> Field msg
+
 
 -- HELPERS ---------------------------------------------------------------------
 

@@ -73,9 +73,11 @@ setMedium : Tag msg -> Tag msg
 setLarge : Tag msg -> Tag msg
 
 
--- TRANSFORMS ------------------------------------------------------------------
+-- HTML ------------------------------------------------------------------------
 
 toHtml : Tag msg -> Html msg
+
+addClass : String -> Tag msg -> Tag msg
 
 
 -- HELPERS ---------------------------------------------------------------------
