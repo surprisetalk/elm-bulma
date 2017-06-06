@@ -18,6 +18,7 @@ import Function exposing (..)
 (>>>) : (a -> b -> c) -> (c -> d) -> a -> b -> d
 (>>>) = (>>>)
 
+
 -- ALIASES ---------------------------------------------------------------------
 
 type alias Htmls msg = List (Html msg)

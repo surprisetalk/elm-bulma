@@ -21,24 +21,34 @@ import Html.Attributes exposing ( class )
 
 -- HELPERS ---------------------------------------------------------------------
 
+{-| TODO
+-}
 type Float = FloatLeft
            | FloatRight
 
+{-| TODO
+-}
 type Device = Mobile
             | Tablet
             | Desktop
             | Widescreen
 
+{-| TODO
+-}
 type TextAlign = TextLeft
                | TextCentered
                | TextRight
 
+{-| TODO
+-}
 type alias Devices a = { mobile     : a
                        , tablet     : a
                        , desktop    : a
                        , widescreen : a
                        }
 
+{-| TODO
+-}
 type Display = Block       
              | Flex       
              | Hidden
