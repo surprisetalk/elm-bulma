@@ -41,3 +41,8 @@ fl = flip
 
 ls : a -> List a
 ls = fl (::) []
+
+
+-- FLISTS ----------------------------------------------------------------------
+
+type alias FList a = ( List a, a, List a )

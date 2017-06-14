@@ -32,6 +32,8 @@ mapBody f (Entity ({body} as ent))
   = Entity { ent | body = f body }
 
 entity : String -> List String -> mods -> Attrs msg -> body -> Entity mods body msg
+-- TODO: it may be wiser to omit a few of these arguments as optional setters
+-- TODO:   esp. tag
 entity tag clsss mods attrs body 
   = Entity  { helps = defaultHelpers
             , attrs = attrs

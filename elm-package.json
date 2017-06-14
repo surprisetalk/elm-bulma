@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
     "summary": "Bulma for Elm",
-    "repository": "https://github.com/user/project.git",
+    "repository": "https://github.com/surprisetalk/elm-bulma.git",
     "license": "BSD3",
     "source-directories": [
         "src"

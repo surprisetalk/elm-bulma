@@ -1,6 +1,16 @@
 
 module Bulma.CDN exposing ( stylesheet, fontAwesome )
 
+
+-- DOCS ------------------------------------------------------------------------
+
+{-| TODO 
+
+@docs stylesheet, fontAwesome
+
+-}
+
+
 -- IMPORTS ---------------------------------------------------------------------
 
 import Html exposing ( Html, node )
@@ -9,6 +19,8 @@ import Html.Attributes exposing ( rel, href )
 
 -- STYLESHEET ------------------------------------------------------------------
 
+{-| TODO
+-}
 stylesheet : Html msg
 stylesheet =
   node "link"
@@ -20,6 +32,8 @@ stylesheet =
 
 -- FONT AWESOME ----------------------------------------------------------------
 
+{-| TODO
+-}
 fontAwesome : Html msg
 fontAwesome =
   node "link"
