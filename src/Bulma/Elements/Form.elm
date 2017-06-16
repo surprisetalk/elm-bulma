@@ -2,40 +2,76 @@
 module Bulma.Elements.Form exposing ( Field
                                     , field
                                     , horizontalField
+                                    , Label
+                                    , label
+                                    , easyLabel
+                                    , glued
+                                    , gluedLeft
+                                    , gluedCenter
+                                    , gluedRight
+                                    , grouped
+                                    , groupedLeft
+                                    , groupedCenter
+                                    , groupedRight
+                                    , separate
                                     , toHtml
-                                    , setGlued
-                                    , setGluedLeft
-                                    , setGluedCenter
-                                    , setGluedRight
-                                    , setGrouped
-                                    , setGroupedLeft
-                                    , setGroupedCenter
-                                    , setGroupedRight
-                                    , setSeparate
+                                    , addClass
                                     , setHelpers
                                     )
 
+-- DOCS ------------------------------------------------------------------------
+
+
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
+import Helpers exposing (..)
+import Bulma.Entity as Entity exposing (..)
+import Bulma.Helpers exposing ( Helpers )
 
 import Bulma.Elements.Form.Control exposing ( Control )
 
-import Html exposing ( Html, Attribute )
+import Html exposing ( Html, Attribute, text )
 
 
--- FIELDS ------------------------------------------------------------------------
+-- FIELD -------------------------------------------------------------------------
 
-type Field msg = Field Helpers Grouping (List (Attribute msg)) (List (Html msg))
+-- TODO: is-narrow!
+
+type FieldBody msg = Vertical (List (Control msg))
+                   | Horizontal (List (Field msg))
+
+type alias Field msg = Entity Grouping (Maybe (Label msg), FieldBody msg) msg
 
 field : List (Attribute msg) -> List (Control msg) -> Field msg
-field = Field defaultHelpers Separate
+field attrs = entity "div" [ "field" ] Separate attrs << (,) Nothing << Vertical
 
-horizontalField : List (Attribute msg) -> Label msg -> Field msg -> Field msg
--- TODO: make sure to set the label size equal to the field size
+horizontalField : List (Attribute msg) -> List (Field msg) -> Field msg
+horizontalField attrs = entity "div" [ "field", "is-horizontal" ] Separate attrs << (,) Nothing << Horizontal
+-- TODO: make sure to set the label size equal to the field size when horizontal
+
+setLabel : Label msg -> Field msg -> Field msg
+setLabel = mapBody << setFirst << Just
 
 
--- GROUPING --------------------------------------------------------------------
+-- LABEL -------------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Label msg = Entity () (Htmls msg) msg
+
+{-| TODO
+-}
+label : Attrs msg -> Htmls msg -> Label msg
+label = entity "label" [] ()
+
+{-| TODO
+-}
+easyLabel : String -> Label msg
+easyLabel = label [] << ls << text
+
+
+
+-- MODIFIERS -------------------------------------------------------------------
 
 type Alignment = Default
                | Left
@@ -46,73 +82,66 @@ type Grouping = Glued    Alignment
               | Grouped  Alignment
               | Separate
 
-setGlued : Field msg -> Field msg
-setGlued (Field helps _ attrs htmls)
-  = Field helps (Glued Default) attrs htmls
+setGrouping : Grouping -> Field msg -> Field msg
+setGrouping = mapMods
 
-setGluedLeft : Field msg -> Field msg
-setGluedLeft (Field helps _ attrs htmls)
-  = Field helps (Glued Left) attrs htmls
+separate : Field msg -> Field msg
+separate = setGrouping Separate
 
-setGluedCenter : Field msg -> Field msg
-setGluedCenter (Field helps _ attrs htmls)
-  = Field helps (Glued Center) attrs htmls
+glued : Field msg -> Field msg
+glued = setGrouping <| Glued Default
 
-setGluedRight : Field msg -> Field msg
-setGluedRight (Field helps _ attrs htmls)
-  = Field helps (Glued Right) attrs htmls
+gluedLeft : Field msg -> Field msg
+gluedLeft = setGrouping <| Glued Left
 
-setGrouped : Field msg -> Field msg
-setGrouped (Field helps _ attrs htmls)
-  = Field helps (Grouped Default) attrs htmls
+gluedCenter : Field msg -> Field msg
+gluedCenter = setGrouping <| Glued Center
 
-setGroupedLeft : Field msg -> Field msg
-setGroupedLeft (Field helps _ attrs htmls)
-  = Field helps (Grouped Left) attrs htmls
+gluedRight : Field msg -> Field msg
+gluedRight = setGrouping <| Glued Right
 
-setGroupedCenter : Field msg -> Field msg
-setGroupedCenter (Field helps _ attrs htmls)
-  = Field helps (Grouped Center) attrs htmls
+grouped : Field msg -> Field msg
+grouped = setGrouping <| Grouped Default
 
-setGroupedRight : Field msg -> Field msg
-setGroupedRight (Field helps _ attrs htmls)
-  = Field helps (Grouped Right) attrs htmls
+groupedLeft : Field msg -> Field msg
+groupedLeft = setGrouping <| Grouped Left
 
-setSeparate : Field msg -> Field msg
-setSeparate (Field helps _ attrs htmls)
-  = Field helps Separate attrs htmls
+groupedCenter : Field msg -> Field msg
+groupedCenter = setGrouping <| Grouped Center
 
-groupingClass : Grouping -> Maybe String
+groupedRight : Field msg -> Field msg
+groupedRight = setGrouping <| Grouped Right
+
+groupingClass : Grouping -> String
 groupingClass group
   = case group of
-      Glued   Default -> Just "has-addons"
-      Glued   Left    -> Just "has-addons"
-      Glued   Center  -> Just "has-addons-centered"
-      Glued   Right   -> Just "has-addons-right"
-      Grouped Default -> Just "is-grouped"
-      Grouped Left    -> Just "is-grouped"
-      Grouped Center  -> Just "is-grouped-centered"
-      Grouped Right   -> Just "is-grouped-right"
-      Separate        -> Nothing
+      Glued   Default -> "has-addons"
+      Glued   Left    -> "has-addons"
+      Glued   Center  -> "has-addons-centered"
+      Glued   Right   -> "has-addons-right"
+      Grouped Default -> "is-grouped"
+      Grouped Left    -> "is-grouped"
+      Grouped Center  -> "is-grouped-centered"
+      Grouped Right   -> "is-grouped-right"
+      Separate        -> ""
                 
 
 -- TRANSFORMS --------------------------------------------------------------------
 
+{-| TODO
+-}
 toHtml : Field msg -> Html msg
-toHtml (Field helps group attrs htmls)
-  = let classes : List String
-        classes = (::) "field"
-                <| Maybe_.unwrap [] singleton
-                <| groupingClass
-                <| group
+toHtml = Entity.toHtml (y []) (y []) identity
 
-    in node helps "div" classes attrs htmls
-
+{-| TODO
+-}
 addClass : String -> Field msg -> Field msg
+addClass = Entity.addClass
 
 
 -- HELPERS ---------------------------------------------------------------------
 
+{-| TODO
+-}
 setHelpers : Helpers -> Field msg -> Field msg
-setHelpers helps_ (Field _ group attrs htmls)
-  = Field helps_ group attrs htmls
+setHelpers helps = Entity.setHelpers helps

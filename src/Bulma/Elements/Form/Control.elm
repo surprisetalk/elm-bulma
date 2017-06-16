@@ -3,9 +3,6 @@ module Bulma.Elements.Form.Control exposing ( Control
                                             , setIconLeft
                                             , setIconRight
                                             , addHelp
-                                            , Label
-                                            , label
-                                            , easyLabel
                                             , Help
                                             , help
                                             , easyHelp
@@ -92,8 +89,6 @@ import Tuple exposing ( mapFirst, mapSecond )
 
 -- CONTROLS --------------------------------------------------------------------
 
--- TODO: field labels
-
 -- TODO: convenience functions for each control type
 
 {-| TODO
@@ -126,7 +121,6 @@ defaultControlBody bodylet = { mods    = defaultModifiers
 {-| TODO
 -}
 type alias Control msg = Entity (Bool,(Bool,Bool)) (ControlBody msg) msg
--- TODO: move mods to body and apply to bodylet
 
 {-| TODO
 -}
@@ -159,27 +153,6 @@ addHelp help_ = mapBody <| \body -> { body | helps = body.helps +: help_ }
 
 -- TODO: consider surfacing onInput at the control level
 -- TODO:  in particular, addCase would be helpful
-
-
--- LABEL --
-
--- TODO: apply modifiers to help?
-
--- TODO: it seems overkill to use an entity here
-
-{-| TODO
--}
-type alias Label msg = Entity () (Htmls msg) msg
-
-{-| TODO
--}
-label : Attrs msg -> Htmls msg -> Label msg
-label = entity "label" [] ()
-
-{-| TODO
--}
-easyLabel : String -> Label msg
-easyLabel = label [] << ls << text
 
 
 -- INPUT --
@@ -603,8 +576,6 @@ expandedClass expanded = if   expanded
 -}
 toHtml : Control msg -> Html msg
 -- TODO: is-loading [sometimes] goes on the parent for some reason...
--- TODO: if has icons, use addClass to add "has-icons-left" etc
--- TODO:   or do the lazy thing and keep track of it in the modifiers
 toHtml = Entity.toHtml (\(expanded,icons) -> expandedClass expanded :: iconClasses icons) (y [])
        <| \{mods,helps,bodylet,icons} ->
          let addHelps : Htmls msg -> Htmls msg
