@@ -43,18 +43,22 @@ entity tag clsss mods attrs body
             , body  = body
             }
 
-toHtml : (mods -> List String) -> (body -> Htmls msg) -> Entity mods body msg -> Html msg
-toHtml modsF bodyF (Entity {helps,attrs,clsss,tag,mods,body})
+toHtml : (mods -> List String) -> (body -> Attrs msg) -> (body -> Htmls msg) -> Entity mods body msg -> Html msg
+toHtml modsF attrsF bodyF (Entity {helps,attrs,clsss,tag,mods,body})
   = let clsss_ : List String
         clsss_ = clsss ++ modsF mods ++ toClassStrings helps
 
         attrs_ : Attrs msg
-        attrs_ = clsss_ |> join " " |> class |> flip (::) attrs
+        attrs_ = clsss_ |> join " " |> class |> flip (::) attrs |> (++) (body |> attrsF)
 
         htmls_ : Htmls msg
         htmls_ = bodyF body
 
     in node tag attrs_ htmls_
+
+addAttribute : Attr msg -> Entity mods body msg -> Entity mods body msg
+addAttribute attr (Entity ({attrs} as ent))
+  = Entity { ent | attrs = attr :: attrs }
 
 addClass : String -> Entity mods body msg -> Entity mods body msg
 addClass clss (Entity ({clsss} as ent))

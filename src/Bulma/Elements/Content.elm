@@ -98,7 +98,7 @@ sizeClass size
 {-| TODO
 -}
 toHtml : Content msg -> Html msg
-toHtml = Entity.toHtml (\_ -> []) identity
+toHtml = Entity.toHtml (y []) (y []) identity
 
 {-| TODO
 -}

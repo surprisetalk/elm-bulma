@@ -42,6 +42,8 @@
     "dependencies": {
         "Fresheyeball/elm-font-awesome": "2.0.2 <= v < 3.0.0",
         "Fresheyeball/elm-function-extra": "3.0.0 <= v < 4.0.0",
+        "elm-community/list-extra": "6.1.0 <= v < 7.0.0",
+        "elm-community/maybe-extra": "4.0.0 <= v < 5.0.0",
         "elm-lang/core": "5.1.1 <= v < 6.0.0",
         "elm-lang/html": "2.0.0 <= v < 3.0.0"
     },

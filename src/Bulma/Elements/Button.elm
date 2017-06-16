@@ -387,7 +387,7 @@ colorClass color
 {-| TODO
 -}
 toHtml : Button msg -> Html msg
-toHtml = Entity.toHtml modsClasses
+toHtml = Entity.toHtml modsClasses (y [])
        <| \body ->
          case body of
            BodyHtml      htmls ->                     htmls

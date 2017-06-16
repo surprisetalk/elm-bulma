@@ -1,10 +1,77 @@
 
 module Bulma.Elements.Form.Control exposing ( Control
+                                            , setIconLeft
+                                            , setIconRight
+                                            , addHelp
+                                            , Label
+                                            , label
+                                            , easyLabel
+                                            , Help
+                                            , help
+                                            , easyHelp
+                                            , Input
+                                            , input
+                                            , easyInput
+                                            , textarea
+                                            , easyTextarea
+                                            , setPlaceholder
+                                            , setInputValue
+                                            , setInputEvent
+                                            , fromInput
+                                            , Option
+                                            , option
+                                            , Select
+                                            , select
+                                            , easySelect
+                                            , setSelectedOption
+                                            , fromSelect
+                                            , CheckBox
+                                            , checkbox
+                                            , easyCheckBox
+                                            , setCheck
+                                            , checked
+                                            , unchecked
+                                            , fromCheckBox
+                                            , Radio
+                                            , radio
+                                            , easyRadio
+                                            , RadioGroup
+                                            , radioGroup
+                                            , easyRadioGroup
+                                            , easierRadioGroup
+                                            , setRadioGroupName
+                                            , fromRadioGroup
+                                            , fromButton
                                             , toHtml
+                                            , addClass
                                             , setHelpers
                                             )
-
+                                            
 -- DOCS ------------------------------------------------------------------------
+
+{-| TODO 
+
+@docs Control, setIconLeft, setIconRight, addHelp
+
+@docs Label, label, easyLabel
+
+@docs Help, help, easyHelp
+
+@docs Input, input, easyInput, textarea, easyTextarea, setPlaceholder, setInputValue, setInputEvent, fromInput
+
+@docs Option, option
+@docs Select, select, easySelect, setSelectedOption, fromSelect
+
+@docs CheckBox, checkbox, easyCheckBox, setCheck, checked, unchecked, fromCheckBox
+
+@docs Radio, radio, easyRadio
+@docs RadioGroup, radioGroup, easyRadioGroup, easierRadioGroup, setRadioGroupName, fromRadioGroup
+
+@docs fromButton
+
+@docs toHtml, addClass, setHelpers
+
+-}
 
 -- IMPORTS ---------------------------------------------------------------------
 
@@ -12,50 +79,93 @@ import Helpers exposing (..)
 import Bulma.Entity as Entity exposing (..)
 import Bulma.Helpers exposing ( Helpers )
 
-import Html exposing ( Html, Attribute )
+import Bulma.Elements.Icon   as Icon   exposing ( Icon   )
+import Bulma.Elements.Button as Button exposing ( Button )
+
+import Html exposing ( Html, Attribute, text )
+import Html.Events as Events exposing ( onClick, onInput )
+import Html.Attributes as Attr exposing ( type_ )
+
+import List  exposing ( map      )
+import Tuple exposing ( mapFirst, mapSecond )
 
 
 -- CONTROLS --------------------------------------------------------------------
+
+-- TODO: field labels
 
 -- TODO: convenience functions for each control type
 
 {-| TODO
 -}
-type ControlBody msg = ControlInput    (Input msg)
-                     | ControlSelect   (Select msg)
-                     | ControlCheckBox (CheckBox msg)
-                     | ControlRadio    (Radio msg)
-                     | ControlButton   (Button msg)
+type ControlBodylet msg = ControlInput      (Input      msg)
+                        | ControlSelect     (Select     msg)
+                        | ControlCheckBox   (CheckBox   msg)
+                        | ControlRadioGroup (RadioGroup msg)
+                        | ControlButton     (Button     msg)
+
+type alias ControlBody msg = { mods    : Modifiers
+                             , helps   : List  (Help  msg)
+                             , bodylet : ControlBodylet msg
+                             , icons   : ( Maybe (Icon msg)
+                                         , Maybe (Icon msg)
+                                         )
+                             }
 
 {-| TODO
 -}
-type Control msg = Entity (Modifiers String) (ControlBody msg) msg
+defaultControlBody : ControlBodylet msg -> ControlBody msg
+defaultControlBody bodylet = { mods    = defaultModifiers
+                             , helps   = []
+                             , bodylet = bodylet
+                             , icons   = ( Nothing
+                                         , Nothing
+                                         ) 
+                             }
 
 {-| TODO
 -}
-control : Body msg -> Control msg
+type alias Control msg = Entity (Bool,(Bool,Bool)) (ControlBody msg) msg
+-- TODO: move mods to body and apply to bodylet
 
 {-| TODO
 -}
-setLabel : Label msg -> Control msg -> Control msg
+control : Attrs msg -> ControlBodylet msg -> Control msg
+control attrs = entity "p" [ "control" ] (False,(False,False)) attrs << defaultControlBody
 
 {-| TODO
 -}
-setValue : String -> Control msg -> Control msg
--- TODO: log a warning when we can't set the value?
+setIconLeft : Icon msg -> Control msg -> Control msg
+setIconLeft icon_
+  = mapMods (mapSecond (setFirst True))
+  << mapBody (\body -> { body | icons = body.icons |> setFirst (Just icon_) })
 
 {-| TODO
 -}
-addCase : (String -> Bool) -> (Control msg -> Control msg) -> Control msg -> Control msg
+setIconRight : Icon msg -> Control msg -> Control msg
+setIconRight icon_
+  = mapMods (mapSecond (setSecond True))
+  << mapBody (\body -> { body | icons = body.icons |> setSecond (Just icon_) })
 
 {-| TODO
 -}
 addHelp : Help msg -> Control msg -> Control msg
+addHelp help_ = mapBody <| \body -> { body | helps = body.helps +: help_ }
+
+-- {-| TODO
+-- -}
+-- addCase : (String -> Bool) -> (Control msg -> Control msg) -> Control msg -> Control msg
+-- addCase = 
 
 -- TODO: consider surfacing onInput at the control level
+-- TODO:  in particular, addCase would be helpful
 
 
 -- LABEL --
+
+-- TODO: apply modifiers to help?
+
+-- TODO: it seems overkill to use an entity here
 
 {-| TODO
 -}
@@ -69,7 +179,7 @@ label = entity "label" [] ()
 {-| TODO
 -}
 easyLabel : String -> Label msg
-easyLabel = label [] << singleton << text
+easyLabel = label [] << ls << text
 
 
 -- INPUT --
@@ -82,7 +192,6 @@ type InputType = Text
 {-| TODO
 -}
 type alias InputBody msg = { htmls       : Htmls msg
-                           , inputType   : InputType
                            , placeholder : String
                            , value       : String
                            , onInput     : Maybe (String -> msg)
@@ -98,7 +207,6 @@ input : Attrs msg -> Htmls msg -> Input msg
 input attrs htmls
   = entity "input" [ "input" ] () attrs
     { htmls       = []
-    , inputType   = Text
     , placeholder = ""
     , value       = ""
     , onInput     = Nothing
@@ -116,9 +224,8 @@ easyInput ph f s = input [] []
 -}
 textarea : Attrs msg -> Htmls msg -> Input msg
 textarea attrs htmls
-  = entity "input" [ "input" ] () attrs
+  = entity "textarea" [ "textarea" ] () attrs
     { htmls       = htmls
-    , inputType   = TextArea
     , placeholder = ""
     , value       = ""
     , onInput     = Nothing
@@ -149,12 +256,13 @@ setInputEvent f_ = mapBody <| \body -> { body | onInput = Just f_ }
 
 {-| TODO
 -}
-fromInput : Input msg -> Control msg
-fromInput = control << ControlInput
+fromInput : Attrs msg -> Input msg -> Control msg
+fromInput attrs = ControlInput >> control attrs
 
 
 -- SELECT --
 
+-- TODO: is option entity overkill?
 -- TODO: make sure to wrap options in <select> before placing in the <span>
 
 {-| TODO
@@ -165,7 +273,7 @@ type alias OptionBody = { key : String
 
 {-| TODO
 -}
-type Option = Entity () OptionBody msg
+type alias Option msg = Entity () OptionBody msg
 
 {-| TODO
 -}
@@ -174,129 +282,189 @@ option k v = entity "option" [] () [] { key = k, val = v }
 
 {-| TODO
 -}
-type alias SelectBody msg = { options : FList (Option msg)
-                            , onInput : Maybe (String -> msg)
-                            }
-
-{-| TODO
--}
-type alias Select msg = Entity () (SelectBody msg) msg
+type alias Select msg = Entity () (FList (Option msg)) msg
 
 {-| TODO
 -}
 select : Attrs msg -> FList (Option msg) -> Select msg
-select attrs opts = entity "span" [ "select" ] attrs { options = opts, onInput = Nothing }
+select attrs = entity "span" [ "select" ] () attrs
 
 {-| TODO
 -}
 easySelect : (String -> msg) -> String -> FList (Option msg) -> Select msg
-easySelect f s opts = select [] opts
-                    |> setSelectEvent    f
-                    |> setSelectedOption s
+easySelect f s opts = select [ onInput f ] opts |> setSelectedOption s
 
 {-| TODO
 -}
+-- setSelectedOption : String -> Select msg -> Select msg
+-- setSelectedOption key_
+--   = mapBody <| selectWhen <| \(Entity _ {key} _) -> key == key_
 setSelectedOption : String -> Select msg -> Select msg
+setSelectedOption = y identity
+-- TODO
 
 {-| TODO
 -}
-setSelectedEvent : (String -> msg) -> Input msg -> Input msg
-setSelectedEvent f_ = mapBody <| \body -> { body | onInput = Just f_ }
-
-{-| TODO
--}
-fromSelect : Select msg -> Control msg
-fromSelect = ControlSelect >> control
+fromSelect : Attrs msg -> Select msg -> Control msg
+fromSelect attrs = ControlSelect >> control attrs
 
 
 -- CHECKBOX --
 
-{-| TODO
--}
-type CheckBox = Entity () (Label msg) msg
+-- BUG: what if somebody wants to put a link in their checkbox?
 
 {-| TODO
 -}
-checkbox : Attrs msg -> Label msg -> CheckBox msg
+type alias CheckBox msg = Entity () (Bool, Htmls msg) msg
 
 {-| TODO
 -}
-easyCheckBox : (Bool -> msg) -> Bool -> String -> CheckBox msg
+checkbox : Attrs msg -> Htmls msg -> CheckBox msg
+checkbox attrs 
+  = entity "label" [ "checkbox" ] () attrs << (,) False
+
+{-| TODO
+-}
+easyCheckBox : msg -> Bool -> String -> CheckBox msg
+easyCheckBox msg c = text >> ls >> checkbox [ onClick msg ] >> setCheck c
 
 {-| TODO
 -}
 setCheck : Bool -> CheckBox msg -> CheckBox msg
+setCheck = mapBody << mapFirst << y
 
 {-| TODO
 -}
-setChecked : CheckBox msg -> CheckBox msg
+checked : CheckBox msg -> CheckBox msg
+checked = setCheck True
 
 {-| TODO
 -}
-setUnchecked : CheckBox msg -> CheckBox msg
+unchecked : CheckBox msg -> CheckBox msg
+unchecked = setCheck False
 
 {-| TODO
 -}
-fromCheckBox : CheckBox msg -> Control msg
+fromCheckBox : Attrs msg -> CheckBox msg -> Control msg
+fromCheckBox attrs = ControlCheckBox >> control attrs
 
 
 -- RADIO  --
 
-type Radio msg = Radio String (List (Attribute msg)) (List (Html msg))
+{-| TODO
+-}
+type alias Radio msg = Entity () (Htmls msg) msg
 
-radio : List (Attribute msg) -> List (Html msg) -> Radio msg
+{-| TODO
+-}
+radio : Attrs msg -> Htmls msg -> Radio msg
+radio = entity "label" [ "checkbox" ] ()
 
-easyRadio : String -> String -> Radio msg
+{-| TODO
+-}
+easyRadio : msg -> String -> Radio msg
+easyRadio msg = text >> ls >> radio [ onClick msg ]
 
-setRadioValue : String -> RadioGroup msg -> RadioGroup msg
+{-| TODO
+-}
+type alias RadioGroup msg = { name   : Maybe String
+                            , radios : List (Radio msg)
+                            }
 
-type RadioGroup msg = RadioGroup String (List (Attribute msg)) (List (Html msg))
+{-| TODO
+-}
+radioGroup : List (Radio msg) -> RadioGroup msg
+radioGroup radios = { name = Nothing, radios = radios }
 
-radioGroup : List (Attrribute msg) -> List (Radio msg) -> RadioGroup msg
+{-| TODO
+-}
+easyRadioGroup : List (msg, Htmls msg) -> RadioGroup msg
+easyRadioGroup = map (uncurry (onClick >> ls >> radio)) >> radioGroup
 
-easyRadioGroup : (String -> msg) -> List (String, String) -> RadioGroup msg
+{-| TODO
+-}
+easierRadioGroup : List (msg, String) -> RadioGroup msg
+easierRadioGroup = map (uncurry easyRadio) >> radioGroup
 
+{-| TODO
+-}
 setRadioGroupName : String -> RadioGroup msg -> RadioGroup msg
+setRadioGroupName name_ group = { group | name = Just name_ }
 
-fromRadioGroup : RadioGroup msg -> Control msg
+{-| TODO
+-}
+fromRadioGroup : Attrs msg -> RadioGroup msg -> Control msg
+fromRadioGroup attrs = ControlRadioGroup >> control attrs
 
 
 -- BUTTON  --
 
-fromButton : Button msg -> Control msg
+{-| TODO
+-}
+fromButton : Attrs msg -> Button msg -> Control msg
+fromButton attrs = ControlButton >> control attrs
 
 
 -- HELP  --
 
-type Help msg
+-- TODO: apply modifiers to help?
 
-help : List (Attribute msg) -> List (Html msg) -> Help msg
+{-| TODO
+-}
+type alias Help msg = Entity () String msg
 
+{-| TODO
+-}
+help : Attrs msg -> String -> Help msg
+help = entity "p" [ "help" ] ()
+
+{-| TODO
+-}
 easyHelp : String -> Help msg
+easyHelp = help []
 
 
 -- MODIFIERS -------------------------------------------------------------------
 
-{-| TODO
--}
-type alias Modifiers a = { value     : a
-                         , color     : Color
-                         , size      : Size
-                         , expanded  : Bool
-                         , iconLeft  : Maybe Icon
-                         , iconRight : Maybe Icon
-                         }
+-- KLUDGE: the modifiers actually only apply to the bodylets
+-- KLUDGE:   except for expanded
 
 {-| TODO
 -}
-defaultModifiers : a -> Modifiers a
-defaultModifiers a = { value     = a
-                     , color     = Default
-                     , size      = Normal
-                     , expanded  = False
-                     , iconLeft  = Nothing
-                     , iconRight = Nothing
-                     }
+type alias Modifiers = { color     : Color
+                       , state     : State
+                       , size      : Size
+                       }
+
+{-| TODO
+-}
+defaultModifiers : Modifiers
+defaultModifiers = { color     = Default
+                   , state     = Blur
+                   , size      = Normal
+                   }
+
+{-| TODO
+-}
+modsClasses : Modifiers -> List String
+modsClasses {size,state,color}
+  = [ size     |> sizeClass
+    , state    |> stateClass
+    , color    |> colorClass
+    ]
+
+{-| TODO
+-}
+iconClasses : (Bool,Bool) -> List String
+iconClasses (left,right)
+  = [ if   left
+      then "has-icons-left"
+      else ""
+    , if   right
+      then "has-icons-right"
+      else ""
+    ]
+
                      
 -- COLORS --
 
@@ -307,17 +475,38 @@ type Color = Default
            | Warning
            | Danger
 
+setColor : Color -> Control msg -> Control msg
+setColor color_ = mapBody <| \({mods} as body) -> { body | mods = { mods | color = color_ } }
+
 default : Control msg -> Control msg
+default = setColor Default
 
 primary : Control msg -> Control msg
+primary = setColor Primary
 
 info : Control msg -> Control msg
+info = setColor Info
 
 success : Control msg -> Control msg
+success = setColor Success
 
 warning : Control msg -> Control msg
+warning = setColor Warning
 
 danger : Control msg -> Control msg
+danger = setColor Danger
+
+{-| TODO
+-}
+colorClass : Color -> String
+colorClass color
+  = case color of
+      Default -> ""
+      Primary -> "is-primary"
+      Info    -> "is-info"
+      Success -> "is-success"
+      Warning -> "is-warning"
+      Danger  -> "is-danger"
 
 
 -- SIZES --
@@ -327,13 +516,30 @@ type Size = Small
           | Medium
           | Large
 
+setSize : Size -> Control msg -> Control msg
+setSize size_ = mapBody <| \({mods} as body) -> { body | mods = { mods | size = size_ } }
+
 small : Control msg -> Control msg
+small = setSize Small
 
 normal : Control msg -> Control msg
+normal = setSize Normal
 
 medium : Control msg -> Control msg
+medium = setSize Medium
 
 large : Control msg -> Control msg
+large = setSize Large
+
+{-| TODO
+-}
+sizeClass : Size -> String
+sizeClass size
+  = case size of
+      Small  -> "is-small"
+      Normal -> ""
+      Medium -> "is-medium"
+      Large  -> "is-large"
 
 
 -- STATES --
@@ -344,33 +550,51 @@ type State = Blur
            | Loading
            | Disabled
 
+setState : State -> Control msg -> Control msg
+setState state_ = mapBody <| \({mods} as body) -> { body | mods = { mods | state = state_ } }
+
 blur : Control msg -> Control msg
+blur = setState Blur
 
 hover : Control msg -> Control msg
+hover = setState Hover
 
 focus : Control msg -> Control msg
+focus = setState Focus
 
 loading : Control msg -> Control msg
+loading = setState Loading
 
 disabled : Control msg -> Control msg
+disabled = setState Disabled
+
+{-| TODO
+-}
+stateClass : State -> String
+stateClass state
+  = case state of
+      Blur     -> ""
+      Hover    -> "is-hover"
+      Focus    -> "is-focus"
+      Loading  -> "is-loading"
+      Disabled -> "is-disabled"
 
 
 -- EXPANDED --
 
 compact : Control msg -> Control msg
-compact = mapMods <| \mods -> { mods | expanded = False }
+compact = mapMods <| setFirst False
 
 expanded : Control msg -> Control msg
-expanded = mapMods <| \mods -> { mods | expanded = True }
+expanded = mapMods <| setFirst True
 
+{-| TODO
+-}
+expandedClass : Bool -> String
+expandedClass expanded = if   expanded
+                         then "is-expanded"
+                         else ""
 
--- ICON --
-
-setIconLeft : Maybe Icon -> Control msg -> Control msg
-setIconLeft icon_ = mapMods <| \mods -> { mods | iconLeft = icon_ }
-
-setIconRight : Maybe Icon -> Control msg -> Control msg
-setIconRight icon_ = mapMods <| \mods -> { mods | iconRight = icon_ }
 
 
 -- HTML ------------------------------------------------------------------------
@@ -378,7 +602,71 @@ setIconRight icon_ = mapMods <| \mods -> { mods | iconRight = icon_ }
 {-| TODO
 -}
 toHtml : Control msg -> Html msg
-toHtml = Entity.toHtml (\_ -> []) identity
+-- TODO: is-loading [sometimes] goes on the parent for some reason...
+-- TODO: if has icons, use addClass to add "has-icons-left" etc
+-- TODO:   or do the lazy thing and keep track of it in the modifiers
+toHtml = Entity.toHtml (\(expanded,icons) -> expandedClass expanded :: iconClasses icons) (y [])
+       <| \{mods,helps,bodylet,icons} ->
+         let addHelps : Htmls msg -> Htmls msg
+             addHelps = fl (++) <| map (Entity.toHtml (y []) (y []) (text >> ls)) helps 
+
+             addIcons : Htmls msg -> Htmls msg
+             addIcons = icons
+                      |> \(l,r) ->
+                        [ l ?* Icon.toHtml
+                        , r ?* Icon.toHtml
+                        ]
+                      |> mvalues
+                      |> fl (++)
+
+         in addHelps
+          <| addIcons
+          <| case bodylet of
+
+              ControlInput input ->
+
+                input
+                |> mapMods (y mods)
+                |> Entity.toHtml modsClasses
+                  (\{placeholder,value,onInput} ->
+                     mvalues
+                     <| [ placeholder |> Attr.placeholder |> Just
+                       , value       |> Attr.value       |> Just
+                       , onInput |> Maybe.map Events.onInput
+                       ])
+                  (\{htmls} -> htmls)
+                |> ls
+                     
+              ControlSelect select ->
+
+                select
+                |> mapMods (y mods)
+                |> Entity.toHtml modsClasses (y [])
+                  (flmap identity (addAttribute (Attr.selected True)) identity
+                   >> fromFList
+                   >> map (Entity.toHtml (y [])
+                          (\{val} -> [ Attr.value val ])
+                          (\{key} -> key |> text |> ls)))
+                |> ls
+
+              ControlCheckBox checkbox ->
+
+                checkbox
+                |> mapMods (y mods)
+                |> Entity.toHtml modsClasses (y [])
+                  (\(checked,htmls) -> Html.input [ type_ "checkbox", Attr.checked checked ] [] :: htmls )
+                |> ls
+
+              ControlRadioGroup {name,radios} ->
+
+                radios
+                |> map (Entity.toHtml (y []) (y []) (Html.input [ name ?. "" |> Attr.name, type_ "radio" ] [] |> (::)))
+
+              ControlButton button ->
+
+                button |> Button.toHtml |> ls
+                -- TODO: mods -> button modifiers
+
 
 {-| TODO
 -}

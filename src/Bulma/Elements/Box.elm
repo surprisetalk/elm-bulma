@@ -29,16 +29,12 @@ import Html exposing ( Html, Attribute )
 
 {-| TODO
 -}
-type alias Modifiers = {}
-
-{-| TODO
--}
-type alias Box msg = Entity Modifiers (Htmls msg) msg
+type alias Box msg = Entity () (Htmls msg) msg
 
 {-| TODO
 -}
 box : List (Attribute msg) -> List (Html msg) -> Box msg
-box = entity "div" [ "box" ] {}
+box = entity "div" [ "box" ] ()
 
 
 -- HTML ------------------------------------------------------------------------
@@ -46,7 +42,7 @@ box = entity "div" [ "box" ] {}
 {-| TODO
 -}
 toHtml : Box msg -> Html msg
-toHtml = Entity.toHtml (\_ -> []) identity
+toHtml = Entity.toHtml (y []) (y []) identity
 
 {-| TODO
 -}
