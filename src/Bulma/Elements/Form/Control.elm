@@ -50,8 +50,6 @@ module Bulma.Elements.Form.Control exposing ( Control
 
 @docs Control, setIconLeft, setIconRight, addHelp
 
-@docs Label, label, easyLabel
-
 @docs Help, help, easyHelp
 
 @docs Input, input, easyInput, textarea, easyTextarea, setPlaceholder, setInputValue, setInputEvent, fromInput
@@ -580,6 +578,7 @@ toHtml = Entity.toHtml (\(expanded,icons) -> expandedClass expanded :: iconClass
        <| \{mods,helps,bodylet,icons} ->
          let addHelps : Htmls msg -> Htmls msg
              addHelps = fl (++) <| map (Entity.toHtml (y []) (y []) (text >> ls)) helps 
+             -- BUG: this is placing the helps inside the control, but it should be outside
 
              addIcons : Htmls msg -> Htmls msg
              addIcons = icons
