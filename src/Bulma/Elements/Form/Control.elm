@@ -398,7 +398,6 @@ easyHelp = help []
 -- MODIFIERS -------------------------------------------------------------------
 
 -- KLUDGE: the modifiers actually only apply to the bodylets
--- KLUDGE:   except for expanded
 
 {-| TODO
 -}

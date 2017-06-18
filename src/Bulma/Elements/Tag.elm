@@ -1,85 +1,252 @@
 
 module Bulma.Elements.Tag exposing ( Tag
                                    , tag
+                                   , easyTag
+                                   , tagWithDelete
+                                   , easyTagWithDelete
+                                   , easierTagWithDelete
+                                   , small
+                                   , medium
+                                   , large
+                                   , default
+                                   , white
+                                   , light
+                                   , dark
+                                   , black
+                                   , primary
+                                   , info
+                                   , success
+                                   , warning
+                                   , danger
                                    , toHtml
+                                   , addClass
                                    , setHelpers
                                    )
+
                                         
+-- DOCS ------------------------------------------------------------------------
+
+{-| TODO 
+
+@docs Tag, tag, easyTag, tagWithDelete, easyTagWithDelete, easierTagWithDelete
+
+@docs small, medium, large
+
+@docs default, white, light, dark, black, primary, info, success, warning, danger
+
+@docs toHtml, addClass, setHelpers
+
+-}
+
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
+import Helpers exposing (..)
+import Bulma.Entity as Entity exposing (..)
+import Bulma.Helpers exposing ( Helpers )
 
-import Html exposing ( Html, Attribute )
+import Bulma.Elements.Delete as Delete exposing ( Delete, easyDelete )
+
+import Pointless exposing (..)
+
+import Html exposing ( Html, Attribute, text )
 
 
 -- TAGS ------------------------------------------------------------------------
 
-tag : List (Attribute msg) -> List (Html msg) -> Html msg
+{-| TODO
+-}
+type alias Tag msg = Entity Modifiers (Htmls msg) msg
 
-tagWithDelete : List (Attribute msg) -> msg -> List (Html msg) -> Html msg
+{-| TODO
+-}
+tag : Attrs msg -> Htmls msg -> Tag msg
+tag = entity "span" [ "tag" ] defaultModifiers
 
-easyTag : String -> Html msg
+{-| TODO
+-}
+easyTag : String -> Tag msg
+easyTag = tag [] |~-> text >> ls
 
-easyIconTag : Icon -> String -> Html msg
+{-| TODO
+-}
+tagWithDelete : Attrs msg -> Delete msg -> Htmls msg -> Tag msg
+tagWithDelete attrs delete = tag attrs << (::) (Delete.toHtml delete)
 
-easyTagWithDelete : msg -> String -> Html msg
+{-| TODO
+-}
+easyTagWithDelete : msg -> Htmls msg -> Tag msg
+easyTagWithDelete = easyDelete >> tagWithDelete []
+
+{-| TODO
+-}
+easierTagWithDelete : msg -> String -> Tag msg
+easierTagWithDelete = easyTagWithDelete |-~-> text >> ls
 
 
--- COLOR -----------------------------------------------------------------------
+-- MODIFIERS -------------------------------------------------------------------
 
-type Color = Black
-           | Dark
-           | Light
+{-| TODO
+-}
+type alias Modifiers = { size  : Size
+                       , color : Color
+                       }
+
+{-| TODO
+-}
+defaultModifiers : Modifiers
+defaultModifiers = { size  = Small
+                   , color = Default
+                   }
+
+{-| TODO
+-}
+modsClasses : Modifiers -> List String
+modsClasses {size,color}
+  = [ size  |> sizeClass
+    , color |> colorClass
+    ]
+
+                       
+-- COLOR --
+
+{-| TODO
+-}
+type Color = Default
            | White
+           | Light
+           | Dark
+           | Black
            | Primary
            | Info
            | Success
            | Warning
            | Danger
 
-unsetColor : Tag msg -> Tag msg
+{-| TODO
+ -}
+setColor : Color -> Modifiers -> Modifiers
+setColor color_ mods = { mods | color = color_ }
 
-setBlack : Tag msg -> Tag msg
-           
-setDark : Tag msg -> Tag msg
-          
-setLight : Tag msg -> Tag msg
-           
-setWhite : Tag msg -> Tag msg
-           
-setPrimary : Tag msg -> Tag msg
-             
-setInfo : Tag msg -> Tag msg
-          
-setSuccess : Tag msg -> Tag msg
-             
-setWarning : Tag msg -> Tag msg
-             
-setDanger : Tag msg -> Tag msg
-            
+{-| TODO
+ -}
+default : Tag msg -> Tag msg
+default = mapMods <| setColor Default
 
--- SIZE ------------------------------------------------------------------------
+{-| TODO
+-}
+black : Tag msg -> Tag msg
+black = mapMods <| setColor Black
 
-type Size = Normal
+{-| TODO
+-}
+dark : Tag msg -> Tag msg
+dark = mapMods <| setColor Dark
+       
+{-| TODO
+-}
+light : Tag msg -> Tag msg
+light = mapMods <| setColor Light
+
+{-| TODO
+-}
+white : Tag msg -> Tag msg
+white = mapMods <| setColor White
+
+{-| TODO
+-}
+primary : Tag msg -> Tag msg
+primary = mapMods <| setColor Primary
+
+{-| TODO
+-}
+info : Tag msg -> Tag msg
+info = mapMods <| setColor Info
+
+{-| TODO
+-}
+success : Tag msg -> Tag msg
+success = mapMods <| setColor Success
+
+{-| TODO
+-}
+warning : Tag msg -> Tag msg
+warning = mapMods <| setColor Warning
+
+{-| TODO
+-}
+danger : Tag msg -> Tag msg
+danger = mapMods <| setColor Danger
+                           
+{-| TODO
+-}
+colorClass : Color -> String
+colorClass color
+  = case color of
+      Default -> ""
+      White   -> "is-white"
+      Light   -> "is-light"
+      Dark    -> "is-dark"
+      Black   -> "is-black"
+      Primary -> "is-primary"
+      Info    -> "is-info"
+      Success -> "is-success"
+      Warning -> "is-warning"
+      Danger  -> "is-danger"
+
+-- SIZE --
+
+{-| TODO
+-}
+type Size = Small
           | Medium
           | Large
 
-unsetSize : Tag msg -> Tag msg
+{-| TODO
+-}
+setSize : Size -> Modifiers -> Modifiers
+setSize size_ mods = { mods | size = size_ }
 
-setNormal : Tag msg -> Tag msg
-            
-setMedium : Tag msg -> Tag msg
-            
-setLarge : Tag msg -> Tag msg
+{-| TODO
+-}
+small : Tag msg -> Tag msg
+small = mapMods <| setSize Small
+
+{-| TODO
+-}
+medium : Tag msg -> Tag msg
+medium = mapMods <| setSize Medium
+
+{-| TODO
+-}
+large : Tag msg -> Tag msg
+large = mapMods <| setSize Large
+
+{-| TODO
+-}
+sizeClass : Size -> String
+sizeClass size
+  = case size of
+      Small  -> ""
+      Medium -> "is-medium"
+      Large  -> "is-large"
 
 
 -- HTML ------------------------------------------------------------------------
 
+{-| TODO
+-}
 toHtml : Tag msg -> Html msg
+toHtml = Entity.toHtml modsClasses (y []) identity
 
+{-| TODO
+-}
 addClass : String -> Tag msg -> Tag msg
+addClass = Entity.addClass
 
 
 -- HELPERS ---------------------------------------------------------------------
 
+{-| TODO
+-}
 setHelpers : Helpers -> Tag msg -> Tag msg
+setHelpers = Entity.setHelpers

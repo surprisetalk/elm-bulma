@@ -1,59 +1,148 @@
 
 module Bulma.Elements.Notification exposing ( Notification
                                             , notification
+                                            , easyNotification
                                             , notificationWithDelete
+                                            , easyNotificationWithDelete
+                                            , normal
+                                            , primary
+                                            , info
+                                            , success
+                                            , warning
+                                            , danger
                                             , toHtml
+                                            , addClass
                                             , setHelpers
                                             )
 
+-- DOCS ------------------------------------------------------------------------
+
+{-| TODO 
+
+@docs Notification, notification, easyNotification 
+@docs notificationWithDelete, easyNotificationWithDelete
+
+@docs normal, primary, info, success, warning, danger
+
+@docs toHtml, addClass, setHelpers
+
+-}
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
+import Helpers exposing (..)
+import Bulma.Entity as Entity exposing (..)
+import Bulma.Helpers exposing ( Helpers )
 
-import Html exposing ( Html, Attribute )
+import Bulma.Elements.Delete as Delete exposing ( Delete, easyDelete )
+
+import Html exposing ( Html, Attribute, text, div )
 
 
 -- NOTIFICATION ----------------------------------------------------------------
 
-notification : List (Attribute msg) -> List (Html msg) -> Html msg
+{-| TODO
+-}
+type alias Notification msg = Entity Color (Htmls msg) msg
 
-notificationWithDelete : List (Attribute msg) -> msg -> List (Html msg) -> Html msg
+{-| TODO
+-}
+notification : Attrs msg -> Htmls msg -> Notification msg
+notification = entity "div" [ "notification" ] Normal
 
-easyNotification : String -> Html msg
+{-| TODO
+-}
+easyNotification : String -> Notification msg
+easyNotification = notification [] << ls << text
 
-easyNotificationWithDelete : msg -> String -> Html msg
+{-| TODO
+-}
+notificationWithDelete : Attrs msg -> Delete msg -> Htmls msg -> Notification msg
+notificationWithDelete attrs del = notification [] << (::) (Delete.toHtml del)
+
+{-| TODO
+-}
+easyNotificationWithDelete : msg -> String -> Notification msg
+easyNotificationWithDelete msg = notification []
+                               << (::) (easyDelete msg |> Delete.toHtml)
+                               << ls
+                               << text
 
 
--- EMPHASIS --------------------------------------------------------------------
+-- COLOR -----------------------------------------------------------------------
 
-type Emphasis = Primary
-              | Info
-              | Success
-              | Warning
-              | Danger
+{-| TODO
+-}
+type Color = Normal
+           | Primary
+           | Info
+           | Success
+           | Warning
+           | Danger
 
-unsetEmphasis : Notification msg -> Notification msg
+{-| TODO
+-}
+setColor : Color -> Notification msg -> Notification msg
+setColor = mapMods << y
 
-setPrimary : Notification msg -> Notification msg
+{-| TODO
+-}
+normal : Notification msg -> Notification msg
+normal = setColor Normal
 
-setInfo : Notification msg -> Notification msg
+{-| TODO
+-}
+primary : Notification msg -> Notification msg
+primary = setColor Primary
 
-setSuccess : Notification msg -> Notification msg
+{-| TODO
+-}
+info : Notification msg -> Notification msg
+info = setColor Info
 
-setWarning : Notification msg -> Notification msg
+{-| TODO
+-}
+success : Notification msg -> Notification msg
+success = setColor Success
 
-setDanger : Notification msg -> Notification msg
+{-| TODO
+-}
+warning : Notification msg -> Notification msg
+warning = setColor Warning
 
-emphasisClass : Maybe Emphasis -> Maybe String
+{-| TODO
+-}
+danger : Notification msg -> Notification msg
+danger = setColor Danger
+
+{-| TODO
+-}
+colorClass : Color -> String
+colorClass color
+  = case color of
+      Normal  -> ""
+      Primary -> "is-primary"
+      Info    -> "is-info"
+      Success -> "is-success"
+      Warning -> "is-warning"
+      Danger  -> "is-danger"
 
 
 -- HTML ------------------------------------------------------------------------
 
+{-| TODO
+-}
 toHtml : Notification msg -> Html msg
+toHtml = Entity.toHtml (colorClass >> ls) (y []) identity
 
+{-| TODO
+-}
 addClass : String -> Notification msg -> Notification msg
+addClass = Entity.addClass
 
 
 -- HELPERS ---------------------------------------------------------------------
 
+{-| TODO
+-}
 setHelpers : Helpers -> Notification msg -> Notification msg
+setHelpers = Entity.setHelpers

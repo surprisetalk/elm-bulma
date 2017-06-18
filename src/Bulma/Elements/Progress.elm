@@ -30,7 +30,6 @@ module Bulma.Elements.Progress exposing ( Progress
 
 -}
 
-
 -- IMPORTS ---------------------------------------------------------------------
 
 import Helpers exposing (..)
@@ -81,28 +80,28 @@ type Size = Small
 
 {-| TODO
 -}
-setSize : Size -> Modifiers -> Modifiers
-setSize size_ mods = { mods | size = size_ }
+setSize : Size -> Progress msg -> Progress msg
+setSize size_ = mapMods <| \mods -> { mods | size = size_ }
 
 {-| TODO
 -}
 small : Progress msg -> Progress msg
-small = mapMods <| setSize Small
+small = setSize Small
 
 {-| TODO
 -}
 normal : Progress msg -> Progress msg
-normal = mapMods <| setSize Normal
+normal = setSize Normal
 
 {-| TODO
 -}
 medium : Progress msg -> Progress msg
-medium = mapMods <| setSize Medium
+medium = setSize Medium
 
 {-| TODO
 -}
 large : Progress msg -> Progress msg
-large = mapMods <| setSize Large
+large = setSize Large
 
 {-| TODO
 -}
@@ -128,38 +127,38 @@ type Color = Default
 
 {-| TODO
 -}
-setColor : Color -> Modifiers -> Modifiers
-setColor color_ mods = { mods | color = color_ }
+setColor : Color -> Progress msg -> Progress msg
+setColor color_ = mapMods <| \mods -> { mods | color = color_ }
 
 {-| TODO
 -}
 default : Progress msg -> Progress msg
-default = mapMods <| setColor Default
+default = setColor Default
 
 {-| TODO
 -}
 primary : Progress msg -> Progress msg
-primary = mapMods <| setColor Primary
+primary = setColor Primary
 
 {-| TODO
 -}
 info : Progress msg -> Progress msg
-info = mapMods <| setColor Info
+info = setColor Info
 
 {-| TODO
 -}
 success : Progress msg -> Progress msg
-success = mapMods <| setColor Success
+success = setColor Success
 
 {-| TODO
 -}
 warning : Progress msg -> Progress msg
-warning = mapMods <| setColor Warning
+warning = setColor Warning
 
 {-| TODO
 -}
 danger : Progress msg -> Progress msg
-danger = mapMods <| setColor Danger
+danger = setColor Danger
 
 {-| TODO
 -}
@@ -179,7 +178,7 @@ colorClass color
 {-| TODO
 -}
 toHtml : Progress msg -> Html msg
-toHtml = Entity.toHtml modsClasses (\_ -> [])
+toHtml = Entity.toHtml modsClasses (y []) (y [])
 
 {-| TODO
 -}

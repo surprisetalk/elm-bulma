@@ -1,59 +1,102 @@
 
 module Bulma.Elements.Image exposing ( Image
+                                     , image
+                                     , easyImage
+                                     , normal
+                                     , size16x16
+                                     , size24x24
+                                     , size32x32
+                                     , size48x48
+                                     , size64x64
+                                     , size96x96
+                                     , size128x128
+                                     , noAspect
+                                     , aspect1x1
+                                     , aspect4x3
+                                     , aspect3x2
+                                     , aspect16x9
+                                     , aspect2x1
                                      , toHtml
+                                     , addClass
                                      , setHelpers
                                      )
                                      
+-- DOCS ------------------------------------------------------------------------
+
+{-| TODO 
+
+@docs Image, image, easyImage
+
+@docs normal, size16x16, size24x24, size32x32, size48x48, size64x64, size96x96, size128x128
+
+@docs noAspect, aspect1x1, aspect4x3, aspect3x2, aspect16x9, aspect2x1
+
+@docs toHtml, addClass, setHelpers
+
+-}
+
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
+import Helpers exposing (..)
+import Bulma.Entity as Entity exposing (..)
+import Bulma.Helpers exposing ( Helpers )
 
-import Html exposing ( Html, Attribute )
+import Html exposing ( Html, Attribute, text, div )
+import Html.Attributes as Attr exposing ( class )
 
 
 -- IMAGE -----------------------------------------------------------------------
 
-type Body msg = Src   String
-              | Htmls (List (Html msg))
+{-| TODO
+-}
+type ImageBody msg = ImageHtml (Html msg)
+                   | ImageSrc  (String  )
 
-type Image msg = Image { helps : Helpers
-                       , size  : Maybe Size
-                       , ratio : Maybe AspectRatio
-                       , attrs : List (Attribute msg)
-                       , body  : Body msg
+{-| TODO
+-}
+type alias Image msg = Entity Modifiers (ImageBody msg) msg
+
+{-| TODO
+-}
+image : Attrs msg -> Html msg -> Image msg
+image attrs = entity "figure" [ "image" ] defaultModifiers attrs << ImageHtml
+
+{-| TODO
+-}
+easyImage : Attrs msg -> String -> Image msg
+easyImage attrs = entity "figure" [ "image" ] defaultModifiers attrs << ImageSrc
+
+
+-- MODIFIERS -------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Modifiers = { aspect : AspectRatio
+                       , size   : Size
                        }
 
-easyImage : AspectRatio -> Size -> String -> Image msg
-easyImage ratio size src
-  = Image { helps = defaultHelpers
-          , size  = Just size
-          , ratio = Just ratio
-          , attrs = []
-          , body  = Src src
-          }
+{-| TODO
+-}
+defaultModifiers : Modifiers
+defaultModifiers = { aspect = NoAspect
+                   , size   = Normal
+                   }
 
-easierImage : String -> Image msg
-easierImage src
-  = Image { helps = defaultHelpers
-          , size  = Nothing
-          , ratio = Nothing
-          , attrs = []
-          , body  = Src src
-          }
-
-image : List (Attribute msg) -> List (Html msg) -> Image msg
-image attrs htmls
-  = Image { helps = defaultHelpers
-          , size  = Nothing
-          , ratio = Nothing
-          , attrs = attrs
-          , body  = Htmls htmls
-          }
+{-| TODO
+-}
+modsClasses : Modifiers -> List String
+modsClasses {size,aspect}
+  = [ size   |> sizeClass
+    , aspect |> aspectRatioClass
+    ]
 
 
--- SIZE ------------------------------------------------------------------------
+-- SIZE --
 
-type Size = X16
+{-| TODO
+-}
+type Size = Normal
+          | X16
           | X24
           | X32
           | X48
@@ -61,73 +104,118 @@ type Size = X16
           | X96
           | X128
 
-unsetSize : Image msg -> Image msg
-unsetSize image = Image { image | size = Nothing }
+{-| TODO
+-}
+setSize : Size -> Image msg -> Image msg
+setSize size_ = mapMods <| \mods -> { mods | size = size_ }
 
-set16x16  : Image msg -> Image msg
-set16x16 image = Image { image | size = Just X16 }
-         
-set24x24  : Image msg -> Image msg
-set24x24 image = Image { image | size = Just X24 }
-         
-set32x32  : Image msg -> Image msg
-set32x32 image = Image { image | size = Just X32 }
-         
-set48x48  : Image msg -> Image msg
-set48x48 image = Image { image | size = Just X48 }
-         
-set64x64  : Image msg -> Image msg
-set64x64 image = Image { image | size = Just X64 }
-         
-set96x96  : Image msg -> Image msg
-set96x96 image = Image { image | size = Just X96 }
-         
-set128x128 : Image msg -> Image msg
-set128x128 image = Image { image | size = Just X128 }
+{-| TODO
+-}
+normal : Image msg -> Image msg
+normal = setSize Normal
 
-sizeClass : Maybe Size -> Maybe String
+{-| TODO
+-}
+size16x16  : Image msg -> Image msg
+size16x16 = setSize X16
+         
+{-| TODO
+-}
+size24x24  : Image msg -> Image msg
+size24x24 = setSize X24
+         
+{-| TODO
+-}
+size32x32  : Image msg -> Image msg
+size32x32 = setSize X32
+         
+{-| TODO
+-}
+size48x48  : Image msg -> Image msg
+size48x48 = setSize X48
+         
+{-| TODO
+-}
+size64x64  : Image msg -> Image msg
+size64x64 = setSize X64
+         
+{-| TODO
+-}
+size96x96  : Image msg -> Image msg
+size96x96 = setSize X96
+         
+{-| TODO
+-}
+size128x128 : Image msg -> Image msg
+size128x128 = setSize X128
+
+{-| TODO
+-}
+sizeClass : Size -> String
 sizeClass size
-  = Maybe.map
-  <| case size of
-      X16  -> "is-16x16"
-      X24  -> "is-24x24"
-      X32  -> "is-32x32"
-      X48  -> "is-48x48"
-      X64  -> "is-64x64"
-      X96  -> "is-96x96"
-      X128 -> "is-128x128"
+  = case size of
+      X16    -> "is-16x16"
+      X24    -> "is-24x24"
+      X32    -> "is-32x32"
+      X48    -> "is-48x48"
+      X64    -> "is-64x64"
+      X96    -> "is-96x96"
+      X128   -> "is-128x128"
+      Normal -> ""
       
 
--- ASPECT RATIO ----------------------------------------------------------------
+-- ASPECT RATIO --
 
-type AspectRatio = OneByOne
+{-| TODO
+-}
+type AspectRatio = NoAspect
+                 | OneByOne
                  | FourByThree
                  | ThreeByTwo
                  | SixteenByNine
                  | TwoByOne
 
-unsetAspectRatio : Image msg -> Image msg
-unsetAspectRatio image = Image { image | ratio = Nothing }
+{-| TODO
+-}
+setAspectRatio : AspectRatio -> Image msg -> Image msg
+setAspectRatio aspect_ = mapMods <| \mods -> { mods | aspect = aspect_ }
 
-set1x1 : Image msg -> Image msg
-set1x1 image = Image { image | ratio = Just OneByOne }
+{-| TODO
+-}
+noAspect : Image msg -> Image msg
+noAspect = setAspectRatio NoAspect
+
+{-| TODO
+-}
+aspect1x1 : Image msg -> Image msg
+aspect1x1 = setAspectRatio OneByOne
               
-set4x3 : Image msg -> Image msg
-set4x3 image = Image { image | ratio = Just FourByThree }
+{-| TODO
+-}
+aspect4x3 : Image msg -> Image msg
+aspect4x3 = setAspectRatio FourByThree
                  
-set3x2 : Image msg -> Image msg
-set3x2 image = Image { image | ratio = Just ThreeByTwo }
+{-| TODO
+-}
+aspect3x2 : Image msg -> Image msg
+aspect3x2 = setAspectRatio ThreeByTwo
                 
-set16x9 : Image msg -> Image msg
-set16x9 image = Image { image | ratio = Just SixteenByNine }
+{-| TODO
+-}
+aspect16x9 : Image msg -> Image msg
+aspect16x9 = setAspectRatio SixteenByNine
                    
-set2x1 : Image msg -> Image msg
-set2x1 image = Image { image | ratio = Just TwoByOne }
+{-| TODO
+-}
+aspect2x1 : Image msg -> Image msg
+aspect2x1 = setAspectRatio TwoByOne
 
-aspectRatioClass : Maybe AspectRatio -> Maybe String
+{-| TODO
+-}
+aspectRatioClass : AspectRatio -> String
 aspectRatioClass ratio
-  = Maybe.map
-  <| case ratio of
+  = case ratio of
+      NoAspect      -> ""
       OneByOne      -> "is-1by1"
       FourByThree   -> "is-4by3"
       ThreeByTwo    -> "is-3by2"
@@ -137,20 +225,25 @@ aspectRatioClass ratio
 
 -- HTML ------------------------------------------------------------------------
 
+{-| TODO
+-}
 toHtml : Image msg -> Html msg
-toHtml {helps,size,ratio,attrs,body}
-  = let classes : List String
-        classes = (::) "image"
-                <| Maybe_.values
-                <| [ aspectRatioClass ratio
-                  ,        sizeClass size
-                  ]
+toHtml = Entity.toHtml modsClasses (y [])
+       <| \body ->
+         case body of
+           ImageHtml html -> [ html                         ]
+           ImageSrc  src  -> [ Html.img [ Attr.src src ] [] ]
+                            
 
-        htmls : List (Html msg)
-        htmls = case body of
-                  Htmls h ->             h
-                  Src   s -> [ img [ src s ] [] ]
-                  
-    in node helps "figure" classes attrs htmls
-
+{-| TODO
+-}
 addClass : String -> Image msg -> Image msg
+addClass = Entity.addClass
+
+
+-- HELPERS ---------------------------------------------------------------------
+
+{-| TODO
+-}
+setHelpers : Helpers -> Image msg -> Image msg
+setHelpers helps = Entity.setHelpers helps

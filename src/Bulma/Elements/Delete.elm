@@ -1,6 +1,7 @@
 
 module Bulma.Elements.Delete exposing ( Delete
                                       , delete
+                                      , easyDelete
                                       , small
                                       , normal
                                       , medium
@@ -14,7 +15,7 @@ module Bulma.Elements.Delete exposing ( Delete
 
 {-| TODO 
 
-@docs Delete, delete
+@docs Delete, delete, easyDelete
 
 @docs small, normal, medium, large
 
@@ -30,22 +31,24 @@ import Bulma.Entity as Entity exposing (..)
 import Bulma.Helpers exposing ( Helpers )
 
 import Html exposing ( Html, Attribute )
+import Html.Events exposing ( onClick )
 
 
 -- DELETE ---------------------------------------------------------------------
 
 {-| TODO
 -}
-type alias Modifiers = { size : Size }
+type alias Delete msg = Entity Size () msg
 
 {-| TODO
 -}
-type alias Delete msg = Entity Modifiers (Htmls msg) msg
+delete : List (Attribute msg) -> Delete msg
+delete attrs = entity "a" [ "delete" ] Normal attrs ()
 
 {-| TODO
 -}
-delete : List (Attribute msg) -> List (Html msg) -> Delete msg
-delete = entity "a" [ "delete" ] { size = Normal }
+easyDelete : msg -> Delete msg
+easyDelete = onClick >> ls >> delete
 
 
 -- SIZE ------------------------------------------------------------------------
@@ -59,28 +62,28 @@ type Size = Small
 
 {-| TODO
 -}
-setSize : Size -> Modifiers -> Modifiers
-setSize size_ mods = { mods | size = size_ }
+setSize : Size -> Delete msg -> Delete msg
+setSize = mapMods << y
 
 {-| TODO
 -}
 small : Delete msg -> Delete msg
-small = mapMods <| setSize Small
+small = setSize Small
 
 {-| TODO
 -}
 normal : Delete msg -> Delete msg
-normal = mapMods <| setSize Normal
+normal = setSize Normal
 
 {-| TODO
 -}
 medium : Delete msg -> Delete msg
-medium = mapMods <| setSize Medium
+medium = setSize Medium
 
 {-| TODO
 -}
 large : Delete msg -> Delete msg
-large = mapMods <| setSize Large
+large = setSize Large
 
 {-| TODO
 -}
@@ -98,7 +101,7 @@ sizeClass size
 {-| TODO
 -}
 toHtml : Delete msg -> Html msg
-toHtml = Entity.toHtml (y []) (y []) identity
+toHtml = Entity.toHtml (sizeClass >> ls) (y []) (y [])
 
 {-| TODO
 -}
