@@ -7,60 +7,40 @@ module Bulma.Components.Card exposing ( Card
 
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
+import Helpers exposing (..)
+import Bulma.Entity as Entity exposing (..)
+import Bulma.Helpers exposing ( Helpers )
 
-import Html exposing ( Html, Attribute )
+import Bulma.Components.Card.Cardlet exposing ( Cardlet )
+
+import Html exposing ( Html, Attribute, text )
 
 
 -- CARD ------------------------------------------------------------------------
 
-type Card msg = Card Helpers (List (Attribute msg)) (List (Html msg))
+type alias Card msg = Entity () (List (Cardlet msg)) msg
 
-card : List (Attribute msg) -> List (Cardlet msg) -> Card msg
-
-
--- CARDLET ---------------------------------------------------------------------
-
-type Cardlet msg = Cardlet Helpers (List (Attribute msg)) (List (Html msg))
+card : Attrs msg -> List (Cardlet msg) -> Card msg
+card = entity "div" [ "card" ] ()
 
 
--- HEADER --
+-- HTML ------------------------------------------------------------------------
 
-easyHeader : Icon msg -> Title msg -> Cardlet msg
+{-| TODO
+-}
+toHtml : Tag msg -> Html msg
+toHtml = Entity.toHtml (y []) (y []) <| map Cardlet.toHtml
+         
 
-easierHeader : Title msg -> Cardlet msg
-
-header : List (Attribute msg) -> List (Html msg) -> List (Html msg) -> Cardlet msg
-
-
--- IMAGE --
-
-fromImage : Image msg -> Cardlet msg
-
-
--- CONTENT --
-
--- TODO: other components/elements
-
-content : List (Attribute msg) -> List (Html msg) -> Cardlet msg
-          
-fromBox : Box msg -> Cardlet msg
-
-fromMedia : Media msg -> Cardlet msg
-
-
--- FOOTER --
-
-easyFooter : List (Button msg) -> Cardlet msg
-
-footer : List (Attribute msg) -> List (List (Html msg)) -> Cardlet msg
-
-
--- TRANSFORMS ------------------------------------------------------------------
-
-toHtml : Card msg -> Html msg
+{-| TODO
+-}
+addClass : String -> Tag msg -> Tag msg
+addClass = Entity.addClass
 
 
 -- HELPERS ---------------------------------------------------------------------
 
-setHelpers : Helpers -> Card msg -> Card msg
+{-| TODO
+-}
+setHelpers : Helpers -> Tag msg -> Tag msg
+setHelpers = Entity.setHelpers

@@ -7,48 +7,49 @@ module Bulma.Components.Level exposing ( Level
 
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
+import Helpers exposing (..)
+import Bulma.Entity as Entity exposing (..)
+import Bulma.Helpers exposing ( Helpers )
 
-import Html exposing ( Html, Attribute )
+import Bulma.Components.Level.Item as Item exposing ( Item )
+
+import Pointless exposing (..)
+
+import Html exposing ( Html, Attribute, text )
 
 
 -- LEVEL -----------------------------------------------------------------------
 
-type Level msg = Level Helpers (List (Attribute msg)) (List (Item msg)) (List (Item msg))
+type alias Level msg = Entity Bool ( List (Item msg), Maybe (List (Item msg)) ) msg
 
--- TODO: easyLevel
+level : Attrs msg -> List (Item msg) -> List (Item msg) -> Level msg
 
-level : List (Attribute msg) -> List (Item msg) -> List (Item msg) -> Level msg
-
-setMobileVertical : Level msg -> Level msg
-
-setMobileHorizontal : Level msg -> Level msg
+centeredLevel : Attrs msg -> List (Item msg) -> Level msg
 
 
--- LEVEL ITEM ------------------------------------------------------------------
+-- MOBILE ----------------------------------------------------------------------
 
-type Item msg = Item Helpers (List (Attribute msg)) (List (Html msg))
+full : Level msg -> Level msg
 
-item : List (Attribute msg) -> (List (Html msg)) -> Item msg
-
-fromImage : Image msg -> Item msg
-
-fromTitle : Title msg -> Item msg
-
-fromButton : Button msg -> Item msg
-
-fromIcon : Icon msg -> Item msg
-
-fromField : Field msg -> Item msg
-
-addHeading : String -> Item msg -> Item msg
+mobile : Level msg -> Level msg
 
 
--- TRANSFORMS ------------------------------------------------------------------
+-- HTML ------------------------------------------------------------------------
 
-toHtml : Level msg -> Html msg
+{-| TODO
+-}
+toHtml : Tag msg -> Html msg
+toHtml = Entity.toHtml (y []) (y []) identity
+
+{-| TODO
+-}
+addClass : String -> Tag msg -> Tag msg
+addClass = Entity.addClass
 
 
 -- HELPERS ---------------------------------------------------------------------
 
-setHelpers : Helpers -> Level msg -> Level msg
+{-| TODO
+-}
+setHelpers : Helpers -> Tag msg -> Tag msg
+setHelpers = Entity.setHelpers

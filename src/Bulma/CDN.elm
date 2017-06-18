@@ -10,7 +10,6 @@ module Bulma.CDN exposing ( stylesheet, fontAwesome )
 
 -}
 
-
 -- IMPORTS ---------------------------------------------------------------------
 
 import Html exposing ( Html, node )
