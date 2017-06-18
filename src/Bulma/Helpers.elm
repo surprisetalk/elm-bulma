@@ -1,8 +1,12 @@
 
+-- TODO: we should probably expose functions rather than the record
+
 module Bulma.Helpers exposing ( Helpers
                               , defaultHelpers
                               , toClassStrings
                               )
+
+-- DOCS ------------------------------------------------------------------------
 
 {-| TODO 
 

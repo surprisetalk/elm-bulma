@@ -34,6 +34,7 @@
         "Bulma.Components.Message",
         "Bulma.Components.Modal",
         "Bulma.Components.Nav",
+        "Bulma.Components.Nav.Item",
         "Bulma.Components.Pagination",
         "Bulma.Components.Panel",
         "Bulma.Components.Tabs",
