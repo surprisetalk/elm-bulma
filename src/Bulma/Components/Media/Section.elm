@@ -37,13 +37,11 @@ type Body msg = BodyHtmls    (Htmls    msg)
               | BodyButton   (Button   msg)
               | BodyIcon     (Icon     msg)
               | BodyField    (Field    msg)
-              | BodyMedia    (Media    msg)
 
 type alias Section msg = Entity () (Body msg) msg
 
 section_ : Attrs msg -> Body msg -> Section msg
 section_ = entity "div" [] ()
-           -- TODO: we have to addClass in Media
 
 section : Attrs msg -> Htmls msg -> Section msg
 section = section_ |-~-> BodyHtmls
@@ -81,9 +79,6 @@ fromIcon = section_ |-~-> BodyIcon
 fromField : Attrs msg -> Field msg -> Section msg
 fromField = section_ |-~-> BodyField
 
-fromMedia : Attrs msg -> Media msg -> Section msg
-fromMedia = section_ |-~-> BodyMedia
-
 -- TODO: more elements & components?
 
 
@@ -106,7 +101,6 @@ toHtml = Entity.toHtml (y []) (y [])
            BodyButton   button   -> button   |> ls |> map Button.toHtml
            BodyIcon     icon     -> icon     |> ls |> map Icon.toHtml
            BodyField    field    -> field    |> ls |> map Form.toHtml
-           BodyMedia    media    -> media    |> ls |> map Media.toHtml
 
 {-| TODO
 -}

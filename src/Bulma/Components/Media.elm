@@ -7,25 +7,56 @@ module Bulma.Components.Media exposing ( Media
 
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
+import Helpers exposing (..)
+import Bulma.Entity as Entity exposing (..)
+import Bulma.Helpers exposing ( Helpers )
 
-import Html exposing ( Html, Attribute )
+import Bulma.Components.Media.Section as Section exposing ( Section )
+
+import Pointless exposing (..)
+
+import Html exposing ( Html, Attribute, text )
 
 
 -- MEDIA -----------------------------------------------------------------------
 
-type Media msg = Media Helpers (List (Attribute msg)) (List (Object msg)) (List (Object msg)) (List (Object msg))
+type alias Sections msg = List (Section msg)
 
--- TODO: easyMedia
+type alias Media msg = Entity () (Maybe (Sections msg), Sections msg, Maybe (Sections msg)) msg
 
-media : List (Attribute msg) -> List (Object msg) -> List (Object msg) -> List (Object msg) -> Media msg
+media : Attrs msg -> Sections msg -> Media msg
+media = entity "article" [ "media" ] ()
 
+left : Sections msg -> Media msg -> Media msg
+left left_ = mapBody <| \(_,content,right) -> ( Just left_, content, right )
 
--- TRANSFORMS ------------------------------------------------------------------
+right : Sections msg -> Media msg -> Media msg
+right right_ = mapBody <| \(left,content,_) -> ( left, content, Just right_ )
 
-toHtml : Media msg -> Html msg
+toSection : Media msg -> Section msg
+
+-- HTML ------------------------------------------------------------------------
+
+{-| TODO
+-}
+toHtml : Section msg -> Html msg
+toHtml = Entity.toHtml (y []) (y [])
+       <| \(left,content,right) ->
+         mvalues
+         [      left    |> Maybe.map (Section.addClass "media-left"    >> Section.toHtml)
+         , Just content |> Maybe.map (Section.addClass "media-content" |> Section.toHtml)
+         ,      right   |> Maybe.map (Section.addClass "media-right"   >> Section.toHtml)
+         ]
+
+{-| TODO
+-}
+addClass : String -> Section msg -> Section msg
+addClass = Entity.addClass
 
 
 -- HELPERS ---------------------------------------------------------------------
 
-setHelpers : Helpers -> Media msg -> Media msg
+{-| TODO
+-}
+setHelpers : Helpers -> Section msg -> Section msg
+setHelpers = Entity.setHelpers

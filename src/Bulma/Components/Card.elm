@@ -28,13 +28,13 @@ card = entity "div" [ "card" ] ()
 
 {-| TODO
 -}
-toHtml : Tag msg -> Html msg
+toHtml : Card msg -> Html msg
 toHtml = Entity.toHtml (y []) (y []) <| map Cardlet.toHtml
          
 
 {-| TODO
 -}
-addClass : String -> Tag msg -> Tag msg
+addClass : String -> Card msg -> Card msg
 addClass = Entity.addClass
 
 
@@ -42,5 +42,5 @@ addClass = Entity.addClass
 
 {-| TODO
 -}
-setHelpers : Helpers -> Tag msg -> Tag msg
+setHelpers : Helpers -> Card msg -> Card msg
 setHelpers = Entity.setHelpers
