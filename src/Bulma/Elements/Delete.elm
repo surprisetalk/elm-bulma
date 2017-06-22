@@ -23,7 +23,6 @@ module Bulma.Elements.Delete exposing ( Delete
 
 -}
 
-
 -- IMPORTS ---------------------------------------------------------------------
 
 import Helpers exposing (..)

@@ -14,7 +14,7 @@ module Bulma.Components.Modal exposing ( Modal
 @docs Modal
 @docs modal
 
-@docs exit
+@docs onExit
 
 @docs toHtml, addClass, setHelpers
 

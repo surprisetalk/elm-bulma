@@ -23,6 +23,8 @@ type Entity mods body msg = Entity { helps : Helpers
                                    , body  : body
                                    }
 
+-- TODO: we may need to expose a "rewrap" function to steal the body from an existing element
+
 mapMods : (a -> b) -> Entity a body msg -> Entity b body msg
 mapMods f (Entity ({mods} as ent))
   = Entity { ent | mods = f mods }
