@@ -25,7 +25,7 @@ import Bulma.Helpers exposing ( Helpers )
 
 import Bulma.Layout.Container as Container exposing ( Container )
 
-import Html exposing ( Html, Attribute, text, div, p, a, ul, li, span )
+import Html exposing ( Html, Attribute )
 
 -- FOOTER -----------------------------------------------------------------------
 

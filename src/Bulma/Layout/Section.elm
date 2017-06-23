@@ -1,43 +1,105 @@
 
 module Bulma.Layout.Section exposing ( Section
-                                     , section
+                                     , fromContainer
+                                     , normal
+                                     , medium
+                                     , large
                                      , toHtml
+                                     , addClass
                                      , setHelpers
                                      )
-                                     
+                                    
+-- DOCS ------------------------------------------------------------------------
+
+{-| TODO 
+
+@docs Section
+@docs fromContainer
+
+@docs normal, medium, large
+
+@docs toHtml, addClass, setHelpers
+
+-}
+
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
+import Helpers exposing (..)
+import Bulma.Entity as Entity exposing (..)
+import Bulma.Helpers exposing ( Helpers )
+
+import Bulma.Layout.Container as Container exposing ( Container )
 
 import Html exposing ( Html, Attribute )
 
 
 -- SECTION -----------------------------------------------------------------------
 
-type Section msg = Section Helpers (List (Attribute msg)) (Container msg)
+{-| TODO
+-}
+type alias Section msg = Entity Size (Container msg) msg
 
--- TODO: easySection
-
+{-| TODO
+-}
 fromContainer : List (Attribute msg) -> Container msg -> Section msg
+fromContainer = entity "section" [ "section" ] Normal 
 
 
 -- SIZE --
 
-type Size = Medium
+{-| TODO
+-}
+type Size = Normal
+          | Medium
           | Large
 
-unsetSize : Hero msg -> Hero msg
+{-| TODO
+-}
+setSize : Size -> Section msg -> Section msg
+setSize size_ = mapMods <| y size_
 
-setMedium : Hero msg -> Hero msg
+{-| TODO
+-}
+normal : Section msg -> Section msg
+normal = setSize Normal
 
-setLarge : Hero msg -> Hero msg
+{-| TODO
+-}
+medium : Section msg -> Section msg
+medium = setSize Medium
+
+{-| TODO
+-}
+large : Section msg -> Section msg
+large = setSize Large
+
+{-| TODO
+-}
+sizeClass : Size -> String
+sizeClass size
+  = case size of
+      Normal -> ""
+      Medium -> "is-medium"
+      Large  -> "is-large"
 
 
--- TRANSFORMS ------------------------------------------------------------------
 
+-- HTML ------------------------------------------------------------------------
+
+{-| TODO
+-}
 toHtml : Section msg -> Html msg
+toHtml = Entity.toHtml (sizeClass >> ls) (y []) (Container.toHtml >> ls)
+
+{-| TODO
+-}
+addClass : String -> Section msg -> Section msg
+addClass = Entity.addClass
 
 
 -- HELPERS ---------------------------------------------------------------------
 
+{-| TODO
+-}
 setHelpers : Helpers -> Section msg -> Section msg
+setHelpers = Entity.setHelpers
