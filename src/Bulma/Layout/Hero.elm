@@ -1,13 +1,23 @@
 
-module Bulma.Layout.Hero exposing ( Hero
-                                  , hero
-                                  , toHtml
-                                  , setHelpers
+module Bulma.Layout.Hero exposing ( Hero, hero, titleHero
+                                  , head, navHead, tabsHead
+                                  , foot, navFoot, tabsFoot
+                                  , normal, medium, large, fullHeight
+                                  , default, light, dark, primary, info, success, warning, danger
+                                  , toHtml, addClass, setHelpers
                                   )
                                   
 -- DOCS ------------------------------------------------------------------------
 
 {-| TODO 
+
+@docs Hero, hero, titleHero
+
+@docs head, navHead, tabsHead
+@docs foot, navFoot, tabsFoot
+
+@docs normal, medium, large, fullHeight
+@docs default, light, dark, primary, info, success, warning, danger
 
 @docs toHtml, addClass, setHelpers
 
@@ -34,22 +44,32 @@ import Html.Attributes exposing ( class )
 
 -- HERO -----------------------------------------------------------------------
 
+{-| TODO
+-}
 type Body msg = BodyContainer (Container msg)
               | BodyTitle     { title    : Title msg
                               , subtitle : Maybe (Title msg)
                               }
 
+{-| TODO
+-}
 type Edge msg = EdgeContainer (Container msg)
               | EdgeNav       (Nav       msg)
               | EdgeTabs      (Tabs      msg)
 
+{-| TODO
+-}
 type alias Content msg = { head : Maybe (Edge msg)
                          , body :       (Body msg)
                          , foot : Maybe (Edge msg)
                          }
 
+{-| TODO
+-}
 type alias Hero msg = Entity Modifiers (Content msg) msg
 
+{-| TODO
+-}
 hero_ : Attrs msg -> Body msg -> Hero msg
 hero_ attrs body
   = entity "section" [ "hero" ] defaultModifiers attrs
@@ -58,9 +78,13 @@ hero_ attrs body
     , foot = Nothing
     }
 
+{-| TODO
+-}
 hero : Attrs msg -> Container msg -> Hero msg
 hero = hero_ |-~-> BodyContainer
 
+{-| TODO
+-}
 titleHero : Attrs msg -> Title msg -> Maybe (Title msg) -> Hero msg
 titleHero attrs title subtitle
   = hero_ attrs
@@ -72,30 +96,46 @@ titleHero attrs title subtitle
 
 -- HEAD --
 
+{-| TODO
+-}
 head_ : Edge msg -> Hero msg -> Hero msg
 head_ edge_ = mapBody <| \body -> { body | head = Just edge_ }
 
+{-| TODO
+-}
 head : Container msg -> Hero msg -> Hero msg
 head = EdgeContainer >> head_
 
+{-| TODO
+-}
 navHead : Nav msg -> Hero msg -> Hero msg
 navHead = EdgeNav >> head_
 
+{-| TODO
+-}
 tabsHead : Tabs msg -> Hero msg -> Hero msg
 tabsHead = EdgeTabs >> head_
 
 
 -- FOOT --
 
+{-| TODO
+-}
 foot_ : Edge msg -> Hero msg -> Hero msg
 foot_ edge_ = mapBody <| \body -> { body | foot = Just edge_ }
 
+{-| TODO
+-}
 foot : Container msg -> Hero msg -> Hero msg
 foot = EdgeContainer >> foot_
 
+{-| TODO
+-}
 navFoot : Nav msg -> Hero msg -> Hero msg
 navFoot = EdgeNav >> foot_
 
+{-| TODO
+-}
 tabsFoot : Tabs msg -> Hero msg -> Hero msg
 tabsFoot = EdgeTabs >> foot_
 
@@ -245,9 +285,13 @@ sizeClass size
 
 -- BOLD --
 
+{-| TODO
+-}
 weak : Hero msg -> Hero msg
 weak = mapMods <| \mods -> { mods | bold = False }
 
+{-| TODO
+-}
 bold : Hero msg -> Hero msg
 bold = mapMods <| \mods -> { mods | bold = True }
 
