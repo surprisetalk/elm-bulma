@@ -5,54 +5,132 @@ module Bulma.Layout.Hero exposing ( Hero
                                   , setHelpers
                                   )
                                   
+-- DOCS ------------------------------------------------------------------------
+
+{-| TODO 
+
+@docs toHtml, addClass, setHelpers
+
+-}
+
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
+import Helpers exposing (..)
+import Bulma.Entity as Entity exposing (..)
+import Bulma.Helpers exposing ( Helpers )
 
-import Html exposing ( Html, Attribute )
+import Bulma.Elements.Title as Title exposing ( Title  )
+
+import Bulma.Components.Nav  as Nav  exposing ( Nav  )
+import Bulma.Components.Tabs as Tabs exposing ( Tabs )
+
+import Bulma.Layout.Container as Container exposing ( Container, container )
+
+import Pointless exposing (..)
+
+import Html exposing ( Html, Attribute, div )
+import Html.Attributes exposing ( class )
 
 
 -- HERO -----------------------------------------------------------------------
 
-type Hero msg = Hero Helpers (List (Attribute msg))
+type Body msg = BodyContainer (Container msg)
+              | BodyTitle     { title    : Title msg
+                              , subtitle : Maybe (Title msg)
+                              }
 
--- TODO: easyHero
+type Edge msg = EdgeContainer (Container msg)
+              | EdgeNav       (Nav       msg)
+              | EdgeTabs      (Tabs      msg)
 
-easyHero : Title msg -> Title msg -> Hero msg
+type alias Content msg = { head : Maybe (Edge msg)
+                         , body :       (Body msg)
+                         , foot : Maybe (Edge msg)
+                         }
 
-hero : List (Attribute msg) -> List (Html msg) -> Hero msg
+type alias Hero msg = Entity Modifiers (Content msg) msg
 
-fromContainer : List (Attribute msg) -> Container msg -> Hero msg
+hero_ : Attrs msg -> Body msg -> Hero msg
+hero_ attrs body
+  = entity "section" [ "hero" ] defaultModifiers attrs
+    { head = Nothing
+    , body = body
+    , foot = Nothing
+    }
+
+hero : Attrs msg -> Container msg -> Hero msg
+hero = hero_ |-~-> BodyContainer
+
+titleHero : Attrs msg -> Title msg -> Maybe (Title msg) -> Hero msg
+titleHero attrs title subtitle
+  = hero_ attrs
+  <| BodyTitle
+  <| { title    = title
+    , subtitle = subtitle
+    }
 
 
 -- HEAD --
 
-unsetHead : Hero msg -> Hero msg
+head_ : Edge msg -> Hero msg -> Hero msg
+head_ edge_ = mapBody <| \body -> { body | head = Just edge_ }
 
-setHeadFromNav : List (Attribute msg) -> Nav msg -> Hero msg -> Hero msg
+head : Container msg -> Hero msg -> Hero msg
+head = EdgeContainer >> head_
 
-setHeadFromTabs : List (Attribute msg) -> Tabs msg -> Hero msg -> Hero msg
+navHead : Nav msg -> Hero msg -> Hero msg
+navHead = EdgeNav >> head_
 
-setHead : List (Attribute msg) -> List (Html msg) Hero msg -> Hero msg
+tabsHead : Tabs msg -> Hero msg -> Hero msg
+tabsHead = EdgeTabs >> head_
 
 
 -- FOOT --
 
-unsetFoot : Hero msg -> Hero msg
+foot_ : Edge msg -> Hero msg -> Hero msg
+foot_ edge_ = mapBody <| \body -> { body | foot = Just edge_ }
 
-setFootFromNav : List (Attribute msg) -> Nav msg -> Hero msg -> Hero msg
+foot : Container msg -> Hero msg -> Hero msg
+foot = EdgeContainer >> foot_
 
-setFootFromTabs : List (Attribute msg) -> Tabs msg -> Hero msg -> Hero msg
+navFoot : Nav msg -> Hero msg -> Hero msg
+navFoot = EdgeNav >> foot_
 
-setFoot : List (Attribute msg) -> List (Html msg) Hero msg -> Hero msg
+tabsFoot : Tabs msg -> Hero msg -> Hero msg
+tabsFoot = EdgeTabs >> foot_
 
 
+-- MODIFIERS -------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Modifiers = { bold  : Bool
+                       , size  : Size
+                       , color : Color
+                       }
+
+{-| TODO
+-}
+defaultModifiers : Modifiers
+defaultModifiers = { bold  = False
+                   , size  = Normal
+                   , color = Default
+                   }
+
+{-| TODO
+-}
+modsClasses : Modifiers -> List String
+modsClasses {bold,size,color}
+  = [ size  |> sizeClass
+    , color |> colorClass
+    , if bold then "is-bold" else ""
+    ]
+                       
 
 -- COLOR --
 
-unsetColor : Hero msg -> Hero msg
-
-type Color = Primary
+type Color = Default
+           | Primary
            | Info
            | Success
            | Warning
@@ -60,51 +138,171 @@ type Color = Primary
            | Dark
            | Light
 
-unsetColor : Hero msg -> Hero msg
+{-| TODO
+ -}
+setColor : Color -> Modifiers -> Modifiers
+setColor color_ mods = { mods | color = color_ }
 
-setPrimary : Hero msg -> Hero msg
+{-| TODO
+ -}
+default : Hero msg -> Hero msg
+default = mapMods <| setColor Default
 
-setInfo : Hero msg -> Hero msg
+{-| TODO
+-}
+dark : Hero msg -> Hero msg
+dark = mapMods <| setColor Dark
+       
+{-| TODO
+-}
+light : Hero msg -> Hero msg
+light = mapMods <| setColor Light
 
-setSuccess : Hero msg -> Hero msg
+{-| TODO
+-}
+primary : Hero msg -> Hero msg
+primary = mapMods <| setColor Primary
 
-setWarning : Hero msg -> Hero msg
+{-| TODO
+-}
+info : Hero msg -> Hero msg
+info = mapMods <| setColor Info
 
-setDanger : Hero msg -> Hero msg
+{-| TODO
+-}
+success : Hero msg -> Hero msg
+success = mapMods <| setColor Success
 
-setDark : Hero msg -> Hero msg
+{-| TODO
+-}
+warning : Hero msg -> Hero msg
+warning = mapMods <| setColor Warning
 
-setLight : Hero msg -> Hero msg
-
-
--- BOLD --
-
-unsetBold : Hero msg -> Hero msg
-
-setBold : Hero msg -> Hero msg
+{-| TODO
+-}
+danger : Hero msg -> Hero msg
+danger = mapMods <| setColor Danger
+                           
+{-| TODO
+-}
+colorClass : Color -> String
+colorClass color
+  = case color of
+      Default -> ""
+      Light   -> "is-light"
+      Dark    -> "is-dark"
+      Primary -> "is-primary"
+      Info    -> "is-info"
+      Success -> "is-success"
+      Warning -> "is-warning"
+      Danger  -> "is-danger"
 
 
 -- SIZE --
 
-type Size = Medium
+{-| TODO
+-}
+type Size = Normal
+          | Medium
           | Large
           | FullHeight
 
-unsetSize : Hero msg -> Hero msg
+{-| TODO
+-}
+setSize : Size -> Modifiers -> Modifiers
+setSize size_ mods = { mods | size = size_ }
 
-setMedium : Hero msg -> Hero msg
+{-| TODO
+-}
+normal : Hero msg -> Hero msg
+normal = mapMods <| setSize Normal
 
-setLarge : Hero msg -> Hero msg
+{-| TODO
+-}
+medium : Hero msg -> Hero msg
+medium = mapMods <| setSize Medium
 
-setFullHeight : Hero msg -> Hero msg
+{-| TODO
+-}
+large : Hero msg -> Hero msg
+large = mapMods <| setSize Large
+
+{-| TODO
+-}
+fullHeight : Hero msg -> Hero msg
+fullHeight = mapMods <| setSize FullHeight
+
+{-| TODO
+-}
+sizeClass : Size -> String
+sizeClass size
+  = case size of
+      Normal     -> ""
+      Medium     -> "is-medium"
+      Large      -> "is-large"
+      FullHeight -> "is-fullheight"
 
 
+-- BOLD --
 
--- TRANSFORMS ------------------------------------------------------------------
+weak : Hero msg -> Hero msg
+weak = mapMods <| \mods -> { mods | bold = False }
 
+bold : Hero msg -> Hero msg
+bold = mapMods <| \mods -> { mods | bold = True }
+
+
+-- HTML ------------------------------------------------------------------------
+
+{-| TODO
+-}
 toHtml : Hero msg -> Html msg
+toHtml = Entity.toHtml modsClasses (y [])
+       <| \{head,body,foot} ->
+
+         mvalues
+
+         [ head |> Maybe.map (toHtml_ "hero-head")
+
+         , Just
+           <| case body of
+
+               BodyContainer container ->
+                 
+                 container |> Container.toHtml
+
+               BodyTitle {title,subtitle} ->
+
+                 Container.toHtml
+                 <| container []
+                 <| case ( title, subtitle ) of
+                   ( title, Just subtitle ) -> ( title, subtitle ) |> Title.toHtmls
+                   ( title, Nothing       ) -> ( title           ) |> Title.toHtml |> ls
+             
+         , foot |> Maybe.map (toHtml_ "hero-foot")
+
+         ]
+
+{-| TODO
+-}
+toHtml_ : String -> Edge msg -> Html msg
+toHtml_ c edge
+  = div [ class c ]
+  <| ls
+  <| case edge of
+      EdgeContainer container -> container |> Container.toHtml
+      EdgeNav       nav       -> nav       |>       Nav.toHtml
+      EdgeTabs      tabs      -> tabs      |>      Tabs.toHtml
+
+{-| TODO
+-}
+addClass : String -> Hero msg -> Hero msg
+addClass = Entity.addClass
 
 
 -- HELPERS ---------------------------------------------------------------------
 
+{-| TODO
+-}
 setHelpers : Helpers -> Hero msg -> Hero msg
+setHelpers = Entity.setHelpers

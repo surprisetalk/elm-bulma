@@ -15,6 +15,7 @@ module Bulma.Elements.Title exposing ( Title
                                      , smooshed
                                      , spaced
                                      , toHtml
+                                     , toHtmls
                                      , addClass
                                      , setHelpers
                                      )
@@ -32,7 +33,7 @@ module Bulma.Elements.Title exposing ( Title
 
 @docs smooshed, spaced
 
-@docs toHtml, addClass, setHelpers
+@docs toHtml, toHtmls, addClass, setHelpers
 
 -}
 
