@@ -1,31 +1,60 @@
 
 module Bulma.Layout.Footer exposing ( Footer
-                                    , footer
+                                    , fromContainer
                                     , toHtml
+                                    , addClass
                                     , setHelpers
                                     )
                                     
+-- DOCS ------------------------------------------------------------------------
+
+{-| TODO 
+
+@docs Footer
+@docs fromContainer
+
+@docs toHtml, addClass, setHelpers
+
+-}
+
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
+import Helpers exposing (..)
+import Bulma.Entity as Entity exposing (..)
+import Bulma.Helpers exposing ( Helpers )
 
-import Html exposing ( Html, Attribute )
+import Bulma.Layout.Container as Container exposing ( Container )
 
+import Html exposing ( Html, Attribute, text, div, p, a, ul, li, span )
 
 -- FOOTER -----------------------------------------------------------------------
 
-type Footer msg = Footer Helpers (List (Attribute msg)) (Container msg)
+{-| TODO
+-}
+type alias Footer msg = Entity () (Container msg) msg
 
--- TODO: easyFooter
-
+{-| TODO
+-}
 fromContainer : List (Attribute msg) -> Container msg -> Footer msg
+fromContainer = entity "footer" [ "footer" ] () 
 
 
--- TRANSFORMS ------------------------------------------------------------------
+-- HTML ------------------------------------------------------------------------
 
+{-| TODO
+-}
 toHtml : Footer msg -> Html msg
+toHtml = Entity.toHtml (y []) (y []) (Container.toHtml >> ls)
+
+{-| TODO
+-}
+addClass : String -> Footer msg -> Footer msg
+addClass = Entity.addClass
 
 
 -- HELPERS ---------------------------------------------------------------------
 
+{-| TODO
+-}
 setHelpers : Helpers -> Footer msg -> Footer msg
+setHelpers = Entity.setHelpers

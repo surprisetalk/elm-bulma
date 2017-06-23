@@ -1,49 +1,100 @@
 
-module Bulma.Grid.Columns exposing ( Columns
-                                   , columns
+module Bulma.Grid.Columns exposing ( Column, column
+                                   , size, size1, size2, size3, size4, size5, size6, size7, size8, size9, size10, size11, size12, sizeAuto, sizeNarrow
+                                   , mobileSize, mobileSize1, mobileSize2, mobileSize3, mobileSize4, mobileSize5, mobileSize6, mobileSize7, mobileSize8, mobileSize9, mobileSize10, mobileSize11, mobileSize12, mobileSizeAuto, mobileSizeNarrow
+                                   , tabletSize, tabletSize1, tabletSize2, tabletSize3, tabletSize4, tabletSize5, tabletSize6, tabletSize7, tabletSize8, tabletSize9, tabletSize10, tabletSize11, tabletSize12, tabletSizeAuto, tabletSizeNarrow
+                                   , desktopSize, desktopSize1, desktopSize2, desktopSize3, desktopSize4, desktopSize5, desktopSize6, desktopSize7, desktopSize8, desktopSize9, desktopSize10, desktopSize11, desktopSize12, desktopSizeAuto, desktopSizeNarrow
+                                   , offset, offset1, offset2, offset3, offset4, offset5, offset6, offset7, offset8, offset9, offset10, offset11, offset12, offsetAuto 
+                                   , Columns, columns, toColumn
+                                   , singleline, multiline
+                                   , gapped, gapless
+                                   , mobileAndBeyond, tabletAndBeyond, desktopAndBeyond
+                                   , toHtml, addClass, setHelpers
                                    )
+
+-- DOCS ------------------------------------------------------------------------
+
+{-| TODO 
+
+@docs Columns
+@docs columns, toColumn
+
+@docs singleline , multiline
+@docs gapped , gapless
+@docs mobileAndBeyond , tabletAndBeyond , desktopAndBeyond
+
+@docs Column
+@docs column
+
+@docs size , size1 , size2 , size3 , size4 , size5 , size6 , size7 , size8 , size9 , size10 , size11 , size12 , sizeAuto , sizeNarrow
+@docs mobileSize , mobileSize1 , mobileSize2 , mobileSize3 , mobileSize4 , mobileSize5 , mobileSize6 , mobileSize7 , mobileSize8 , mobileSize9 , mobileSize10 , mobileSize11 , mobileSize12 , mobileSizeAuto , mobileSizeNarrow
+@docs tabletSize , tabletSize1 , tabletSize2 , tabletSize3 , tabletSize4 , tabletSize5 , tabletSize6 , tabletSize7 , tabletSize8 , tabletSize9 , tabletSize10 , tabletSize11 , tabletSize12 , tabletSizeAuto , tabletSizeNarrow
+@docs desktopSize , desktopSize1 , desktopSize2 , desktopSize3 , desktopSize4 , desktopSize5 , desktopSize6 , desktopSize7 , desktopSize8 , desktopSize9 , desktopSize10 , desktopSize11 , desktopSize12 , desktopSizeAuto , desktopSizeNarrow
+@docs offset , offset1 , offset2 , offset3 , offset4 , offset5 , offset6 , offset7 , offset8 , offset9 , offset10 , offset11 , offset12 , offsetAuto 
+
+@docs toHtml, addClass, setHelpers
+
+-}
 
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma.Helpers exposing ( Helpers, defaultHelpers, node )
+import Helpers exposing (..)
+import Bulma.Entity as Entity exposing (..)
+import Bulma.Helpers exposing ( Helpers, defaultHelpers )
 
 import Html exposing ( Html, Attribute )
-import Html.Attributes exposing ( classList )
 
-
--- HELPERS ---------------------------------------------------------------------
-
-(=>) : a -> b -> ( a, b )
-(=>) = (,)
+import List exposing ( map, singleton )
 
 
 -- COLUMN ----------------------------------------------------------------------
 
-type Column msg = Column { helps  : Helpers
-                         , attrs  : List (Attribute msg)
-                         , htmls  : List (Html      msg)
-                         , offset : Size
-                         , sizes  : { mobile  : Size
-                                    , tablet  : Size
-                                    , desktop : Size
+{-| TODO
+-}
+type alias Column msg = Entity ColumnModifiers (Htmls msg) msg
+
+{-| TODO
+-}
+column : Attrs msg -> Htmls msg -> Column msg
+column = entity "div" [ "column" ] defaultColumnModifiers
+
+
+-- COLUMN MODIFIERS ------------------------------------------------------------
+
+{-| TODO
+-}
+type alias ColumnModifiers = { offset : Size
+                             , sizes  : { mobile  : Size
+                                        , tablet  : Size
+                                        , desktop : Size
+                                        }
+                             }
+
+{-| TODO
+-}
+defaultColumnModifiers : ColumnModifiers
+defaultColumnModifiers = { offset = Auto
+                         , sizes  = { mobile  = Auto
+                                    , tablet  = Auto
+                                    , desktop = Auto
                                     }
                          }
 
-column : List (Attribute msg) -> List (Html msg) -> Column msg
-column attrs htmls
-  = Column { helps  = defaultHelpers
-           , attrs  = attrs
-           , htmls  = htmls
-           , offset = Auto
-           , sizes  = { mobile  = Auto
-                      , tablet  = Auto
-                      , desktop = Auto
-                      }
-           }
+{-| TODO
+-}
+columnModsClasses : ColumnModifiers -> List String
+columnModsClasses {offset,sizes}
+  = [ sizes.mobile  |> sizeClass Mobile
+    , sizes.tablet  |> sizeClass Tablet
+    , sizes.desktop |> sizeClass Desktop
+    , offset        |> offsetClass
+    ]
 
 
 -- DEVICE SIZES --
 
+{-| TODO
+-}
 type Size = Auto
           | Narrow
           | Size01
@@ -65,14 +116,20 @@ type Size = Auto
           | OneQuarter
 
 
+{-| TODO
+-}
 type Device = All
             | Mobile
             | Tablet
             | Desktop
 
+{-| TODO
+-}
 setDeviceSize : Device -> Size -> Column msg -> Column msg
-setDeviceSize device size_ (Column ({sizes} as column))
-  = { column
+setDeviceSize device size_
+  = mapMods
+  <| \({sizes} as mods) ->
+    { mods
     | sizes = case device of
                 Mobile  -> { sizes | mobile  = size_ }
                 Tablet  -> { sizes | tablet  = size_ }
@@ -82,8 +139,10 @@ setDeviceSize device size_ (Column ({sizes} as column))
                                   , desktop = size_ }
     }
 
-size : Maybe Int -> Size
-size n = case n |> Maybe.map (clamp 1 12) of
+{-| TODO
+-}
+size_ : Maybe Int -> Size
+size_ n = case n |> Maybe.map (clamp 1 12) of
            Just 01 -> Size01
            Just 02 -> Size02
            Just 03 -> Size03
@@ -98,359 +157,562 @@ size n = case n |> Maybe.map (clamp 1 12) of
            Just 12 -> Size12
            _       -> Auto
 
-setSize : Maybe Int -> Column msg -> Column msg
-setSize = size >> setDeviceSize All
+{-| TODO
+-}
+size : Maybe Int -> Column msg -> Column msg
+size = size_ >> setDeviceSize All
 
+{-| TODO
+-}
 size1      : Column msg -> Column msg
 size1      = setDeviceSize All Size01      
              
+{-| TODO
+-}
 size2      : Column msg -> Column msg
 size2      = setDeviceSize All Size02      
              
+{-| TODO
+-}
 size3      : Column msg -> Column msg
 size3      = setDeviceSize All Size03      
              
+{-| TODO
+-}
 size4      : Column msg -> Column msg
 size4      = setDeviceSize All Size04      
              
+{-| TODO
+-}
 size5      : Column msg -> Column msg
 size5      = setDeviceSize All Size05      
              
+{-| TODO
+-}
 size6      : Column msg -> Column msg
 size6      = setDeviceSize All Size06      
              
+{-| TODO
+-}
 size7      : Column msg -> Column msg
 size7      = setDeviceSize All Size07      
              
+{-| TODO
+-}
 size8      : Column msg -> Column msg
 size8      = setDeviceSize All Size08      
              
+{-| TODO
+-}
 size9      : Column msg -> Column msg
 size9      = setDeviceSize All Size09      
              
+{-| TODO
+-}
 size10     : Column msg -> Column msg
 size10     = setDeviceSize All Size10     
              
+{-| TODO
+-}
 size11     : Column msg -> Column msg
 size11     = setDeviceSize All Size11     
              
+{-| TODO
+-}
 size12     : Column msg -> Column msg
 size12     = setDeviceSize All Size12     
              
+{-| TODO
+-}
 sizeAuto   : Column msg -> Column msg
 sizeAuto   = setDeviceSize All Auto   
              
+{-| TODO
+-}
 sizeNarrow : Column msg -> Column msg
 sizeNarrow = setDeviceSize All Narrow 
              
 
+{-| TODO
+-}
 mobileSize : Maybe Int -> Column msg -> Column msg
-mobileSize = size >> setDeviceSize Mobile
+mobileSize = size_ >> setDeviceSize Mobile
 
-mobileSize01      : Column msg -> Column msg
-mobileSize01      = setDeviceSize Mobile Size01      
+{-| TODO
+-}
+mobileSize1      : Column msg -> Column msg
+mobileSize1      = setDeviceSize Mobile Size01      
                     
-mobileSize02      : Column msg -> Column msg
-mobileSize02      = setDeviceSize Mobile Size02      
+{-| TODO
+-}
+mobileSize2      : Column msg -> Column msg
+mobileSize2      = setDeviceSize Mobile Size02      
                     
-mobileSize03      : Column msg -> Column msg
-mobileSize03      = setDeviceSize Mobile Size03      
+{-| TODO
+-}
+mobileSize3      : Column msg -> Column msg
+mobileSize3      = setDeviceSize Mobile Size03      
                     
-mobileSize04      : Column msg -> Column msg
-mobileSize04      = setDeviceSize Mobile Size04      
+{-| TODO
+-}
+mobileSize4      : Column msg -> Column msg
+mobileSize4      = setDeviceSize Mobile Size04      
                     
-mobileSize05      : Column msg -> Column msg
-mobileSize05      = setDeviceSize Mobile Size05      
+{-| TODO
+-}
+mobileSize5      : Column msg -> Column msg
+mobileSize5      = setDeviceSize Mobile Size05      
                     
-mobileSize06      : Column msg -> Column msg
-mobileSize06      = setDeviceSize Mobile Size06      
+{-| TODO
+-}
+mobileSize6      : Column msg -> Column msg
+mobileSize6      = setDeviceSize Mobile Size06      
                     
-mobileSize07      : Column msg -> Column msg
-mobileSize07      = setDeviceSize Mobile Size07      
+{-| TODO
+-}
+mobileSize7      : Column msg -> Column msg
+mobileSize7      = setDeviceSize Mobile Size07      
                     
-mobileSize08      : Column msg -> Column msg
-mobileSize08      = setDeviceSize Mobile Size08      
+{-| TODO
+-}
+mobileSize8      : Column msg -> Column msg
+mobileSize8      = setDeviceSize Mobile Size08      
                     
-mobileSize09      : Column msg -> Column msg
-mobileSize09      = setDeviceSize Mobile Size09      
+{-| TODO
+-}
+mobileSize9      : Column msg -> Column msg
+mobileSize9      = setDeviceSize Mobile Size09      
                     
+{-| TODO
+-}
 mobileSize10     : Column msg -> Column msg
 mobileSize10     = setDeviceSize Mobile Size10     
                    
+{-| TODO
+-}
 mobileSize11     : Column msg -> Column msg
 mobileSize11     = setDeviceSize Mobile Size11     
                    
+{-| TODO
+-}
 mobileSize12     : Column msg -> Column msg
 mobileSize12     = setDeviceSize Mobile Size12     
                    
+{-| TODO
+-}
 mobileSizeAuto   : Column msg -> Column msg
 mobileSizeAuto   = setDeviceSize Mobile Auto   
                    
+{-| TODO
+-}
 mobileSizeNarrow : Column msg -> Column msg
 mobileSizeNarrow = setDeviceSize Mobile Narrow 
 
+{-| TODO
+-}
 tabletSize : Maybe Int -> Column msg -> Column msg
-tabletSize = size >> setDeviceSize Tablet
+tabletSize = size_ >> setDeviceSize Tablet
 
-tabletSize01      : Column msg -> Column msg
-tabletSize01      = setDeviceSize Tablet Size01      
+{-| TODO
+-}
+tabletSize1      : Column msg -> Column msg
+tabletSize1      = setDeviceSize Tablet Size01      
                     
-tabletSize02      : Column msg -> Column msg
-tabletSize02      = setDeviceSize Tablet Size02      
+{-| TODO
+-}
+tabletSize2      : Column msg -> Column msg
+tabletSize2      = setDeviceSize Tablet Size02      
                     
-tabletSize03      : Column msg -> Column msg
-tabletSize03      = setDeviceSize Tablet Size03      
+{-| TODO
+-}
+tabletSize3      : Column msg -> Column msg
+tabletSize3      = setDeviceSize Tablet Size03      
                     
-tabletSize04      : Column msg -> Column msg
-tabletSize04      = setDeviceSize Tablet Size04      
+{-| TODO
+-}
+tabletSize4      : Column msg -> Column msg
+tabletSize4      = setDeviceSize Tablet Size04      
                     
-tabletSize05      : Column msg -> Column msg
-tabletSize05      = setDeviceSize Tablet Size05      
+{-| TODO
+-}
+tabletSize5      : Column msg -> Column msg
+tabletSize5      = setDeviceSize Tablet Size05      
                     
-tabletSize06      : Column msg -> Column msg
-tabletSize06      = setDeviceSize Tablet Size06      
+{-| TODO
+-}
+tabletSize6      : Column msg -> Column msg
+tabletSize6      = setDeviceSize Tablet Size06      
                     
-tabletSize07      : Column msg -> Column msg
-tabletSize07      = setDeviceSize Tablet Size07      
+{-| TODO
+-}
+tabletSize7      : Column msg -> Column msg
+tabletSize7      = setDeviceSize Tablet Size07      
                     
-tabletSize08      : Column msg -> Column msg
-tabletSize08      = setDeviceSize Tablet Size08      
+{-| TODO
+-}
+tabletSize8      : Column msg -> Column msg
+tabletSize8      = setDeviceSize Tablet Size08      
                     
-tabletSize09      : Column msg -> Column msg
-tabletSize09      = setDeviceSize Tablet Size09      
+{-| TODO
+-}
+tabletSize9      : Column msg -> Column msg
+tabletSize9      = setDeviceSize Tablet Size09      
                     
+{-| TODO
+-}
 tabletSize10     : Column msg -> Column msg
 tabletSize10     = setDeviceSize Tablet Size10     
                    
+{-| TODO
+-}
 tabletSize11     : Column msg -> Column msg
 tabletSize11     = setDeviceSize Tablet Size11     
                    
+{-| TODO
+-}
 tabletSize12     : Column msg -> Column msg
 tabletSize12     = setDeviceSize Tablet Size12     
                    
+{-| TODO
+-}
 tabletSizeAuto   : Column msg -> Column msg
 tabletSizeAuto   = setDeviceSize Tablet Auto   
                    
+{-| TODO
+-}
 tabletSizeNarrow : Column msg -> Column msg
 tabletSizeNarrow = setDeviceSize Tablet Narrow 
 
+{-| TODO
+-}
 desktopSize : Maybe Int -> Column msg -> Column msg
-desktopSize = size >> setDeviceSize Desktop
+desktopSize = size_ >> setDeviceSize Desktop
 
-desktopSize01      : Column msg -> Column msg
-desktopSize01      = setDeviceSize Desktop Size01      
+{-| TODO
+-}
+desktopSize1      : Column msg -> Column msg
+desktopSize1      = setDeviceSize Desktop Size01      
                      
-desktopSize02      : Column msg -> Column msg
-desktopSize02      = setDeviceSize Desktop Size02      
+{-| TODO
+-}
+desktopSize2      : Column msg -> Column msg
+desktopSize2      = setDeviceSize Desktop Size02      
                      
-desktopSize03      : Column msg -> Column msg
-desktopSize03      = setDeviceSize Desktop Size03      
+{-| TODO
+-}
+desktopSize3      : Column msg -> Column msg
+desktopSize3      = setDeviceSize Desktop Size03      
                      
-desktopSize04      : Column msg -> Column msg
-desktopSize04      = setDeviceSize Desktop Size04      
+{-| TODO
+-}
+desktopSize4      : Column msg -> Column msg
+desktopSize4      = setDeviceSize Desktop Size04      
                      
-desktopSize05      : Column msg -> Column msg
-desktopSize05      = setDeviceSize Desktop Size05      
+{-| TODO
+-}
+desktopSize5      : Column msg -> Column msg
+desktopSize5      = setDeviceSize Desktop Size05      
                      
-desktopSize06      : Column msg -> Column msg
-desktopSize06      = setDeviceSize Desktop Size06      
+{-| TODO
+-}
+desktopSize6      : Column msg -> Column msg
+desktopSize6      = setDeviceSize Desktop Size06      
                      
-desktopSize07      : Column msg -> Column msg
-desktopSize07      = setDeviceSize Desktop Size07      
+{-| TODO
+-}
+desktopSize7      : Column msg -> Column msg
+desktopSize7      = setDeviceSize Desktop Size07      
                      
-desktopSize08      : Column msg -> Column msg
-desktopSize08      = setDeviceSize Desktop Size08      
+{-| TODO
+-}
+desktopSize8      : Column msg -> Column msg
+desktopSize8      = setDeviceSize Desktop Size08      
                      
-desktopSize09      : Column msg -> Column msg
-desktopSize09      = setDeviceSize Desktop Size09      
+{-| TODO
+-}
+desktopSize9      : Column msg -> Column msg
+desktopSize9      = setDeviceSize Desktop Size09      
                      
+{-| TODO
+-}
 desktopSize10     : Column msg -> Column msg
 desktopSize10     = setDeviceSize Desktop Size10     
                     
+{-| TODO
+-}
 desktopSize11     : Column msg -> Column msg
 desktopSize11     = setDeviceSize Desktop Size11     
                     
+{-| TODO
+-}
 desktopSize12     : Column msg -> Column msg
 desktopSize12     = setDeviceSize Desktop Size12     
+
+{-| TODO
+-}
+desktopSizeAuto : Column msg -> Column msg
+desktopSizeAuto = setDeviceSize Desktop Auto 
                     
+{-| TODO
+-}
 desktopSizeNarrow : Column msg -> Column msg
 desktopSizeNarrow = setDeviceSize Desktop Narrow 
 
-sizeToString : Size -> Maybe String
-sizeToString size
-  = case size of
-      Auto          -> Nothing
-      Size01        -> Just  "1"
-      Size02        -> Just  "2"
-      Size03        -> Just  "3"
-      Size04        -> Just  "4"
-      Size05        -> Just  "5"
-      Size06        -> Just  "6"
-      Size07        -> Just  "7"
-      Size08        -> Just  "8"
-      Size09        -> Just  "9"
-      Size10        -> Just "10"
-      Size11        -> Just "11"
-      Size12        -> Just "12"
-      ThreeQuarters -> Just "three-quarters"
-      TwoThirds     -> Just "two-thirds"
-      Half          -> Just "half"
-      OneThird      -> Just "one-third"
-      OneQuarter    -> Just "one-quarter"
+{-| TODO
+-}
+sizeClass : Device -> Size -> String
+sizeClass device size
+  = let device_ : String
+        device_ = case device of
+                    All     -> ""
+                    Mobile  -> "-mobile"
+                    Tablet  -> "-tablet"
+                    Desktop -> "-desktop"
+                    
+    in case size of
+         Auto          -> ""
+         Narrow        -> "is-narrow"         ++ device_
+         Size01        -> "is-1"              ++ device_
+         Size02        -> "is-2"              ++ device_
+         Size03        -> "is-3"              ++ device_
+         Size04        -> "is-4"              ++ device_
+         Size05        -> "is-5"              ++ device_
+         Size06        -> "is-6"              ++ device_
+         Size07        -> "is-7"              ++ device_
+         Size08        -> "is-8"              ++ device_
+         Size09        -> "is-9"              ++ device_
+         Size10        -> "is-10"             ++ device_
+         Size11        -> "is-11"             ++ device_
+         Size12        -> "is-12"             ++ device_
+         ThreeQuarters -> "is-three-quarters" ++ device_
+         TwoThirds     -> "is-two-thirds"     ++ device_
+         Half          -> "is-half"           ++ device_
+         OneThird      -> "is-one-third"      ++ device_
+         OneQuarter    -> "is-one-quarter"    ++ device_
 
 
 -- OFFSETS --
 
+{-| TODO
+-}
 setOffset : Size -> Column msg -> Column msg
-setOffset size_ (Column column)
-  = Column { column | offset = size_ }
+setOffset size_ = mapMods <| \mods -> { mods | offset = size_ }
 
+{-| TODO
+-}
 offset : Maybe Int -> Column msg -> Column msg
-offset = size >> setOffset
+offset = size_ >> setOffset
 
+{-| TODO
+-}
 offset1    : Column msg -> Column msg
 offset1    = setOffset Size01    
              
+{-| TODO
+-}
 offset2    : Column msg -> Column msg
 offset2    = setOffset Size02    
              
+{-| TODO
+-}
 offset3    : Column msg -> Column msg
 offset3    = setOffset Size03    
              
+{-| TODO
+-}
 offset4    : Column msg -> Column msg
 offset4    = setOffset Size04    
              
+{-| TODO
+-}
 offset5    : Column msg -> Column msg
 offset5    = setOffset Size05    
              
+{-| TODO
+-}
 offset6    : Column msg -> Column msg
 offset6    = setOffset Size06    
              
+{-| TODO
+-}
 offset7    : Column msg -> Column msg
 offset7    = setOffset Size07    
              
+{-| TODO
+-}
 offset8    : Column msg -> Column msg
 offset8    = setOffset Size08    
              
+{-| TODO
+-}
 offset9    : Column msg -> Column msg
 offset9    = setOffset Size09    
              
+{-| TODO
+-}
 offset10   : Column msg -> Column msg
 offset10   = setOffset Size10   
              
+{-| TODO
+-}
 offset11   : Column msg -> Column msg
 offset11   = setOffset Size11   
              
+{-| TODO
+-}
 offset12   : Column msg -> Column msg
 offset12   = setOffset Size12   
              
+{-| TODO
+-}
 offsetAuto : Column msg -> Column msg
 offsetAuto = setOffset Auto 
 
+{-| TODO
+-}
+offsetClass : Size -> String
+offsetClass size
+  = case size of
+      Auto          -> ""
+      Narrow        -> ""
+      Size01        -> "is-1"
+      Size02        -> "is-2"
+      Size03        -> "is-3"
+      Size04        -> "is-4"
+      Size05        -> "is-5"
+      Size06        -> "is-6"
+      Size07        -> "is-7"
+      Size08        -> "is-8"
+      Size09        -> "is-9"
+      Size10        -> "is-10"
+      Size11        -> "is-11"
+      Size12        -> "is-12"
+      ThreeQuarters -> "is-three-quarters"
+      TwoThirds     -> "is-two-thirds"
+      Half          -> "is-half"
+      OneThird      -> "is-one-third"
+      OneQuarter    -> "is-one-quarter"
 
 -- COLUMNS ---------------------------------------------------------------------
 
-type Columns msg = Columns { helps     : Helpers
-                           , attrs     : List (Attribute msg)
-                           , cols      : List (Column    msg)
-                           , multiline : Bool
-                           , gapless   : Bool
-                           , display   : Display
-                           }
+{-| TODO
+-}
+type alias Columns msg = Entity ColumnsModifiers (List (Column msg)) msg
 
-columns : List (Attribute msg) -> List (Column msg) -> Columns msg
-columns attrs cols
-  = Columns { helps     = defaultHelpers
-            , attrs     = attrs
-            , cols      = cols
-            , multiline = False
-            , gapless   = False
-            , display   = TabletAndBeyond
-            }
+{-| TODO
+-}
+columns : Attrs msg -> List (Column msg) -> Columns msg
+columns = entity "div" [ "columns" ] defaultColumnsModifiers
 
-toColumn : List (Attribute msg) -> Columns msg -> Column msg
+{-| TODO
+-}
+toColumn : Attrs msg -> Columns msg -> Column msg
 toColumn attrs = column attrs << singleton << toHtml
+
+
+-- COLUMNS MODIFIERS------------------------------------------------------------
+
+{-| TODO
+-}
+type alias ColumnsModifiers = { multiline : Bool
+                              , gapless   : Bool
+                              , display   : Display
+                              }
+
+{-| TODO
+-}
+defaultColumnsModifiers : ColumnsModifiers
+defaultColumnsModifiers = { multiline = False
+                          , gapless   = False
+                          , display   = TabletAndBeyond
+                          }
+
+{-| TODO
+-}
+columnsModsClasses : ColumnsModifiers -> List String
+columnsModsClasses {multiline,gapless,display}
+  = [ if multiline then "is-multiline" else ""
+    , if gapless   then "is-gapless"   else ""
+    , case display of
+        MobileAndBeyond  -> "is-mobile"
+        TabletAndBeyond  -> ""
+        DesktopAndBeyond -> "is-tablet"
+    ]
 
 
 -- MULTILINE --
 
+{-| TODO
+-}
 singleline : Columns msg -> Columns msg
-singleline (Columns columns)
-  = Columns { columns | multiline = False }
+singleline = mapMods <| \mods -> { mods | multiline = False }
 
+{-| TODO
+-}
 multiline : Columns msg -> Columns msg
-multiline (Columns columns)
-  = Columns { columns | multiline = True }
+multiline = mapMods <| \mods -> { mods | multiline = True }
 
 
 -- GAPS --
 
+{-| TODO
+-}
 gapped : Columns msg -> Columns msg
-gapped (Columns columns)
-  = Columns { columns | gapless = False }
+gapped = mapMods <| \mods -> { mods | gapless = False }
 
+{-| TODO
+-}
 gapless : Columns msg -> Columns msg
-gapless (Columns columns)
-  = Columns { columns | gapless = True }
+gapless = mapMods <| \mods -> { mods | gapless = True }
 
 
 -- DISPLAY --
 
+{-| TODO
+-}
 type Display = MobileAndBeyond
              | TabletAndBeyond
              | DesktopAndBeyond
 
+{-| TODO
+-}
 mobileAndBeyond : Columns msg -> Columns msg
-mobileAndBeyond (Columns columns)
-  = Columns { columns | display = MobileAndBeyond }
+mobileAndBeyond = mapMods <| \mods -> { mods | display = MobileAndBeyond }
 
+{-| TODO
+-}
 tabletAndBeyond : Columns msg -> Columns msg
-tabletAndBeyond (Columns columns)
-  = Columns { columns | display = TabletAndBeyond }
+tabletAndBeyond = mapMods <| \mods -> { mods | display = TabletAndBeyond }
                   
+{-| TODO
+-}
 desktopAndBeyond : Columns msg -> Columns msg
-desktopAndBeyond (Columns columns)
-  = Columns { columns | display = DesktopAndBeyond }
+desktopAndBeyond = mapMods <| \mods -> { mods | display = DesktopAndBeyond }
 
 
 -- HTML ------------------------------------------------------------------------
 
+{-| TODO
+-}
 toHtml : Columns msg -> Html msg
-toHtml (Columns {helps,attrs,cols,multiline,gapped,display})
-  = let toHtml_ : Column msg -> Html msg
-        toHtml_ (Column {helps,attrs,htmls,sizes,offset})
-          = let classes : List String
-                classes = flip (::) "column"
-                        <| Maybe_.values
-                        <| [ sizes.mobile  |> sizeToString |> Maybe.map (\s -> "is-" ++ s ++ "-mobile" )
-                          , sizes.tablet  |> sizeToString |> Maybe.map (\s -> "is-" ++ s ++ "-tablet" )
-                          , sizes.desktop |> sizeToString |> Maybe.map (\s -> "is-" ++ s ++ "-desktop")
-                          , offset        |> sizeToString |> Maybe.map ((++) "is-offset-")
-                          ]
-        
-            in node helps "div" classes attrs htmls
+toHtml = Entity.toHtml columnsModsClasses (y [])
+       <| map
+       <| toHtml_
 
-        classes : List String
-        classes = [ "columns"
-                  , if       multiline
-                    then "is-multiline"
-                    else ""
-                  , if       gapped
-                    then "is-gapped"
-                    else ""
-                  , case display of
-                      MobileAndBeyond  -> "is-mobile"
-                      TabletAndBeyond  -> ""
-                      DesktopAndBeyond -> "is-tablet"
-                  ]
-        
-    in node helps "div" classes attrs
-     <| map toHtml_
-     <| cols
-                
+{-| TODO
+-}
+toHtml_ : Column msg -> Html msg
+toHtml_ = Entity.toHtml columnModsClasses (y []) identity
+
+{-| TODO
+-}
+addClass : String -> Columns msg -> Columns msg
+addClass = Entity.addClass
+
 
 -- HELPERS ---------------------------------------------------------------------
 
+{-| TODO
+-}
 setHelpers : Helpers -> Columns msg -> Columns msg
-setHelpers helps_ (Columns columns) = { columns | helps = helps_ }
-
+setHelpers = Entity.setHelpers

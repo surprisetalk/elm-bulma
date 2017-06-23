@@ -200,8 +200,6 @@ sizeClass size
 
 -- HTML ------------------------------------------------------------------------
 
--- TODO: we need disabled buttons if they have no msg
-  
 a_ : String -> ( Maybe msg, Htmls msg ) -> Html msg
 a_ c (msg,body)
   = case msg of
@@ -265,21 +263,6 @@ toHtml_ windowSize (before,current,after)
        , skipAfter
        , last
        ]
-
- --  = map (li [])
- --  <| ( if   length before <= 1 + window // 2
- --      then (before                                      |> map (a_ "pagination-link"           ))
- --      else (before |> take 1                             |>     (a_ "pagination-link" [ text 1 ]))
- --        ++ (span [ class "pagination-ellipsis" ] [ text "&hellip;" ])
- --        ++ (before |> drop (length before - window // 2) |>     (a_ "pagination-link" [ text 1 ])))
- -- ++ [
- --    ]
- -- ++ ( if   length after <= 1 + window // 2
- --      then (before                                     |> map (a_ "pagination-link"           ))
- --      else (after |> take (window // 2)                 |>     (a_ "pagination-link" [ text 1 ]))
- --        ++ (span [ class "pagination-ellipsis" ] [ text "&hellip;" ])
- --        ++ (after |> drop (length before - window // 2) |>     (a_ "pagination-link" [ text 1 ])))
-                                                         
 
 {-| TODO
 -}
