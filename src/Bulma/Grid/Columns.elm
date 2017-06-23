@@ -19,18 +19,18 @@ module Bulma.Grid.Columns exposing ( Column, column
 @docs Columns
 @docs columns, toColumn
 
-@docs singleline , multiline
-@docs gapped , gapless
-@docs mobileAndBeyond , tabletAndBeyond , desktopAndBeyond
+@docs singleline, multiline
+@docs gapped, gapless
+@docs mobileAndBeyond, tabletAndBeyond, desktopAndBeyond
 
 @docs Column
 @docs column
 
-@docs size , size1 , size2 , size3 , size4 , size5 , size6 , size7 , size8 , size9 , size10 , size11 , size12 , sizeAuto , sizeNarrow
-@docs mobileSize , mobileSize1 , mobileSize2 , mobileSize3 , mobileSize4 , mobileSize5 , mobileSize6 , mobileSize7 , mobileSize8 , mobileSize9 , mobileSize10 , mobileSize11 , mobileSize12 , mobileSizeAuto , mobileSizeNarrow
-@docs tabletSize , tabletSize1 , tabletSize2 , tabletSize3 , tabletSize4 , tabletSize5 , tabletSize6 , tabletSize7 , tabletSize8 , tabletSize9 , tabletSize10 , tabletSize11 , tabletSize12 , tabletSizeAuto , tabletSizeNarrow
-@docs desktopSize , desktopSize1 , desktopSize2 , desktopSize3 , desktopSize4 , desktopSize5 , desktopSize6 , desktopSize7 , desktopSize8 , desktopSize9 , desktopSize10 , desktopSize11 , desktopSize12 , desktopSizeAuto , desktopSizeNarrow
-@docs offset , offset1 , offset2 , offset3 , offset4 , offset5 , offset6 , offset7 , offset8 , offset9 , offset10 , offset11 , offset12 , offsetAuto 
+@docs size, size1, size2, size3, size4, size5, size6, size7, size8, size9, size10, size11, size12, sizeAuto, sizeNarrow
+@docs mobileSize, mobileSize1, mobileSize2, mobileSize3, mobileSize4, mobileSize5, mobileSize6, mobileSize7, mobileSize8, mobileSize9, mobileSize10, mobileSize11, mobileSize12, mobileSizeAuto, mobileSizeNarrow
+@docs tabletSize, tabletSize1, tabletSize2, tabletSize3, tabletSize4, tabletSize5, tabletSize6, tabletSize7, tabletSize8, tabletSize9, tabletSize10, tabletSize11, tabletSize12, tabletSizeAuto, tabletSizeNarrow
+@docs desktopSize, desktopSize1, desktopSize2, desktopSize3, desktopSize4, desktopSize5, desktopSize6, desktopSize7, desktopSize8, desktopSize9, desktopSize10, desktopSize11, desktopSize12, desktopSizeAuto, desktopSizeNarrow
+@docs offset, offset1, offset2, offset3, offset4, offset5, offset6, offset7, offset8, offset9, offset10, offset11, offset12, offsetAuto 
 
 @docs toHtml, addClass, setHelpers
 

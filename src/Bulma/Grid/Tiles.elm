@@ -3,210 +3,213 @@ module Bulma.Grid.Tiles exposing ( Width
                                  , size
                                  )
 
+-- DOCS ------------------------------------------------------------------------
+
+{-| TODO 
+
+@docs Tile
+@docs boxTile, cardTile, notificationTile
+
+@docs Tiles
+@docs tiles 
+@docs verticalTiles
+@docs nestTiles
+
+@docs tiles1, tiles2, tiles3, tiles4, tiles5, tiles6, tiles7, tiles8, tiles9, tiles10, tiles11, tiles12
+@docs verticalTiles1, verticalTiles2, verticalTiles3, verticalTiles4, verticalTiles5, verticalTiles6, verticalTiles7, verticalTiles8, verticalTiles9, verticalTiles10, verticalTiles11, verticalTiles12
+
+@docs toHtml, addClass, setHelpers
+
+-}
+
 -- IMPORTS ---------------------------------------------------------------------
 
-import Bulma.Helpers exposing ( Devices )
+import Helpers exposing (..)
+import Bulma.Entity as Entity exposing (..)
+import Bulma.Helpers exposing ( Helpers, defaultHelpers )
+
+import Bulma.Elements.Box as Box exposing ( Box )
+import Bulma.Components.Card as Card exposing ( Card )
+import Bulma.Elements.Notification as Notification exposing ( Notification )
 
 import Html exposing ( Html, Attribute )
-import Html.Attributes exposing ( classList )
 
-
--- HELPERS ---------------------------------------------------------------------
-
-(=>) : a -> b -> ( a, b )
-(=>) = (,)
+import List exposing ( map, singleton )
 
 
 -- TILE ------------------------------------------------------------------------
 
-type Tile msg = Tile { helps : Helpers
-                     , attrs : List (Attribute msg)
-                     , htmls : List (Html msg)
-                     }
-
-tile : List (Attribute msg) -> List (Html msg) -> Tile msg
-
--- tileWithHelpers : Helpers -> List (Attribute msg) -> List (Html msg) -> Tile msg
+type Tile msg = TileBox   (Box          msg)
+              | TileNotif (Notification msg)
+              | TileCard  (Card         msg)
 
 boxTile : Box msg -> Tile msg
--- TODO: move to box?
+boxTile = Box.addClass "tile" >> TileBox
 
 notificationTile : Notification msg -> Tile msg
--- TODO: move to notification?
+notificationTile = Notification.addClass "tile" >> TileNotif
 
 cardTile : Card msg -> Tile msg
--- TODO: move to card?
+cardTile = Card.addClass "tile" >> TileCard
 
 -- TODO: more tile types
 
 
 -- TILES -----------------------------------------------------------------------
 
-type Content msg = Ancestor                 (List (Tiles msg))
-                 | Parent Width Orientation (List (Tile  msg))
+type Body msg = Ancestor                 (List (Tiles msg))
+              | Parent Width Orientation (List (Tile  msg))
 
-type Tiles msg = Tiles { helps   : Helpers
-                       , attrs   : List (Attribute msg)
-                       , content : Content
-                       }
+type Tiles msg = Entity Modifiers (Body msg) msg
+
+tiles_ : Attrs msg -> Body msg -> Tiles msg
+tiles_ = entity "div" [ "tile" ] ()
   
-easyTiles : List (Maybe (List (Maybe (Tile msg)))) -> Tiles msg
+parentTiles_ : Width -> Orientation -> Attrs msg -> List (Tile msg) -> Tiles msg
+parentTiles_ width orientation attrs
+  = Parent width orientation
+  >> tiles_ attrs
+  >> addClass "is-parent"
 
--- easyTiles : List (Bool, Maybe Int, List (Tile msg)) -> Tiles msg
-            
-tiles   : List (Attribute msg) -> List (Tile msg) -> Tiles msg
+tiles : Attrs msg -> List (Tile msg) -> Tiles msg
+tiles = parentTiles_ Auto Horizontal
 
-tiles1  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
+-- easyTiles : List (Maybe (List (Maybe (Tile msg)))) -> Tiles msg
 
-tiles2  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-tiles3  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-tiles4  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-tiles5  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-tiles6  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-tiles7  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-tiles8  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-tiles9  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-tiles10 : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-tiles11 : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-tiles12 : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-verticalTiles   : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-verticalTiles1  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-verticalTiles2  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-verticalTiles3  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-verticalTiles4  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-verticalTiles5  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-verticalTiles6  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-verticalTiles7  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-verticalTiles8  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-verticalTiles9  : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-verticalTiles10 : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-verticalTiles11 : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-verticalTiles12 : List (Attribute msg) -> List (Tile msg) -> Tiles msg
-
-nestTiles : List (Tiles msg) -> Tiles msg
+nestTiles : Attrs msg -> List (Tiles msg) -> Tiles msg
+nestTiles = tiles_ |-~-> Ancestor
 
 
--- -- ORIENTATION --
+tiles1  : Attrs msg -> List (Tile msg) -> Tiles msg
+tiles1  = parentTiles_ Size01 Horizontal
 
--- horizontal : Tiles msg -> Tiles msg
--- horizontal (Tiles tiles)
---   = { tiles | vertical = True }
+tiles2  : Attrs msg -> List (Tile msg) -> Tiles msg
+tiles2  = parentTiles_ Size02 Horizontal
 
--- vertical : Tiles msg -> Tiles msg
--- vertical (Tiles tiles)
---   = { tiles | vertical = False }
+tiles3  : Attrs msg -> List (Tile msg) -> Tiles msg
+tiles3  = parentTiles_ Size03 Horizontal
 
+tiles4  : Attrs msg -> List (Tile msg) -> Tiles msg
+tiles4  = parentTiles_ Size04 Horizontal
 
--- -- WIDTH --
+tiles5  : Attrs msg -> List (Tile msg) -> Tiles msg
+tiles5  = parentTiles_ Size05 Horizontal
 
--- type Width = Auto
---            | Width01
---            | Width02
---            | Width03
---            | Width04
---            | Width05
---            | Width06
---            | Width07
---            | Width08
---            | Width09
---            | Width10
---            | Width11
---            | Width12
+tiles6  : Attrs msg -> List (Tile msg) -> Tiles msg
+tiles6  = parentTiles_ Size06 Horizontal
 
--- setWidth : Int -> Tiles msg -> Tiles msg
--- setWidth n (Tiles tiles)
---   = let width_ : Width
---         width_ = case clamp 0 12 n of
---                    00 -> Auto
---                    01 -> Width01
---                    02 -> Width02
---                    03 -> Width03
---                    04 -> Width04
---                    05 -> Width05
---                    06 -> Width06
---                    07 -> Width07
---                    08 -> Width08
---                    09 -> Width09
---                    10 -> Width10
---                    11 -> Width11
---                    12 -> Width12
+tiles7  : Attrs msg -> List (Tile msg) -> Tiles msg
+tiles7  = parentTiles_ Size07 Horizontal
 
---     in Tiles { tiles | width = width_ }
+tiles8  : Attrs msg -> List (Tile msg) -> Tiles msg
+tiles8  = parentTiles_ Size08 Horizontal
 
--- widthAuto : Tiles msg -> Tiles msg
--- widthAuto = setWidth 0
+tiles9  : Attrs msg -> List (Tile msg) -> Tiles msg
+tiles9  = parentTiles_ Size09 Horizontal
 
--- width1  : Tiles msg -> Tiles msg
--- width1  = setWidth 1
+tiles10 : Attrs msg -> List (Tile msg) -> Tiles msg
+tiles10  = parentTiles_ Size010 Horizontal
 
--- width2  : Tiles msg -> Tiles msg
--- width2  = setWidth 2
+tiles11 : Attrs msg -> List (Tile msg) -> Tiles msg
+tiles11  = parentTiles_ Size011 Horizontal
 
--- width3  : Tiles msg -> Tiles msg
--- width3  = setWidth 3
-
--- width4  : Tiles msg -> Tiles msg
--- width4  = setWidth 4
-
--- width5  : Tiles msg -> Tiles msg
--- width5  = setWidth 5
-
--- width6  : Tiles msg -> Tiles msg
--- width6  = setWidth 6
-
--- width7  : Tiles msg -> Tiles msg
--- width7  = setWidth 7
-
--- width8  : Tiles msg -> Tiles msg
--- width8  = setWidth 8
-
--- width9  : Tiles msg -> Tiles msg
--- width9  = setWidth 9
-
--- width10 : Tiles msg -> Tiles msg
--- width10 = setWidth 10
-
--- width11 : Tiles msg -> Tiles msg
--- width11 = setWidth 11
-
--- width12 : Tiles msg -> Tiles msg
--- width12 = setWidth 12
+tiles12 : Attrs msg -> List (Tile msg) -> Tiles msg
+tiles12  = parentTiles_ Size012 Horizontal
 
 
+verticalTiles   : Attrs msg -> List (Tile msg) -> Tiles msg
+verticalTiles   = parentTiles_ Auto Vertical
 
--- TRANSFORMS ------------------------------------------------------------------
+verticalTiles1  : Attrs msg -> List (Tile msg) -> Tiles msg
+verticalTiles1  = parentTiles_ Size01 Vertical
 
+verticalTiles2  : Attrs msg -> List (Tile msg) -> Tiles msg
+verticalTiles2  = parentTiles_ Size02 Vertical
+
+verticalTiles3  : Attrs msg -> List (Tile msg) -> Tiles msg
+verticalTiles3  = parentTiles_ Size03 Vertical
+
+verticalTiles4  : Attrs msg -> List (Tile msg) -> Tiles msg
+verticalTiles4  = parentTiles_ Size04 Vertical
+
+verticalTiles5  : Attrs msg -> List (Tile msg) -> Tiles msg
+verticalTiles5  = parentTiles_ Size05 Vertical
+
+verticalTiles6  : Attrs msg -> List (Tile msg) -> Tiles msg
+verticalTiles6  = parentTiles_ Size06 Vertical
+
+verticalTiles7  : Attrs msg -> List (Tile msg) -> Tiles msg
+verticalTiles7  = parentTiles_ Size07 Vertical
+
+verticalTiles8  : Attrs msg -> List (Tile msg) -> Tiles msg
+verticalTiles8  = parentTiles_ Size08 Vertical
+
+verticalTiles9  : Attrs msg -> List (Tile msg) -> Tiles msg
+verticalTiles9  = parentTiles_ Size09 Vertical
+
+verticalTiles10 : Attrs msg -> List (Tile msg) -> Tiles msg
+verticalTiles10 = parentTiles_ Size10 Vertical
+
+verticalTiles11 : Attrs msg -> List (Tile msg) -> Tiles msg
+verticalTiles11 = parentTiles_ Size11 Vertical
+
+verticalTiles12 : Attrs msg -> List (Tile msg) -> Tiles msg
+verticalTiles12 = parentTiles_ Size12 Vertical
+
+
+-- MODIFIERS -------------------------------------------------------------------
+
+
+-- ORIENTATION --
+
+{-| TODO
+-}
+type Orientation = Horizontal
+                 | Vertical
+
+
+-- SIZE --
+
+{-| TODO
+-}
+type Size = Auto
+          | Size01
+          | Size02
+          | Size03
+          | Size04
+          | Size05
+          | Size06
+          | Size07
+          | Size08
+          | Size09
+          | Size10
+          | Size11
+          | Size12
+
+
+-- HTML ------------------------------------------------------------------------
+
+{-| TODO
+-}
 toHtml : Tiles msg -> Html msg
-toHtml (Tiles {helps,attrs,content})
-  = let parents : List (Html msg)
-        parents = 
+toHtml = Entity.toHtml modsClasses (y [])
+       <| map
+       <| toHtml_
 
-    in node helps "div" [ "tile is-ancestor" ] attrs parents
+{-| TODO
+-}
+toHtml_ : Tile msg -> Html msg
+toHtml_ = Nothing
+
+{-| TODO
+-}
+addClass : String -> Tiles msg -> Tiles msg
+addClass = Entity.addClass
+
 
 -- HELPERS ---------------------------------------------------------------------
 
+{-| TODO
+-}
 setHelpers : Helpers -> Tiles msg -> Tiles msg
-setHelpers helps_ (Tiles tiles) = { tiles | helps = helps_ }
+setHelpers = Entity.setHelpers
