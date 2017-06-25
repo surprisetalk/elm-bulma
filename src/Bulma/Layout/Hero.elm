@@ -2,6 +2,7 @@
 module Bulma.Layout.Hero exposing ( Hero, hero, titleHero
                                   , head, navHead, tabsHead
                                   , foot, navFoot, tabsFoot
+                                  , bold, weak
                                   , normal, medium, large, fullHeight
                                   , default, light, dark, primary, info, success, warning, danger
                                   , toHtml, addClass, setHelpers
@@ -16,6 +17,7 @@ module Bulma.Layout.Hero exposing ( Hero, hero, titleHero
 @docs head, navHead, tabsHead
 @docs foot, navFoot, tabsFoot
 
+@docs bold, weak
 @docs normal, medium, large, fullHeight
 @docs default, light, dark, primary, info, success, warning, danger
 
