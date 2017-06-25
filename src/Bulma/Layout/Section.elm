@@ -1,6 +1,6 @@
 
 module Bulma.Layout.Section exposing ( Section
-                                     , fromContainer
+                                     , section
                                      , normal
                                      , medium
                                      , large
@@ -14,7 +14,7 @@ module Bulma.Layout.Section exposing ( Section
 {-| TODO 
 
 @docs Section
-@docs fromContainer
+@docs section
 
 @docs normal, medium, large
 
@@ -41,8 +41,8 @@ type alias Section msg = Entity Size (Container msg) msg
 
 {-| TODO
 -}
-fromContainer : List (Attribute msg) -> Container msg -> Section msg
-fromContainer = entity "section" [ "section" ] Normal 
+section : List (Attribute msg) -> Container msg -> Section msg
+section = entity "section" [ "section" ] Normal 
 
 
 -- SIZE --
