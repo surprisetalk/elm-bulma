@@ -1,6 +1,6 @@
 {
     "version": "1.0.0",
-    "summary": "Bulma for Elm",
+    "summary": "Bulma HTML/CSS Framework for Elm",
     "repository": "https://github.com/surprisetalk/elm-bulma.git",
     "license": "BSD3",
     "source-directories": [
