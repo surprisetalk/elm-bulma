@@ -309,6 +309,8 @@ toHtml = Entity.toHtml modsClasses (y [])
          [ head |> Maybe.map (toHtml_ "hero-head")
 
          , Just
+           <| div [ class "hero-body" ]
+           <| ls
            <| case body of
 
                BodyContainer container ->
