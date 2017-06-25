@@ -1,6 +1,6 @@
 
 module Bulma.Layout.Footer exposing ( Footer
-                                    , fromContainer
+                                    , footer
                                     , toHtml
                                     , addClass
                                     , setHelpers
@@ -11,7 +11,7 @@ module Bulma.Layout.Footer exposing ( Footer
 {-| TODO 
 
 @docs Footer
-@docs fromContainer
+@docs footer
 
 @docs toHtml, addClass, setHelpers
 
@@ -35,8 +35,8 @@ type alias Footer msg = Entity () (Container msg) msg
 
 {-| TODO
 -}
-fromContainer : List (Attribute msg) -> Container msg -> Footer msg
-fromContainer = entity "footer" [ "footer" ] () 
+footer : List (Attribute msg) -> Container msg -> Footer msg
+footer = entity "footer" [ "footer" ] () 
 
 
 -- HTML ------------------------------------------------------------------------
