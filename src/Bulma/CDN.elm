@@ -24,7 +24,7 @@ stylesheet : Html msg
 stylesheet =
   node "link"
   [ rel  "stylesheet"
-  , href "https://cdnjs.com/libraries/bulma"
+  , href "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css"
   ]
   []
 
