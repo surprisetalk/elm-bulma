@@ -26,7 +26,8 @@ Coming soon!
 @docs content
 
 # Delete
-Coming soon!
+@docs Delete
+@docs delete, easyDelete
 
 # Form
 Coming soon!
@@ -210,6 +211,23 @@ content size
         Medium -> bulma.content.size.isMedium
         Large  -> bulma.content.size.isLarge
     ]
+
+
+-- DELETE ----------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Delete msg = Html msg
+
+{-| TODO
+-}
+delete : Attrs msg -> Htmls msg -> Delete msg
+delete = node "a" [] [ bulma.delete.ui ]
+
+{-| TODO
+-}
+easyDelete : Attrs msg -> msg -> Delete msg
+easyDelete attrs msg = delete (onClick msg :: attrs) []
 
 
 -- IMAGE -----------------------------------------------------------------------

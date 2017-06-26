@@ -77,7 +77,13 @@ Coming soon!
 @docs menuListItem, easyMenuListItem
 
 # Message
-Coming soon!
+@docs Message
+@docs message
+
+## Message Partition
+@docs MessagePartition 
+@docs messageBody 
+@docs messageHeader, messageHeaderWithDelete
 
 # Modal
 Coming soon!
@@ -116,9 +122,11 @@ import Helpers exposing (..)
 
 import BulmaClasses exposing (..)
 
+import Bulma.Modifiers exposing ( Color(..) )
+
 import Bulma.Layout exposing ( container )
 
-import Bulma.Elements exposing ( Image ) 
+import Bulma.Elements exposing ( Image, easyDelete ) 
 import Bulma.Elements.Icon exposing ( Icon ) 
 
 import Html exposing ( Html, text, div, p, a, ul, li, span )
@@ -394,6 +402,56 @@ easyMenuListItem attrs msg icon str
     [ icon
     , text str
     ]
+
+
+-- MESSAGE ---------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Message msg = Html msg
+
+{-| TODO
+-}
+message : Color -> Attrs msg -> List (MessagePartition msg) -> Message msg
+message color
+  = node "article" []
+    [ bulma.message.container
+    , case color of
+        Default -> ""
+        White   -> bulma.message.color.isWhite
+        Light   -> bulma.message.color.isLight
+        Dark    -> bulma.message.color.isDark
+        Black   -> bulma.message.color.isBlack
+        Primary -> bulma.message.color.isPrimary
+        Info    -> bulma.message.color.isInfo
+        Success -> bulma.message.color.isSuccess
+        Warning -> bulma.message.color.isWarning
+        Danger  -> bulma.message.color.isDanger
+    ]
+
+
+-- MESSAGE PARTITONS --
+
+{-| TODO
+-}
+type alias MessagePartition msg = Html msg
+
+{-| TODO
+-}
+messageHeader : Attrs msg -> Htmls msg -> MessagePartition msg
+messageHeader = node "div" [] [ bulma.message.header ]
+
+{-| TODO
+-}
+messageHeaderWithDelete : Attrs msg -> msg -> Htmls msg -> MessagePartition msg
+messageHeaderWithDelete attrs msg
+  = node "div" [] [ bulma.message.header ] attrs
+  << flip (++) [ easyDelete [] msg ]
+
+{-| TODO
+-}
+messageBody : Attrs msg -> Htmls msg -> MessagePartition msg
+messageBody = node "div" [] [ bulma.message.body ]
 
 
 -- NAV -------------------------------------------------------------------------
