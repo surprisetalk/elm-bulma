@@ -18,10 +18,12 @@ module Bulma.Layout exposing (..)
 @docs heroBody, heroFoot, heroHead
 
 # SECTION
-Coming soon!
+@docs Section, SectionSpacing
+@docs section
 
 # FOOTER
-Coming soon!
+@docs Footer
+@docs footer
 
 -}
 
@@ -135,6 +137,40 @@ heroFoot : Attrs msg -> Htmls msg -> HeroPartition msg
 heroFoot = node "div" [] [ bulma.hero.foot ]
 
 
+-- SECTION ---------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Section msg = Html msg
+
+{-| TODO
+-}
+section : SectionSpacing -> Attrs msg -> Htmls msg -> Section msg
+section spacing
+  = node "section" []
+    [ bulma.section.container
+    , case spacing of
+        NotSpaced  -> ""
+        Spaced     -> bulma.section.spacing.isMedium
+        VerySpaced -> bulma.section.spacing.isLarge
+    ]
+
+-- MODIFIERS --
+
+{-| TODO
+-}
+type SectionSpacing = NotSpaced
+                    | Spaced
+                    | VerySpaced
 
 
+-- FOOTER ----------------------------------------------------------------------
 
+{-| TODO
+-}
+type alias Footer msg = Html msg
+
+{-| TODO
+-}
+footer : Attrs msg -> Htmls msg -> Footer msg
+footer = node "footer" [] [ bulma.footer.container ]
