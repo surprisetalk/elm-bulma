@@ -1,5 +1,5 @@
 
-module Bulma.Elements.Icon exposing ( Icon, icon, small, normal, medium, large, toHtml, addClass, setHelpers, adjust, american_sign_language_interpreting, anchor, archive, area_chart, arrows, arrows_h, arrows_v, asl_interpreting, assistive_listening_systems, asterisk, at, audio_description, automobile, balance_scale, ban, bank, bar_chart, bar_chart_o, barcode, bars, battery_0, battery_1, battery_2, battery_3, battery_4, battery_empty, battery_full, battery_half, battery_quarter, battery_three_quarters, bed, beer, bell, bell_o, bell_slash, bell_slash_o, bicycle, binoculars, birthday_cake, blind, bluetooth, bluetooth_b, bolt, bomb, book, bookmark, bookmark_o, braille, briefcase, bug, building, building_o, bullhorn, bullseye, bus, cab, calculator, calendar, calendar_check_o, calendar_minus_o, calendar_o, calendar_plus_o, calendar_times_o, camera, camera_retro, car, caret_square_o_down, caret_square_o_left, caret_square_o_right, caret_square_o_up, cart_arrow_down, cart_plus, cc, certificate, check, check_circle, check_circle_o, check_square, check_square_o, child, circle, circle_o, circle_o_notch, circle_thin, clock_o, clone, close, cloud, cloud_download, cloud_upload, code, code_fork, coffee, cog, cogs, comment, comment_o, commenting, commenting_o, comments, comments_o, compass, copyright, creative_commons, credit_card, credit_card_alt, crop, crosshairs, cube, cubes, cutlery, dashboard, database, deaf, deafness, desktop, diamond, dot_circle_o, download, edit, ellipsis_h, ellipsis_v, envelope, envelope_o, envelope_square, eraser, exchange, exclamation, exclamation_circle, exclamation_triangle, external_link, external_link_square, eye, eye_slash, eyedropper, fax, feed, female, fighter_jet, file_archive_o, file_audio_o, file_code_o, file_excel_o, file_image_o, file_movie_o, file_pdf_o, file_photo_o, file_picture_o, file_powerpoint_o, file_sound_o, file_video_o, file_word_o, file_zip_o, film, filter, fire, fire_extinguisher, flag, flag_checkered, flag_o, flash, flask, folder, folder_o, folder_open, folder_open_o, frown_o, futbol_o, gamepad, gavel, gear, gears, gift, glass, globe, graduation_cap, group, hand_grab_o, hand_lizard_o, hand_paper_o, hand_peace_o, hand_pointer_o, hand_rock_o, hand_scissors_o, hand_spock_o, hand_stop_o, hard_of_hearing, hashtag, hdd_o, headphones, heart, heart_o, heartbeat, history, home, hotel, hourglass, hourglass_1, hourglass_2, hourglass_3, hourglass_end, hourglass_half, hourglass_o, hourglass_start, i_cursor, image, inbox, industry, info, info_circle, institution, key, keyboard_o, language, laptop, leaf, legal, lemon_o, level_down, level_up, life_bouy, life_buoy, life_ring, life_saver, lightbulb_o, line_chart, location_arrow, lock, low_vision, magic, magnet, mail_forward, mail_reply, mail_reply_all, male, map, map_marker, map_o, map_pin, map_signs, meh_o, microphone, microphone_slash, minus, minus_circle, minus_square, minus_square_o, mobile, mobile_phone, money, moon_o, mortar_board, motorcycle, mouse_pointer, music, navicon, newspaper_o, object_group, object_ungroup, paint_brush, paper_plane, paper_plane_o, paw, pencil, pencil_square, pencil_square_o, percent, phone, phone_square, photo, picture_o, pie_chart, plane, plug, plus, plus_circle, plus_square, plus_square_o, power_off, print, puzzle_piece, qrcode, question, question_circle, question_circle_o, quote_left, quote_right, random, recycle, refresh, registered, remove, reorder, reply, reply_all, retweet, road, rocket, rss, rss_square, search, search_minus, search_plus, send, send_o, server, share, share_alt, share_alt_square, share_square, share_square_o, shield, ship, shopping_bag, shopping_basket, shopping_cart, sign_in, sign_language, sign_out, signal, signing, sitemap, sliders, smile_o, soccer_ball_o, sort, sort_alpha_asc, sort_alpha_desc, sort_amount_asc, sort_amount_desc, sort_asc, sort_desc, sort_down, sort_numeric_asc, sort_numeric_desc, sort_up, space_shuttle, spinner, spoon, square, square_o, star, star_half, star_half_empty, star_half_full, star_half_o, star_o, sticky_note, sticky_note_o, street_view, suitcase, sun_o, support, tablet, tachometer, tag, tags, tasks, taxi, television, terminal, thumb_tack, thumbs_down, thumbs_o_down, thumbs_o_up, thumbs_up, ticket, times, times_circle, times_circle_o, tint, toggle_down, toggle_left, toggle_off, toggle_on, toggle_right, toggle_up, trademark, trash, trash_o, tree, trophy, truck, tty, tv, umbrella, universal_access, university, unlock, unlock_alt, unsorted, upload, user, user_plus, user_secret, user_times, users, video_camera, volume_control_phone, volume_down, volume_off, volume_up, warning, wheelchair, wheelchair_alt, wifi, wrench, fiveHundredPX, adn, amazon, android, angellist, apple, behance, behance_square, bitbucket, bitbucket_square, bitcoin, black_tie, btc, buysellads, cc_amex, cc_diners_club, cc_discover, cc_jcb, cc_mastercard, cc_paypal, cc_stripe, cc_visa, chrome, codepen, codiepie, connectdevelop, contao, css3, dashcube, delicious, deviantart, digg, dribbble, dropbox, drupal, edge, empire, envira, expeditedssl, fa, facebook, facebook_f, facebook_official, facebook_square, firefox, first_order, flickr, font_awesome, fonticons, fort_awesome, forumbee, foursquare, ge, get_pocket, gg, gg_circle, git, git_square, github, github_alt, github_square, gitlab, gittip, glide, glide_g, google, google_plus, google_plus_circle, google_plus_official, google_plus_square, google_wallet, gratipay, hacker_news, houzz, html5, instagram, internet_explorer, ioxhost, joomla, jsfiddle, lastfm, lastfm_square, leanpub, linkedin, linkedin_square, linux, maxcdn, meanpath, medium_, mixcloud, modx, odnoklassniki, odnoklassniki_square, opencart, openid, opera, optin_monster, pagelines, paypal, pied_piper, pied_piper_alt, pied_piper_pp, pinterest, pinterest_p, pinterest_square, product_hunt, qq, ra, rebel, reddit, reddit_alien, reddit_square, renren, resistance, safari, scribd, sellsy, shirtsinbulk, simplybuilt, skyatlas, skype, slack, slideshare, snapchat, snapchat_ghost, snapchat_square, soundcloud, spotify, stack_exchange, stack_overflow, steam, steam_square, stumbleupon, stumbleupon_circle, tencent_weibo, themeisle, trello, tripadvisor, tumblr, tumblr_square, twitch, twitter, twitter_square, usb, viacoin, viadeo, viadeo_square, vimeo, vimeo_square, vine, vk, wechat, weibo, weixin, whatsapp, wikipedia_w, windows, wordpress, wpbeginner, wpforms, xing, xing_square, y_combinator, y_combinator_square, yahoo, yc, yc_square, yelp, yoast, youtube, youtube_play, youtube_square )
+module Bulma.Elements.Icon exposing (..)
 
 -- DOCS ------------------------------------------------------------------------
 
@@ -7,11 +7,9 @@ module Bulma.Elements.Icon exposing ( Icon, icon, small, normal, medium, large, 
 
 -- TODO : make sure to give credit to Fresheyeball
 
-@docs Icon, icon
-
-@docs small, normal, medium, large
-
-@docs toHtml, addClass, setHelpers
+@docs Icon
+@docs icon
+@docs Size
 
 @docs adjust, american_sign_language_interpreting, anchor, archive, area_chart, arrows, arrows_h, arrows_v, asl_interpreting, assistive_listening_systems, asterisk, at, audio_description, automobile, balance_scale, ban, bank, bar_chart, bar_chart_o, barcode, bars, battery_0, battery_1, battery_2, battery_3, battery_4, battery_empty, battery_full, battery_half, battery_quarter, battery_three_quarters, bed, beer, bell, bell_o, bell_slash, bell_slash_o, bicycle, binoculars, birthday_cake, blind, bluetooth, bluetooth_b, bolt, bomb, book, bookmark, bookmark_o, braille, briefcase, bug, building, building_o, bullhorn, bullseye, bus, cab, calculator, calendar, calendar_check_o, calendar_minus_o, calendar_o, calendar_plus_o, calendar_times_o, camera, camera_retro, car, caret_square_o_down, caret_square_o_left, caret_square_o_right, caret_square_o_up, cart_arrow_down, cart_plus, cc, certificate, check, check_circle, check_circle_o, check_square, check_square_o, child, circle, circle_o, circle_o_notch, circle_thin, clock_o, clone, close, cloud, cloud_download, cloud_upload, code, code_fork, coffee, cog, cogs, comment, comment_o, commenting, commenting_o, comments, comments_o, compass, copyright, creative_commons, credit_card, credit_card_alt, crop, crosshairs, cube, cubes, cutlery, dashboard, database, deaf, deafness, desktop, diamond, dot_circle_o, download, edit, ellipsis_h, ellipsis_v, envelope, envelope_o, envelope_square, eraser, exchange, exclamation, exclamation_circle, exclamation_triangle, external_link, external_link_square, eye, eye_slash, eyedropper, fax, feed, female, fighter_jet, file_archive_o, file_audio_o, file_code_o, file_excel_o, file_image_o, file_movie_o, file_pdf_o, file_photo_o, file_picture_o, file_powerpoint_o, file_sound_o, file_video_o, file_word_o, file_zip_o, film, filter, fire, fire_extinguisher, flag, flag_checkered, flag_o, flash, flask, folder, folder_o, folder_open, folder_open_o, frown_o, futbol_o, gamepad, gavel, gear, gears, gift, glass, globe, graduation_cap, group, hand_grab_o, hand_lizard_o, hand_paper_o, hand_peace_o, hand_pointer_o, hand_rock_o, hand_scissors_o, hand_spock_o, hand_stop_o, hard_of_hearing, hashtag, hdd_o, headphones, heart, heart_o, heartbeat, history, home, hotel, hourglass, hourglass_1, hourglass_2, hourglass_3, hourglass_end, hourglass_half, hourglass_o, hourglass_start, i_cursor, image, inbox, industry, info, info_circle, institution, key, keyboard_o, language, laptop, leaf, legal, lemon_o, level_down, level_up, life_bouy, life_buoy, life_ring, life_saver, lightbulb_o, line_chart, location_arrow, lock, low_vision, magic, magnet, mail_forward, mail_reply, mail_reply_all, male, map, map_marker, map_o, map_pin, map_signs, meh_o, microphone, microphone_slash, minus, minus_circle, minus_square, minus_square_o, mobile, mobile_phone, money, moon_o, mortar_board, motorcycle, mouse_pointer, music, navicon, newspaper_o, object_group, object_ungroup, paint_brush, paper_plane, paper_plane_o, paw, pencil, pencil_square, pencil_square_o, percent, phone, phone_square, photo, picture_o, pie_chart, plane, plug, plus, plus_circle, plus_square, plus_square_o, power_off, print, puzzle_piece, qrcode, question, question_circle, question_circle_o, quote_left, quote_right, random, recycle, refresh, registered, remove, reorder, reply, reply_all, retweet, road, rocket, rss, rss_square, search, search_minus, search_plus, send, send_o, server, share, share_alt, share_alt_square, share_square, share_square_o, shield, ship, shopping_bag, shopping_basket, shopping_cart, sign_in, sign_language, sign_out, signal, signing, sitemap, sliders, smile_o, soccer_ball_o, sort, sort_alpha_asc, sort_alpha_desc, sort_amount_asc, sort_amount_desc, sort_asc, sort_desc, sort_down, sort_numeric_asc, sort_numeric_desc, sort_up, space_shuttle, spinner, spoon, square, square_o, star, star_half, star_half_empty, star_half_full, star_half_o, star_o, sticky_note, sticky_note_o, street_view, suitcase, sun_o, support, tablet, tachometer, tag, tags, tasks, taxi, television, terminal, thumb_tack, thumbs_down, thumbs_o_down, thumbs_o_up, thumbs_up, ticket, times, times_circle, times_circle_o, tint, toggle_down, toggle_left, toggle_off, toggle_on, toggle_right, toggle_up, trademark, trash, trash_o, tree, trophy, truck, tty, tv, umbrella, universal_access, university, unlock, unlock_alt, unsorted, upload, user, user_plus, user_secret, user_times, users, video_camera, volume_control_phone, volume_down, volume_off, volume_up, warning, wheelchair, wheelchair_alt, wifi, wrench, fiveHundredPX, adn, amazon, android, angellist, apple, behance, behance_square, bitbucket, bitbucket_square, bitcoin, black_tie, btc, buysellads, cc_amex, cc_diners_club, cc_discover, cc_jcb, cc_mastercard, cc_paypal, cc_stripe, cc_visa, chrome, codepen, codiepie, connectdevelop, contao, css3, dashcube, delicious, deviantart, digg, dribbble, dropbox, drupal, edge, empire, envira, expeditedssl, fa, facebook, facebook_f, facebook_official, facebook_square, firefox, first_order, flickr, font_awesome, fonticons, fort_awesome, forumbee, foursquare, ge, get_pocket, gg, gg_circle, git, git_square, github, github_alt, github_square, gitlab, gittip, glide, glide_g, google, google_plus, google_plus_circle, google_plus_official, google_plus_square, google_wallet, gratipay, hacker_news, houzz, html5, instagram, internet_explorer, ioxhost, joomla, jsfiddle, lastfm, lastfm_square, leanpub, linkedin, linkedin_square, linux, maxcdn, meanpath, medium_, mixcloud, modx, odnoklassniki, odnoklassniki_square, opencart, openid, opera, optin_monster, pagelines, paypal, pied_piper, pied_piper_alt, pied_piper_pp, pinterest, pinterest_p, pinterest_square, product_hunt, qq, ra, rebel, reddit, reddit_alien, reddit_square, renren, resistance, safari, scribd, sellsy, shirtsinbulk, simplybuilt, skyatlas, skype, slack, slideshare, snapchat, snapchat_ghost, snapchat_square, soundcloud, spotify, stack_exchange, stack_overflow, steam, steam_square, stumbleupon, stumbleupon_circle, tencent_weibo, themeisle, trello, tripadvisor, tumblr, tumblr_square, twitch, twitter, twitter_square, usb, viacoin, viadeo, viadeo_square, vimeo, vimeo_square, vine, vk, wechat, weibo, weixin, whatsapp, wikipedia_w, windows, wordpress, wpbeginner, wpforms, xing, xing_square, y_combinator, y_combinator_square, yahoo, yc, yc_square, yelp, yoast, youtube, youtube_play, youtube_square 
 
@@ -21,10 +19,10 @@ module Bulma.Elements.Icon exposing ( Icon, icon, small, normal, medium, large, 
 -- IMPORTS ---------------------------------------------------------------------
 
 import Helpers exposing (..)
-import Bulma.Entity as Entity exposing (..)
-import Bulma.Helpers exposing ( Helpers )
 
-import Html exposing ( Html, Attribute )
+import BulmaClasses exposing (..)
+
+import Html exposing ( Html, Attribute, span )
 import Html.Attributes as Attr exposing ( max, value )
 
 import FontAwesome.Web   as FAW
@@ -35,12 +33,20 @@ import FontAwesome.Brand as FAB
 
 {-| TODO
 -}
-type alias Icon msg = Entity Size (Html msg) msg
+type alias Icon msg = Html msg
 
 {-| TODO
 -}
-icon : Attrs msg -> Html msg -> Icon msg
-icon = entity "span" [] Normal
+icon : Size -> Attrs msg -> Htmls msg -> Icon msg
+icon size
+  = node "span" []
+    [ bulma.icon.container
+    , case size of
+        Small  -> bulma.icon.size.isSmall
+        Normal -> ""
+        Medium -> bulma.icon.size.isMedium
+        Large  -> bulma.icon.size.isLarge
+    ] 
 
 
 -- SIZE ------------------------------------------------------------------------
@@ -52,62 +58,6 @@ type Size = Small
           | Medium
           | Large
 
-{-| TODO
--}
-setSize : Size -> Icon msg -> Icon msg
-setSize = mapMods << y
-
-{-| TODO
--}
-small : Icon msg -> Icon msg
-small = setSize Small
-
-{-| TODO
--}
-normal : Icon msg -> Icon msg
-normal = setSize Normal
-
-{-| TODO
--}
-medium : Icon msg -> Icon msg
-medium = setSize Medium
-
-{-| TODO
--}
-large : Icon msg -> Icon msg
-large = setSize Large
-
-{-| TODO
--}
-sizeClass : Size -> String
-sizeClass size
-  = case size of
-      Small  -> "is-small"
-      Normal -> ""
-      Medium -> "is-medium"
-      Large  -> "is-large"
-
-   
--- HTML ------------------------------------------------------------------------
-
-{-| TODO
--}
-toHtml : Icon msg -> Html msg
-toHtml = Entity.toHtml (sizeClass >> ls) (y []) ls
-
-{-| TODO
--}
-addClass : String -> Icon msg -> Icon msg
-addClass = Entity.addClass
-
-
--- HELPERS ---------------------------------------------------------------------
-
-{-| TODO
--}
-setHelpers : Helpers -> Icon msg -> Icon msg
-setHelpers = Entity.setHelpers
-
 
 -- ICONS -----------------------------------------------------------------------
 
@@ -115,2901 +65,2900 @@ setHelpers = Entity.setHelpers
 
 {-| TODO
 -}
-adjust                              : Icon msg
-adjust                              = icon [] FAW.adjust
+adjust                              : Size -> Attrs msg -> Icon msg
+adjust                              = \size attrs -> icon size attrs <| ls <| FAW.adjust
 
 {-| TODO
 -}
-american_sign_language_interpreting : Icon msg
-american_sign_language_interpreting = icon [] FAW.american_sign_language_interpreting
+american_sign_language_interpreting : Size -> Attrs msg -> Icon msg
+american_sign_language_interpreting = \size attrs -> icon size attrs <| ls <| FAW.american_sign_language_interpreting
 
 {-| TODO
 -}
-anchor                              : Icon msg
-anchor                              = icon [] FAW.anchor
+anchor                              : Size -> Attrs msg -> Icon msg
+anchor                              = \size attrs -> icon size attrs <| ls <| FAW.anchor
 
 {-| TODO
 -}
-archive                             : Icon msg
-archive                             = icon [] FAW.archive
+archive                             : Size -> Attrs msg -> Icon msg
+archive                             = \size attrs -> icon size attrs <| ls <| FAW.archive
 
 {-| TODO
 -}
-area_chart                          : Icon msg
-area_chart                          = icon [] FAW.area_chart
+area_chart                          : Size -> Attrs msg -> Icon msg
+area_chart                          = \size attrs -> icon size attrs <| ls <| FAW.area_chart
 
 {-| TODO
 -}
-arrows                              : Icon msg
-arrows                              = icon [] FAW.arrows
+arrows                              : Size -> Attrs msg -> Icon msg
+arrows                              = \size attrs -> icon size attrs <| ls <| FAW.arrows
 
 {-| TODO
 -}
-arrows_h                            : Icon msg
-arrows_h                            = icon [] FAW.arrows_h
+arrows_h                            : Size -> Attrs msg -> Icon msg
+arrows_h                            = \size attrs -> icon size attrs <| ls <| FAW.arrows_h
 
 {-| TODO
 -}
-arrows_v                            : Icon msg
-arrows_v                            = icon [] FAW.arrows_v
+arrows_v                            : Size -> Attrs msg -> Icon msg
+arrows_v                            = \size attrs -> icon size attrs <| ls <| FAW.arrows_v
 
 {-| TODO
 -}
-asl_interpreting                    : Icon msg
-asl_interpreting                    = icon [] FAW.asl_interpreting
+asl_interpreting                    : Size -> Attrs msg -> Icon msg
+asl_interpreting                    = \size attrs -> icon size attrs <| ls <| FAW.asl_interpreting
 
 {-| TODO
 -}
-assistive_listening_systems         : Icon msg
-assistive_listening_systems         = icon [] FAW.assistive_listening_systems
+assistive_listening_systems         : Size -> Attrs msg -> Icon msg
+assistive_listening_systems         = \size attrs -> icon size attrs <| ls <| FAW.assistive_listening_systems
 
 {-| TODO
 -}
-asterisk                            : Icon msg
-asterisk                            = icon [] FAW.asterisk
+asterisk                            : Size -> Attrs msg -> Icon msg
+asterisk                            = \size attrs -> icon size attrs <| ls <| FAW.asterisk
 
 {-| TODO
 -}
-at                                  : Icon msg
-at                                  = icon [] FAW.at
+at                                  : Size -> Attrs msg -> Icon msg
+at                                  = \size attrs -> icon size attrs <| ls <| FAW.at
 
 {-| TODO
 -}
-audio_description                   : Icon msg
-audio_description                   = icon [] FAW.audio_description
+audio_description                   : Size -> Attrs msg -> Icon msg
+audio_description                   = \size attrs -> icon size attrs <| ls <| FAW.audio_description
 
 {-| TODO
 -}
-automobile                          : Icon msg
-automobile                          = icon [] FAW.automobile
+automobile                          : Size -> Attrs msg -> Icon msg
+automobile                          = \size attrs -> icon size attrs <| ls <| FAW.automobile
 
 {-| TODO
 -}
-balance_scale                       : Icon msg
-balance_scale                       = icon [] FAW.balance_scale
+balance_scale                       : Size -> Attrs msg -> Icon msg
+balance_scale                       = \size attrs -> icon size attrs <| ls <| FAW.balance_scale
 
 {-| TODO
 -}
-ban                                 : Icon msg
-ban                                 = icon [] FAW.ban
+ban                                 : Size -> Attrs msg -> Icon msg
+ban                                 = \size attrs -> icon size attrs <| ls <| FAW.ban
 
 {-| TODO
 -}
-bank                                : Icon msg
-bank                                = icon [] FAW.bank
+bank                                : Size -> Attrs msg -> Icon msg
+bank                                = \size attrs -> icon size attrs <| ls <| FAW.bank
 
 {-| TODO
 -}
-bar_chart                           : Icon msg
-bar_chart                           = icon [] FAW.bar_chart
+bar_chart                           : Size -> Attrs msg -> Icon msg
+bar_chart                           = \size attrs -> icon size attrs <| ls <| FAW.bar_chart
 
 {-| TODO
 -}
-bar_chart_o                         : Icon msg
-bar_chart_o                         = icon [] FAW.bar_chart_o
+bar_chart_o                         : Size -> Attrs msg -> Icon msg
+bar_chart_o                         = \size attrs -> icon size attrs <| ls <| FAW.bar_chart_o
 
 {-| TODO
 -}
-barcode                             : Icon msg
-barcode                             = icon [] FAW.barcode
+barcode                             : Size -> Attrs msg -> Icon msg
+barcode                             = \size attrs -> icon size attrs <| ls <| FAW.barcode
 
 {-| TODO
 -}
-bars                                : Icon msg
-bars                                = icon [] FAW.bars
+bars                                : Size -> Attrs msg -> Icon msg
+bars                                = \size attrs -> icon size attrs <| ls <| FAW.bars
 
 {-| TODO
 -}
-battery_0                           : Icon msg
-battery_0                           = icon [] FAW.battery_0
+battery_0                           : Size -> Attrs msg -> Icon msg
+battery_0                           = \size attrs -> icon size attrs <| ls <| FAW.battery_0
 
 {-| TODO
 -}
-battery_1                           : Icon msg
-battery_1                           = icon [] FAW.battery_1
+battery_1                           : Size -> Attrs msg -> Icon msg
+battery_1                           = \size attrs -> icon size attrs <| ls <| FAW.battery_1
 
 {-| TODO
 -}
-battery_2                           : Icon msg
-battery_2                           = icon [] FAW.battery_2
+battery_2                           : Size -> Attrs msg -> Icon msg
+battery_2                           = \size attrs -> icon size attrs <| ls <| FAW.battery_2
 
 {-| TODO
 -}
-battery_3                           : Icon msg
-battery_3                           = icon [] FAW.battery_3
+battery_3                           : Size -> Attrs msg -> Icon msg
+battery_3                           = \size attrs -> icon size attrs <| ls <| FAW.battery_3
 
 {-| TODO
 -}
-battery_4                           : Icon msg
-battery_4                           = icon [] FAW.battery_4
+battery_4                           : Size -> Attrs msg -> Icon msg
+battery_4                           = \size attrs -> icon size attrs <| ls <| FAW.battery_4
 
 {-| TODO
 -}
-battery_empty                       : Icon msg
-battery_empty                       = icon [] FAW.battery_empty
+battery_empty                       : Size -> Attrs msg -> Icon msg
+battery_empty                       = \size attrs -> icon size attrs <| ls <| FAW.battery_empty
 
 {-| TODO
 -}
-battery_full                        : Icon msg
-battery_full                        = icon [] FAW.battery_full
+battery_full                        : Size -> Attrs msg -> Icon msg
+battery_full                        = \size attrs -> icon size attrs <| ls <| FAW.battery_full
 
 {-| TODO
 -}
-battery_half                        : Icon msg
-battery_half                        = icon [] FAW.battery_half
+battery_half                        : Size -> Attrs msg -> Icon msg
+battery_half                        = \size attrs -> icon size attrs <| ls <| FAW.battery_half
 
 {-| TODO
 -}
-battery_quarter                     : Icon msg
-battery_quarter                     = icon [] FAW.battery_quarter
+battery_quarter                     : Size -> Attrs msg -> Icon msg
+battery_quarter                     = \size attrs -> icon size attrs <| ls <| FAW.battery_quarter
 
 {-| TODO
 -}
-battery_three_quarters              : Icon msg
-battery_three_quarters              = icon [] FAW.battery_three_quarters
+battery_three_quarters              : Size -> Attrs msg -> Icon msg
+battery_three_quarters              = \size attrs -> icon size attrs <| ls <| FAW.battery_three_quarters
 
 {-| TODO
 -}
-bed                                 : Icon msg
-bed                                 = icon [] FAW.bed
+bed                                 : Size -> Attrs msg -> Icon msg
+bed                                 = \size attrs -> icon size attrs <| ls <| FAW.bed
 
 {-| TODO
 -}
-beer                                : Icon msg
-beer                                = icon [] FAW.beer
+beer                                : Size -> Attrs msg -> Icon msg
+beer                                = \size attrs -> icon size attrs <| ls <| FAW.beer
 
 {-| TODO
 -}
-bell                                : Icon msg
-bell                                = icon [] FAW.bell
+bell                                : Size -> Attrs msg -> Icon msg
+bell                                = \size attrs -> icon size attrs <| ls <| FAW.bell
 
 {-| TODO
 -}
-bell_o                              : Icon msg
-bell_o                              = icon [] FAW.bell_o
+bell_o                              : Size -> Attrs msg -> Icon msg
+bell_o                              = \size attrs -> icon size attrs <| ls <| FAW.bell_o
 
 {-| TODO
 -}
-bell_slash                          : Icon msg
-bell_slash                          = icon [] FAW.bell_slash
+bell_slash                          : Size -> Attrs msg -> Icon msg
+bell_slash                          = \size attrs -> icon size attrs <| ls <| FAW.bell_slash
 
 {-| TODO
 -}
-bell_slash_o                        : Icon msg
-bell_slash_o                        = icon [] FAW.bell_slash_o
+bell_slash_o                        : Size -> Attrs msg -> Icon msg
+bell_slash_o                        = \size attrs -> icon size attrs <| ls <| FAW.bell_slash_o
 
 {-| TODO
 -}
-bicycle                             : Icon msg
-bicycle                             = icon [] FAW.bicycle
+bicycle                             : Size -> Attrs msg -> Icon msg
+bicycle                             = \size attrs -> icon size attrs <| ls <| FAW.bicycle
 
 {-| TODO
 -}
-binoculars                          : Icon msg
-binoculars                          = icon [] FAW.binoculars
+binoculars                          : Size -> Attrs msg -> Icon msg
+binoculars                          = \size attrs -> icon size attrs <| ls <| FAW.binoculars
 
 {-| TODO
 -}
-birthday_cake                       : Icon msg
-birthday_cake                       = icon [] FAW.birthday_cake
+birthday_cake                       : Size -> Attrs msg -> Icon msg
+birthday_cake                       = \size attrs -> icon size attrs <| ls <| FAW.birthday_cake
 
 {-| TODO
 -}
-blind                               : Icon msg
-blind                               = icon [] FAW.blind
+blind                               : Size -> Attrs msg -> Icon msg
+blind                               = \size attrs -> icon size attrs <| ls <| FAW.blind
 
 {-| TODO
 -}
-bluetooth                           : Icon msg
-bluetooth                           = icon [] FAW.bluetooth
+bluetooth                           : Size -> Attrs msg -> Icon msg
+bluetooth                           = \size attrs -> icon size attrs <| ls <| FAW.bluetooth
 
 {-| TODO
 -}
-bluetooth_b                         : Icon msg
-bluetooth_b                         = icon [] FAW.bluetooth_b
+bluetooth_b                         : Size -> Attrs msg -> Icon msg
+bluetooth_b                         = \size attrs -> icon size attrs <| ls <| FAW.bluetooth_b
 
 {-| TODO
 -}
-bolt                                : Icon msg
-bolt                                = icon [] FAW.bolt
+bolt                                : Size -> Attrs msg -> Icon msg
+bolt                                = \size attrs -> icon size attrs <| ls <| FAW.bolt
 
 {-| TODO
 -}
-bomb                                : Icon msg
-bomb                                = icon [] FAW.bomb
+bomb                                : Size -> Attrs msg -> Icon msg
+bomb                                = \size attrs -> icon size attrs <| ls <| FAW.bomb
 
 {-| TODO
 -}
-book                                : Icon msg
-book                                = icon [] FAW.book
+book                                : Size -> Attrs msg -> Icon msg
+book                                = \size attrs -> icon size attrs <| ls <| FAW.book
 
 {-| TODO
 -}
-bookmark                            : Icon msg
-bookmark                            = icon [] FAW.bookmark
+bookmark                            : Size -> Attrs msg -> Icon msg
+bookmark                            = \size attrs -> icon size attrs <| ls <| FAW.bookmark
 
 {-| TODO
 -}
-bookmark_o                          : Icon msg
-bookmark_o                          = icon [] FAW.bookmark_o
+bookmark_o                          : Size -> Attrs msg -> Icon msg
+bookmark_o                          = \size attrs -> icon size attrs <| ls <| FAW.bookmark_o
 
 {-| TODO
 -}
-braille                             : Icon msg
-braille                             = icon [] FAW.braille
+braille                             : Size -> Attrs msg -> Icon msg
+braille                             = \size attrs -> icon size attrs <| ls <| FAW.braille
 
 {-| TODO
 -}
-briefcase                           : Icon msg
-briefcase                           = icon [] FAW.briefcase
+briefcase                           : Size -> Attrs msg -> Icon msg
+briefcase                           = \size attrs -> icon size attrs <| ls <| FAW.briefcase
 
 {-| TODO
 -}
-bug                                 : Icon msg
-bug                                 = icon [] FAW.bug
+bug                                 : Size -> Attrs msg -> Icon msg
+bug                                 = \size attrs -> icon size attrs <| ls <| FAW.bug
 
 {-| TODO
 -}
-building                            : Icon msg
-building                            = icon [] FAW.building
+building                            : Size -> Attrs msg -> Icon msg
+building                            = \size attrs -> icon size attrs <| ls <| FAW.building
 
 {-| TODO
 -}
-building_o                          : Icon msg
-building_o                          = icon [] FAW.building_o
+building_o                          : Size -> Attrs msg -> Icon msg
+building_o                          = \size attrs -> icon size attrs <| ls <| FAW.building_o
 
 {-| TODO
 -}
-bullhorn                            : Icon msg
-bullhorn                            = icon [] FAW.bullhorn
+bullhorn                            : Size -> Attrs msg -> Icon msg
+bullhorn                            = \size attrs -> icon size attrs <| ls <| FAW.bullhorn
 
 {-| TODO
 -}
-bullseye                            : Icon msg
-bullseye                            = icon [] FAW.bullseye
+bullseye                            : Size -> Attrs msg -> Icon msg
+bullseye                            = \size attrs -> icon size attrs <| ls <| FAW.bullseye
 
 {-| TODO
 -}
-bus                                 : Icon msg
-bus                                 = icon [] FAW.bus
+bus                                 : Size -> Attrs msg -> Icon msg
+bus                                 = \size attrs -> icon size attrs <| ls <| FAW.bus
 
 {-| TODO
 -}
-cab                                 : Icon msg
-cab                                 = icon [] FAW.cab
+cab                                 : Size -> Attrs msg -> Icon msg
+cab                                 = \size attrs -> icon size attrs <| ls <| FAW.cab
 
 {-| TODO
 -}
-calculator                          : Icon msg
-calculator                          = icon [] FAW.calculator
+calculator                          : Size -> Attrs msg -> Icon msg
+calculator                          = \size attrs -> icon size attrs <| ls <| FAW.calculator
 
 {-| TODO
 -}
-calendar                            : Icon msg
-calendar                            = icon [] FAW.calendar
+calendar                            : Size -> Attrs msg -> Icon msg
+calendar                            = \size attrs -> icon size attrs <| ls <| FAW.calendar
 
 {-| TODO
 -}
-calendar_check_o                    : Icon msg
-calendar_check_o                    = icon [] FAW.calendar_check_o
+calendar_check_o                    : Size -> Attrs msg -> Icon msg
+calendar_check_o                    = \size attrs -> icon size attrs <| ls <| FAW.calendar_check_o
 
 {-| TODO
 -}
-calendar_minus_o                    : Icon msg
-calendar_minus_o                    = icon [] FAW.calendar_minus_o
+calendar_minus_o                    : Size -> Attrs msg -> Icon msg
+calendar_minus_o                    = \size attrs -> icon size attrs <| ls <| FAW.calendar_minus_o
 
 {-| TODO
 -}
-calendar_o                          : Icon msg
-calendar_o                          = icon [] FAW.calendar_o
+calendar_o                          : Size -> Attrs msg -> Icon msg
+calendar_o                          = \size attrs -> icon size attrs <| ls <| FAW.calendar_o
 
 {-| TODO
 -}
-calendar_plus_o                     : Icon msg
-calendar_plus_o                     = icon [] FAW.calendar_plus_o
+calendar_plus_o                     : Size -> Attrs msg -> Icon msg
+calendar_plus_o                     = \size attrs -> icon size attrs <| ls <| FAW.calendar_plus_o
 
 {-| TODO
 -}
-calendar_times_o                    : Icon msg
-calendar_times_o                    = icon [] FAW.calendar_times_o
+calendar_times_o                    : Size -> Attrs msg -> Icon msg
+calendar_times_o                    = \size attrs -> icon size attrs <| ls <| FAW.calendar_times_o
 
 {-| TODO
 -}
-camera                              : Icon msg
-camera                              = icon [] FAW.camera
+camera                              : Size -> Attrs msg -> Icon msg
+camera                              = \size attrs -> icon size attrs <| ls <| FAW.camera
 
 {-| TODO
 -}
-camera_retro                        : Icon msg
-camera_retro                        = icon [] FAW.camera_retro
+camera_retro                        : Size -> Attrs msg -> Icon msg
+camera_retro                        = \size attrs -> icon size attrs <| ls <| FAW.camera_retro
 
 {-| TODO
 -}
-car                                 : Icon msg
-car                                 = icon [] FAW.car
+car                                 : Size -> Attrs msg -> Icon msg
+car                                 = \size attrs -> icon size attrs <| ls <| FAW.car
 
 {-| TODO
 -}
-caret_square_o_down                 : Icon msg
-caret_square_o_down                 = icon [] FAW.caret_square_o_down
+caret_square_o_down                 : Size -> Attrs msg -> Icon msg
+caret_square_o_down                 = \size attrs -> icon size attrs <| ls <| FAW.caret_square_o_down
 
 {-| TODO
 -}
-caret_square_o_left                 : Icon msg
-caret_square_o_left                 = icon [] FAW.caret_square_o_left
+caret_square_o_left                 : Size -> Attrs msg -> Icon msg
+caret_square_o_left                 = \size attrs -> icon size attrs <| ls <| FAW.caret_square_o_left
 
 {-| TODO
 -}
-caret_square_o_right                : Icon msg
-caret_square_o_right                = icon [] FAW.caret_square_o_right
+caret_square_o_right                : Size -> Attrs msg -> Icon msg
+caret_square_o_right                = \size attrs -> icon size attrs <| ls <| FAW.caret_square_o_right
 
 {-| TODO
 -}
-caret_square_o_up                   : Icon msg
-caret_square_o_up                   = icon [] FAW.caret_square_o_up
+caret_square_o_up                   : Size -> Attrs msg -> Icon msg
+caret_square_o_up                   = \size attrs -> icon size attrs <| ls <| FAW.caret_square_o_up
 
 {-| TODO
 -}
-cart_arrow_down                     : Icon msg
-cart_arrow_down                     = icon [] FAW.cart_arrow_down
+cart_arrow_down                     : Size -> Attrs msg -> Icon msg
+cart_arrow_down                     = \size attrs -> icon size attrs <| ls <| FAW.cart_arrow_down
 
 {-| TODO
 -}
-cart_plus                           : Icon msg
-cart_plus                           = icon [] FAW.cart_plus
+cart_plus                           : Size -> Attrs msg -> Icon msg
+cart_plus                           = \size attrs -> icon size attrs <| ls <| FAW.cart_plus
 
 {-| TODO
 -}
-cc                                  : Icon msg
-cc                                  = icon [] FAW.cc
+cc                                  : Size -> Attrs msg -> Icon msg
+cc                                  = \size attrs -> icon size attrs <| ls <| FAW.cc
 
 {-| TODO
 -}
-certificate                         : Icon msg
-certificate                         = icon [] FAW.certificate
+certificate                         : Size -> Attrs msg -> Icon msg
+certificate                         = \size attrs -> icon size attrs <| ls <| FAW.certificate
 
 {-| TODO
 -}
-check                               : Icon msg
-check                               = icon [] FAW.check
+check                               : Size -> Attrs msg -> Icon msg
+check                               = \size attrs -> icon size attrs <| ls <| FAW.check
 
 {-| TODO
 -}
-check_circle                        : Icon msg
-check_circle                        = icon [] FAW.check_circle
+check_circle                        : Size -> Attrs msg -> Icon msg
+check_circle                        = \size attrs -> icon size attrs <| ls <| FAW.check_circle
 
 {-| TODO
 -}
-check_circle_o                      : Icon msg
-check_circle_o                      = icon [] FAW.check_circle_o
+check_circle_o                      : Size -> Attrs msg -> Icon msg
+check_circle_o                      = \size attrs -> icon size attrs <| ls <| FAW.check_circle_o
 
 {-| TODO
 -}
-check_square                        : Icon msg
-check_square                        = icon [] FAW.check_square
+check_square                        : Size -> Attrs msg -> Icon msg
+check_square                        = \size attrs -> icon size attrs <| ls <| FAW.check_square
 
 {-| TODO
 -}
-check_square_o                      : Icon msg
-check_square_o                      = icon [] FAW.check_square_o
+check_square_o                      : Size -> Attrs msg -> Icon msg
+check_square_o                      = \size attrs -> icon size attrs <| ls <| FAW.check_square_o
 
 {-| TODO
 -}
-child                               : Icon msg
-child                               = icon [] FAW.child
+child                               : Size -> Attrs msg -> Icon msg
+child                               = \size attrs -> icon size attrs <| ls <| FAW.child
 
 {-| TODO
 -}
-circle                              : Icon msg
-circle                              = icon [] FAW.circle
+circle                              : Size -> Attrs msg -> Icon msg
+circle                              = \size attrs -> icon size attrs <| ls <| FAW.circle
 
 {-| TODO
 -}
-circle_o                            : Icon msg
-circle_o                            = icon [] FAW.circle_o
+circle_o                            : Size -> Attrs msg -> Icon msg
+circle_o                            = \size attrs -> icon size attrs <| ls <| FAW.circle_o
 
 {-| TODO
 -}
-circle_o_notch                      : Icon msg
-circle_o_notch                      = icon [] FAW.circle_o_notch
+circle_o_notch                      : Size -> Attrs msg -> Icon msg
+circle_o_notch                      = \size attrs -> icon size attrs <| ls <| FAW.circle_o_notch
 
 {-| TODO
 -}
-circle_thin                         : Icon msg
-circle_thin                         = icon [] FAW.circle_thin
+circle_thin                         : Size -> Attrs msg -> Icon msg
+circle_thin                         = \size attrs -> icon size attrs <| ls <| FAW.circle_thin
 
 {-| TODO
 -}
-clock_o                             : Icon msg
-clock_o                             = icon [] FAW.clock_o
+clock_o                             : Size -> Attrs msg -> Icon msg
+clock_o                             = \size attrs -> icon size attrs <| ls <| FAW.clock_o
 
 {-| TODO
 -}
-clone                               : Icon msg
-clone                               = icon [] FAW.clone
+clone                               : Size -> Attrs msg -> Icon msg
+clone                               = \size attrs -> icon size attrs <| ls <| FAW.clone
 
 {-| TODO
 -}
-close                               : Icon msg
-close                               = icon [] FAW.close
+close                               : Size -> Attrs msg -> Icon msg
+close                               = \size attrs -> icon size attrs <| ls <| FAW.close
 
 {-| TODO
 -}
-cloud                               : Icon msg
-cloud                               = icon [] FAW.cloud
+cloud                               : Size -> Attrs msg -> Icon msg
+cloud                               = \size attrs -> icon size attrs <| ls <| FAW.cloud
 
 {-| TODO
 -}
-cloud_download                      : Icon msg
-cloud_download                      = icon [] FAW.cloud_download
+cloud_download                      : Size -> Attrs msg -> Icon msg
+cloud_download                      = \size attrs -> icon size attrs <| ls <| FAW.cloud_download
 
 {-| TODO
 -}
-cloud_upload                        : Icon msg
-cloud_upload                        = icon [] FAW.cloud_upload
+cloud_upload                        : Size -> Attrs msg -> Icon msg
+cloud_upload                        = \size attrs -> icon size attrs <| ls <| FAW.cloud_upload
 
 {-| TODO
 -}
-code                                : Icon msg
-code                                = icon [] FAW.code
+code                                : Size -> Attrs msg -> Icon msg
+code                                = \size attrs -> icon size attrs <| ls <| FAW.code
 
 {-| TODO
 -}
-code_fork                           : Icon msg
-code_fork                           = icon [] FAW.code_fork
+code_fork                           : Size -> Attrs msg -> Icon msg
+code_fork                           = \size attrs -> icon size attrs <| ls <| FAW.code_fork
 
 {-| TODO
 -}
-coffee                              : Icon msg
-coffee                              = icon [] FAW.coffee
+coffee                              : Size -> Attrs msg -> Icon msg
+coffee                              = \size attrs -> icon size attrs <| ls <| FAW.coffee
 
 {-| TODO
 -}
-cog                                 : Icon msg
-cog                                 = icon [] FAW.cog
+cog                                 : Size -> Attrs msg -> Icon msg
+cog                                 = \size attrs -> icon size attrs <| ls <| FAW.cog
 
 {-| TODO
 -}
-cogs                                : Icon msg
-cogs                                = icon [] FAW.cogs
+cogs                                : Size -> Attrs msg -> Icon msg
+cogs                                = \size attrs -> icon size attrs <| ls <| FAW.cogs
 
 {-| TODO
 -}
-comment                             : Icon msg
-comment                             = icon [] FAW.comment
+comment                             : Size -> Attrs msg -> Icon msg
+comment                             = \size attrs -> icon size attrs <| ls <| FAW.comment
 
 {-| TODO
 -}
-comment_o                           : Icon msg
-comment_o                           = icon [] FAW.comment_o
+comment_o                           : Size -> Attrs msg -> Icon msg
+comment_o                           = \size attrs -> icon size attrs <| ls <| FAW.comment_o
 
 {-| TODO
 -}
-commenting                          : Icon msg
-commenting                          = icon [] FAW.commenting
+commenting                          : Size -> Attrs msg -> Icon msg
+commenting                          = \size attrs -> icon size attrs <| ls <| FAW.commenting
 
 {-| TODO
 -}
-commenting_o                        : Icon msg
-commenting_o                        = icon [] FAW.commenting_o
+commenting_o                        : Size -> Attrs msg -> Icon msg
+commenting_o                        = \size attrs -> icon size attrs <| ls <| FAW.commenting_o
 
 {-| TODO
 -}
-comments                            : Icon msg
-comments                            = icon [] FAW.comments
+comments                            : Size -> Attrs msg -> Icon msg
+comments                            = \size attrs -> icon size attrs <| ls <| FAW.comments
 
 {-| TODO
 -}
-comments_o                          : Icon msg
-comments_o                          = icon [] FAW.comments_o
+comments_o                          : Size -> Attrs msg -> Icon msg
+comments_o                          = \size attrs -> icon size attrs <| ls <| FAW.comments_o
 
 {-| TODO
 -}
-compass                             : Icon msg
-compass                             = icon [] FAW.compass
+compass                             : Size -> Attrs msg -> Icon msg
+compass                             = \size attrs -> icon size attrs <| ls <| FAW.compass
 
 {-| TODO
 -}
-copyright                           : Icon msg
-copyright                           = icon [] FAW.copyright
+copyright                           : Size -> Attrs msg -> Icon msg
+copyright                           = \size attrs -> icon size attrs <| ls <| FAW.copyright
 
 {-| TODO
 -}
-creative_commons                    : Icon msg
-creative_commons                    = icon [] FAW.creative_commons
+creative_commons                    : Size -> Attrs msg -> Icon msg
+creative_commons                    = \size attrs -> icon size attrs <| ls <| FAW.creative_commons
 
 {-| TODO
 -}
-credit_card                         : Icon msg
-credit_card                         = icon [] FAW.credit_card
+credit_card                         : Size -> Attrs msg -> Icon msg
+credit_card                         = \size attrs -> icon size attrs <| ls <| FAW.credit_card
 
 {-| TODO
 -}
-credit_card_alt                     : Icon msg
-credit_card_alt                     = icon [] FAW.credit_card_alt
+credit_card_alt                     : Size -> Attrs msg -> Icon msg
+credit_card_alt                     = \size attrs -> icon size attrs <| ls <| FAW.credit_card_alt
 
 {-| TODO
 -}
-crop                                : Icon msg
-crop                                = icon [] FAW.crop
+crop                                : Size -> Attrs msg -> Icon msg
+crop                                = \size attrs -> icon size attrs <| ls <| FAW.crop
 
 {-| TODO
 -}
-crosshairs                          : Icon msg
-crosshairs                          = icon [] FAW.crosshairs
+crosshairs                          : Size -> Attrs msg -> Icon msg
+crosshairs                          = \size attrs -> icon size attrs <| ls <| FAW.crosshairs
 
 {-| TODO
 -}
-cube                                : Icon msg
-cube                                = icon [] FAW.cube
+cube                                : Size -> Attrs msg -> Icon msg
+cube                                = \size attrs -> icon size attrs <| ls <| FAW.cube
 
 {-| TODO
 -}
-cubes                               : Icon msg
-cubes                               = icon [] FAW.cubes
+cubes                               : Size -> Attrs msg -> Icon msg
+cubes                               = \size attrs -> icon size attrs <| ls <| FAW.cubes
 
 {-| TODO
 -}
-cutlery                             : Icon msg
-cutlery                             = icon [] FAW.cutlery
+cutlery                             : Size -> Attrs msg -> Icon msg
+cutlery                             = \size attrs -> icon size attrs <| ls <| FAW.cutlery
 
 {-| TODO
 -}
-dashboard                           : Icon msg
-dashboard                           = icon [] FAW.dashboard
+dashboard                           : Size -> Attrs msg -> Icon msg
+dashboard                           = \size attrs -> icon size attrs <| ls <| FAW.dashboard
 
 {-| TODO
 -}
-database                            : Icon msg
-database                            = icon [] FAW.database
+database                            : Size -> Attrs msg -> Icon msg
+database                            = \size attrs -> icon size attrs <| ls <| FAW.database
 
 {-| TODO
 -}
-deaf                                : Icon msg
-deaf                                = icon [] FAW.deaf
+deaf                                : Size -> Attrs msg -> Icon msg
+deaf                                = \size attrs -> icon size attrs <| ls <| FAW.deaf
 
 {-| TODO
 -}
-deafness                            : Icon msg
-deafness                            = icon [] FAW.deafness
+deafness                            : Size -> Attrs msg -> Icon msg
+deafness                            = \size attrs -> icon size attrs <| ls <| FAW.deafness
 
 {-| TODO
 -}
-desktop                             : Icon msg
-desktop                             = icon [] FAW.desktop
+desktop                             : Size -> Attrs msg -> Icon msg
+desktop                             = \size attrs -> icon size attrs <| ls <| FAW.desktop
 
 {-| TODO
 -}
-diamond                             : Icon msg
-diamond                             = icon [] FAW.diamond
+diamond                             : Size -> Attrs msg -> Icon msg
+diamond                             = \size attrs -> icon size attrs <| ls <| FAW.diamond
 
 {-| TODO
 -}
-dot_circle_o                        : Icon msg
-dot_circle_o                        = icon [] FAW.dot_circle_o
+dot_circle_o                        : Size -> Attrs msg -> Icon msg
+dot_circle_o                        = \size attrs -> icon size attrs <| ls <| FAW.dot_circle_o
 
 {-| TODO
 -}
-download                            : Icon msg
-download                            = icon [] FAW.download
+download                            : Size -> Attrs msg -> Icon msg
+download                            = \size attrs -> icon size attrs <| ls <| FAW.download
 
 {-| TODO
 -}
-edit                                : Icon msg
-edit                                = icon [] FAW.edit
+edit                                : Size -> Attrs msg -> Icon msg
+edit                                = \size attrs -> icon size attrs <| ls <| FAW.edit
 
 {-| TODO
 -}
-ellipsis_h                          : Icon msg
-ellipsis_h                          = icon [] FAW.ellipsis_h
+ellipsis_h                          : Size -> Attrs msg -> Icon msg
+ellipsis_h                          = \size attrs -> icon size attrs <| ls <| FAW.ellipsis_h
 
 {-| TODO
 -}
-ellipsis_v                          : Icon msg
-ellipsis_v                          = icon [] FAW.ellipsis_v
+ellipsis_v                          : Size -> Attrs msg -> Icon msg
+ellipsis_v                          = \size attrs -> icon size attrs <| ls <| FAW.ellipsis_v
 
 {-| TODO
 -}
-envelope                            : Icon msg
-envelope                            = icon [] FAW.envelope
+envelope                            : Size -> Attrs msg -> Icon msg
+envelope                            = \size attrs -> icon size attrs <| ls <| FAW.envelope
 
 {-| TODO
 -}
-envelope_o                          : Icon msg
-envelope_o                          = icon [] FAW.envelope_o
+envelope_o                          : Size -> Attrs msg -> Icon msg
+envelope_o                          = \size attrs -> icon size attrs <| ls <| FAW.envelope_o
 
 {-| TODO
 -}
-envelope_square                     : Icon msg
-envelope_square                     = icon [] FAW.envelope_square
+envelope_square                     : Size -> Attrs msg -> Icon msg
+envelope_square                     = \size attrs -> icon size attrs <| ls <| FAW.envelope_square
 
 {-| TODO
 -}
-eraser                              : Icon msg
-eraser                              = icon [] FAW.eraser
+eraser                              : Size -> Attrs msg -> Icon msg
+eraser                              = \size attrs -> icon size attrs <| ls <| FAW.eraser
 
 {-| TODO
 -}
-exchange                            : Icon msg
-exchange                            = icon [] FAW.exchange
+exchange                            : Size -> Attrs msg -> Icon msg
+exchange                            = \size attrs -> icon size attrs <| ls <| FAW.exchange
 
 {-| TODO
 -}
-exclamation                         : Icon msg
-exclamation                         = icon [] FAW.exclamation
+exclamation                         : Size -> Attrs msg -> Icon msg
+exclamation                         = \size attrs -> icon size attrs <| ls <| FAW.exclamation
 
 {-| TODO
 -}
-exclamation_circle                  : Icon msg
-exclamation_circle                  = icon [] FAW.exclamation_circle
+exclamation_circle                  : Size -> Attrs msg -> Icon msg
+exclamation_circle                  = \size attrs -> icon size attrs <| ls <| FAW.exclamation_circle
 
 {-| TODO
 -}
-exclamation_triangle                : Icon msg
-exclamation_triangle                = icon [] FAW.exclamation_triangle
+exclamation_triangle                : Size -> Attrs msg -> Icon msg
+exclamation_triangle                = \size attrs -> icon size attrs <| ls <| FAW.exclamation_triangle
 
 {-| TODO
 -}
-external_link                       : Icon msg
-external_link                       = icon [] FAW.external_link
+external_link                       : Size -> Attrs msg -> Icon msg
+external_link                       = \size attrs -> icon size attrs <| ls <| FAW.external_link
 
 {-| TODO
 -}
-external_link_square                : Icon msg
-external_link_square                = icon [] FAW.external_link_square
+external_link_square                : Size -> Attrs msg -> Icon msg
+external_link_square                = \size attrs -> icon size attrs <| ls <| FAW.external_link_square
 
 {-| TODO
 -}
-eye                                 : Icon msg
-eye                                 = icon [] FAW.eye
+eye                                 : Size -> Attrs msg -> Icon msg
+eye                                 = \size attrs -> icon size attrs <| ls <| FAW.eye
 
 {-| TODO
 -}
-eye_slash                           : Icon msg
-eye_slash                           = icon [] FAW.eye_slash
+eye_slash                           : Size -> Attrs msg -> Icon msg
+eye_slash                           = \size attrs -> icon size attrs <| ls <| FAW.eye_slash
 
 {-| TODO
 -}
-eyedropper                          : Icon msg
-eyedropper                          = icon [] FAW.eyedropper
+eyedropper                          : Size -> Attrs msg -> Icon msg
+eyedropper                          = \size attrs -> icon size attrs <| ls <| FAW.eyedropper
 
 {-| TODO
 -}
-fax                                 : Icon msg
-fax                                 = icon [] FAW.fax
+fax                                 : Size -> Attrs msg -> Icon msg
+fax                                 = \size attrs -> icon size attrs <| ls <| FAW.fax
 
 {-| TODO
 -}
-feed                                : Icon msg
-feed                                = icon [] FAW.feed
+feed                                : Size -> Attrs msg -> Icon msg
+feed                                = \size attrs -> icon size attrs <| ls <| FAW.feed
 
 {-| TODO
 -}
-female                              : Icon msg
-female                              = icon [] FAW.female
+female                              : Size -> Attrs msg -> Icon msg
+female                              = \size attrs -> icon size attrs <| ls <| FAW.female
 
 {-| TODO
 -}
-fighter_jet                         : Icon msg
-fighter_jet                         = icon [] FAW.fighter_jet
+fighter_jet                         : Size -> Attrs msg -> Icon msg
+fighter_jet                         = \size attrs -> icon size attrs <| ls <| FAW.fighter_jet
 
 {-| TODO
 -}
-file_archive_o                      : Icon msg
-file_archive_o                      = icon [] FAW.file_archive_o
+file_archive_o                      : Size -> Attrs msg -> Icon msg
+file_archive_o                      = \size attrs -> icon size attrs <| ls <| FAW.file_archive_o
 
 {-| TODO
 -}
-file_audio_o                        : Icon msg
-file_audio_o                        = icon [] FAW.file_audio_o
+file_audio_o                        : Size -> Attrs msg -> Icon msg
+file_audio_o                        = \size attrs -> icon size attrs <| ls <| FAW.file_audio_o
 
 {-| TODO
 -}
-file_code_o                         : Icon msg
-file_code_o                         = icon [] FAW.file_code_o
+file_code_o                         : Size -> Attrs msg -> Icon msg
+file_code_o                         = \size attrs -> icon size attrs <| ls <| FAW.file_code_o
 
 {-| TODO
 -}
-file_excel_o                        : Icon msg
-file_excel_o                        = icon [] FAW.file_excel_o
+file_excel_o                        : Size -> Attrs msg -> Icon msg
+file_excel_o                        = \size attrs -> icon size attrs <| ls <| FAW.file_excel_o
 
 {-| TODO
 -}
-file_image_o                        : Icon msg
-file_image_o                        = icon [] FAW.file_image_o
+file_image_o                        : Size -> Attrs msg -> Icon msg
+file_image_o                        = \size attrs -> icon size attrs <| ls <| FAW.file_image_o
 
 {-| TODO
 -}
-file_movie_o                        : Icon msg
-file_movie_o                        = icon [] FAW.file_movie_o
+file_movie_o                        : Size -> Attrs msg -> Icon msg
+file_movie_o                        = \size attrs -> icon size attrs <| ls <| FAW.file_movie_o
 
 {-| TODO
 -}
-file_pdf_o                          : Icon msg
-file_pdf_o                          = icon [] FAW.file_pdf_o
+file_pdf_o                          : Size -> Attrs msg -> Icon msg
+file_pdf_o                          = \size attrs -> icon size attrs <| ls <| FAW.file_pdf_o
 
 {-| TODO
 -}
-file_photo_o                        : Icon msg
-file_photo_o                        = icon [] FAW.file_photo_o
+file_photo_o                        : Size -> Attrs msg -> Icon msg
+file_photo_o                        = \size attrs -> icon size attrs <| ls <| FAW.file_photo_o
 
 {-| TODO
 -}
-file_picture_o                      : Icon msg
-file_picture_o                      = icon [] FAW.file_picture_o
+file_picture_o                      : Size -> Attrs msg -> Icon msg
+file_picture_o                      = \size attrs -> icon size attrs <| ls <| FAW.file_picture_o
 
 {-| TODO
 -}
-file_powerpoint_o                   : Icon msg
-file_powerpoint_o                   = icon [] FAW.file_powerpoint_o
+file_powerpoint_o                   : Size -> Attrs msg -> Icon msg
+file_powerpoint_o                   = \size attrs -> icon size attrs <| ls <| FAW.file_powerpoint_o
 
 {-| TODO
 -}
-file_sound_o                        : Icon msg
-file_sound_o                        = icon [] FAW.file_sound_o
+file_sound_o                        : Size -> Attrs msg -> Icon msg
+file_sound_o                        = \size attrs -> icon size attrs <| ls <| FAW.file_sound_o
 
 {-| TODO
 -}
-file_video_o                        : Icon msg
-file_video_o                        = icon [] FAW.file_video_o
+file_video_o                        : Size -> Attrs msg -> Icon msg
+file_video_o                        = \size attrs -> icon size attrs <| ls <| FAW.file_video_o
 
 {-| TODO
 -}
-file_word_o                         : Icon msg
-file_word_o                         = icon [] FAW.file_word_o
+file_word_o                         : Size -> Attrs msg -> Icon msg
+file_word_o                         = \size attrs -> icon size attrs <| ls <| FAW.file_word_o
 
 {-| TODO
 -}
-file_zip_o                          : Icon msg
-file_zip_o                          = icon [] FAW.file_zip_o
+file_zip_o                          : Size -> Attrs msg -> Icon msg
+file_zip_o                          = \size attrs -> icon size attrs <| ls <| FAW.file_zip_o
 
 {-| TODO
 -}
-film                                : Icon msg
-film                                = icon [] FAW.film
+film                                : Size -> Attrs msg -> Icon msg
+film                                = \size attrs -> icon size attrs <| ls <| FAW.film
 
 {-| TODO
 -}
-filter                              : Icon msg
-filter                              = icon [] FAW.filter
+filter                              : Size -> Attrs msg -> Icon msg
+filter                              = \size attrs -> icon size attrs <| ls <| FAW.filter
 
 {-| TODO
 -}
-fire                                : Icon msg
-fire                                = icon [] FAW.fire
+fire                                : Size -> Attrs msg -> Icon msg
+fire                                = \size attrs -> icon size attrs <| ls <| FAW.fire
 
 {-| TODO
 -}
-fire_extinguisher                   : Icon msg
-fire_extinguisher                   = icon [] FAW.fire_extinguisher
+fire_extinguisher                   : Size -> Attrs msg -> Icon msg
+fire_extinguisher                   = \size attrs -> icon size attrs <| ls <| FAW.fire_extinguisher
 
 {-| TODO
 -}
-flag                                : Icon msg
-flag                                = icon [] FAW.flag
+flag                                : Size -> Attrs msg -> Icon msg
+flag                                = \size attrs -> icon size attrs <| ls <| FAW.flag
 
 {-| TODO
 -}
-flag_checkered                      : Icon msg
-flag_checkered                      = icon [] FAW.flag_checkered
+flag_checkered                      : Size -> Attrs msg -> Icon msg
+flag_checkered                      = \size attrs -> icon size attrs <| ls <| FAW.flag_checkered
 
 {-| TODO
 -}
-flag_o                              : Icon msg
-flag_o                              = icon [] FAW.flag_o
+flag_o                              : Size -> Attrs msg -> Icon msg
+flag_o                              = \size attrs -> icon size attrs <| ls <| FAW.flag_o
 
 {-| TODO
 -}
-flash                               : Icon msg
-flash                               = icon [] FAW.flash
+flash                               : Size -> Attrs msg -> Icon msg
+flash                               = \size attrs -> icon size attrs <| ls <| FAW.flash
 
 {-| TODO
 -}
-flask                               : Icon msg
-flask                               = icon [] FAW.flask
+flask                               : Size -> Attrs msg -> Icon msg
+flask                               = \size attrs -> icon size attrs <| ls <| FAW.flask
 
 {-| TODO
 -}
-folder                              : Icon msg
-folder                              = icon [] FAW.folder
+folder                              : Size -> Attrs msg -> Icon msg
+folder                              = \size attrs -> icon size attrs <| ls <| FAW.folder
 
 {-| TODO
 -}
-folder_o                            : Icon msg
-folder_o                            = icon [] FAW.folder_o
+folder_o                            : Size -> Attrs msg -> Icon msg
+folder_o                            = \size attrs -> icon size attrs <| ls <| FAW.folder_o
 
 {-| TODO
 -}
-folder_open                         : Icon msg
-folder_open                         = icon [] FAW.folder_open
+folder_open                         : Size -> Attrs msg -> Icon msg
+folder_open                         = \size attrs -> icon size attrs <| ls <| FAW.folder_open
 
 {-| TODO
 -}
-folder_open_o                       : Icon msg
-folder_open_o                       = icon [] FAW.folder_open_o
+folder_open_o                       : Size -> Attrs msg -> Icon msg
+folder_open_o                       = \size attrs -> icon size attrs <| ls <| FAW.folder_open_o
 
 {-| TODO
 -}
-frown_o                             : Icon msg
-frown_o                             = icon [] FAW.frown_o
+frown_o                             : Size -> Attrs msg -> Icon msg
+frown_o                             = \size attrs -> icon size attrs <| ls <| FAW.frown_o
 
 {-| TODO
 -}
-futbol_o                            : Icon msg
-futbol_o                            = icon [] FAW.futbol_o
+futbol_o                            : Size -> Attrs msg -> Icon msg
+futbol_o                            = \size attrs -> icon size attrs <| ls <| FAW.futbol_o
 
 {-| TODO
 -}
-gamepad                             : Icon msg
-gamepad                             = icon [] FAW.gamepad
+gamepad                             : Size -> Attrs msg -> Icon msg
+gamepad                             = \size attrs -> icon size attrs <| ls <| FAW.gamepad
 
 {-| TODO
 -}
-gavel                               : Icon msg
-gavel                               = icon [] FAW.gavel
+gavel                               : Size -> Attrs msg -> Icon msg
+gavel                               = \size attrs -> icon size attrs <| ls <| FAW.gavel
 
 {-| TODO
 -}
-gear                                : Icon msg
-gear                                = icon [] FAW.gear
+gear                                : Size -> Attrs msg -> Icon msg
+gear                                = \size attrs -> icon size attrs <| ls <| FAW.gear
 
 {-| TODO
 -}
-gears                               : Icon msg
-gears                               = icon [] FAW.gears
+gears                               : Size -> Attrs msg -> Icon msg
+gears                               = \size attrs -> icon size attrs <| ls <| FAW.gears
 
 {-| TODO
 -}
-gift                                : Icon msg
-gift                                = icon [] FAW.gift
+gift                                : Size -> Attrs msg -> Icon msg
+gift                                = \size attrs -> icon size attrs <| ls <| FAW.gift
 
 {-| TODO
 -}
-glass                               : Icon msg
-glass                               = icon [] FAW.glass
+glass                               : Size -> Attrs msg -> Icon msg
+glass                               = \size attrs -> icon size attrs <| ls <| FAW.glass
 
 {-| TODO
 -}
-globe                               : Icon msg
-globe                               = icon [] FAW.globe
+globe                               : Size -> Attrs msg -> Icon msg
+globe                               = \size attrs -> icon size attrs <| ls <| FAW.globe
 
 {-| TODO
 -}
-graduation_cap                      : Icon msg
-graduation_cap                      = icon [] FAW.graduation_cap
+graduation_cap                      : Size -> Attrs msg -> Icon msg
+graduation_cap                      = \size attrs -> icon size attrs <| ls <| FAW.graduation_cap
 
 {-| TODO
 -}
-group                               : Icon msg
-group                               = icon [] FAW.group
+group                               : Size -> Attrs msg -> Icon msg
+group                               = \size attrs -> icon size attrs <| ls <| FAW.group
 
 {-| TODO
 -}
-hand_grab_o                         : Icon msg
-hand_grab_o                         = icon [] FAW.hand_grab_o
+hand_grab_o                         : Size -> Attrs msg -> Icon msg
+hand_grab_o                         = \size attrs -> icon size attrs <| ls <| FAW.hand_grab_o
 
 {-| TODO
 -}
-hand_lizard_o                       : Icon msg
-hand_lizard_o                       = icon [] FAW.hand_lizard_o
+hand_lizard_o                       : Size -> Attrs msg -> Icon msg
+hand_lizard_o                       = \size attrs -> icon size attrs <| ls <| FAW.hand_lizard_o
 
 {-| TODO
 -}
-hand_paper_o                        : Icon msg
-hand_paper_o                        = icon [] FAW.hand_paper_o
+hand_paper_o                        : Size -> Attrs msg -> Icon msg
+hand_paper_o                        = \size attrs -> icon size attrs <| ls <| FAW.hand_paper_o
 
 {-| TODO
 -}
-hand_peace_o                        : Icon msg
-hand_peace_o                        = icon [] FAW.hand_peace_o
+hand_peace_o                        : Size -> Attrs msg -> Icon msg
+hand_peace_o                        = \size attrs -> icon size attrs <| ls <| FAW.hand_peace_o
 
 {-| TODO
 -}
-hand_pointer_o                      : Icon msg
-hand_pointer_o                      = icon [] FAW.hand_pointer_o
+hand_pointer_o                      : Size -> Attrs msg -> Icon msg
+hand_pointer_o                      = \size attrs -> icon size attrs <| ls <| FAW.hand_pointer_o
 
 {-| TODO
 -}
-hand_rock_o                         : Icon msg
-hand_rock_o                         = icon [] FAW.hand_rock_o
+hand_rock_o                         : Size -> Attrs msg -> Icon msg
+hand_rock_o                         = \size attrs -> icon size attrs <| ls <| FAW.hand_rock_o
 
 {-| TODO
 -}
-hand_scissors_o                     : Icon msg
-hand_scissors_o                     = icon [] FAW.hand_scissors_o
+hand_scissors_o                     : Size -> Attrs msg -> Icon msg
+hand_scissors_o                     = \size attrs -> icon size attrs <| ls <| FAW.hand_scissors_o
 
 {-| TODO
 -}
-hand_spock_o                        : Icon msg
-hand_spock_o                        = icon [] FAW.hand_spock_o
+hand_spock_o                        : Size -> Attrs msg -> Icon msg
+hand_spock_o                        = \size attrs -> icon size attrs <| ls <| FAW.hand_spock_o
 
 {-| TODO
 -}
-hand_stop_o                         : Icon msg
-hand_stop_o                         = icon [] FAW.hand_stop_o
+hand_stop_o                         : Size -> Attrs msg -> Icon msg
+hand_stop_o                         = \size attrs -> icon size attrs <| ls <| FAW.hand_stop_o
 
 {-| TODO
 -}
-hard_of_hearing                     : Icon msg
-hard_of_hearing                     = icon [] FAW.hard_of_hearing
+hard_of_hearing                     : Size -> Attrs msg -> Icon msg
+hard_of_hearing                     = \size attrs -> icon size attrs <| ls <| FAW.hard_of_hearing
 
 {-| TODO
 -}
-hashtag                             : Icon msg
-hashtag                             = icon [] FAW.hashtag
+hashtag                             : Size -> Attrs msg -> Icon msg
+hashtag                             = \size attrs -> icon size attrs <| ls <| FAW.hashtag
 
 {-| TODO
 -}
-hdd_o                               : Icon msg
-hdd_o                               = icon [] FAW.hdd_o
+hdd_o                               : Size -> Attrs msg -> Icon msg
+hdd_o                               = \size attrs -> icon size attrs <| ls <| FAW.hdd_o
 
 {-| TODO
 -}
-headphones                          : Icon msg
-headphones                          = icon [] FAW.headphones
+headphones                          : Size -> Attrs msg -> Icon msg
+headphones                          = \size attrs -> icon size attrs <| ls <| FAW.headphones
 
 {-| TODO
 -}
-heart                               : Icon msg
-heart                               = icon [] FAW.heart
+heart                               : Size -> Attrs msg -> Icon msg
+heart                               = \size attrs -> icon size attrs <| ls <| FAW.heart
 
 {-| TODO
 -}
-heart_o                             : Icon msg
-heart_o                             = icon [] FAW.heart_o
+heart_o                             : Size -> Attrs msg -> Icon msg
+heart_o                             = \size attrs -> icon size attrs <| ls <| FAW.heart_o
 
 {-| TODO
 -}
-heartbeat                           : Icon msg
-heartbeat                           = icon [] FAW.heartbeat
+heartbeat                           : Size -> Attrs msg -> Icon msg
+heartbeat                           = \size attrs -> icon size attrs <| ls <| FAW.heartbeat
 
 {-| TODO
 -}
-history                             : Icon msg
-history                             = icon [] FAW.history
+history                             : Size -> Attrs msg -> Icon msg
+history                             = \size attrs -> icon size attrs <| ls <| FAW.history
 
 {-| TODO
 -}
-home                                : Icon msg
-home                                = icon [] FAW.home
+home                                : Size -> Attrs msg -> Icon msg
+home                                = \size attrs -> icon size attrs <| ls <| FAW.home
 
 {-| TODO
 -}
-hotel                               : Icon msg
-hotel                               = icon [] FAW.hotel
+hotel                               : Size -> Attrs msg -> Icon msg
+hotel                               = \size attrs -> icon size attrs <| ls <| FAW.hotel
 
 {-| TODO
 -}
-hourglass                           : Icon msg
-hourglass                           = icon [] FAW.hourglass
+hourglass                           : Size -> Attrs msg -> Icon msg
+hourglass                           = \size attrs -> icon size attrs <| ls <| FAW.hourglass
 
 {-| TODO
 -}
-hourglass_1                         : Icon msg
-hourglass_1                         = icon [] FAW.hourglass_1
+hourglass_1                         : Size -> Attrs msg -> Icon msg
+hourglass_1                         = \size attrs -> icon size attrs <| ls <| FAW.hourglass_1
 
 {-| TODO
 -}
-hourglass_2                         : Icon msg
-hourglass_2                         = icon [] FAW.hourglass_2
+hourglass_2                         : Size -> Attrs msg -> Icon msg
+hourglass_2                         = \size attrs -> icon size attrs <| ls <| FAW.hourglass_2
 
 {-| TODO
 -}
-hourglass_3                         : Icon msg
-hourglass_3                         = icon [] FAW.hourglass_3
+hourglass_3                         : Size -> Attrs msg -> Icon msg
+hourglass_3                         = \size attrs -> icon size attrs <| ls <| FAW.hourglass_3
 
 {-| TODO
 -}
-hourglass_end                       : Icon msg
-hourglass_end                       = icon [] FAW.hourglass_end
+hourglass_end                       : Size -> Attrs msg -> Icon msg
+hourglass_end                       = \size attrs -> icon size attrs <| ls <| FAW.hourglass_end
 
 {-| TODO
 -}
-hourglass_half                      : Icon msg
-hourglass_half                      = icon [] FAW.hourglass_half
+hourglass_half                      : Size -> Attrs msg -> Icon msg
+hourglass_half                      = \size attrs -> icon size attrs <| ls <| FAW.hourglass_half
 
 {-| TODO
 -}
-hourglass_o                         : Icon msg
-hourglass_o                         = icon [] FAW.hourglass_o
+hourglass_o                         : Size -> Attrs msg -> Icon msg
+hourglass_o                         = \size attrs -> icon size attrs <| ls <| FAW.hourglass_o
 
 {-| TODO
 -}
-hourglass_start                     : Icon msg
-hourglass_start                     = icon [] FAW.hourglass_start
+hourglass_start                     : Size -> Attrs msg -> Icon msg
+hourglass_start                     = \size attrs -> icon size attrs <| ls <| FAW.hourglass_start
 
 {-| TODO
 -}
-i_cursor                            : Icon msg
-i_cursor                            = icon [] FAW.i_cursor
+i_cursor                            : Size -> Attrs msg -> Icon msg
+i_cursor                            = \size attrs -> icon size attrs <| ls <| FAW.i_cursor
 
 {-| TODO
 -}
-image                               : Icon msg
-image                               = icon [] FAW.image
+image                               : Size -> Attrs msg -> Icon msg
+image                               = \size attrs -> icon size attrs <| ls <| FAW.image
 
 {-| TODO
 -}
-inbox                               : Icon msg
-inbox                               = icon [] FAW.inbox
+inbox                               : Size -> Attrs msg -> Icon msg
+inbox                               = \size attrs -> icon size attrs <| ls <| FAW.inbox
 
 {-| TODO
 -}
-industry                            : Icon msg
-industry                            = icon [] FAW.industry
+industry                            : Size -> Attrs msg -> Icon msg
+industry                            = \size attrs -> icon size attrs <| ls <| FAW.industry
 
 {-| TODO
 -}
-info                                : Icon msg
-info                                = icon [] FAW.info
+info                                : Size -> Attrs msg -> Icon msg
+info                                = \size attrs -> icon size attrs <| ls <| FAW.info
 
 {-| TODO
 -}
-info_circle                         : Icon msg
-info_circle                         = icon [] FAW.info_circle
+info_circle                         : Size -> Attrs msg -> Icon msg
+info_circle                         = \size attrs -> icon size attrs <| ls <| FAW.info_circle
 
 {-| TODO
 -}
-institution                         : Icon msg
-institution                         = icon [] FAW.institution
+institution                         : Size -> Attrs msg -> Icon msg
+institution                         = \size attrs -> icon size attrs <| ls <| FAW.institution
 
 {-| TODO
 -}
-key                                 : Icon msg
-key                                 = icon [] FAW.key
+key                                 : Size -> Attrs msg -> Icon msg
+key                                 = \size attrs -> icon size attrs <| ls <| FAW.key
 
 {-| TODO
 -}
-keyboard_o                          : Icon msg
-keyboard_o                          = icon [] FAW.keyboard_o
+keyboard_o                          : Size -> Attrs msg -> Icon msg
+keyboard_o                          = \size attrs -> icon size attrs <| ls <| FAW.keyboard_o
 
 {-| TODO
 -}
-language                            : Icon msg
-language                            = icon [] FAW.language
+language                            : Size -> Attrs msg -> Icon msg
+language                            = \size attrs -> icon size attrs <| ls <| FAW.language
 
 {-| TODO
 -}
-laptop                              : Icon msg
-laptop                              = icon [] FAW.laptop
+laptop                              : Size -> Attrs msg -> Icon msg
+laptop                              = \size attrs -> icon size attrs <| ls <| FAW.laptop
 
 {-| TODO
 -}
-leaf                                : Icon msg
-leaf                                = icon [] FAW.leaf
+leaf                                : Size -> Attrs msg -> Icon msg
+leaf                                = \size attrs -> icon size attrs <| ls <| FAW.leaf
 
 {-| TODO
 -}
-legal                               : Icon msg
-legal                               = icon [] FAW.legal
+legal                               : Size -> Attrs msg -> Icon msg
+legal                               = \size attrs -> icon size attrs <| ls <| FAW.legal
 
 {-| TODO
 -}
-lemon_o                             : Icon msg
-lemon_o                             = icon [] FAW.lemon_o
+lemon_o                             : Size -> Attrs msg -> Icon msg
+lemon_o                             = \size attrs -> icon size attrs <| ls <| FAW.lemon_o
 
 {-| TODO
 -}
-level_down                          : Icon msg
-level_down                          = icon [] FAW.level_down
+level_down                          : Size -> Attrs msg -> Icon msg
+level_down                          = \size attrs -> icon size attrs <| ls <| FAW.level_down
 
 {-| TODO
 -}
-level_up                            : Icon msg
-level_up                            = icon [] FAW.level_up
+level_up                            : Size -> Attrs msg -> Icon msg
+level_up                            = \size attrs -> icon size attrs <| ls <| FAW.level_up
 
 {-| TODO
 -}
-life_bouy                           : Icon msg
-life_bouy                           = icon [] FAW.life_bouy
+life_bouy                           : Size -> Attrs msg -> Icon msg
+life_bouy                           = \size attrs -> icon size attrs <| ls <| FAW.life_bouy
 
 {-| TODO
 -}
-life_buoy                           : Icon msg
-life_buoy                           = icon [] FAW.life_buoy
+life_buoy                           : Size -> Attrs msg -> Icon msg
+life_buoy                           = \size attrs -> icon size attrs <| ls <| FAW.life_buoy
 
 {-| TODO
 -}
-life_ring                           : Icon msg
-life_ring                           = icon [] FAW.life_ring
+life_ring                           : Size -> Attrs msg -> Icon msg
+life_ring                           = \size attrs -> icon size attrs <| ls <| FAW.life_ring
 
 {-| TODO
 -}
-life_saver                          : Icon msg
-life_saver                          = icon [] FAW.life_saver
+life_saver                          : Size -> Attrs msg -> Icon msg
+life_saver                          = \size attrs -> icon size attrs <| ls <| FAW.life_saver
 
 {-| TODO
 -}
-lightbulb_o                         : Icon msg
-lightbulb_o                         = icon [] FAW.lightbulb_o
+lightbulb_o                         : Size -> Attrs msg -> Icon msg
+lightbulb_o                         = \size attrs -> icon size attrs <| ls <| FAW.lightbulb_o
 
 {-| TODO
 -}
-line_chart                          : Icon msg
-line_chart                          = icon [] FAW.line_chart
+line_chart                          : Size -> Attrs msg -> Icon msg
+line_chart                          = \size attrs -> icon size attrs <| ls <| FAW.line_chart
 
 {-| TODO
 -}
-location_arrow                      : Icon msg
-location_arrow                      = icon [] FAW.location_arrow
+location_arrow                      : Size -> Attrs msg -> Icon msg
+location_arrow                      = \size attrs -> icon size attrs <| ls <| FAW.location_arrow
 
 {-| TODO
 -}
-lock                                : Icon msg
-lock                                = icon [] FAW.lock
+lock                                : Size -> Attrs msg -> Icon msg
+lock                                = \size attrs -> icon size attrs <| ls <| FAW.lock
 
 {-| TODO
 -}
-low_vision                          : Icon msg
-low_vision                          = icon [] FAW.low_vision
+low_vision                          : Size -> Attrs msg -> Icon msg
+low_vision                          = \size attrs -> icon size attrs <| ls <| FAW.low_vision
 
 {-| TODO
 -}
-magic                               : Icon msg
-magic                               = icon [] FAW.magic
+magic                               : Size -> Attrs msg -> Icon msg
+magic                               = \size attrs -> icon size attrs <| ls <| FAW.magic
 
 {-| TODO
 -}
-magnet                              : Icon msg
-magnet                              = icon [] FAW.magnet
+magnet                              : Size -> Attrs msg -> Icon msg
+magnet                              = \size attrs -> icon size attrs <| ls <| FAW.magnet
 
 {-| TODO
 -}
-mail_forward                        : Icon msg
-mail_forward                        = icon [] FAW.mail_forward
+mail_forward                        : Size -> Attrs msg -> Icon msg
+mail_forward                        = \size attrs -> icon size attrs <| ls <| FAW.mail_forward
 
 {-| TODO
 -}
-mail_reply                          : Icon msg
-mail_reply                          = icon [] FAW.mail_reply
+mail_reply                          : Size -> Attrs msg -> Icon msg
+mail_reply                          = \size attrs -> icon size attrs <| ls <| FAW.mail_reply
 
 {-| TODO
 -}
-mail_reply_all                      : Icon msg
-mail_reply_all                      = icon [] FAW.mail_reply_all
+mail_reply_all                      : Size -> Attrs msg -> Icon msg
+mail_reply_all                      = \size attrs -> icon size attrs <| ls <| FAW.mail_reply_all
 
 {-| TODO
 -}
-male                                : Icon msg
-male                                = icon [] FAW.male
+male                                : Size -> Attrs msg -> Icon msg
+male                                = \size attrs -> icon size attrs <| ls <| FAW.male
 
 {-| TODO
 -}
-map                                 : Icon msg
-map                                 = icon [] FAW.map
+map                                 : Size -> Attrs msg -> Icon msg
+map                                 = \size attrs -> icon size attrs <| ls <| FAW.map
 
 {-| TODO
 -}
-map_marker                          : Icon msg
-map_marker                          = icon [] FAW.map_marker
+map_marker                          : Size -> Attrs msg -> Icon msg
+map_marker                          = \size attrs -> icon size attrs <| ls <| FAW.map_marker
 
 {-| TODO
 -}
-map_o                               : Icon msg
-map_o                               = icon [] FAW.map_o
+map_o                               : Size -> Attrs msg -> Icon msg
+map_o                               = \size attrs -> icon size attrs <| ls <| FAW.map_o
 
 {-| TODO
 -}
-map_pin                             : Icon msg
-map_pin                             = icon [] FAW.map_pin
+map_pin                             : Size -> Attrs msg -> Icon msg
+map_pin                             = \size attrs -> icon size attrs <| ls <| FAW.map_pin
 
 {-| TODO
 -}
-map_signs                           : Icon msg
-map_signs                           = icon [] FAW.map_signs
+map_signs                           : Size -> Attrs msg -> Icon msg
+map_signs                           = \size attrs -> icon size attrs <| ls <| FAW.map_signs
 
 {-| TODO
 -}
-meh_o                               : Icon msg
-meh_o                               = icon [] FAW.meh_o
+meh_o                               : Size -> Attrs msg -> Icon msg
+meh_o                               = \size attrs -> icon size attrs <| ls <| FAW.meh_o
 
 {-| TODO
 -}
-microphone                          : Icon msg
-microphone                          = icon [] FAW.microphone
+microphone                          : Size -> Attrs msg -> Icon msg
+microphone                          = \size attrs -> icon size attrs <| ls <| FAW.microphone
 
 {-| TODO
 -}
-microphone_slash                    : Icon msg
-microphone_slash                    = icon [] FAW.microphone_slash
+microphone_slash                    : Size -> Attrs msg -> Icon msg
+microphone_slash                    = \size attrs -> icon size attrs <| ls <| FAW.microphone_slash
 
 {-| TODO
 -}
-minus                               : Icon msg
-minus                               = icon [] FAW.minus
+minus                               : Size -> Attrs msg -> Icon msg
+minus                               = \size attrs -> icon size attrs <| ls <| FAW.minus
 
 {-| TODO
 -}
-minus_circle                        : Icon msg
-minus_circle                        = icon [] FAW.minus_circle
+minus_circle                        : Size -> Attrs msg -> Icon msg
+minus_circle                        = \size attrs -> icon size attrs <| ls <| FAW.minus_circle
 
 {-| TODO
 -}
-minus_square                        : Icon msg
-minus_square                        = icon [] FAW.minus_square
+minus_square                        : Size -> Attrs msg -> Icon msg
+minus_square                        = \size attrs -> icon size attrs <| ls <| FAW.minus_square
 
 {-| TODO
 -}
-minus_square_o                      : Icon msg
-minus_square_o                      = icon [] FAW.minus_square_o
+minus_square_o                      : Size -> Attrs msg -> Icon msg
+minus_square_o                      = \size attrs -> icon size attrs <| ls <| FAW.minus_square_o
 
 {-| TODO
 -}
-mobile                              : Icon msg
-mobile                              = icon [] FAW.mobile
+mobile                              : Size -> Attrs msg -> Icon msg
+mobile                              = \size attrs -> icon size attrs <| ls <| FAW.mobile
 
 {-| TODO
 -}
-mobile_phone                        : Icon msg
-mobile_phone                        = icon [] FAW.mobile_phone
+mobile_phone                        : Size -> Attrs msg -> Icon msg
+mobile_phone                        = \size attrs -> icon size attrs <| ls <| FAW.mobile_phone
 
 {-| TODO
 -}
-money                               : Icon msg
-money                               = icon [] FAW.money
+money                               : Size -> Attrs msg -> Icon msg
+money                               = \size attrs -> icon size attrs <| ls <| FAW.money
 
 {-| TODO
 -}
-moon_o                              : Icon msg
-moon_o                              = icon [] FAW.moon_o
+moon_o                              : Size -> Attrs msg -> Icon msg
+moon_o                              = \size attrs -> icon size attrs <| ls <| FAW.moon_o
 
 {-| TODO
 -}
-mortar_board                        : Icon msg
-mortar_board                        = icon [] FAW.mortar_board
+mortar_board                        : Size -> Attrs msg -> Icon msg
+mortar_board                        = \size attrs -> icon size attrs <| ls <| FAW.mortar_board
 
 {-| TODO
 -}
-motorcycle                          : Icon msg
-motorcycle                          = icon [] FAW.motorcycle
+motorcycle                          : Size -> Attrs msg -> Icon msg
+motorcycle                          = \size attrs -> icon size attrs <| ls <| FAW.motorcycle
 
 {-| TODO
 -}
-mouse_pointer                       : Icon msg
-mouse_pointer                       = icon [] FAW.mouse_pointer
+mouse_pointer                       : Size -> Attrs msg -> Icon msg
+mouse_pointer                       = \size attrs -> icon size attrs <| ls <| FAW.mouse_pointer
 
 {-| TODO
 -}
-music                               : Icon msg
-music                               = icon [] FAW.music
+music                               : Size -> Attrs msg -> Icon msg
+music                               = \size attrs -> icon size attrs <| ls <| FAW.music
 
 {-| TODO
 -}
-navicon                             : Icon msg
-navicon                             = icon [] FAW.navicon
+navicon                             : Size -> Attrs msg -> Icon msg
+navicon                             = \size attrs -> icon size attrs <| ls <| FAW.navicon
 
 {-| TODO
 -}
-newspaper_o                         : Icon msg
-newspaper_o                         = icon [] FAW.newspaper_o
+newspaper_o                         : Size -> Attrs msg -> Icon msg
+newspaper_o                         = \size attrs -> icon size attrs <| ls <| FAW.newspaper_o
 
 {-| TODO
 -}
-object_group                        : Icon msg
-object_group                        = icon [] FAW.object_group
+object_group                        : Size -> Attrs msg -> Icon msg
+object_group                        = \size attrs -> icon size attrs <| ls <| FAW.object_group
 
 {-| TODO
 -}
-object_ungroup                      : Icon msg
-object_ungroup                      = icon [] FAW.object_ungroup
+object_ungroup                      : Size -> Attrs msg -> Icon msg
+object_ungroup                      = \size attrs -> icon size attrs <| ls <| FAW.object_ungroup
 
 {-| TODO
 -}
-paint_brush                         : Icon msg
-paint_brush                         = icon [] FAW.paint_brush
+paint_brush                         : Size -> Attrs msg -> Icon msg
+paint_brush                         = \size attrs -> icon size attrs <| ls <| FAW.paint_brush
 
 {-| TODO
 -}
-paper_plane                         : Icon msg
-paper_plane                         = icon [] FAW.paper_plane
+paper_plane                         : Size -> Attrs msg -> Icon msg
+paper_plane                         = \size attrs -> icon size attrs <| ls <| FAW.paper_plane
 
 {-| TODO
 -}
-paper_plane_o                       : Icon msg
-paper_plane_o                       = icon [] FAW.paper_plane_o
+paper_plane_o                       : Size -> Attrs msg -> Icon msg
+paper_plane_o                       = \size attrs -> icon size attrs <| ls <| FAW.paper_plane_o
 
 {-| TODO
 -}
-paw                                 : Icon msg
-paw                                 = icon [] FAW.paw
+paw                                 : Size -> Attrs msg -> Icon msg
+paw                                 = \size attrs -> icon size attrs <| ls <| FAW.paw
 
 {-| TODO
 -}
-pencil                              : Icon msg
-pencil                              = icon [] FAW.pencil
+pencil                              : Size -> Attrs msg -> Icon msg
+pencil                              = \size attrs -> icon size attrs <| ls <| FAW.pencil
 
 {-| TODO
 -}
-pencil_square                       : Icon msg
-pencil_square                       = icon [] FAW.pencil_square
+pencil_square                       : Size -> Attrs msg -> Icon msg
+pencil_square                       = \size attrs -> icon size attrs <| ls <| FAW.pencil_square
 
 {-| TODO
 -}
-pencil_square_o                     : Icon msg
-pencil_square_o                     = icon [] FAW.pencil_square_o
+pencil_square_o                     : Size -> Attrs msg -> Icon msg
+pencil_square_o                     = \size attrs -> icon size attrs <| ls <| FAW.pencil_square_o
 
 {-| TODO
 -}
-percent                             : Icon msg
-percent                             = icon [] FAW.percent
+percent                             : Size -> Attrs msg -> Icon msg
+percent                             = \size attrs -> icon size attrs <| ls <| FAW.percent
 
 {-| TODO
 -}
-phone                               : Icon msg
-phone                               = icon [] FAW.phone
+phone                               : Size -> Attrs msg -> Icon msg
+phone                               = \size attrs -> icon size attrs <| ls <| FAW.phone
 
 {-| TODO
 -}
-phone_square                        : Icon msg
-phone_square                        = icon [] FAW.phone_square
+phone_square                        : Size -> Attrs msg -> Icon msg
+phone_square                        = \size attrs -> icon size attrs <| ls <| FAW.phone_square
 
 {-| TODO
 -}
-photo                               : Icon msg
-photo                               = icon [] FAW.photo
+photo                               : Size -> Attrs msg -> Icon msg
+photo                               = \size attrs -> icon size attrs <| ls <| FAW.photo
 
 {-| TODO
 -}
-picture_o                           : Icon msg
-picture_o                           = icon [] FAW.picture_o
+picture_o                           : Size -> Attrs msg -> Icon msg
+picture_o                           = \size attrs -> icon size attrs <| ls <| FAW.picture_o
 
 {-| TODO
 -}
-pie_chart                           : Icon msg
-pie_chart                           = icon [] FAW.pie_chart
+pie_chart                           : Size -> Attrs msg -> Icon msg
+pie_chart                           = \size attrs -> icon size attrs <| ls <| FAW.pie_chart
 
 {-| TODO
 -}
-plane                               : Icon msg
-plane                               = icon [] FAW.plane
+plane                               : Size -> Attrs msg -> Icon msg
+plane                               = \size attrs -> icon size attrs <| ls <| FAW.plane
 
 {-| TODO
 -}
-plug                                : Icon msg
-plug                                = icon [] FAW.plug
+plug                                : Size -> Attrs msg -> Icon msg
+plug                                = \size attrs -> icon size attrs <| ls <| FAW.plug
 
 {-| TODO
 -}
-plus                                : Icon msg
-plus                                = icon [] FAW.plus
+plus                                : Size -> Attrs msg -> Icon msg
+plus                                = \size attrs -> icon size attrs <| ls <| FAW.plus
 
 {-| TODO
 -}
-plus_circle                         : Icon msg
-plus_circle                         = icon [] FAW.plus_circle
+plus_circle                         : Size -> Attrs msg -> Icon msg
+plus_circle                         = \size attrs -> icon size attrs <| ls <| FAW.plus_circle
 
 {-| TODO
 -}
-plus_square                         : Icon msg
-plus_square                         = icon [] FAW.plus_square
+plus_square                         : Size -> Attrs msg -> Icon msg
+plus_square                         = \size attrs -> icon size attrs <| ls <| FAW.plus_square
 
 {-| TODO
 -}
-plus_square_o                       : Icon msg
-plus_square_o                       = icon [] FAW.plus_square_o
+plus_square_o                       : Size -> Attrs msg -> Icon msg
+plus_square_o                       = \size attrs -> icon size attrs <| ls <| FAW.plus_square_o
 
 {-| TODO
 -}
-power_off                           : Icon msg
-power_off                           = icon [] FAW.power_off
+power_off                           : Size -> Attrs msg -> Icon msg
+power_off                           = \size attrs -> icon size attrs <| ls <| FAW.power_off
 
 {-| TODO
 -}
-print                               : Icon msg
-print                               = icon [] FAW.print
+print                               : Size -> Attrs msg -> Icon msg
+print                               = \size attrs -> icon size attrs <| ls <| FAW.print
 
 {-| TODO
 -}
-puzzle_piece                        : Icon msg
-puzzle_piece                        = icon [] FAW.puzzle_piece
+puzzle_piece                        : Size -> Attrs msg -> Icon msg
+puzzle_piece                        = \size attrs -> icon size attrs <| ls <| FAW.puzzle_piece
 
 {-| TODO
 -}
-qrcode                              : Icon msg
-qrcode                              = icon [] FAW.qrcode
+qrcode                              : Size -> Attrs msg -> Icon msg
+qrcode                              = \size attrs -> icon size attrs <| ls <| FAW.qrcode
 
 {-| TODO
 -}
-question                            : Icon msg
-question                            = icon [] FAW.question
+question                            : Size -> Attrs msg -> Icon msg
+question                            = \size attrs -> icon size attrs <| ls <| FAW.question
 
 {-| TODO
 -}
-question_circle                     : Icon msg
-question_circle                     = icon [] FAW.question_circle
+question_circle                     : Size -> Attrs msg -> Icon msg
+question_circle                     = \size attrs -> icon size attrs <| ls <| FAW.question_circle
 
 {-| TODO
 -}
-question_circle_o                   : Icon msg
-question_circle_o                   = icon [] FAW.question_circle_o
+question_circle_o                   : Size -> Attrs msg -> Icon msg
+question_circle_o                   = \size attrs -> icon size attrs <| ls <| FAW.question_circle_o
 
 {-| TODO
 -}
-quote_left                          : Icon msg
-quote_left                          = icon [] FAW.quote_left
+quote_left                          : Size -> Attrs msg -> Icon msg
+quote_left                          = \size attrs -> icon size attrs <| ls <| FAW.quote_left
 
 {-| TODO
 -}
-quote_right                         : Icon msg
-quote_right                         = icon [] FAW.quote_right
+quote_right                         : Size -> Attrs msg -> Icon msg
+quote_right                         = \size attrs -> icon size attrs <| ls <| FAW.quote_right
 
 {-| TODO
 -}
-random                              : Icon msg
-random                              = icon [] FAW.random
+random                              : Size -> Attrs msg -> Icon msg
+random                              = \size attrs -> icon size attrs <| ls <| FAW.random
 
 {-| TODO
 -}
-recycle                             : Icon msg
-recycle                             = icon [] FAW.recycle
+recycle                             : Size -> Attrs msg -> Icon msg
+recycle                             = \size attrs -> icon size attrs <| ls <| FAW.recycle
 
 {-| TODO
 -}
-refresh                             : Icon msg
-refresh                             = icon [] FAW.refresh
+refresh                             : Size -> Attrs msg -> Icon msg
+refresh                             = \size attrs -> icon size attrs <| ls <| FAW.refresh
 
 {-| TODO
 -}
-registered                          : Icon msg
-registered                          = icon [] FAW.registered
+registered                          : Size -> Attrs msg -> Icon msg
+registered                          = \size attrs -> icon size attrs <| ls <| FAW.registered
 
 {-| TODO
 -}
-remove                              : Icon msg
-remove                              = icon [] FAW.remove
+remove                              : Size -> Attrs msg -> Icon msg
+remove                              = \size attrs -> icon size attrs <| ls <| FAW.remove
 
 {-| TODO
 -}
-reorder                             : Icon msg
-reorder                             = icon [] FAW.reorder
+reorder                             : Size -> Attrs msg -> Icon msg
+reorder                             = \size attrs -> icon size attrs <| ls <| FAW.reorder
 
 {-| TODO
 -}
-reply                               : Icon msg
-reply                               = icon [] FAW.reply
+reply                               : Size -> Attrs msg -> Icon msg
+reply                               = \size attrs -> icon size attrs <| ls <| FAW.reply
 
 {-| TODO
 -}
-reply_all                           : Icon msg
-reply_all                           = icon [] FAW.reply_all
+reply_all                           : Size -> Attrs msg -> Icon msg
+reply_all                           = \size attrs -> icon size attrs <| ls <| FAW.reply_all
 
 {-| TODO
 -}
-retweet                             : Icon msg
-retweet                             = icon [] FAW.retweet
+retweet                             : Size -> Attrs msg -> Icon msg
+retweet                             = \size attrs -> icon size attrs <| ls <| FAW.retweet
 
 {-| TODO
 -}
-road                                : Icon msg
-road                                = icon [] FAW.road
+road                                : Size -> Attrs msg -> Icon msg
+road                                = \size attrs -> icon size attrs <| ls <| FAW.road
 
 {-| TODO
 -}
-rocket                              : Icon msg
-rocket                              = icon [] FAW.rocket
+rocket                              : Size -> Attrs msg -> Icon msg
+rocket                              = \size attrs -> icon size attrs <| ls <| FAW.rocket
 
 {-| TODO
 -}
-rss                                 : Icon msg
-rss                                 = icon [] FAW.rss
+rss                                 : Size -> Attrs msg -> Icon msg
+rss                                 = \size attrs -> icon size attrs <| ls <| FAW.rss
 
 {-| TODO
 -}
-rss_square                          : Icon msg
-rss_square                          = icon [] FAW.rss_square
+rss_square                          : Size -> Attrs msg -> Icon msg
+rss_square                          = \size attrs -> icon size attrs <| ls <| FAW.rss_square
 
 {-| TODO
 -}
-search                              : Icon msg
-search                              = icon [] FAW.search
+search                              : Size -> Attrs msg -> Icon msg
+search                              = \size attrs -> icon size attrs <| ls <| FAW.search
 
 {-| TODO
 -}
-search_minus                        : Icon msg
-search_minus                        = icon [] FAW.search_minus
+search_minus                        : Size -> Attrs msg -> Icon msg
+search_minus                        = \size attrs -> icon size attrs <| ls <| FAW.search_minus
 
 {-| TODO
 -}
-search_plus                         : Icon msg
-search_plus                         = icon [] FAW.search_plus
+search_plus                         : Size -> Attrs msg -> Icon msg
+search_plus                         = \size attrs -> icon size attrs <| ls <| FAW.search_plus
 
 {-| TODO
 -}
-send                                : Icon msg
-send                                = icon [] FAW.send
+send                                : Size -> Attrs msg -> Icon msg
+send                                = \size attrs -> icon size attrs <| ls <| FAW.send
 
 {-| TODO
 -}
-send_o                              : Icon msg
-send_o                              = icon [] FAW.send_o
+send_o                              : Size -> Attrs msg -> Icon msg
+send_o                              = \size attrs -> icon size attrs <| ls <| FAW.send_o
 
 {-| TODO
 -}
-server                              : Icon msg
-server                              = icon [] FAW.server
+server                              : Size -> Attrs msg -> Icon msg
+server                              = \size attrs -> icon size attrs <| ls <| FAW.server
 
 {-| TODO
 -}
-share                               : Icon msg
-share                               = icon [] FAW.share
+share                               : Size -> Attrs msg -> Icon msg
+share                               = \size attrs -> icon size attrs <| ls <| FAW.share
 
 {-| TODO
 -}
-share_alt                           : Icon msg
-share_alt                           = icon [] FAW.share_alt
+share_alt                           : Size -> Attrs msg -> Icon msg
+share_alt                           = \size attrs -> icon size attrs <| ls <| FAW.share_alt
 
 {-| TODO
 -}
-share_alt_square                    : Icon msg
-share_alt_square                    = icon [] FAW.share_alt_square
+share_alt_square                    : Size -> Attrs msg -> Icon msg
+share_alt_square                    = \size attrs -> icon size attrs <| ls <| FAW.share_alt_square
 
 {-| TODO
 -}
-share_square                        : Icon msg
-share_square                        = icon [] FAW.share_square
+share_square                        : Size -> Attrs msg -> Icon msg
+share_square                        = \size attrs -> icon size attrs <| ls <| FAW.share_square
 
 {-| TODO
 -}
-share_square_o                      : Icon msg
-share_square_o                      = icon [] FAW.share_square_o
+share_square_o                      : Size -> Attrs msg -> Icon msg
+share_square_o                      = \size attrs -> icon size attrs <| ls <| FAW.share_square_o
 
 {-| TODO
 -}
-shield                              : Icon msg
-shield                              = icon [] FAW.shield
+shield                              : Size -> Attrs msg -> Icon msg
+shield                              = \size attrs -> icon size attrs <| ls <| FAW.shield
 
 {-| TODO
 -}
-ship                                : Icon msg
-ship                                = icon [] FAW.ship
+ship                                : Size -> Attrs msg -> Icon msg
+ship                                = \size attrs -> icon size attrs <| ls <| FAW.ship
 
 {-| TODO
 -}
-shopping_bag                        : Icon msg
-shopping_bag                        = icon [] FAW.shopping_bag
+shopping_bag                        : Size -> Attrs msg -> Icon msg
+shopping_bag                        = \size attrs -> icon size attrs <| ls <| FAW.shopping_bag
 
 {-| TODO
 -}
-shopping_basket                     : Icon msg
-shopping_basket                     = icon [] FAW.shopping_basket
+shopping_basket                     : Size -> Attrs msg -> Icon msg
+shopping_basket                     = \size attrs -> icon size attrs <| ls <| FAW.shopping_basket
 
 {-| TODO
 -}
-shopping_cart                       : Icon msg
-shopping_cart                       = icon [] FAW.shopping_cart
+shopping_cart                       : Size -> Attrs msg -> Icon msg
+shopping_cart                       = \size attrs -> icon size attrs <| ls <| FAW.shopping_cart
 
 {-| TODO
 -}
-sign_in                             : Icon msg
-sign_in                             = icon [] FAW.sign_in
+sign_in                             : Size -> Attrs msg -> Icon msg
+sign_in                             = \size attrs -> icon size attrs <| ls <| FAW.sign_in
 
 {-| TODO
 -}
-sign_language                       : Icon msg
-sign_language                       = icon [] FAW.sign_language
+sign_language                       : Size -> Attrs msg -> Icon msg
+sign_language                       = \size attrs -> icon size attrs <| ls <| FAW.sign_language
 
 {-| TODO
 -}
-sign_out                            : Icon msg
-sign_out                            = icon [] FAW.sign_out
+sign_out                            : Size -> Attrs msg -> Icon msg
+sign_out                            = \size attrs -> icon size attrs <| ls <| FAW.sign_out
 
 {-| TODO
 -}
-signal                              : Icon msg
-signal                              = icon [] FAW.signal
+signal                              : Size -> Attrs msg -> Icon msg
+signal                              = \size attrs -> icon size attrs <| ls <| FAW.signal
 
 {-| TODO
 -}
-signing                             : Icon msg
-signing                             = icon [] FAW.signing
+signing                             : Size -> Attrs msg -> Icon msg
+signing                             = \size attrs -> icon size attrs <| ls <| FAW.signing
 
 {-| TODO
 -}
-sitemap                             : Icon msg
-sitemap                             = icon [] FAW.sitemap
+sitemap                             : Size -> Attrs msg -> Icon msg
+sitemap                             = \size attrs -> icon size attrs <| ls <| FAW.sitemap
 
 {-| TODO
 -}
-sliders                             : Icon msg
-sliders                             = icon [] FAW.sliders
+sliders                             : Size -> Attrs msg -> Icon msg
+sliders                             = \size attrs -> icon size attrs <| ls <| FAW.sliders
 
 {-| TODO
 -}
-smile_o                             : Icon msg
-smile_o                             = icon [] FAW.smile_o
+smile_o                             : Size -> Attrs msg -> Icon msg
+smile_o                             = \size attrs -> icon size attrs <| ls <| FAW.smile_o
 
 {-| TODO
 -}
-soccer_ball_o                       : Icon msg
-soccer_ball_o                       = icon [] FAW.soccer_ball_o
+soccer_ball_o                       : Size -> Attrs msg -> Icon msg
+soccer_ball_o                       = \size attrs -> icon size attrs <| ls <| FAW.soccer_ball_o
 
 {-| TODO
 -}
-sort                                : Icon msg
-sort                                = icon [] FAW.sort
+sort                                : Size -> Attrs msg -> Icon msg
+sort                                = \size attrs -> icon size attrs <| ls <| FAW.sort
 
 {-| TODO
 -}
-sort_alpha_asc                      : Icon msg
-sort_alpha_asc                      = icon [] FAW.sort_alpha_asc
+sort_alpha_asc                      : Size -> Attrs msg -> Icon msg
+sort_alpha_asc                      = \size attrs -> icon size attrs <| ls <| FAW.sort_alpha_asc
 
 {-| TODO
 -}
-sort_alpha_desc                     : Icon msg
-sort_alpha_desc                     = icon [] FAW.sort_alpha_desc
+sort_alpha_desc                     : Size -> Attrs msg -> Icon msg
+sort_alpha_desc                     = \size attrs -> icon size attrs <| ls <| FAW.sort_alpha_desc
 
 {-| TODO
 -}
-sort_amount_asc                     : Icon msg
-sort_amount_asc                     = icon [] FAW.sort_amount_asc
+sort_amount_asc                     : Size -> Attrs msg -> Icon msg
+sort_amount_asc                     = \size attrs -> icon size attrs <| ls <| FAW.sort_amount_asc
 
 {-| TODO
 -}
-sort_amount_desc                    : Icon msg
-sort_amount_desc                    = icon [] FAW.sort_amount_desc
+sort_amount_desc                    : Size -> Attrs msg -> Icon msg
+sort_amount_desc                    = \size attrs -> icon size attrs <| ls <| FAW.sort_amount_desc
 
 {-| TODO
 -}
-sort_asc                            : Icon msg
-sort_asc                            = icon [] FAW.sort_asc
+sort_asc                            : Size -> Attrs msg -> Icon msg
+sort_asc                            = \size attrs -> icon size attrs <| ls <| FAW.sort_asc
 
 {-| TODO
 -}
-sort_desc                           : Icon msg
-sort_desc                           = icon [] FAW.sort_desc
+sort_desc                           : Size -> Attrs msg -> Icon msg
+sort_desc                           = \size attrs -> icon size attrs <| ls <| FAW.sort_desc
 
 {-| TODO
 -}
-sort_down                           : Icon msg
-sort_down                           = icon [] FAW.sort_down
+sort_down                           : Size -> Attrs msg -> Icon msg
+sort_down                           = \size attrs -> icon size attrs <| ls <| FAW.sort_down
 
 {-| TODO
 -}
-sort_numeric_asc                    : Icon msg
-sort_numeric_asc                    = icon [] FAW.sort_numeric_asc
+sort_numeric_asc                    : Size -> Attrs msg -> Icon msg
+sort_numeric_asc                    = \size attrs -> icon size attrs <| ls <| FAW.sort_numeric_asc
 
 {-| TODO
 -}
-sort_numeric_desc                   : Icon msg
-sort_numeric_desc                   = icon [] FAW.sort_numeric_desc
+sort_numeric_desc                   : Size -> Attrs msg -> Icon msg
+sort_numeric_desc                   = \size attrs -> icon size attrs <| ls <| FAW.sort_numeric_desc
 
 {-| TODO
 -}
-sort_up                             : Icon msg
-sort_up                             = icon [] FAW.sort_up
+sort_up                             : Size -> Attrs msg -> Icon msg
+sort_up                             = \size attrs -> icon size attrs <| ls <| FAW.sort_up
 
 {-| TODO
 -}
-space_shuttle                       : Icon msg
-space_shuttle                       = icon [] FAW.space_shuttle
+space_shuttle                       : Size -> Attrs msg -> Icon msg
+space_shuttle                       = \size attrs -> icon size attrs <| ls <| FAW.space_shuttle
 
 {-| TODO
 -}
-spinner                             : Icon msg
-spinner                             = icon [] FAW.spinner
+spinner                             : Size -> Attrs msg -> Icon msg
+spinner                             = \size attrs -> icon size attrs <| ls <| FAW.spinner
 
 {-| TODO
 -}
-spoon                               : Icon msg
-spoon                               = icon [] FAW.spoon
+spoon                               : Size -> Attrs msg -> Icon msg
+spoon                               = \size attrs -> icon size attrs <| ls <| FAW.spoon
 
 {-| TODO
 -}
-square                              : Icon msg
-square                              = icon [] FAW.square
+square                              : Size -> Attrs msg -> Icon msg
+square                              = \size attrs -> icon size attrs <| ls <| FAW.square
 
 {-| TODO
 -}
-square_o                            : Icon msg
-square_o                            = icon [] FAW.square_o
+square_o                            : Size -> Attrs msg -> Icon msg
+square_o                            = \size attrs -> icon size attrs <| ls <| FAW.square_o
 
 {-| TODO
 -}
-star                                : Icon msg
-star                                = icon [] FAW.star
+star                                : Size -> Attrs msg -> Icon msg
+star                                = \size attrs -> icon size attrs <| ls <| FAW.star
 
 {-| TODO
 -}
-star_half                           : Icon msg
-star_half                           = icon [] FAW.star_half
+star_half                           : Size -> Attrs msg -> Icon msg
+star_half                           = \size attrs -> icon size attrs <| ls <| FAW.star_half
 
 {-| TODO
 -}
-star_half_empty                     : Icon msg
-star_half_empty                     = icon [] FAW.star_half_empty
+star_half_empty                     : Size -> Attrs msg -> Icon msg
+star_half_empty                     = \size attrs -> icon size attrs <| ls <| FAW.star_half_empty
 
 {-| TODO
 -}
-star_half_full                      : Icon msg
-star_half_full                      = icon [] FAW.star_half_full
+star_half_full                      : Size -> Attrs msg -> Icon msg
+star_half_full                      = \size attrs -> icon size attrs <| ls <| FAW.star_half_full
 
 {-| TODO
 -}
-star_half_o                         : Icon msg
-star_half_o                         = icon [] FAW.star_half_o
+star_half_o                         : Size -> Attrs msg -> Icon msg
+star_half_o                         = \size attrs -> icon size attrs <| ls <| FAW.star_half_o
 
 {-| TODO
 -}
-star_o                              : Icon msg
-star_o                              = icon [] FAW.star_o
+star_o                              : Size -> Attrs msg -> Icon msg
+star_o                              = \size attrs -> icon size attrs <| ls <| FAW.star_o
 
 {-| TODO
 -}
-sticky_note                         : Icon msg
-sticky_note                         = icon [] FAW.sticky_note
+sticky_note                         : Size -> Attrs msg -> Icon msg
+sticky_note                         = \size attrs -> icon size attrs <| ls <| FAW.sticky_note
 
 {-| TODO
 -}
-sticky_note_o                       : Icon msg
-sticky_note_o                       = icon [] FAW.sticky_note_o
+sticky_note_o                       : Size -> Attrs msg -> Icon msg
+sticky_note_o                       = \size attrs -> icon size attrs <| ls <| FAW.sticky_note_o
 
 {-| TODO
 -}
-street_view                         : Icon msg
-street_view                         = icon [] FAW.street_view
+street_view                         : Size -> Attrs msg -> Icon msg
+street_view                         = \size attrs -> icon size attrs <| ls <| FAW.street_view
 
 {-| TODO
 -}
-suitcase                            : Icon msg
-suitcase                            = icon [] FAW.suitcase
+suitcase                            : Size -> Attrs msg -> Icon msg
+suitcase                            = \size attrs -> icon size attrs <| ls <| FAW.suitcase
 
 {-| TODO
 -}
-sun_o                               : Icon msg
-sun_o                               = icon [] FAW.sun_o
+sun_o                               : Size -> Attrs msg -> Icon msg
+sun_o                               = \size attrs -> icon size attrs <| ls <| FAW.sun_o
 
 {-| TODO
 -}
-support                             : Icon msg
-support                             = icon [] FAW.support
+support                             : Size -> Attrs msg -> Icon msg
+support                             = \size attrs -> icon size attrs <| ls <| FAW.support
 
 {-| TODO
 -}
-tablet                              : Icon msg
-tablet                              = icon [] FAW.tablet
+tablet                              : Size -> Attrs msg -> Icon msg
+tablet                              = \size attrs -> icon size attrs <| ls <| FAW.tablet
 
 {-| TODO
 -}
-tachometer                          : Icon msg
-tachometer                          = icon [] FAW.tachometer
+tachometer                          : Size -> Attrs msg -> Icon msg
+tachometer                          = \size attrs -> icon size attrs <| ls <| FAW.tachometer
 
 {-| TODO
 -}
-tag                                 : Icon msg
-tag                                 = icon [] FAW.tag
+tag                                 : Size -> Attrs msg -> Icon msg
+tag                                 = \size attrs -> icon size attrs <| ls <| FAW.tag
 
 {-| TODO
 -}
-tags                                : Icon msg
-tags                                = icon [] FAW.tags
+tags                                : Size -> Attrs msg -> Icon msg
+tags                                = \size attrs -> icon size attrs <| ls <| FAW.tags
 
 {-| TODO
 -}
-tasks                               : Icon msg
-tasks                               = icon [] FAW.tasks
+tasks                               : Size -> Attrs msg -> Icon msg
+tasks                               = \size attrs -> icon size attrs <| ls <| FAW.tasks
 
 {-| TODO
 -}
-taxi                                : Icon msg
-taxi                                = icon [] FAW.taxi
+taxi                                : Size -> Attrs msg -> Icon msg
+taxi                                = \size attrs -> icon size attrs <| ls <| FAW.taxi
 
 {-| TODO
 -}
-television                          : Icon msg
-television                          = icon [] FAW.television
+television                          : Size -> Attrs msg -> Icon msg
+television                          = \size attrs -> icon size attrs <| ls <| FAW.television
 
 {-| TODO
 -}
-terminal                            : Icon msg
-terminal                            = icon [] FAW.terminal
+terminal                            : Size -> Attrs msg -> Icon msg
+terminal                            = \size attrs -> icon size attrs <| ls <| FAW.terminal
 
 {-| TODO
 -}
-thumb_tack                          : Icon msg
-thumb_tack                          = icon [] FAW.thumb_tack
+thumb_tack                          : Size -> Attrs msg -> Icon msg
+thumb_tack                          = \size attrs -> icon size attrs <| ls <| FAW.thumb_tack
 
 {-| TODO
 -}
-thumbs_down                         : Icon msg
-thumbs_down                         = icon [] FAW.thumbs_down
+thumbs_down                         : Size -> Attrs msg -> Icon msg
+thumbs_down                         = \size attrs -> icon size attrs <| ls <| FAW.thumbs_down
 
 {-| TODO
 -}
-thumbs_o_down                       : Icon msg
-thumbs_o_down                       = icon [] FAW.thumbs_o_down
+thumbs_o_down                       : Size -> Attrs msg -> Icon msg
+thumbs_o_down                       = \size attrs -> icon size attrs <| ls <| FAW.thumbs_o_down
 
 {-| TODO
 -}
-thumbs_o_up                         : Icon msg
-thumbs_o_up                         = icon [] FAW.thumbs_o_up
+thumbs_o_up                         : Size -> Attrs msg -> Icon msg
+thumbs_o_up                         = \size attrs -> icon size attrs <| ls <| FAW.thumbs_o_up
 
 {-| TODO
 -}
-thumbs_up                           : Icon msg
-thumbs_up                           = icon [] FAW.thumbs_up
+thumbs_up                           : Size -> Attrs msg -> Icon msg
+thumbs_up                           = \size attrs -> icon size attrs <| ls <| FAW.thumbs_up
 
 {-| TODO
 -}
-ticket                              : Icon msg
-ticket                              = icon [] FAW.ticket
+ticket                              : Size -> Attrs msg -> Icon msg
+ticket                              = \size attrs -> icon size attrs <| ls <| FAW.ticket
 
 {-| TODO
 -}
-times                               : Icon msg
-times                               = icon [] FAW.times
+times                               : Size -> Attrs msg -> Icon msg
+times                               = \size attrs -> icon size attrs <| ls <| FAW.times
 
 {-| TODO
 -}
-times_circle                        : Icon msg
-times_circle                        = icon [] FAW.times_circle
+times_circle                        : Size -> Attrs msg -> Icon msg
+times_circle                        = \size attrs -> icon size attrs <| ls <| FAW.times_circle
 
 {-| TODO
 -}
-times_circle_o                      : Icon msg
-times_circle_o                      = icon [] FAW.times_circle_o
+times_circle_o                      : Size -> Attrs msg -> Icon msg
+times_circle_o                      = \size attrs -> icon size attrs <| ls <| FAW.times_circle_o
 
 {-| TODO
 -}
-tint                                : Icon msg
-tint                                = icon [] FAW.tint
+tint                                : Size -> Attrs msg -> Icon msg
+tint                                = \size attrs -> icon size attrs <| ls <| FAW.tint
 
 {-| TODO
 -}
-toggle_down                         : Icon msg
-toggle_down                         = icon [] FAW.toggle_down
+toggle_down                         : Size -> Attrs msg -> Icon msg
+toggle_down                         = \size attrs -> icon size attrs <| ls <| FAW.toggle_down
 
 {-| TODO
 -}
-toggle_left                         : Icon msg
-toggle_left                         = icon [] FAW.toggle_left
+toggle_left                         : Size -> Attrs msg -> Icon msg
+toggle_left                         = \size attrs -> icon size attrs <| ls <| FAW.toggle_left
 
 {-| TODO
 -}
-toggle_off                          : Icon msg
-toggle_off                          = icon [] FAW.toggle_off
+toggle_off                          : Size -> Attrs msg -> Icon msg
+toggle_off                          = \size attrs -> icon size attrs <| ls <| FAW.toggle_off
 
 {-| TODO
 -}
-toggle_on                           : Icon msg
-toggle_on                           = icon [] FAW.toggle_on
+toggle_on                           : Size -> Attrs msg -> Icon msg
+toggle_on                           = \size attrs -> icon size attrs <| ls <| FAW.toggle_on
 
 {-| TODO
 -}
-toggle_right                        : Icon msg
-toggle_right                        = icon [] FAW.toggle_right
+toggle_right                        : Size -> Attrs msg -> Icon msg
+toggle_right                        = \size attrs -> icon size attrs <| ls <| FAW.toggle_right
 
 {-| TODO
 -}
-toggle_up                           : Icon msg
-toggle_up                           = icon [] FAW.toggle_up
+toggle_up                           : Size -> Attrs msg -> Icon msg
+toggle_up                           = \size attrs -> icon size attrs <| ls <| FAW.toggle_up
 
 {-| TODO
 -}
-trademark                           : Icon msg
-trademark                           = icon [] FAW.trademark
+trademark                           : Size -> Attrs msg -> Icon msg
+trademark                           = \size attrs -> icon size attrs <| ls <| FAW.trademark
 
 {-| TODO
 -}
-trash                               : Icon msg
-trash                               = icon [] FAW.trash
+trash                               : Size -> Attrs msg -> Icon msg
+trash                               = \size attrs -> icon size attrs <| ls <| FAW.trash
 
 {-| TODO
 -}
-trash_o                             : Icon msg
-trash_o                             = icon [] FAW.trash_o
+trash_o                             : Size -> Attrs msg -> Icon msg
+trash_o                             = \size attrs -> icon size attrs <| ls <| FAW.trash_o
 
 {-| TODO
 -}
-tree                                : Icon msg
-tree                                = icon [] FAW.tree
+tree                                : Size -> Attrs msg -> Icon msg
+tree                                = \size attrs -> icon size attrs <| ls <| FAW.tree
 
 {-| TODO
 -}
-trophy                              : Icon msg
-trophy                              = icon [] FAW.trophy
+trophy                              : Size -> Attrs msg -> Icon msg
+trophy                              = \size attrs -> icon size attrs <| ls <| FAW.trophy
 
 {-| TODO
 -}
-truck                               : Icon msg
-truck                               = icon [] FAW.truck
+truck                               : Size -> Attrs msg -> Icon msg
+truck                               = \size attrs -> icon size attrs <| ls <| FAW.truck
 
 {-| TODO
 -}
-tty                                 : Icon msg
-tty                                 = icon [] FAW.tty
+tty                                 : Size -> Attrs msg -> Icon msg
+tty                                 = \size attrs -> icon size attrs <| ls <| FAW.tty
 
 {-| TODO
 -}
-tv                                  : Icon msg
-tv                                  = icon [] FAW.tv
+tv                                  : Size -> Attrs msg -> Icon msg
+tv                                  = \size attrs -> icon size attrs <| ls <| FAW.tv
 
 {-| TODO
 -}
-umbrella                            : Icon msg
-umbrella                            = icon [] FAW.umbrella
+umbrella                            : Size -> Attrs msg -> Icon msg
+umbrella                            = \size attrs -> icon size attrs <| ls <| FAW.umbrella
 
 {-| TODO
 -}
-universal_access                    : Icon msg
-universal_access                    = icon [] FAW.universal_access
+universal_access                    : Size -> Attrs msg -> Icon msg
+universal_access                    = \size attrs -> icon size attrs <| ls <| FAW.universal_access
 
 {-| TODO
 -}
-university                          : Icon msg
-university                          = icon [] FAW.university
+university                          : Size -> Attrs msg -> Icon msg
+university                          = \size attrs -> icon size attrs <| ls <| FAW.university
 
 {-| TODO
 -}
-unlock                              : Icon msg
-unlock                              = icon [] FAW.unlock
+unlock                              : Size -> Attrs msg -> Icon msg
+unlock                              = \size attrs -> icon size attrs <| ls <| FAW.unlock
 
 {-| TODO
 -}
-unlock_alt                          : Icon msg
-unlock_alt                          = icon [] FAW.unlock_alt
+unlock_alt                          : Size -> Attrs msg -> Icon msg
+unlock_alt                          = \size attrs -> icon size attrs <| ls <| FAW.unlock_alt
 
 {-| TODO
 -}
-unsorted                            : Icon msg
-unsorted                            = icon [] FAW.unsorted
+unsorted                            : Size -> Attrs msg -> Icon msg
+unsorted                            = \size attrs -> icon size attrs <| ls <| FAW.unsorted
 
 {-| TODO
 -}
-upload                              : Icon msg
-upload                              = icon [] FAW.upload
+upload                              : Size -> Attrs msg -> Icon msg
+upload                              = \size attrs -> icon size attrs <| ls <| FAW.upload
 
 {-| TODO
 -}
-user                                : Icon msg
-user                                = icon [] FAW.user
+user                                : Size -> Attrs msg -> Icon msg
+user                                = \size attrs -> icon size attrs <| ls <| FAW.user
 
 {-| TODO
 -}
-user_plus                           : Icon msg
-user_plus                           = icon [] FAW.user_plus
+user_plus                           : Size -> Attrs msg -> Icon msg
+user_plus                           = \size attrs -> icon size attrs <| ls <| FAW.user_plus
 
 {-| TODO
 -}
-user_secret                         : Icon msg
-user_secret                         = icon [] FAW.user_secret
+user_secret                         : Size -> Attrs msg -> Icon msg
+user_secret                         = \size attrs -> icon size attrs <| ls <| FAW.user_secret
 
 {-| TODO
 -}
-user_times                          : Icon msg
-user_times                          = icon [] FAW.user_times
+user_times                          : Size -> Attrs msg -> Icon msg
+user_times                          = \size attrs -> icon size attrs <| ls <| FAW.user_times
 
 {-| TODO
 -}
-users                               : Icon msg
-users                               = icon [] FAW.users
+users                               : Size -> Attrs msg -> Icon msg
+users                               = \size attrs -> icon size attrs <| ls <| FAW.users
 
 {-| TODO
 -}
-video_camera                        : Icon msg
-video_camera                        = icon [] FAW.video_camera
+video_camera                        : Size -> Attrs msg -> Icon msg
+video_camera                        = \size attrs -> icon size attrs <| ls <| FAW.video_camera
 
 {-| TODO
 -}
-volume_control_phone                : Icon msg
-volume_control_phone                = icon [] FAW.volume_control_phone
+volume_control_phone                : Size -> Attrs msg -> Icon msg
+volume_control_phone                = \size attrs -> icon size attrs <| ls <| FAW.volume_control_phone
 
 {-| TODO
 -}
-volume_down                         : Icon msg
-volume_down                         = icon [] FAW.volume_down
+volume_down                         : Size -> Attrs msg -> Icon msg
+volume_down                         = \size attrs -> icon size attrs <| ls <| FAW.volume_down
 
 {-| TODO
 -}
-volume_off                          : Icon msg
-volume_off                          = icon [] FAW.volume_off
+volume_off                          : Size -> Attrs msg -> Icon msg
+volume_off                          = \size attrs -> icon size attrs <| ls <| FAW.volume_off
 
 {-| TODO
 -}
-volume_up                           : Icon msg
-volume_up                           = icon [] FAW.volume_up
+volume_up                           : Size -> Attrs msg -> Icon msg
+volume_up                           = \size attrs -> icon size attrs <| ls <| FAW.volume_up
 
 {-| TODO
 -}
-warning                             : Icon msg
-warning                             = icon [] FAW.warning
+warning                             : Size -> Attrs msg -> Icon msg
+warning                             = \size attrs -> icon size attrs <| ls <| FAW.warning
 
 {-| TODO
 -}
-wheelchair                          : Icon msg
-wheelchair                          = icon [] FAW.wheelchair
+wheelchair                          : Size -> Attrs msg -> Icon msg
+wheelchair                          = \size attrs -> icon size attrs <| ls <| FAW.wheelchair
 
 {-| TODO
 -}
-wheelchair_alt                      : Icon msg
-wheelchair_alt                      = icon [] FAW.wheelchair_alt
+wheelchair_alt                      : Size -> Attrs msg -> Icon msg
+wheelchair_alt                      = \size attrs -> icon size attrs <| ls <| FAW.wheelchair_alt
 
 {-| TODO
 -}
-wifi                                : Icon msg
-wifi                                = icon [] FAW.wifi
+wifi                                : Size -> Attrs msg -> Icon msg
+wifi                                = \size attrs -> icon size attrs <| ls <| FAW.wifi
 
 {-| TODO
 -}
-wrench                              : Icon msg
-wrench                              = icon [] FAW.wrench
+wrench                              : Size -> Attrs msg -> Icon msg
+wrench                              = \size attrs -> icon size attrs <| ls <| FAW.wrench
 
 {-| TODO
 -}
-fiveHundredPX                       : Icon msg
-fiveHundredPX                       = icon [] FAB.fiveHundredPX
+fiveHundredPX                       : Size -> Attrs msg -> Icon msg
+fiveHundredPX                       = \size attrs -> icon size attrs <| ls <| FAB.fiveHundredPX
 
 {-| TODO
 -}
-adn                                 : Icon msg
-adn                                 = icon [] FAB.adn
+adn                                 : Size -> Attrs msg -> Icon msg
+adn                                 = \size attrs -> icon size attrs <| ls <| FAB.adn
 
 {-| TODO
 -}
-amazon                              : Icon msg
-amazon                              = icon [] FAB.amazon
+amazon                              : Size -> Attrs msg -> Icon msg
+amazon                              = \size attrs -> icon size attrs <| ls <| FAB.amazon
 
 {-| TODO
 -}
-android                             : Icon msg
-android                             = icon [] FAB.android
+android                             : Size -> Attrs msg -> Icon msg
+android                             = \size attrs -> icon size attrs <| ls <| FAB.android
 
 {-| TODO
 -}
-angellist                           : Icon msg
-angellist                           = icon [] FAB.angellist
+angellist                           : Size -> Attrs msg -> Icon msg
+angellist                           = \size attrs -> icon size attrs <| ls <| FAB.angellist
 
 {-| TODO
 -}
-apple                               : Icon msg
-apple                               = icon [] FAB.apple
+apple                               : Size -> Attrs msg -> Icon msg
+apple                               = \size attrs -> icon size attrs <| ls <| FAB.apple
 
 {-| TODO
 -}
-behance                             : Icon msg
-behance                             = icon [] FAB.behance
+behance                             : Size -> Attrs msg -> Icon msg
+behance                             = \size attrs -> icon size attrs <| ls <| FAB.behance
 
 {-| TODO
 -}
-behance_square                      : Icon msg
-behance_square                      = icon [] FAB.behance_square
+behance_square                      : Size -> Attrs msg -> Icon msg
+behance_square                      = \size attrs -> icon size attrs <| ls <| FAB.behance_square
 
 {-| TODO
 -}
-bitbucket                           : Icon msg
-bitbucket                           = icon [] FAB.bitbucket
+bitbucket                           : Size -> Attrs msg -> Icon msg
+bitbucket                           = \size attrs -> icon size attrs <| ls <| FAB.bitbucket
 
 {-| TODO
 -}
-bitbucket_square                    : Icon msg
-bitbucket_square                    = icon [] FAB.bitbucket_square
+bitbucket_square                    : Size -> Attrs msg -> Icon msg
+bitbucket_square                    = \size attrs -> icon size attrs <| ls <| FAB.bitbucket_square
 
 {-| TODO
 -}
-bitcoin                             : Icon msg
-bitcoin                             = icon [] FAB.bitcoin
+bitcoin                             : Size -> Attrs msg -> Icon msg
+bitcoin                             = \size attrs -> icon size attrs <| ls <| FAB.bitcoin
 
 {-| TODO
 -}
-black_tie                           : Icon msg
-black_tie                           = icon [] FAB.black_tie
+black_tie                           : Size -> Attrs msg -> Icon msg
+black_tie                           = \size attrs -> icon size attrs <| ls <| FAB.black_tie
 
 {-| TODO
 -}
-btc                                 : Icon msg
-btc                                 = icon [] FAB.btc
+btc                                 : Size -> Attrs msg -> Icon msg
+btc                                 = \size attrs -> icon size attrs <| ls <| FAB.btc
 
 {-| TODO
 -}
-buysellads                          : Icon msg
-buysellads                          = icon [] FAB.buysellads
+buysellads                          : Size -> Attrs msg -> Icon msg
+buysellads                          = \size attrs -> icon size attrs <| ls <| FAB.buysellads
 
 {-| TODO
 -}
-cc_amex                             : Icon msg
-cc_amex                             = icon [] FAB.cc_amex
+cc_amex                             : Size -> Attrs msg -> Icon msg
+cc_amex                             = \size attrs -> icon size attrs <| ls <| FAB.cc_amex
 
 {-| TODO
 -}
-cc_diners_club                      : Icon msg
-cc_diners_club                      = icon [] FAB.cc_diners_club
+cc_diners_club                      : Size -> Attrs msg -> Icon msg
+cc_diners_club                      = \size attrs -> icon size attrs <| ls <| FAB.cc_diners_club
 
 {-| TODO
 -}
-cc_discover                         : Icon msg
-cc_discover                         = icon [] FAB.cc_discover
+cc_discover                         : Size -> Attrs msg -> Icon msg
+cc_discover                         = \size attrs -> icon size attrs <| ls <| FAB.cc_discover
 
 {-| TODO
 -}
-cc_jcb                              : Icon msg
-cc_jcb                              = icon [] FAB.cc_jcb
+cc_jcb                              : Size -> Attrs msg -> Icon msg
+cc_jcb                              = \size attrs -> icon size attrs <| ls <| FAB.cc_jcb
 
 {-| TODO
 -}
-cc_mastercard                       : Icon msg
-cc_mastercard                       = icon [] FAB.cc_mastercard
+cc_mastercard                       : Size -> Attrs msg -> Icon msg
+cc_mastercard                       = \size attrs -> icon size attrs <| ls <| FAB.cc_mastercard
 
 {-| TODO
 -}
-cc_paypal                           : Icon msg
-cc_paypal                           = icon [] FAB.cc_paypal
+cc_paypal                           : Size -> Attrs msg -> Icon msg
+cc_paypal                           = \size attrs -> icon size attrs <| ls <| FAB.cc_paypal
 
 {-| TODO
 -}
-cc_stripe                           : Icon msg
-cc_stripe                           = icon [] FAB.cc_stripe
+cc_stripe                           : Size -> Attrs msg -> Icon msg
+cc_stripe                           = \size attrs -> icon size attrs <| ls <| FAB.cc_stripe
 
 {-| TODO
 -}
-cc_visa                             : Icon msg
-cc_visa                             = icon [] FAB.cc_visa
+cc_visa                             : Size -> Attrs msg -> Icon msg
+cc_visa                             = \size attrs -> icon size attrs <| ls <| FAB.cc_visa
 
 {-| TODO
 -}
-chrome                              : Icon msg
-chrome                              = icon [] FAB.chrome
+chrome                              : Size -> Attrs msg -> Icon msg
+chrome                              = \size attrs -> icon size attrs <| ls <| FAB.chrome
 
 {-| TODO
 -}
-codepen                             : Icon msg
-codepen                             = icon [] FAB.codepen
+codepen                             : Size -> Attrs msg -> Icon msg
+codepen                             = \size attrs -> icon size attrs <| ls <| FAB.codepen
 
 {-| TODO
 -}
-codiepie                            : Icon msg
-codiepie                            = icon [] FAB.codiepie
+codiepie                            : Size -> Attrs msg -> Icon msg
+codiepie                            = \size attrs -> icon size attrs <| ls <| FAB.codiepie
 
 {-| TODO
 -}
-connectdevelop                      : Icon msg
-connectdevelop                      = icon [] FAB.connectdevelop
+connectdevelop                      : Size -> Attrs msg -> Icon msg
+connectdevelop                      = \size attrs -> icon size attrs <| ls <| FAB.connectdevelop
 
 {-| TODO
 -}
-contao                              : Icon msg
-contao                              = icon [] FAB.contao
+contao                              : Size -> Attrs msg -> Icon msg
+contao                              = \size attrs -> icon size attrs <| ls <| FAB.contao
 
 {-| TODO
 -}
-css3                                : Icon msg
-css3                                = icon [] FAB.css3
+css3                                : Size -> Attrs msg -> Icon msg
+css3                                = \size attrs -> icon size attrs <| ls <| FAB.css3
 
 {-| TODO
 -}
-dashcube                            : Icon msg
-dashcube                            = icon [] FAB.dashcube
+dashcube                            : Size -> Attrs msg -> Icon msg
+dashcube                            = \size attrs -> icon size attrs <| ls <| FAB.dashcube
 
 {-| TODO
 -}
-delicious                           : Icon msg
-delicious                           = icon [] FAB.delicious
+delicious                           : Size -> Attrs msg -> Icon msg
+delicious                           = \size attrs -> icon size attrs <| ls <| FAB.delicious
 
 {-| TODO
 -}
-deviantart                          : Icon msg
-deviantart                          = icon [] FAB.deviantart
+deviantart                          : Size -> Attrs msg -> Icon msg
+deviantart                          = \size attrs -> icon size attrs <| ls <| FAB.deviantart
 
 {-| TODO
 -}
-digg                                : Icon msg
-digg                                = icon [] FAB.digg
+digg                                : Size -> Attrs msg -> Icon msg
+digg                                = \size attrs -> icon size attrs <| ls <| FAB.digg
 
 {-| TODO
 -}
-dribbble                            : Icon msg
-dribbble                            = icon [] FAB.dribbble
+dribbble                            : Size -> Attrs msg -> Icon msg
+dribbble                            = \size attrs -> icon size attrs <| ls <| FAB.dribbble
 
 {-| TODO
 -}
-dropbox                             : Icon msg
-dropbox                             = icon [] FAB.dropbox
+dropbox                             : Size -> Attrs msg -> Icon msg
+dropbox                             = \size attrs -> icon size attrs <| ls <| FAB.dropbox
 
 {-| TODO
 -}
-drupal                              : Icon msg
-drupal                              = icon [] FAB.drupal
+drupal                              : Size -> Attrs msg -> Icon msg
+drupal                              = \size attrs -> icon size attrs <| ls <| FAB.drupal
 
 {-| TODO
 -}
-edge                                : Icon msg
-edge                                = icon [] FAB.edge
+edge                                : Size -> Attrs msg -> Icon msg
+edge                                = \size attrs -> icon size attrs <| ls <| FAB.edge
 
 {-| TODO
 -}
-empire                              : Icon msg
-empire                              = icon [] FAB.empire
+empire                              : Size -> Attrs msg -> Icon msg
+empire                              = \size attrs -> icon size attrs <| ls <| FAB.empire
 
 {-| TODO
 -}
-envira                              : Icon msg
-envira                              = icon [] FAB.envira
+envira                              : Size -> Attrs msg -> Icon msg
+envira                              = \size attrs -> icon size attrs <| ls <| FAB.envira
 
 {-| TODO
 -}
-expeditedssl                        : Icon msg
-expeditedssl                        = icon [] FAB.expeditedssl
+expeditedssl                        : Size -> Attrs msg -> Icon msg
+expeditedssl                        = \size attrs -> icon size attrs <| ls <| FAB.expeditedssl
 
 {-| TODO
 -}
-fa                                  : Icon msg
-fa                                  = icon [] FAB.fa
+fa                                  : Size -> Attrs msg -> Icon msg
+fa                                  = \size attrs -> icon size attrs <| ls <| FAB.fa
 
 {-| TODO
 -}
-facebook                            : Icon msg
-facebook                            = icon [] FAB.facebook
+facebook                            : Size -> Attrs msg -> Icon msg
+facebook                            = \size attrs -> icon size attrs <| ls <| FAB.facebook
 
 {-| TODO
 -}
-facebook_f                          : Icon msg
-facebook_f                          = icon [] FAB.facebook_f
+facebook_f                          : Size -> Attrs msg -> Icon msg
+facebook_f                          = \size attrs -> icon size attrs <| ls <| FAB.facebook_f
 
 {-| TODO
 -}
-facebook_official                   : Icon msg
-facebook_official                   = icon [] FAB.facebook_official
+facebook_official                   : Size -> Attrs msg -> Icon msg
+facebook_official                   = \size attrs -> icon size attrs <| ls <| FAB.facebook_official
 
 {-| TODO
 -}
-facebook_square                     : Icon msg
-facebook_square                     = icon [] FAB.facebook_square
+facebook_square                     : Size -> Attrs msg -> Icon msg
+facebook_square                     = \size attrs -> icon size attrs <| ls <| FAB.facebook_square
 
 {-| TODO
 -}
-firefox                             : Icon msg
-firefox                             = icon [] FAB.firefox
+firefox                             : Size -> Attrs msg -> Icon msg
+firefox                             = \size attrs -> icon size attrs <| ls <| FAB.firefox
 
 {-| TODO
 -}
-first_order                         : Icon msg
-first_order                         = icon [] FAB.first_order
+first_order                         : Size -> Attrs msg -> Icon msg
+first_order                         = \size attrs -> icon size attrs <| ls <| FAB.first_order
 
 {-| TODO
 -}
-flickr                              : Icon msg
-flickr                              = icon [] FAB.flickr
+flickr                              : Size -> Attrs msg -> Icon msg
+flickr                              = \size attrs -> icon size attrs <| ls <| FAB.flickr
 
 {-| TODO
 -}
-font_awesome                        : Icon msg
-font_awesome                        = icon [] FAB.font_awesome
+font_awesome                        : Size -> Attrs msg -> Icon msg
+font_awesome                        = \size attrs -> icon size attrs <| ls <| FAB.font_awesome
 
 {-| TODO
 -}
-fonticons                           : Icon msg
-fonticons                           = icon [] FAB.fonticons
+fonticons                           : Size -> Attrs msg -> Icon msg
+fonticons                           = \size attrs -> icon size attrs <| ls <| FAB.fonticons
 
 {-| TODO
 -}
-fort_awesome                        : Icon msg
-fort_awesome                        = icon [] FAB.fort_awesome
+fort_awesome                        : Size -> Attrs msg -> Icon msg
+fort_awesome                        = \size attrs -> icon size attrs <| ls <| FAB.fort_awesome
 
 {-| TODO
 -}
-forumbee                            : Icon msg
-forumbee                            = icon [] FAB.forumbee
+forumbee                            : Size -> Attrs msg -> Icon msg
+forumbee                            = \size attrs -> icon size attrs <| ls <| FAB.forumbee
 
 {-| TODO
 -}
-foursquare                          : Icon msg
-foursquare                          = icon [] FAB.foursquare
+foursquare                          : Size -> Attrs msg -> Icon msg
+foursquare                          = \size attrs -> icon size attrs <| ls <| FAB.foursquare
 
 {-| TODO
 -}
-ge                                  : Icon msg
-ge                                  = icon [] FAB.ge
+ge                                  : Size -> Attrs msg -> Icon msg
+ge                                  = \size attrs -> icon size attrs <| ls <| FAB.ge
 
 {-| TODO
 -}
-get_pocket                          : Icon msg
-get_pocket                          = icon [] FAB.get_pocket
+get_pocket                          : Size -> Attrs msg -> Icon msg
+get_pocket                          = \size attrs -> icon size attrs <| ls <| FAB.get_pocket
 
 {-| TODO
 -}
-gg                                  : Icon msg
-gg                                  = icon [] FAB.gg
+gg                                  : Size -> Attrs msg -> Icon msg
+gg                                  = \size attrs -> icon size attrs <| ls <| FAB.gg
 
 {-| TODO
 -}
-gg_circle                           : Icon msg
-gg_circle                           = icon [] FAB.gg_circle
+gg_circle                           : Size -> Attrs msg -> Icon msg
+gg_circle                           = \size attrs -> icon size attrs <| ls <| FAB.gg_circle
 
 {-| TODO
 -}
-git                                 : Icon msg
-git                                 = icon [] FAB.git
+git                                 : Size -> Attrs msg -> Icon msg
+git                                 = \size attrs -> icon size attrs <| ls <| FAB.git
 
 {-| TODO
 -}
-git_square                          : Icon msg
-git_square                          = icon [] FAB.git_square
+git_square                          : Size -> Attrs msg -> Icon msg
+git_square                          = \size attrs -> icon size attrs <| ls <| FAB.git_square
 
 {-| TODO
 -}
-github                              : Icon msg
-github                              = icon [] FAB.github
+github                              : Size -> Attrs msg -> Icon msg
+github                              = \size attrs -> icon size attrs <| ls <| FAB.github
 
 {-| TODO
 -}
-github_alt                          : Icon msg
-github_alt                          = icon [] FAB.github_alt
+github_alt                          : Size -> Attrs msg -> Icon msg
+github_alt                          = \size attrs -> icon size attrs <| ls <| FAB.github_alt
 
 {-| TODO
 -}
-github_square                       : Icon msg
-github_square                       = icon [] FAB.github_square
+github_square                       : Size -> Attrs msg -> Icon msg
+github_square                       = \size attrs -> icon size attrs <| ls <| FAB.github_square
 
 {-| TODO
 -}
-gitlab                              : Icon msg
-gitlab                              = icon [] FAB.gitlab
+gitlab                              : Size -> Attrs msg -> Icon msg
+gitlab                              = \size attrs -> icon size attrs <| ls <| FAB.gitlab
 
 {-| TODO
 -}
-gittip                              : Icon msg
-gittip                              = icon [] FAB.gittip
+gittip                              : Size -> Attrs msg -> Icon msg
+gittip                              = \size attrs -> icon size attrs <| ls <| FAB.gittip
 
 {-| TODO
 -}
-glide                               : Icon msg
-glide                               = icon [] FAB.glide
+glide                               : Size -> Attrs msg -> Icon msg
+glide                               = \size attrs -> icon size attrs <| ls <| FAB.glide
 
 {-| TODO
 -}
-glide_g                             : Icon msg
-glide_g                             = icon [] FAB.glide_g
+glide_g                             : Size -> Attrs msg -> Icon msg
+glide_g                             = \size attrs -> icon size attrs <| ls <| FAB.glide_g
 
 {-| TODO
 -}
-google                              : Icon msg
-google                              = icon [] FAB.google
+google                              : Size -> Attrs msg -> Icon msg
+google                              = \size attrs -> icon size attrs <| ls <| FAB.google
 
 {-| TODO
 -}
-google_plus                         : Icon msg
-google_plus                         = icon [] FAB.google_plus
+google_plus                         : Size -> Attrs msg -> Icon msg
+google_plus                         = \size attrs -> icon size attrs <| ls <| FAB.google_plus
 
 {-| TODO
 -}
-google_plus_circle                  : Icon msg
-google_plus_circle                  = icon [] FAB.google_plus_circle
+google_plus_circle                  : Size -> Attrs msg -> Icon msg
+google_plus_circle                  = \size attrs -> icon size attrs <| ls <| FAB.google_plus_circle
 
 {-| TODO
 -}
-google_plus_official                : Icon msg
-google_plus_official                = icon [] FAB.google_plus_official
+google_plus_official                : Size -> Attrs msg -> Icon msg
+google_plus_official                = \size attrs -> icon size attrs <| ls <| FAB.google_plus_official
 
 {-| TODO
 -}
-google_plus_square                  : Icon msg
-google_plus_square                  = icon [] FAB.google_plus_square
+google_plus_square                  : Size -> Attrs msg -> Icon msg
+google_plus_square                  = \size attrs -> icon size attrs <| ls <| FAB.google_plus_square
 
 {-| TODO
 -}
-google_wallet                       : Icon msg
-google_wallet                       = icon [] FAB.google_wallet
+google_wallet                       : Size -> Attrs msg -> Icon msg
+google_wallet                       = \size attrs -> icon size attrs <| ls <| FAB.google_wallet
 
 {-| TODO
 -}
-gratipay                            : Icon msg
-gratipay                            = icon [] FAB.gratipay
+gratipay                            : Size -> Attrs msg -> Icon msg
+gratipay                            = \size attrs -> icon size attrs <| ls <| FAB.gratipay
 
 {-| TODO
 -}
-hacker_news                         : Icon msg
-hacker_news                         = icon [] FAB.hacker_news
+hacker_news                         : Size -> Attrs msg -> Icon msg
+hacker_news                         = \size attrs -> icon size attrs <| ls <| FAB.hacker_news
 
 {-| TODO
 -}
-houzz                               : Icon msg
-houzz                               = icon [] FAB.houzz
+houzz                               : Size -> Attrs msg -> Icon msg
+houzz                               = \size attrs -> icon size attrs <| ls <| FAB.houzz
 
 {-| TODO
 -}
-html5                               : Icon msg
-html5                               = icon [] FAB.html5
+html5                               : Size -> Attrs msg -> Icon msg
+html5                               = \size attrs -> icon size attrs <| ls <| FAB.html5
 
 {-| TODO
 -}
-instagram                           : Icon msg
-instagram                           = icon [] FAB.instagram
+instagram                           : Size -> Attrs msg -> Icon msg
+instagram                           = \size attrs -> icon size attrs <| ls <| FAB.instagram
 
 {-| TODO
 -}
-internet_explorer                   : Icon msg
-internet_explorer                   = icon [] FAB.internet_explorer
+internet_explorer                   : Size -> Attrs msg -> Icon msg
+internet_explorer                   = \size attrs -> icon size attrs <| ls <| FAB.internet_explorer
 
 {-| TODO
 -}
-ioxhost                             : Icon msg
-ioxhost                             = icon [] FAB.ioxhost
+ioxhost                             : Size -> Attrs msg -> Icon msg
+ioxhost                             = \size attrs -> icon size attrs <| ls <| FAB.ioxhost
 
 {-| TODO
 -}
-joomla                              : Icon msg
-joomla                              = icon [] FAB.joomla
+joomla                              : Size -> Attrs msg -> Icon msg
+joomla                              = \size attrs -> icon size attrs <| ls <| FAB.joomla
 
 {-| TODO
 -}
-jsfiddle                            : Icon msg
-jsfiddle                            = icon [] FAB.jsfiddle
+jsfiddle                            : Size -> Attrs msg -> Icon msg
+jsfiddle                            = \size attrs -> icon size attrs <| ls <| FAB.jsfiddle
 
 {-| TODO
 -}
-lastfm                              : Icon msg
-lastfm                              = icon [] FAB.lastfm
+lastfm                              : Size -> Attrs msg -> Icon msg
+lastfm                              = \size attrs -> icon size attrs <| ls <| FAB.lastfm
 
 {-| TODO
 -}
-lastfm_square                       : Icon msg
-lastfm_square                       = icon [] FAB.lastfm_square
+lastfm_square                       : Size -> Attrs msg -> Icon msg
+lastfm_square                       = \size attrs -> icon size attrs <| ls <| FAB.lastfm_square
 
 {-| TODO
 -}
-leanpub                             : Icon msg
-leanpub                             = icon [] FAB.leanpub
+leanpub                             : Size -> Attrs msg -> Icon msg
+leanpub                             = \size attrs -> icon size attrs <| ls <| FAB.leanpub
 
 {-| TODO
 -}
-linkedin                            : Icon msg
-linkedin                            = icon [] FAB.linkedin
+linkedin                            : Size -> Attrs msg -> Icon msg
+linkedin                            = \size attrs -> icon size attrs <| ls <| FAB.linkedin
 
 {-| TODO
 -}
-linkedin_square                     : Icon msg
-linkedin_square                     = icon [] FAB.linkedin_square
+linkedin_square                     : Size -> Attrs msg -> Icon msg
+linkedin_square                     = \size attrs -> icon size attrs <| ls <| FAB.linkedin_square
 
 {-| TODO
 -}
-linux                               : Icon msg
-linux                               = icon [] FAB.linux
+linux                               : Size -> Attrs msg -> Icon msg
+linux                               = \size attrs -> icon size attrs <| ls <| FAB.linux
 
 {-| TODO
 -}
-maxcdn                              : Icon msg
-maxcdn                              = icon [] FAB.maxcdn
+maxcdn                              : Size -> Attrs msg -> Icon msg
+maxcdn                              = \size attrs -> icon size attrs <| ls <| FAB.maxcdn
 
 {-| TODO
 -}
-meanpath                            : Icon msg
-meanpath                            = icon [] FAB.meanpath
+meanpath                            : Size -> Attrs msg -> Icon msg
+meanpath                            = \size attrs -> icon size attrs <| ls <| FAB.meanpath
 
 {-| TODO
 -}
-medium_                             : Icon msg
-medium_                             = icon [] FAB.medium
+medium_                             : Size -> Attrs msg -> Icon msg
+medium_                             = \size attrs -> icon size attrs <| ls <| FAB.medium
 
 {-| TODO
 -}
-mixcloud                            : Icon msg
-mixcloud                            = icon [] FAB.mixcloud
+mixcloud                            : Size -> Attrs msg -> Icon msg
+mixcloud                            = \size attrs -> icon size attrs <| ls <| FAB.mixcloud
 
 {-| TODO
 -}
-modx                                : Icon msg
-modx                                = icon [] FAB.modx
+modx                                : Size -> Attrs msg -> Icon msg
+modx                                = \size attrs -> icon size attrs <| ls <| FAB.modx
 
 {-| TODO
 -}
-odnoklassniki                       : Icon msg
-odnoklassniki                       = icon [] FAB.odnoklassniki
+odnoklassniki                       : Size -> Attrs msg -> Icon msg
+odnoklassniki                       = \size attrs -> icon size attrs <| ls <| FAB.odnoklassniki
 
 {-| TODO
 -}
-odnoklassniki_square                : Icon msg
-odnoklassniki_square                = icon [] FAB.odnoklassniki_square
+odnoklassniki_square                : Size -> Attrs msg -> Icon msg
+odnoklassniki_square                = \size attrs -> icon size attrs <| ls <| FAB.odnoklassniki_square
 
 {-| TODO
 -}
-opencart                            : Icon msg
-opencart                            = icon [] FAB.opencart
+opencart                            : Size -> Attrs msg -> Icon msg
+opencart                            = \size attrs -> icon size attrs <| ls <| FAB.opencart
 
 {-| TODO
 -}
-openid                              : Icon msg
-openid                              = icon [] FAB.openid
+openid                              : Size -> Attrs msg -> Icon msg
+openid                              = \size attrs -> icon size attrs <| ls <| FAB.openid
 
 {-| TODO
 -}
-opera                               : Icon msg
-opera                               = icon [] FAB.opera
+opera                               : Size -> Attrs msg -> Icon msg
+opera                               = \size attrs -> icon size attrs <| ls <| FAB.opera
 
 {-| TODO
 -}
-optin_monster                       : Icon msg
-optin_monster                       = icon [] FAB.optin_monster
+optin_monster                       : Size -> Attrs msg -> Icon msg
+optin_monster                       = \size attrs -> icon size attrs <| ls <| FAB.optin_monster
 
 {-| TODO
 -}
-pagelines                           : Icon msg
-pagelines                           = icon [] FAB.pagelines
+pagelines                           : Size -> Attrs msg -> Icon msg
+pagelines                           = \size attrs -> icon size attrs <| ls <| FAB.pagelines
 
 {-| TODO
 -}
-paypal                              : Icon msg
-paypal                              = icon [] FAB.paypal
+paypal                              : Size -> Attrs msg -> Icon msg
+paypal                              = \size attrs -> icon size attrs <| ls <| FAB.paypal
 
 {-| TODO
 -}
-pied_piper                          : Icon msg
-pied_piper                          = icon [] FAB.pied_piper
+pied_piper                          : Size -> Attrs msg -> Icon msg
+pied_piper                          = \size attrs -> icon size attrs <| ls <| FAB.pied_piper
 
 {-| TODO
 -}
-pied_piper_alt                      : Icon msg
-pied_piper_alt                      = icon [] FAB.pied_piper_alt
+pied_piper_alt                      : Size -> Attrs msg -> Icon msg
+pied_piper_alt                      = \size attrs -> icon size attrs <| ls <| FAB.pied_piper_alt
 
 {-| TODO
 -}
-pied_piper_pp                       : Icon msg
-pied_piper_pp                       = icon [] FAB.pied_piper_pp
+pied_piper_pp                       : Size -> Attrs msg -> Icon msg
+pied_piper_pp                       = \size attrs -> icon size attrs <| ls <| FAB.pied_piper_pp
 
 {-| TODO
 -}
-pinterest                           : Icon msg
-pinterest                           = icon [] FAB.pinterest
+pinterest                           : Size -> Attrs msg -> Icon msg
+pinterest                           = \size attrs -> icon size attrs <| ls <| FAB.pinterest
 
 {-| TODO
 -}
-pinterest_p                         : Icon msg
-pinterest_p                         = icon [] FAB.pinterest_p
+pinterest_p                         : Size -> Attrs msg -> Icon msg
+pinterest_p                         = \size attrs -> icon size attrs <| ls <| FAB.pinterest_p
 
 {-| TODO
 -}
-pinterest_square                    : Icon msg
-pinterest_square                    = icon [] FAB.pinterest_square
+pinterest_square                    : Size -> Attrs msg -> Icon msg
+pinterest_square                    = \size attrs -> icon size attrs <| ls <| FAB.pinterest_square
 
 {-| TODO
 -}
-product_hunt                        : Icon msg
-product_hunt                        = icon [] FAB.product_hunt
+product_hunt                        : Size -> Attrs msg -> Icon msg
+product_hunt                        = \size attrs -> icon size attrs <| ls <| FAB.product_hunt
 
 {-| TODO
 -}
-qq                                  : Icon msg
-qq                                  = icon [] FAB.qq
+qq                                  : Size -> Attrs msg -> Icon msg
+qq                                  = \size attrs -> icon size attrs <| ls <| FAB.qq
 
 {-| TODO
 -}
-ra                                  : Icon msg
-ra                                  = icon [] FAB.ra
+ra                                  : Size -> Attrs msg -> Icon msg
+ra                                  = \size attrs -> icon size attrs <| ls <| FAB.ra
 
 {-| TODO
 -}
-rebel                               : Icon msg
-rebel                               = icon [] FAB.rebel
+rebel                               : Size -> Attrs msg -> Icon msg
+rebel                               = \size attrs -> icon size attrs <| ls <| FAB.rebel
 
 {-| TODO
 -}
-reddit                              : Icon msg
-reddit                              = icon [] FAB.reddit
+reddit                              : Size -> Attrs msg -> Icon msg
+reddit                              = \size attrs -> icon size attrs <| ls <| FAB.reddit
 
 {-| TODO
 -}
-reddit_alien                        : Icon msg
-reddit_alien                        = icon [] FAB.reddit_alien
+reddit_alien                        : Size -> Attrs msg -> Icon msg
+reddit_alien                        = \size attrs -> icon size attrs <| ls <| FAB.reddit_alien
 
 {-| TODO
 -}
-reddit_square                       : Icon msg
-reddit_square                       = icon [] FAB.reddit_square
+reddit_square                       : Size -> Attrs msg -> Icon msg
+reddit_square                       = \size attrs -> icon size attrs <| ls <| FAB.reddit_square
 
 {-| TODO
 -}
-renren                              : Icon msg
-renren                              = icon [] FAB.renren
+renren                              : Size -> Attrs msg -> Icon msg
+renren                              = \size attrs -> icon size attrs <| ls <| FAB.renren
 
 {-| TODO
 -}
-resistance                          : Icon msg
-resistance                          = icon [] FAB.resistance
+resistance                          : Size -> Attrs msg -> Icon msg
+resistance                          = \size attrs -> icon size attrs <| ls <| FAB.resistance
 
 {-| TODO
 -}
-safari                              : Icon msg
-safari                              = icon [] FAB.safari
+safari                              : Size -> Attrs msg -> Icon msg
+safari                              = \size attrs -> icon size attrs <| ls <| FAB.safari
 
 {-| TODO
 -}
-scribd                              : Icon msg
-scribd                              = icon [] FAB.scribd
+scribd                              : Size -> Attrs msg -> Icon msg
+scribd                              = \size attrs -> icon size attrs <| ls <| FAB.scribd
 
 {-| TODO
 -}
-sellsy                              : Icon msg
-sellsy                              = icon [] FAB.sellsy
+sellsy                              : Size -> Attrs msg -> Icon msg
+sellsy                              = \size attrs -> icon size attrs <| ls <| FAB.sellsy
 
 {-| TODO
 -}
-shirtsinbulk                        : Icon msg
-shirtsinbulk                        = icon [] FAB.shirtsinbulk
+shirtsinbulk                        : Size -> Attrs msg -> Icon msg
+shirtsinbulk                        = \size attrs -> icon size attrs <| ls <| FAB.shirtsinbulk
 
 {-| TODO
 -}
-simplybuilt                         : Icon msg
-simplybuilt                         = icon [] FAB.simplybuilt
+simplybuilt                         : Size -> Attrs msg -> Icon msg
+simplybuilt                         = \size attrs -> icon size attrs <| ls <| FAB.simplybuilt
 
 {-| TODO
 -}
-skyatlas                            : Icon msg
-skyatlas                            = icon [] FAB.skyatlas
+skyatlas                            : Size -> Attrs msg -> Icon msg
+skyatlas                            = \size attrs -> icon size attrs <| ls <| FAB.skyatlas
 
 {-| TODO
 -}
-skype                               : Icon msg
-skype                               = icon [] FAB.skype
+skype                               : Size -> Attrs msg -> Icon msg
+skype                               = \size attrs -> icon size attrs <| ls <| FAB.skype
 
 {-| TODO
 -}
-slack                               : Icon msg
-slack                               = icon [] FAB.slack
+slack                               : Size -> Attrs msg -> Icon msg
+slack                               = \size attrs -> icon size attrs <| ls <| FAB.slack
 
 {-| TODO
 -}
-slideshare                          : Icon msg
-slideshare                          = icon [] FAB.slideshare
+slideshare                          : Size -> Attrs msg -> Icon msg
+slideshare                          = \size attrs -> icon size attrs <| ls <| FAB.slideshare
 
 {-| TODO
 -}
-snapchat                            : Icon msg
-snapchat                            = icon [] FAB.snapchat
+snapchat                            : Size -> Attrs msg -> Icon msg
+snapchat                            = \size attrs -> icon size attrs <| ls <| FAB.snapchat
 
 {-| TODO
 -}
-snapchat_ghost                      : Icon msg
-snapchat_ghost                      = icon [] FAB.snapchat_ghost
+snapchat_ghost                      : Size -> Attrs msg -> Icon msg
+snapchat_ghost                      = \size attrs -> icon size attrs <| ls <| FAB.snapchat_ghost
 
 {-| TODO
 -}
-snapchat_square                     : Icon msg
-snapchat_square                     = icon [] FAB.snapchat_square
+snapchat_square                     : Size -> Attrs msg -> Icon msg
+snapchat_square                     = \size attrs -> icon size attrs <| ls <| FAB.snapchat_square
 
 {-| TODO
 -}
-soundcloud                          : Icon msg
-soundcloud                          = icon [] FAB.soundcloud
+soundcloud                          : Size -> Attrs msg -> Icon msg
+soundcloud                          = \size attrs -> icon size attrs <| ls <| FAB.soundcloud
 
 {-| TODO
 -}
-spotify                             : Icon msg
-spotify                             = icon [] FAB.spotify
+spotify                             : Size -> Attrs msg -> Icon msg
+spotify                             = \size attrs -> icon size attrs <| ls <| FAB.spotify
 
 {-| TODO
 -}
-stack_exchange                      : Icon msg
-stack_exchange                      = icon [] FAB.stack_exchange
+stack_exchange                      : Size -> Attrs msg -> Icon msg
+stack_exchange                      = \size attrs -> icon size attrs <| ls <| FAB.stack_exchange
 
 {-| TODO
 -}
-stack_overflow                      : Icon msg
-stack_overflow                      = icon [] FAB.stack_overflow
+stack_overflow                      : Size -> Attrs msg -> Icon msg
+stack_overflow                      = \size attrs -> icon size attrs <| ls <| FAB.stack_overflow
 
 {-| TODO
 -}
-steam                               : Icon msg
-steam                               = icon [] FAB.steam
+steam                               : Size -> Attrs msg -> Icon msg
+steam                               = \size attrs -> icon size attrs <| ls <| FAB.steam
 
 {-| TODO
 -}
-steam_square                        : Icon msg
-steam_square                        = icon [] FAB.steam_square
+steam_square                        : Size -> Attrs msg -> Icon msg
+steam_square                        = \size attrs -> icon size attrs <| ls <| FAB.steam_square
 
 {-| TODO
 -}
-stumbleupon                         : Icon msg
-stumbleupon                         = icon [] FAB.stumbleupon
+stumbleupon                         : Size -> Attrs msg -> Icon msg
+stumbleupon                         = \size attrs -> icon size attrs <| ls <| FAB.stumbleupon
 
 {-| TODO
 -}
-stumbleupon_circle                  : Icon msg
-stumbleupon_circle                  = icon [] FAB.stumbleupon_circle
+stumbleupon_circle                  : Size -> Attrs msg -> Icon msg
+stumbleupon_circle                  = \size attrs -> icon size attrs <| ls <| FAB.stumbleupon_circle
 
 {-| TODO
 -}
-tencent_weibo                       : Icon msg
-tencent_weibo                       = icon [] FAB.tencent_weibo
+tencent_weibo                       : Size -> Attrs msg -> Icon msg
+tencent_weibo                       = \size attrs -> icon size attrs <| ls <| FAB.tencent_weibo
 
 {-| TODO
 -}
-themeisle                           : Icon msg
-themeisle                           = icon [] FAB.themeisle
+themeisle                           : Size -> Attrs msg -> Icon msg
+themeisle                           = \size attrs -> icon size attrs <| ls <| FAB.themeisle
 
 {-| TODO
 -}
-trello                              : Icon msg
-trello                              = icon [] FAB.trello
+trello                              : Size -> Attrs msg -> Icon msg
+trello                              = \size attrs -> icon size attrs <| ls <| FAB.trello
 
 {-| TODO
 -}
-tripadvisor                         : Icon msg
-tripadvisor                         = icon [] FAB.tripadvisor
+tripadvisor                         : Size -> Attrs msg -> Icon msg
+tripadvisor                         = \size attrs -> icon size attrs <| ls <| FAB.tripadvisor
 
 {-| TODO
 -}
-tumblr                              : Icon msg
-tumblr                              = icon [] FAB.tumblr
+tumblr                              : Size -> Attrs msg -> Icon msg
+tumblr                              = \size attrs -> icon size attrs <| ls <| FAB.tumblr
 
 {-| TODO
 -}
-tumblr_square                       : Icon msg
-tumblr_square                       = icon [] FAB.tumblr_square
+tumblr_square                       : Size -> Attrs msg -> Icon msg
+tumblr_square                       = \size attrs -> icon size attrs <| ls <| FAB.tumblr_square
 
 {-| TODO
 -}
-twitch                              : Icon msg
-twitch                              = icon [] FAB.twitch
+twitch                              : Size -> Attrs msg -> Icon msg
+twitch                              = \size attrs -> icon size attrs <| ls <| FAB.twitch
 
 {-| TODO
 -}
-twitter                             : Icon msg
-twitter                             = icon [] FAB.twitter
+twitter                             : Size -> Attrs msg -> Icon msg
+twitter                             = \size attrs -> icon size attrs <| ls <| FAB.twitter
 
 {-| TODO
 -}
-twitter_square                      : Icon msg
-twitter_square                      = icon [] FAB.twitter_square
+twitter_square                      : Size -> Attrs msg -> Icon msg
+twitter_square                      = \size attrs -> icon size attrs <| ls <| FAB.twitter_square
 
 {-| TODO
 -}
-usb                                 : Icon msg
-usb                                 = icon [] FAB.usb
+usb                                 : Size -> Attrs msg -> Icon msg
+usb                                 = \size attrs -> icon size attrs <| ls <| FAB.usb
 
 {-| TODO
 -}
-viacoin                             : Icon msg
-viacoin                             = icon [] FAB.viacoin
+viacoin                             : Size -> Attrs msg -> Icon msg
+viacoin                             = \size attrs -> icon size attrs <| ls <| FAB.viacoin
 
 {-| TODO
 -}
-viadeo                              : Icon msg
-viadeo                              = icon [] FAB.viadeo
+viadeo                              : Size -> Attrs msg -> Icon msg
+viadeo                              = \size attrs -> icon size attrs <| ls <| FAB.viadeo
 
 {-| TODO
 -}
-viadeo_square                       : Icon msg
-viadeo_square                       = icon [] FAB.viadeo_square
+viadeo_square                       : Size -> Attrs msg -> Icon msg
+viadeo_square                       = \size attrs -> icon size attrs <| ls <| FAB.viadeo_square
 
 {-| TODO
 -}
-vimeo                               : Icon msg
-vimeo                               = icon [] FAB.vimeo
+vimeo                               : Size -> Attrs msg -> Icon msg
+vimeo                               = \size attrs -> icon size attrs <| ls <| FAB.vimeo
 
 {-| TODO
 -}
-vimeo_square                        : Icon msg
-vimeo_square                        = icon [] FAB.vimeo_square
+vimeo_square                        : Size -> Attrs msg -> Icon msg
+vimeo_square                        = \size attrs -> icon size attrs <| ls <| FAB.vimeo_square
 
 {-| TODO
 -}
-vine                                : Icon msg
-vine                                = icon [] FAB.vine
+vine                                : Size -> Attrs msg -> Icon msg
+vine                                = \size attrs -> icon size attrs <| ls <| FAB.vine
 
 {-| TODO
 -}
-vk                                  : Icon msg
-vk                                  = icon [] FAB.vk
+vk                                  : Size -> Attrs msg -> Icon msg
+vk                                  = \size attrs -> icon size attrs <| ls <| FAB.vk
 
 {-| TODO
 -}
-wechat                              : Icon msg
-wechat                              = icon [] FAB.wechat
+wechat                              : Size -> Attrs msg -> Icon msg
+wechat                              = \size attrs -> icon size attrs <| ls <| FAB.wechat
 
 {-| TODO
 -}
-weibo                               : Icon msg
-weibo                               = icon [] FAB.weibo
+weibo                               : Size -> Attrs msg -> Icon msg
+weibo                               = \size attrs -> icon size attrs <| ls <| FAB.weibo
 
 {-| TODO
 -}
-weixin                              : Icon msg
-weixin                              = icon [] FAB.weixin
+weixin                              : Size -> Attrs msg -> Icon msg
+weixin                              = \size attrs -> icon size attrs <| ls <| FAB.weixin
 
 {-| TODO
 -}
-whatsapp                            : Icon msg
-whatsapp                            = icon [] FAB.whatsapp
+whatsapp                            : Size -> Attrs msg -> Icon msg
+whatsapp                            = \size attrs -> icon size attrs <| ls <| FAB.whatsapp
 
 {-| TODO
 -}
-wikipedia_w                         : Icon msg
-wikipedia_w                         = icon [] FAB.wikipedia_w
+wikipedia_w                         : Size -> Attrs msg -> Icon msg
+wikipedia_w                         = \size attrs -> icon size attrs <| ls <| FAB.wikipedia_w
 
 {-| TODO
 -}
-windows                             : Icon msg
-windows                             = icon [] FAB.windows
+windows                             : Size -> Attrs msg -> Icon msg
+windows                             = \size attrs -> icon size attrs <| ls <| FAB.windows
 
 {-| TODO
 -}
-wordpress                           : Icon msg
-wordpress                           = icon [] FAB.wordpress
+wordpress                           : Size -> Attrs msg -> Icon msg
+wordpress                           = \size attrs -> icon size attrs <| ls <| FAB.wordpress
 
 {-| TODO
 -}
-wpbeginner                          : Icon msg
-wpbeginner                          = icon [] FAB.wpbeginner
+wpbeginner                          : Size -> Attrs msg -> Icon msg
+wpbeginner                          = \size attrs -> icon size attrs <| ls <| FAB.wpbeginner
 
 {-| TODO
 -}
-wpforms                             : Icon msg
-wpforms                             = icon [] FAB.wpforms
+wpforms                             : Size -> Attrs msg -> Icon msg
+wpforms                             = \size attrs -> icon size attrs <| ls <| FAB.wpforms
 
 {-| TODO
 -}
-xing                                : Icon msg
-xing                                = icon [] FAB.xing
+xing                                : Size -> Attrs msg -> Icon msg
+xing                                = \size attrs -> icon size attrs <| ls <| FAB.xing
 
 {-| TODO
 -}
-xing_square                         : Icon msg
-xing_square                         = icon [] FAB.xing_square
+xing_square                         : Size -> Attrs msg -> Icon msg
+xing_square                         = \size attrs -> icon size attrs <| ls <| FAB.xing_square
 
 {-| TODO
 -}
-y_combinator                        : Icon msg
-y_combinator                        = icon [] FAB.y_combinator
+y_combinator                        : Size -> Attrs msg -> Icon msg
+y_combinator                        = \size attrs -> icon size attrs <| ls <| FAB.y_combinator
 
 {-| TODO
 -}
-y_combinator_square                 : Icon msg
-y_combinator_square                 = icon [] FAB.y_combinator_square
+y_combinator_square                 : Size -> Attrs msg -> Icon msg
+y_combinator_square                 = \size attrs -> icon size attrs <| ls <| FAB.y_combinator_square
 
 {-| TODO
 -}
-yahoo                               : Icon msg
-yahoo                               = icon [] FAB.yahoo
+yahoo                               : Size -> Attrs msg -> Icon msg
+yahoo                               = \size attrs -> icon size attrs <| ls <| FAB.yahoo
 
 {-| TODO
 -}
-yc                                  : Icon msg
-yc                                  = icon [] FAB.yc
+yc                                  : Size -> Attrs msg -> Icon msg
+yc                                  = \size attrs -> icon size attrs <| ls <| FAB.yc
 
 {-| TODO
 -}
-yc_square                           : Icon msg
-yc_square                           = icon [] FAB.yc_square
+yc_square                           : Size -> Attrs msg -> Icon msg
+yc_square                           = \size attrs -> icon size attrs <| ls <| FAB.yc_square
 
 {-| TODO
 -}
-yelp                                : Icon msg
-yelp                                = icon [] FAB.yelp
+yelp                                : Size -> Attrs msg -> Icon msg
+yelp                                = \size attrs -> icon size attrs <| ls <| FAB.yelp
 
 {-| TODO
 -}
-yoast                               : Icon msg
-yoast                               = icon [] FAB.yoast
+yoast                               : Size -> Attrs msg -> Icon msg
+yoast                               = \size attrs -> icon size attrs <| ls <| FAB.yoast
 
 {-| TODO
 -}
-youtube                             : Icon msg
-youtube                             = icon [] FAB.youtube
+youtube                             : Size -> Attrs msg -> Icon msg
+youtube                             = \size attrs -> icon size attrs <| ls <| FAB.youtube
 
 {-| TODO
 -}
-youtube_play                        : Icon msg
-youtube_play                        = icon [] FAB.youtube_play
+youtube_play                        : Size -> Attrs msg -> Icon msg
+youtube_play                        = \size attrs -> icon size attrs <| ls <| FAB.youtube_play
 
 {-| TODO
 -}
-youtube_square                      : Icon msg
-youtube_square                      = icon [] FAB.youtube_square
-
+youtube_square                      : Size -> Attrs msg -> Icon msg
+youtube_square                      = \size attrs -> icon size attrs <| ls <| FAB.youtube_square

@@ -1,47 +1,118 @@
 
--- TODO: we should probably expose functions rather than the record
-
-module Bulma.Helpers exposing ( Helpers
-                              , defaultHelpers
-                              , toClassStrings
-                              )
+module Bulma.Helpers exposing (..)
 
 -- DOCS ------------------------------------------------------------------------
 
 {-| TODO 
 
-@docs Helpers, defaultHelpers, toClassStrings
+# Float
+@docs clearfix
+@docs pulledLeft, pulledRight
+
+# Overlay
+@docs overlay
+
+# Size
+@docs fullWidth
+
+# Text Alignment
+@docs textLeft, textCentered, textRight
+
+# Spacing
+@docs marginless, paddingless
+
+# Selectability
+@docs unselectable
+
+# Display
+@docs Devices, Display
+@docs display, displayByDevice
 
 -}
 
 -- IMPORTS ---------------------------------------------------------------------
 
-import List exposing ( map, filter, singleton )
-import Tuple exposing ( first, second )
+import BulmaClasses exposing (..)
 
-import Html exposing ( Html, Attribute )
+import Html exposing ( Attribute )
 import Html.Attributes exposing ( class )
 
+import String exposing ( join )
 
--- HELPERS ---------------------------------------------------------------------
+-- FLOAT -----------------------------------------------------------------------
 
-{-| TODO
+{-| Fixes an element's floating children.
 -}
-type Float = FloatLeft
-           | FloatRight
+clearfix : Attribute msg
+clearfix = class bulma.properties.float.isClearfix
 
-{-| TODO
+{-| Moves an element to the left.
 -}
-type Device = Mobile
-            | Tablet
-            | Desktop
-            | Widescreen
+pulledLeft : Attribute msg
+pulledLeft = class bulma.properties.float.isPulledLeft
 
-{-| TODO
+{-| Moves an element to the right.
 -}
-type TextAlign = TextLeft
-               | TextCentered
-               | TextRight
+pulledRight : Attribute msg
+pulledRight = class bulma.properties.float.isPulledRight
+
+
+-- TEXT ALIGNMENT --------------------------------------------------------------
+
+{-| Aligns text to the left.
+-}
+textLeft : Attribute msg
+textLeft = class bulma.properties.alignment.hasTextLeft
+
+{-| Aligns text to the right.
+-}
+textCentered : Attribute msg
+textCentered = class bulma.properties.alignment.hasTextCentered
+
+{-| Centers text.
+-}
+textRight : Attribute msg
+textRight = class bulma.properties.alignment.hasTextRight
+
+
+-- INTERACTION -----------------------------------------------------------------
+
+{-| Prevents text from being selectable.
+-}
+unselectable : Attribute msg
+unselectable = class bulma.properties.interaction.isUnselectable
+                                                                                                                                
+
+-- OVERLAY----------------------------------------------------------------------
+
+{-| Completely covers the first-positioned parent.
+-}
+overlay : Attribute msg
+overlay = class bulma.properties.sizing.isOverlay
+
+
+-- SIZING ----------------------------------------------------------------------
+
+{-| Takes up the whole width (100%).
+-}
+fullWidth : Attribute msg
+fullWidth = class bulma.properties.sizing.isFullwidth
+
+
+-- SPACING ---------------------------------------------------------------------
+
+{-| Removes all margins.
+-}
+marginless : Attribute msg
+marginless = class bulma.properties.sizing.isMarginless
+
+{-| Removes all paddings.
+-}
+paddingless : Attribute msg
+paddingless = class bulma.properties.sizing.isPaddingless
+
+
+-- DISPLAY ---------------------------------------------------------------------
 
 {-| TODO
 -}
@@ -62,89 +133,49 @@ type Display = Block
 
 {-| TODO
 -}
-type alias Helpers = { float        : Maybe Float
-                     , textAlign    : Maybe TextAlign
-                     , overlay      : Bool
-                     , fullWidth    : Bool
-                     , clearfix     : Bool
-                     , marginless   : Bool
-                     , paddingless  : Bool
-                     , unselectable : Bool
-                     , display      : Devices (Maybe Display)
-                     }
+display : Display -> Attribute msg
+display d
+  = case d of
+      Block       -> class bulma.properties.display.isBlock.always
+      Flex        -> class bulma.properties.display.isFlex.always
+      Hidden      -> class bulma.properties.display.isInline.always
+      Inline      -> class bulma.properties.display.isInlineBlock.always
+      InlineBlock -> class bulma.properties.display.isInlineFlex.always
+      InlineFlex  -> class bulma.properties.visibility.isHidden.always
 
 {-| TODO
 -}
-defaultHelpers : Helpers
-defaultHelpers = { float        = Nothing
-                 , textAlign    = Nothing
-                 , overlay      = False
-                 , fullWidth    = False
-                 , clearfix     = False
-                 , marginless   = False
-                 , paddingless  = False
-                 , unselectable = False
-                 , display      = { mobile     = Nothing
-                                  , tablet     = Nothing
-                                  , desktop    = Nothing
-                                  , widescreen = Nothing
-                                  }
-                 }
-
-(=>) : a -> b -> ( a, b )
-(=>) = (,)
-
-{-| TODO
--}
-toClassStrings : Helpers -> List String
-toClassStrings {float,textAlign,overlay,fullWidth,clearfix,marginless,paddingless,unselectable,display}
-  = map first
-  <| filter (second)
-  <| [ "is-overlay"      => overlay
-    , "is-clearfix"     => clearfix
-    , "is-fullwidth"    => fullWidth
-    , "is-marginless"   => marginless
-    , "is-paddingless"  => paddingless
-    , "is-unselectable" => unselectable
-    , case float of
-        Nothing         -> ""                => False
-        Just FloatLeft  -> "is-pulled-left"  => True
-        Just FloatRight -> "is-pulled-right" => True
-    , case textAlign of
-        Just TextCentered -> "has-text-centered" => True
-        Just TextRight    -> "has-text-right"    => True
-        Just TextLeft     -> "has-text-left"     => True
-        Nothing           -> ""                  => False
-    , case display.mobile of
-        Just Flex        ->         "is-flex-mobile" => True
-        Just Block       ->        "is-block-mobile" => True
-        Just Hidden      ->       "is-hidden-mobile" => True 
-        Just Inline      ->       "is-inline-mobile" => True
-        Just InlineFlex  ->  "is-inline-flex-mobile" => True
-        Just InlineBlock -> "is-inline-block-mobile" => True
-        Nothing          -> ""                       => False
-    , case display.tablet of
-        Just Flex        ->         "is-flex-tablet-only" => True
-        Just Block       ->        "is-block-tablet-only" => True
-        Just Hidden      ->       "is-hidden-tablet-only" => True 
-        Just Inline      ->       "is-inline-tablet-only" => True
-        Just InlineFlex  ->  "is-inline-flex-tablet-only" => True
-        Just InlineBlock -> "is-inline-block-tablet-only" => True
-        Nothing          -> ""                            => False
-    , case display.desktop of
-        Just Flex        ->         "is-flex-desktop-only" => True
-        Just Block       ->        "is-block-desktop-only" => True
-        Just Hidden      ->       "is-hidden-desktop-only" => True 
-        Just Inline      ->       "is-inline-desktop-only" => True
-        Just InlineFlex  ->  "is-inline-flex-desktop-only" => True
-        Just InlineBlock -> "is-inline-block-desktop-only" => True
-        Nothing          -> ""                             => False
-    , case display.widescreen of
-        Just Flex        ->         "is-flex-widescreen-only" => True
-        Just Block       ->        "is-block-widescreen-only" => True
-        Just Hidden      ->       "is-hidden-widescreen-only" => True 
-        Just Inline      ->       "is-inline-widescreen-only" => True
-        Just InlineFlex  ->  "is-inline-flex-widescreen-only" => True
-        Just InlineBlock -> "is-inline-block-widescreen-only" => True
-        Nothing          -> ""                                => False
+displayByDevice : Devices Display -> Attribute msg
+displayByDevice {mobile,tablet,desktop,widescreen}
+  = class
+  <| join " "
+    [ case mobile of
+        Block       -> bulma.properties.display.isBlock.mobile
+        Flex        -> bulma.properties.display.isFlex.mobile
+        Hidden      -> bulma.properties.display.isInline.mobile
+        Inline      -> bulma.properties.display.isInlineBlock.mobile
+        InlineBlock -> bulma.properties.display.isInlineFlex.mobile
+        InlineFlex  -> bulma.properties.visibility.isHidden.mobile
+    , case tablet of
+        Block       -> bulma.properties.display.isBlock.tabletOnly
+        Flex        -> bulma.properties.display.isFlex.tabletOnly
+        Hidden      -> bulma.properties.display.isInline.tabletOnly
+        Inline      -> bulma.properties.display.isInlineBlock.tabletOnly
+        InlineBlock -> bulma.properties.display.isInlineFlex.tabletOnly
+        InlineFlex  -> bulma.properties.visibility.isHidden.tabletOnly
+    , case desktop of
+        Block       -> bulma.properties.display.isBlock.desktopOnly
+        Flex        -> bulma.properties.display.isFlex.desktopOnly
+        Hidden      -> bulma.properties.display.isInline.desktopOnly
+        Inline      -> bulma.properties.display.isInlineBlock.desktopOnly
+        InlineBlock -> bulma.properties.display.isInlineFlex.desktopOnly
+        InlineFlex  -> bulma.properties.visibility.isHidden.desktopOnly
+    , case widescreen of
+        Block       -> bulma.properties.display.isBlock.widescreen
+        Flex        -> bulma.properties.display.isFlex.widescreen
+        Hidden      -> bulma.properties.display.isInline.widescreen
+        Inline      -> bulma.properties.display.isInlineBlock.widescreen
+        InlineBlock -> bulma.properties.display.isInlineFlex.widescreen
+        InlineFlex  -> bulma.properties.visibility.isHidden.widescreen
     ]
+

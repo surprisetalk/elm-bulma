@@ -66,6 +66,8 @@ image attrs = entity "figure" [ "image" ] defaultModifiers attrs << ImageHtml
 easyImage : Attrs msg -> String -> Image msg
 easyImage attrs = entity "figure" [ "image" ] defaultModifiers attrs << ImageSrc
 
+-- TODO: placeholders
+
 
 -- MODIFIERS -------------------------------------------------------------------
 

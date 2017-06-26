@@ -114,7 +114,7 @@ easierButton icon = text >> ls >> button []
 
 -- MODIFIERS -------------------------------------------------------------------
 
-{-| TODO
+{-| TOD}
 -}
 type alias Modifiers = { outlined : Bool
                        , inverted : Bool

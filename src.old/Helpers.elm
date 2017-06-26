@@ -4,16 +4,12 @@ module Helpers exposing (..)
 -- IMPORTS ---------------------------------------------------------------------
 
 import Html exposing ( Html, Attribute )
-import Html.Attributes as Attrs exposing ( class )
 import Function exposing (..)
 
 import  List.Extra as List_  exposing ( splitWhen )
 import Maybe.Extra as Maybe_ 
 
 import Tuple exposing (..)
-
-import List exposing ( filter )
-import String exposing ( join )
 
 
 -- INFIX OPERATORS -------------------------------------------------------------
@@ -89,20 +85,6 @@ setSecond = mapSecond << y
 
 ls : a -> List a
 ls = fl (::) []
-
-
--- HTML ------------------------------------------------------------------------
-
-node : String -> Attrs msg -> List String -> Attrs msg -> Htmls msg -> Html msg
-node tag attrs_ classes attrs
-  = Html.node tag
-  <| (++) attrs
-  <| (++) attrs_
-  <| ls
-  <| class
-  <| join " "
-  <| filter ((/=) "")
-  <| classes
 
 
 -- FLISTS ----------------------------------------------------------------------
