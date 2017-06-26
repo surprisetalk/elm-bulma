@@ -33,8 +33,8 @@ Coming soon!
 Coming soon!
 
 # Image
-@docs Image
-Coming soon!
+@docs Image, ImageModifiers, ImageSize, ImageAspectRatio, imageModifiers
+@docs image, easyImage
 
 # Notification
 Coming soon!
@@ -63,7 +63,7 @@ import Bulma.Modifiers as Modifiers exposing (..)
 
 import Bulma.Elements.Icon as Icon exposing ( Icon )
 
-import Html exposing ( Html, text, div, a )
+import Html exposing ( Html, text, div, a, img )
 import Html.Events exposing ( onClick )
 import Html.Attributes as Attr exposing ( class )
 
@@ -235,4 +235,65 @@ easyDelete attrs msg = delete (onClick msg :: attrs) []
 {-| TODO
 -}
 type alias Image msg = Html msg
+
+{-| TODO
+-}
+type alias ImageModifiers = { size        : Maybe ImageSize
+                            , aspectRatio : Maybe ImageAspectRatio
+                            }
+
+{-| TODO
+-}
+type ImageSize = X16
+               | X24
+               | X32
+               | X48
+               | X64
+               | X96
+               | X128
+
+{-| TODO
+-}
+type ImageAspectRatio = OneByOne
+                      | FourByThree
+                      | ThreeByTwo
+                      | SixteenByNine
+                      | TwoByOne
+
+{-| TODO
+-}
+imageModifiers : ImageModifiers
+imageModifiers = { size        = Nothing
+                 , aspectRatio = Nothing
+                 }
+
+{-| TODO
+-}
+image : ImageModifiers -> Attrs msg -> Htmls msg -> Image msg
+image {size,aspectRatio}
+  = node "figure" []
+    [ case size of
+        Just X16  -> bulma.image.size.is16x16
+        Just X24  -> bulma.image.size.is24x24
+        Just X32  -> bulma.image.size.is32x32
+        Just X48  -> bulma.image.size.is48x48
+        Just X64  -> bulma.image.size.is64x64
+        Just X96  -> bulma.image.size.is96x96
+        Just X128 -> bulma.image.size.is128x128
+        _         -> ""
+    , case aspectRatio of
+        Just OneByOne      -> bulma.image.size.is1by1
+        Just FourByThree   -> bulma.image.size.is4by3
+        Just ThreeByTwo    -> bulma.image.size.is3by2
+        Just SixteenByNine -> bulma.image.size.is16by9
+        Just TwoByOne      -> bulma.image.size.is2by1
+        _                  -> ""
+    ]
+
+{-| TODO
+-}
+easyImage : ImageModifiers -> Attrs msg -> String -> Image msg
+easyImage mods attrs src = image mods attrs [ img [ Attr.src src ] [] ]
+
+-- easyLinkedImage : Attrs msg -> msg -> String -> Image msg
 
