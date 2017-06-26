@@ -41,7 +41,8 @@ Coming soon!
 @docs notification, notificationWithDelete
 
 # Progress
-Coming soon!
+@docs Progress, ProgressModifiers, progressModifiers
+@docs progress, easyProgress
 
 # Table
 Coming soon!
@@ -112,7 +113,11 @@ button {disabled,outlined,inverted,size,state,color}
         Success -> bulma.button.color.isSuccess
         Warning -> bulma.button.color.isWarning
         Danger  -> bulma.button.color.isDanger
-    -- TODO: size
+    , case size of
+        Small  -> bulma.button.size.isSmall
+        Normal -> ""
+        Medium -> bulma.button.size.isMedium
+        Large  -> bulma.button.size.isLarge
     -- TODO: state
     ]
   
@@ -341,3 +346,52 @@ notificationWithDelete : Color -> Attrs msg -> msg -> Htmls msg -> Notification 
 notificationWithDelete color attrs msg
   = notification color attrs << (::) (easyDelete [] msg)
 
+
+-- PROGRESS --------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Progress msg = Html msg
+
+{-| TODO
+-}
+type alias ProgressModifiers = { size  : Size
+                               , color : Color
+                               } 
+
+{-| TODO
+-}
+progressModifiers : ProgressModifiers
+progressModifiers = { size  = Normal
+                    , color = Default
+                    } 
+
+{-| TODO
+-}
+progress : ProgressModifiers -> Attrs msg -> Htmls msg -> Progress msg
+progress {size,color}
+  = node "progress" [] 
+    [ bulma.progress.ui
+    , case size of
+        Small  -> bulma.progress.size.isSmall
+        Normal -> ""
+        Medium -> bulma.progress.size.isMedium
+        Large  -> bulma.progress.size.isLarge
+    , case color of
+        Default -> ""
+        White   -> bulma.progress.color.isWhite
+        Light   -> bulma.progress.color.isLight
+        Dark    -> bulma.progress.color.isDark
+        Black   -> bulma.progress.color.isBlack
+        Primary -> bulma.progress.color.isPrimary
+        Info    -> bulma.progress.color.isInfo
+        Success -> bulma.progress.color.isSuccess
+        Warning -> bulma.progress.color.isWarning
+        Danger  -> bulma.progress.color.isDanger
+    ]
+
+{-| TODO
+-}
+easyProgress : ProgressModifiers -> Attrs msg -> Float -> Progress msg
+easyProgress mods attrs val
+  = progress mods (Attr.value (toString (round (val * 100))) :: attrs) []
