@@ -5,9 +5,6 @@ module Bulma.Elements exposing (..)
 
 {-| TODO 
 
-# ELEMENT MODIFIERS
-@docs Size, State, Color, HorizontalAlignment
-
 # BOX
 @docs Box
 @docs box
@@ -57,6 +54,8 @@ import Helpers exposing (..)
 
 import BulmaClasses exposing (..)
 
+import Bulma.Modifiers as Modifiers exposing (..)
+
 import Bulma.Elements.Icon as Icon exposing ( Icon )
 
 import Html exposing ( Html, text, div, a )
@@ -64,44 +63,6 @@ import Html.Events exposing ( onClick )
 import Html.Attributes as Attr exposing ( class )
 
 import List exposing ( filter )
-
-
--- MODIFIERS -------------------------------------------------------------------
-
-{-| TODO
--}
-type Size = Small
-          | Normal
-          | Medium
-          | Large
-
-{-| TODO
--}
-type State = Blur
-           | Hover
-           | Focus
-           | Active
-           | Loading
-           | Static
-
-{-| TODO
--}
-type Color = Default
-           | White
-           | Light
-           | Dark
-           | Black
-           | Primary
-           | Info
-           | Success
-           | Warning
-           | Danger
-
-{-| TODO
--}
-type HorizontalAlignment = Left
-                         | Centered
-                         | Right
 
 
 -- BOX -------------------------------------------------------------------------
