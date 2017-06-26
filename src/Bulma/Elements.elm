@@ -48,7 +48,9 @@ Coming soon!
 Coming soon!
 
 # Tag
-Coming soon!
+@docs Tag, TagModifiers, tagModifiers
+@docs tag, easyTag
+@docs tagWithDelete, easyTagWithDelete
 
 # Title
 Coming soon!
@@ -395,3 +397,63 @@ progress {size,color}
 easyProgress : ProgressModifiers -> Attrs msg -> Float -> Progress msg
 easyProgress mods attrs val
   = progress mods (Attr.value (toString (round (val * 100))) :: attrs) []
+
+
+-- TAG -------------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Tag msg = Html msg
+
+{-| TODO
+-}
+type alias TagModifiers = { size  : Size
+                          , color : Color
+                          }
+
+tagModifiers : TagModifiers
+tagModifiers = { size  = Normal
+               , color = Default
+               } 
+
+{-| TODO
+-}
+tag : TagModifiers -> Attrs msg -> Htmls msg -> Tag msg
+tag {size,color}
+  = node "span" []
+    [ bulma.tag.ui
+    , case size of
+        Small  -> "" -- KLUDGE
+        Normal -> ""
+        Medium -> bulma.tag.size.isMedium
+        Large  -> bulma.tag.size.isLarge
+    , case color of
+        Default -> ""
+        White   -> bulma.tag.color.isWhite
+        Light   -> bulma.tag.color.isLight
+        Dark    -> bulma.tag.color.isDark
+        Black   -> bulma.tag.color.isBlack
+        Primary -> bulma.tag.color.isPrimary
+        Info    -> bulma.tag.color.isInfo
+        Success -> bulma.tag.color.isSuccess
+        Warning -> bulma.tag.color.isWarning
+        Danger  -> bulma.tag.color.isDanger
+    ]
+
+{-| TODO
+-}
+easyTag : TagModifiers -> Attrs msg -> String -> Tag msg
+easyTag mods attrs = text >> ls >> tag mods attrs 
+
+{-| TODO
+-}
+tagWithDelete : TagModifiers -> Attrs msg -> msg -> Htmls msg -> Tag msg
+tagWithDelete mods attrs msg
+  = flip (++) [ easyDelete [] msg ] >> tag mods attrs
+
+{-| TODO
+-}
+easyTagWithDelete : TagModifiers -> Attrs msg -> msg -> String -> Tag msg
+easyTagWithDelete mods attrs msg str
+  = tag mods attrs [ text str, easyDelete [] msg ]
+
