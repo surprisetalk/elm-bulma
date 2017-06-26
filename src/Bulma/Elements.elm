@@ -17,7 +17,7 @@ Coming soon!
 @docs button, staticButton, easyButton
 @docs iconButton, staticIconButton, easyIconButton
 
-## Button GROUPS
+## Button Groups
 @docs ButtonGroup
 @docs buttonGroup, connectedButtonGroup
 
@@ -53,7 +53,12 @@ Coming soon!
 @docs tagWithDelete, easyTagWithDelete
 
 # Title
-Coming soon!
+@docs Title, TitleSize
+@docs title, subtitle
+
+## Title Pair
+@docs TitleSpacing 
+@docs easyTitleWithSubtitle
 
 -}
 
@@ -411,6 +416,8 @@ type alias TagModifiers = { size  : Size
                           , color : Color
                           }
 
+{-| TODO
+-}
 tagModifiers : TagModifiers
 tagModifiers = { size  = Normal
                , color = Default
@@ -456,4 +463,93 @@ tagWithDelete mods attrs msg
 easyTagWithDelete : TagModifiers -> Attrs msg -> msg -> String -> Tag msg
 easyTagWithDelete mods attrs msg str
   = tag mods attrs [ text str, easyDelete [] msg ]
+
+
+-- TITLE -----------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Title msg = Html msg
+
+{-| TODO
+-}
+type TitleSize = H1
+               | H2
+               | H3
+               | H4
+               | H5
+               | H6
+
+{-| TODO
+-}
+title : TitleSize -> Attrs msg -> Htmls msg -> Title msg
+title size
+  = node "p" []
+    [ bulma.heading.title
+    , case size of
+        H1 -> bulma.heading.size.is1
+        H2 -> bulma.heading.size.is2
+        H3 -> bulma.heading.size.is3
+        H4 -> bulma.heading.size.is4
+        H5 -> bulma.heading.size.is5
+        H6 -> bulma.heading.size.is6
+    ]
+
+
+-- SUBTITLE --
+
+{-| TODO
+-}
+subtitle : TitleSize -> Attrs msg -> Htmls msg -> Title msg
+subtitle size
+  = node "p" [] 
+    [ bulma.heading.subtitle
+    , case size of
+        H1 -> bulma.heading.size.is1
+        H2 -> bulma.heading.size.is2
+        H3 -> bulma.heading.size.is3
+        H4 -> bulma.heading.size.is4
+        H5 -> bulma.heading.size.is5
+        H6 -> bulma.heading.size.is6
+    ]
+
+
+-- TITLE PAIR --
+
+{-| TODO
+-}
+type alias TitleSpacing = Bool
+
+{-| TODO
+-}
+easyTitleWithSubtitle : TitleSpacing -> TitleSize -> Htmls msg -> Htmls msg -> List (Title msg)
+easyTitleWithSubtitle spacing size title subtitle
+  = [ node "p" []
+      [ bulma.heading.title
+      , case spacing of
+          True  -> bulma.heading.spacing.isNormal
+          False -> ""
+      , case size of
+          H1 -> bulma.heading.size.is1
+          H2 -> bulma.heading.size.is2
+          H3 -> bulma.heading.size.is3
+          H4 -> bulma.heading.size.is4
+          H5 -> bulma.heading.size.is5
+          H6 -> bulma.heading.size.is6
+      ]
+      [
+      ]
+      title
+    , node "p" [] 
+      [ bulma.heading.subtitle
+      , case size of
+          H1 -> bulma.heading.size.is3
+          H2 -> bulma.heading.size.is4
+          H3 -> bulma.heading.size.is5
+          _  -> bulma.heading.size.is6
+      ]
+      [
+      ]
+      subtitle
+    ]
 
