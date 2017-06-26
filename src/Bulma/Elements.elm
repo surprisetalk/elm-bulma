@@ -430,13 +430,19 @@ easyProgress mods attrs val
 
 -- TABLE -----------------------------------------------------------------------
 
+{-| TODO
+-}
 type alias Table msg = Html msg
 
+{-| TODO
+-}
 type alias TableModifiers = { bordered : Bool
                             , striped  : Bool
                             , narrow   : Bool
                             }
 
+{-| TODO
+-}
 table : TableModifiers -> Attrs msg -> List (TablePartition msg) -> Table msg
 table {bordered,striped,narrow}
   = node "table" []
@@ -455,24 +461,38 @@ table {bordered,striped,narrow}
 
 -- TABLE PARTITIONS --
 
+{-| TODO
+-}
 type alias TablePartition msg = Html msg
 
+{-| TODO
+-}
 tableHead : Attrs msg -> List (TableRow msg) -> TablePartition msg
 tableHead = node "thead" [] []
 
+{-| TODO
+-}
 tableBody : Attrs msg -> List (TableRow msg) -> TablePartition msg
 tableBody = node "tbody" [] []
 
+{-| TODO
+-}
 tableFoot : Attrs msg -> List (TableRow msg) -> TablePartition msg
 tableFoot = node "tfoot" [] []
 
 
 -- TABLE ROW --
 
+{-| TODO
+-}
 type alias TableRow msg = Html msg
 
+{-| TODO
+-}
 type alias IsHighlighted = Bool
 
+{-| TODO
+-}
 tableRow : IsHighlighted -> Attrs msg -> List (TableCell msg) -> TableRow msg
 tableRow highlighted
   = node "tr" []
@@ -484,11 +504,17 @@ tableRow highlighted
 
 -- TABLE CELLS --
 
+{-| TODO
+-}
 type alias TableCell msg = Html msg
 
+{-| TODO
+-}
 tableCell : Attrs msg -> Htmls msg -> TableCell msg
 tableCell = node "td" [] []
 
+{-| TODO
+-}
 tableCellHead : Attrs msg -> Htmls msg -> TableCell msg
 tableCellHead = node "th" [] []
 

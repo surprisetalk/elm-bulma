@@ -86,7 +86,21 @@ Coming soon!
 @docs messageHeader, messageHeaderWithDelete
 
 # Modal
-Coming soon!
+@docs Modal, IsModalOpen
+@docs modal, easyModal
+
+## Modal Partition
+@docs ModalPartition
+@docs modalContent
+@docs modalBackground, easyModalBackground
+@docs modalClose, easyModalClose
+@docs modalCard
+
+### Modal Card Partition
+@docs ModalCardPartition
+@docs modalCardBody
+@docs modalCardHead, modalCardTitle
+@docs modalCardFoot
 
 # Nav
 @docs Nav, HasShadow
@@ -122,7 +136,7 @@ import Helpers exposing (..)
 
 import BulmaClasses exposing (..)
 
-import Bulma.Modifiers exposing ( Color(..) )
+import Bulma.Modifiers exposing ( Color(..), Size(..) )
 
 import Bulma.Layout exposing ( container )
 
@@ -452,6 +466,112 @@ messageHeaderWithDelete attrs msg
 -}
 messageBody : Attrs msg -> Htmls msg -> MessagePartition msg
 messageBody = node "div" [] [ bulma.message.body ]
+
+
+-- MODAL -----------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Modal msg = Html msg
+
+{-| TODO
+-}
+type alias IsModalOpen = Bool
+
+{-| TODO
+-}
+modal : IsModalOpen -> Attrs msg -> List (ModalPartition msg) -> Modal msg
+modal active
+  = node "div" []
+    [ bulma.modal.container
+    , case active of
+        True  -> bulma.modal.state.isActive
+        False -> ""
+    ]
+
+{-| TODO
+-}
+easyModal : IsModalOpen -> Attrs msg -> msg -> Htmls msg -> Modal msg
+easyModal active attrs close content
+  = modal active attrs
+    [ easyModalBackground   [] close
+    , modalContent          [] content
+    , easyModalClose Normal [] close
+    ]
+
+
+-- MODAL PARTITIONS --
+
+{-| TODO
+-}
+type alias ModalPartition msg = Html msg
+
+{-| TODO
+-}
+modalBackground : Attrs msg -> Htmls msg -> ModalPartition msg
+modalBackground = node "div" [] [ bulma.modal.background ]
+
+{-| TODO
+-}
+easyModalBackground : Attrs msg -> msg -> ModalPartition msg
+easyModalBackground attrs onClickBackground
+  = modalBackground (onClick onClickBackground :: attrs) []
+
+{-| TODO
+-}
+modalContent : Attrs msg -> Htmls msg -> ModalPartition msg
+modalContent = node "div" [] [ bulma.modal.content ]
+
+{-| TODO
+-}
+modalClose : Size -> Attrs msg -> Htmls msg -> ModalPartition msg
+modalClose size
+  = node "button" []
+    [ bulma.modal.close.ui
+    , case size of
+        Small  -> bulma.modal.close.size.isSmall
+        Normal -> ""
+        Medium -> bulma.modal.close.size.isMedium
+        Large  -> bulma.modal.close.size.isLarge
+    ]
+
+{-| TODO
+-}
+easyModalClose : Size -> Attrs msg -> msg -> ModalPartition msg
+easyModalClose size attrs onClickModal
+  = modalClose size (onClick onClickModal :: attrs) []
+
+{-| TODO
+-}
+modalCard : Attrs msg -> List (ModalCardPartition msg) -> ModalPartition msg
+modalCard = node "div" [] [ bulma.modal.card.container ]
+
+
+-- MODAL CARD PARTITIONS --
+
+{-| TODO
+-}
+type alias ModalCardPartition msg = Html msg
+
+{-| TODO
+-}
+modalCardHead : Attrs msg -> Htmls msg -> ModalCardPartition msg
+modalCardHead = node "div" [] [ bulma.modal.card.head ]
+
+{-| TODO
+-}
+modalCardTitle : Attrs msg -> Htmls msg -> Html msg
+modalCardTitle = node "div" [] [ bulma.modal.card.title ]
+
+{-| TODO
+-}
+modalCardBody : Attrs msg -> Htmls msg -> ModalCardPartition msg
+modalCardBody = node "div" [] [ bulma.modal.card.body ]
+
+{-| TODO
+-}
+modalCardFoot : Attrs msg -> Htmls msg -> ModalCardPartition msg
+modalCardFoot = node "div" [] [ bulma.modal.card.foot ]
 
 
 -- NAV -------------------------------------------------------------------------
