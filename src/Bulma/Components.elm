@@ -37,7 +37,18 @@ Coming soon!
 @docs cardFooterItem, cardFooterItemLink
 
 # Level
-Coming soon!
+@docs Level
+@docs level, centeredLevel
+@docs horizontalLevel, centeredHorizontalLevel
+
+## Level Partition
+@docs LevelPartition
+@docs levelLeft, levelRight
+
+## Level Item
+@docs LevelItem
+@docs levelItem, levelItemLink, levelItemText
+@docs easyLevelItemWithHeading 
 
 # Media Object
 Coming soon!
@@ -90,8 +101,9 @@ import Bulma.Layout exposing ( container )
 import Bulma.Elements exposing ( Image ) 
 import Bulma.Elements.Icon exposing ( Icon ) 
 
-import Html exposing ( Html, text, span )
+import Html exposing ( Html, text, div, p, span )
 import Html.Events exposing ( onClick )
+import Html.Attributes exposing ( class )
 
 
 -- CARD ------------------------------------------------------------------------
@@ -193,6 +205,83 @@ cardFooterItem = node "p" [] [ bulma.card.footer.item ]
 -}
 cardFooterItemLink : Attrs msg -> Htmls msg -> CardFooterItem msg
 cardFooterItemLink = node "a" [] [ bulma.card.footer.item ]
+
+
+-- LEVEL -----------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Level msg = Html msg
+
+{-| TODO
+-}
+level : Attrs msg -> List (LevelPartition msg) -> Level msg
+level = node "nav" [] [ bulma.level.container ]
+
+{-| TODO
+-}
+centeredLevel : Attrs msg -> List (LevelItem msg) -> Level msg
+centeredLevel = level
+                
+{-| TODO
+-}
+horizontalLevel : Attrs msg -> List (LevelPartition msg) -> Level msg
+horizontalLevel = node "nav" [] [ bulma.level.container
+                                , bulma.level.mobile.isHorizontal
+                                ]
+
+{-| TODO
+-}
+centeredHorizontalLevel : Attrs msg -> List (LevelPartition msg) -> Level msg
+centeredHorizontalLevel = horizontalLevel
+
+-- LEVEL PARTITONS --
+
+{-| TODO
+-}
+type alias LevelPartition msg = Html msg
+
+{-| TODO
+-}
+levelLeft : Attrs msg -> List (LevelItem msg) -> LevelPartition msg
+levelLeft = node "div" [] [ bulma.level.left ]
+
+{-| TODO
+-}
+levelRight : Attrs msg -> List (LevelItem msg) -> LevelPartition msg
+levelRight = node "div" [] [ bulma.level.right ]
+
+-- LEVEL ITEMS --
+
+{-| TODO
+-}
+type alias LevelItem msg = Html msg
+
+{-| TODO
+-}
+levelItem : Attrs msg -> Htmls msg -> LevelItem msg
+levelItem = node "div" [] [ bulma.level.item ]
+
+{-| TODO
+-}
+levelItemText : Attrs msg -> Htmls msg -> LevelItem msg
+levelItemText = node "p" [] [ bulma.level.item ]
+
+{-| TODO
+-}
+levelItemLink : Attrs msg -> Htmls msg -> LevelItem msg
+levelItemLink = node "a" [] [ bulma.level.item ]
+
+{-| TODO
+-}
+easyLevelItemWithHeading : Attrs msg -> String -> String -> LevelItem msg
+easyLevelItemWithHeading attrs heading title
+  = levelItem attrs
+    [ div []
+      [ p [ class "heading" ] [ text heading ]
+      , p [ class "title"   ] [ text title   ]
+      ]
+    ]
 
 
 -- NAV -------------------------------------------------------------------------
