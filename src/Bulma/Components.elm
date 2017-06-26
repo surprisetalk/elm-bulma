@@ -6,7 +6,16 @@ module Bulma.Components exposing (..)
 {-| TODO 
 
 # Table of Contents
-Coming soon!
+- [Card](#card)
+- [Level](#level)
+- [Media](#media)
+- [Menu](#menu)
+- [Message](#message)
+- [Modal](#modal)
+- [Nav](#nav)
+- [Pagination](#pagination)
+- [Panel](#panel)
+- [Tabs](#tabs)
 
 # Card
 @docs Card
