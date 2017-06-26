@@ -6,7 +6,8 @@ module Bulma.CDN exposing ( stylesheet, fontAwesome )
 
 {-| TODO 
 
-@docs stylesheet, fontAwesome
+@docs stylesheet
+@docs fontAwesome
 
 -}
 

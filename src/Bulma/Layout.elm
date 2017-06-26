@@ -5,23 +5,23 @@ module Bulma.Layout exposing (..)
 
 {-| TODO 
 
-# CONTAINER
+# Container
 @docs Container
 @docs container, fluidContainer
 
-# HERO
+# Hero
 @docs Hero, HeroModifiers, HeroSize
 @docs hero, easyHero
 
-## HERO PARTITION
+## Hero Partition
 @docs HeroPartition 
 @docs heroBody, heroFoot, heroHead
 
-# SECTION
+# Section
 @docs Section, SectionSpacing
 @docs section
 
-# FOOTER
+# Footer
 @docs Footer
 @docs footer
 

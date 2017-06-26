@@ -5,19 +5,19 @@ module Bulma.Grid exposing (..)
 
 {-| TODO 
 
-# MODIFIERS
+# Modifiers
 @docs Width
 
-# COLUMNS
+# Columns
 @docs columns
 @docs ColumnsModifiers, Display, columnsModifiers
 
-## COLUMN
+## Column
 @docs Column
 @docs column, narrowColumn
 @docs ColumnModifiers, columnModifiers
 
-# TILE
+# Tile
 Coming soon!
 
 -}

@@ -5,8 +5,17 @@ module Bulma.Modifiers exposing (..)
 
 {-| TODO 
 
-# ELEMENT MODIFIERS
-@docs Size, State, Color, HorizontalAlignment
+# Size
+@docs Size
+
+# State
+@docs State
+
+# Color
+@docs Color
+
+# Alignment
+@docs HorizontalAlignment
 
 -}
 

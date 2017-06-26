@@ -5,48 +5,48 @@ module Bulma.Components exposing (..)
 
 {-| TODO 
 
-# CARD
+# Card
 Coming soon!
 
-# LEVEL
+# Level
 Coming soon!
 
-# MEDIA OBJECT
+# Media Object
 Coming soon!
 
-# MENU
+# Menu
 Coming soon!
 
-# MESSAGE
+# Message
 Coming soon!
 
-# MODAL
+# Modal
 Coming soon!
 
-# NAV
+# Nav
 @docs Nav, HasShadow
 @docs nav, containedNav, easyNav, easierNav
 
-## NAV PARTITON
+## Nav Partiton
 @docs NavPartition, IsMenuOpen
 @docs navLeft, navCenter, navRight, navRightMenu
 
-### NAV TOGGLE
+### Nav Toggle
 @docs NavToggle
 @docs navToggle
 
-### NAV ITEM
+### Nav Item
 @docs NavItem, IsActive
 @docs navItem, navItemLink
 @docs navItemTab, navItemTabLink
 
-# PAGINATION
+# Pagination
 Coming soon!
 
-# PANEL
+# Panel
 Coming soon!
 
-# TABS
+# Tabs
 Coming soon!
 
 -}

@@ -5,45 +5,45 @@ module Bulma.Elements exposing (..)
 
 {-| TODO 
 
-# BOX
+# Box
 @docs Box
 @docs box
 
-# BUTTON
+# Button
 @docs Button, ButtonModifiers, buttonModifiers
 @docs button, staticButton, easyButton
 @docs iconButton, staticIconButton, easyIconButton
 
-## BUTTON GROUPS
+## Button GROUPS
 @docs ButtonGroup
 @docs buttonGroup, connectedButtonGroup
 
-# CONTENT
+# Content
 @docs Content
 @docs content
 
-# DELETE
+# Delete
 Coming soon!
 
-# FORM
+# Form
 Coming soon!
 
-# IMAGE
+# Image
 Coming soon!
 
-# NOTIFICATION
+# Notification
 Coming soon!
 
-# PROGRESS
+# Progress
 Coming soon!
 
-# TABLE
+# Table
 Coming soon!
 
-# TAG
+# Tag
 Coming soon!
 
-# TITLE
+# Title
 Coming soon!
 
 -}
