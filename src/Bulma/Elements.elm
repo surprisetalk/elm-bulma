@@ -6,7 +6,18 @@ module Bulma.Elements exposing (..)
 {-| TODO 
 
 # Table of Contents
-Coming soon!
+- [Box](#box)
+- [Button](#button)
+- [Content](#content)
+- [Delete](#delete)
+- [Form](#form)
+- [Icon](#icon)
+- [Image](#image)
+- [Notification](#notification)
+- [Progress](#progress)
+- [Table](#table)
+- [Tag](#tag)
+- [Title](#title)
 
 # Box
 @docs Box
@@ -45,7 +56,20 @@ Coming soon!
 @docs progress, easyProgress
 
 # Table
-Coming soon!
+@docs Table, TableModifiers
+@docs table
+
+## Table Partition
+@docs TablePartition
+@docs tableBody, tableHead, tableFoot
+
+### Table Row
+@docs TableRow, IsHighlighted
+@docs tableRow
+
+#### Table Cell
+@docs TableCell
+@docs tableCell, tableCellHead
 
 # Tag
 @docs Tag, TagModifiers, tagModifiers
@@ -402,6 +426,71 @@ progress {size,color}
 easyProgress : ProgressModifiers -> Attrs msg -> Float -> Progress msg
 easyProgress mods attrs val
   = progress mods (Attr.value (toString (round (val * 100))) :: attrs) []
+
+
+-- TABLE -----------------------------------------------------------------------
+
+type alias Table msg = Html msg
+
+type alias TableModifiers = { bordered : Bool
+                            , striped  : Bool
+                            , narrow   : Bool
+                            }
+
+table : TableModifiers -> Attrs msg -> List (TablePartition msg) -> Table msg
+table {bordered,striped,narrow}
+  = node "table" []
+    [ bulma.table.container
+    , case bordered of
+        True  -> bulma.table.style.isBordered
+        False -> ""
+    , case striped of
+        True  -> bulma.table.style.isStriped
+        False -> ""
+    , case narrow of
+        True  -> bulma.table.spacing.isNarrow
+        False -> ""
+    ]
+
+
+-- TABLE PARTITIONS --
+
+type alias TablePartition msg = Html msg
+
+tableHead : Attrs msg -> List (TableRow msg) -> TablePartition msg
+tableHead = node "thead" [] []
+
+tableBody : Attrs msg -> List (TableRow msg) -> TablePartition msg
+tableBody = node "tbody" [] []
+
+tableFoot : Attrs msg -> List (TableRow msg) -> TablePartition msg
+tableFoot = node "tfoot" [] []
+
+
+-- TABLE ROW --
+
+type alias TableRow msg = Html msg
+
+type alias IsHighlighted = Bool
+
+tableRow : IsHighlighted -> Attrs msg -> List (TableCell msg) -> TableRow msg
+tableRow highlighted
+  = node "tr" []
+    [ case highlighted of
+        True  -> bulma.table.row.state.isSelected
+        False -> bulma.table.row.state.isSelected
+    ]
+
+
+-- TABLE CELLS --
+
+type alias TableCell msg = Html msg
+
+tableCell : Attrs msg -> Htmls msg -> TableCell msg
+tableCell = node "td" [] []
+
+tableCellHead : Attrs msg -> Htmls msg -> TableCell msg
+tableCellHead = node "th" [] []
 
 
 -- TAG -------------------------------------------------------------------------
