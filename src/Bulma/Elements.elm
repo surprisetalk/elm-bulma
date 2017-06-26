@@ -37,7 +37,8 @@ Coming soon!
 @docs image, easyImage
 
 # Notification
-Coming soon!
+@docs Notification
+@docs notification, notificationWithDelete
 
 # Progress
 Coming soon!
@@ -100,9 +101,19 @@ button {disabled,outlined,inverted,size,state,color}
     , case inverted of
         True  -> bulma.button.style.isInverted
         False -> ""
+    , case color of
+        Default -> ""
+        White   -> bulma.button.color.isWhite
+        Light   -> bulma.button.color.isLight
+        Dark    -> bulma.button.color.isDark
+        Black   -> bulma.button.color.isBlack
+        Primary -> bulma.button.color.isPrimary
+        Info    -> bulma.button.color.isInfo
+        Success -> bulma.button.color.isSuccess
+        Warning -> bulma.button.color.isWarning
+        Danger  -> bulma.button.color.isDanger
     -- TODO: size
     -- TODO: state
-    -- TODO: color
     ]
   
 {-| TODO
@@ -272,7 +283,8 @@ imageModifiers = { size        = Nothing
 image : ImageModifiers -> Attrs msg -> Htmls msg -> Image msg
 image {size,aspectRatio}
   = node "figure" []
-    [ case size of
+    [ bulma.image.container
+    , case size of
         Just X16  -> bulma.image.size.is16x16
         Just X24  -> bulma.image.size.is24x24
         Just X32  -> bulma.image.size.is32x32
@@ -296,4 +308,36 @@ easyImage : ImageModifiers -> Attrs msg -> String -> Image msg
 easyImage mods attrs src = image mods attrs [ img [ Attr.src src ] [] ]
 
 -- easyLinkedImage : Attrs msg -> msg -> String -> Image msg
+
+
+-- NOTIFICATION ----------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Notification msg = Html msg
+
+{-| TODO
+-}
+notification : Color -> Attrs msg -> Htmls msg -> Notification msg
+notification color
+  = node "div" []
+    [ bulma.notification.ui
+    , case color of
+        Default -> ""
+        White   -> bulma.notification.color.isWhite
+        Light   -> bulma.notification.color.isLight
+        Dark    -> bulma.notification.color.isDark
+        Black   -> bulma.notification.color.isBlack
+        Primary -> bulma.notification.color.isPrimary
+        Info    -> bulma.notification.color.isInfo
+        Success -> bulma.notification.color.isSuccess
+        Warning -> bulma.notification.color.isWarning
+        Danger  -> bulma.notification.color.isDanger
+    ]
+
+{-| TODO
+-}
+notificationWithDelete : Color -> Attrs msg -> msg -> Htmls msg -> Notification msg
+notificationWithDelete color attrs msg
+  = notification color attrs << (::) (easyDelete [] msg)
 
