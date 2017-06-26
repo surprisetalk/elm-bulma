@@ -60,7 +60,21 @@ Coming soon!
 @docs mediaLeft, mediaRight
 
 # Menu
-Coming soon!
+@docs Menu
+@docs menu
+
+## Menu Part
+@docs MenuPart
+
+### Menu Label
+@docs menuLabel
+
+### Menu List
+@docs menuList
+
+#### Menu List Item
+@docs MenuListItem
+@docs menuListItem, easyMenuListItem
 
 # Message
 Coming soon!
@@ -107,7 +121,7 @@ import Bulma.Layout exposing ( container )
 import Bulma.Elements exposing ( Image ) 
 import Bulma.Elements.Icon exposing ( Icon ) 
 
-import Html exposing ( Html, text, div, p, span )
+import Html exposing ( Html, text, div, p, a, ul, li, span )
 import Html.Events exposing ( onClick )
 import Html.Attributes exposing ( class )
 
@@ -330,6 +344,56 @@ mediaContent = node "div" [] [ bulma.media.content ]
 -}
 mediaRight : Attrs msg -> Htmls msg -> MediaPartition msg
 mediaRight = node "div" [] [ bulma.media.right ]
+
+
+-- MENU ------------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Menu msg = Html msg
+
+{-| TODO
+-}
+menu : Attrs msg -> List (MenuPart msg) -> Menu msg
+menu = node "aside" [] [ bulma.menu.container ]
+
+
+-- MENU ITEMS --
+
+{-| TODO
+-}
+type alias MenuPart msg = Html msg
+
+{-| TODO
+-}
+menuLabel : Attrs msg -> Htmls msg -> MenuPart msg
+menuLabel = node "p" [] [ bulma.menu.label ]
+
+{-| TODO
+-}
+menuList : Attrs msg -> List (MenuListItem msg) -> MenuPart msg
+menuList = node "ul" [] [ bulma.menu.list ]
+
+
+-- MENU LIST ITEMS --
+
+{-| TODO
+-}
+type alias MenuListItem msg = Html msg
+
+{-| TODO
+-}
+menuListItem : Attrs msg -> Htmls msg -> MenuListItem msg
+menuListItem attrs = a attrs >> ls >> li []
+
+{-| TODO
+-}
+easyMenuListItem : Attrs msg -> msg -> Icon msg -> String -> MenuListItem msg
+easyMenuListItem attrs msg icon str
+  = menuListItem (onClick msg :: attrs)
+    [ icon
+    , text str
+    ]
 
 
 -- NAV -------------------------------------------------------------------------
