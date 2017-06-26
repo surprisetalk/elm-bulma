@@ -5,6 +5,9 @@ module Bulma.Elements exposing (..)
 
 {-| TODO 
 
+# Table of Contents
+Coming soon!
+
 # Box
 @docs Box
 @docs box
@@ -29,6 +32,7 @@ Coming soon!
 Coming soon!
 
 # Image
+@docs Image
 Coming soon!
 
 # Notification
@@ -206,3 +210,11 @@ content size
         Medium -> bulma.content.size.isMedium
         Large  -> bulma.content.size.isLarge
     ]
+
+
+-- IMAGE -----------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Image msg = Html msg
+

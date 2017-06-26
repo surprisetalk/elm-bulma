@@ -5,8 +5,36 @@ module Bulma.Components exposing (..)
 
 {-| TODO 
 
-# Card
+# Table of Contents
 Coming soon!
+
+# Card
+@docs Card
+@docs card
+
+## Card Partitions
+@docs CardPartition
+
+### Card Header
+@docs cardHeader, easyCardHeader, easierCardHeader
+
+#### Card Header Item
+@docs CardHeaderItem 
+@docs cardTitle, easyCardTitle
+@docs cardIcon, cardIconLink, easyCardIconLink
+
+### Card Image
+@docs cardImage
+
+### Card Content
+@docs cardContent
+
+### Card Footer
+@docs cardFooter
+
+#### Card Footer Item
+@docs CardFooterItem
+@docs cardFooterItem, cardFooterItemLink
 
 # Level
 Coming soon!
@@ -59,8 +87,112 @@ import BulmaClasses exposing (..)
 
 import Bulma.Layout exposing ( container )
 
-import Html exposing ( Html, span )
+import Bulma.Elements exposing ( Image ) 
+import Bulma.Elements.Icon exposing ( Icon ) 
+
+import Html exposing ( Html, text, span )
 import Html.Events exposing ( onClick )
+
+
+-- CARD ------------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Card msg = Html msg
+
+{-| TODO
+-}
+card : Attrs msg -> List (CardPartition msg) -> Card msg
+card = node "div" [] [ bulma.card.container ]
+
+
+-- CARD PARTITIONS --
+
+{-| TODO
+-}
+type alias CardPartition msg = Html msg
+
+{-| TODO
+-}
+cardHeader : Attrs msg -> Htmls msg -> CardPartition msg
+cardHeader = node "header" [] [ bulma.card.header.container ]
+
+{-| TODO
+-}
+easyCardHeader : Attrs msg -> { title : Htmls msg, icon : Htmls msg, onClickIcon : msg } -> CardPartition msg
+easyCardHeader attrs {title,icon,onClickIcon}
+  = cardHeader attrs
+    [ cardTitle    [                     ] title
+    , cardIconLink [ onClick onClickIcon ] icon
+    ]
+  
+{-| TODO
+-}
+easierCardHeader : Attrs msg -> { title : String, icon : Icon msg, onClickIcon : msg } -> CardPartition msg
+easierCardHeader attrs {title,icon,onClickIcon}
+  = cardHeader attrs
+    [ easyCardTitle    []             title
+    , easyCardIconLink [] onClickIcon icon
+    ]
+
+{-| TODO
+-}
+type alias CardHeaderItem msg = Html msg
+
+{-| TODO
+-}
+cardTitle : Attrs msg -> Htmls msg -> CardHeaderItem msg
+cardTitle = node "p" [] [ bulma.card.header.title ]
+
+{-| TODO
+-}
+easyCardTitle : Attrs msg -> String -> CardHeaderItem msg
+easyCardTitle attrs = text >> ls >> cardTitle attrs
+
+{-| TODO
+-}
+cardIcon : Attrs msg -> List (Icon msg) -> CardHeaderItem msg
+cardIcon = node "p" [] [ bulma.card.header.icon ]
+
+{-| TODO
+-}
+cardIconLink : Attrs msg -> List (Icon msg) -> CardHeaderItem msg
+cardIconLink = node "a" [] [ bulma.card.header.icon ]
+
+{-| TODO
+-}
+easyCardIconLink : Attrs msg -> msg -> Icon msg -> CardHeaderItem msg
+easyCardIconLink attrs msg
+  = cardIcon (onClick msg :: attrs) << ls
+
+{-| TODO
+-}
+cardImage : Attrs msg -> List (Image msg) -> CardPartition msg
+cardImage = node "div" [] [ bulma.card.image ]
+
+{-| TODO
+-}
+cardContent : Attrs msg -> Htmls msg -> CardPartition msg
+cardContent = node "div" [] [ bulma.card.content ]
+
+{-| TODO
+-}
+cardFooter : Attrs msg -> List (CardFooterItem msg) -> CardPartition msg
+cardFooter = node "footer" [] [ bulma.card.footer.container ]
+
+{-| TODO
+-}
+type alias CardFooterItem msg = Html msg
+
+{-| TODO
+-}
+cardFooterItem : Attrs msg -> Htmls msg -> CardFooterItem msg
+cardFooterItem = node "p" [] [ bulma.card.footer.item ]
+
+{-| TODO
+-}
+cardFooterItemLink : Attrs msg -> Htmls msg -> CardFooterItem msg
+cardFooterItemLink = node "a" [] [ bulma.card.footer.item ]
 
 
 -- NAV -------------------------------------------------------------------------

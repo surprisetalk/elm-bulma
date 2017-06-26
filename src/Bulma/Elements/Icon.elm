@@ -23,7 +23,7 @@ import Helpers exposing (..)
 
 import BulmaClasses exposing (..)
 
-import Bulma.Modifiers exposing ( Size )
+import Bulma.Modifiers exposing ( Size(..) )
 
 import Html exposing ( Html, Attribute, span )
 import Html.Attributes as Attr exposing ( max, value )
