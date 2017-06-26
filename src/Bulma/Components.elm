@@ -51,7 +51,13 @@ Coming soon!
 @docs easyLevelItemWithHeading 
 
 # Media Object
-Coming soon!
+@docs Media
+@docs media, largeMedia
+
+## Media Object Partition
+@docs MediaPartition 
+@docs mediaContent
+@docs mediaLeft, mediaRight
 
 # Menu
 Coming soon!
@@ -282,6 +288,48 @@ easyLevelItemWithHeading attrs heading title
       , p [ class "title"   ] [ text title   ]
       ]
     ]
+
+
+-- MEDIA OBJECT ----------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Media msg = Html msg
+
+{-| TODO
+-}
+media : Attrs msg -> List (MediaPartition msg) -> Media msg
+media = node "article" [] [ bulma.media.container ]
+
+{-| TODO
+-}
+largeMedia : Attrs msg -> List (MediaPartition msg) -> Media msg
+largeMedia = node "article" [] [ bulma.media.container
+                               , bulma.media.size.isLarge
+                               ]
+
+-- MEDIA PARTITION --
+
+{-| TODO
+-}
+type alias MediaPartition msg = Html msg
+
+-- mediaLeft_ : (Attrs msg -> Htmls msg -> Html msg) -> Attrs msg -> Htmls msg -> MediaPartition msg
+
+{-| TODO
+-}
+mediaLeft : Attrs msg -> Htmls msg -> MediaPartition msg
+mediaLeft = node "div" [] [ bulma.media.left ]
+
+{-| TODO
+-}
+mediaContent : Attrs msg -> Htmls msg -> MediaPartition msg
+mediaContent = node "div" [] [ bulma.media.content ]
+
+{-| TODO
+-}
+mediaRight : Attrs msg -> Htmls msg -> MediaPartition msg
+mediaRight = node "div" [] [ bulma.media.right ]
 
 
 -- NAV -------------------------------------------------------------------------
