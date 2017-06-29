@@ -129,7 +129,18 @@ module Bulma.Components exposing (..)
 @docs navItemTab, navItemTabLink
 
 # Pagination
-Coming soon!
+@docs Pagination, pagination
+
+## Pagination Partition
+@docs PaginationPartition
+@docs paginationPrev, easyPaginationPrev
+@docs paginationNext, easyPaginationNext
+@docs paginationList
+
+## Pagination List Item
+@docs PaginationListItem, IsCurrent
+@docs paginationLink, easyPaginationLink
+@docs paginationEllipsis, easyPaginationEllipsis
 
 # Panel
 Coming soon!
@@ -145,7 +156,7 @@ import Helpers exposing (..)
 
 import BulmaClasses exposing (..)
 
-import Bulma.Modifiers exposing ( Color(..), Size(..) )
+import Bulma.Modifiers exposing ( Color(..), Size(..), HorizontalAlignment(..) )
 
 import Bulma.Layout exposing ( container )
 
@@ -747,3 +758,105 @@ type alias IsMenuOpen = Bool
 -}
 type alias IsActive = Bool
 
+
+-- PAGINATION ------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Pagination msg = Html msg
+
+{-| TODO
+-}
+pagination : HorizontalAlignment -> Attrs msg -> List (PaginationPartition msg) -> Pagination msg
+pagination alignment
+  = node "div" []
+    [ bulma.pagination.container
+    , case alignment of
+        Left     -> ""
+        Centered -> bulma.pagination.position.isCentered
+        Right    -> bulma.pagination.position.isRight
+    ]
+
+-- {-| TODO
+-- -}
+-- easyModal : IsModalOpen -> Attrs msg -> msg -> Htmls msg -> Modal msg
+-- easyModal active attrs close content
+--   = modal active attrs
+--     [ easyModalBackground   [] close
+--     , modalContent          [] content
+--     , easyModalClose Normal [] close
+--     ]
+
+-- PAGINATION PARTITIONS --
+
+{-| TODO
+-}
+type alias PaginationPartition msg = Html msg
+
+{-| TODO
+-}
+paginationPrev : Attrs msg -> Htmls msg -> PaginationPartition msg
+paginationPrev = node "a" [] [ bulma.pagination.previous ]
+
+{-| TODO
+-}
+easyPaginationPrev : Attrs msg -> msg -> String -> PaginationPartition msg
+easyPaginationPrev attrs msg
+  = text >> ls >> paginationPrev (onClick msg :: attrs)
+
+{-| TODO
+-}
+paginationNext : Attrs msg -> Htmls msg -> PaginationPartition msg
+paginationNext = node "a" [] [ bulma.pagination.next ]
+
+{-| TODO
+-}
+easyPaginationNext : Attrs msg -> msg -> String -> PaginationPartition msg
+easyPaginationNext attrs msg
+  = text >> ls >> paginationNext (onClick msg :: attrs)
+
+{-| TODO
+-}
+paginationList : Attrs msg -> List (PaginationListItem msg) -> PaginationPartition msg
+paginationList attrs
+  = List.map (ls >> li []) >> node "ul" [] [ bulma.pagination.list.container ] attrs
+
+-- TODO: easyPaginationList
+
+
+-- PAGINATION LIST ITEMS --
+
+{-| TODO
+-}
+type alias PaginationListItem msg = Html msg
+
+{-| TODO
+-}
+type alias IsCurrent = Bool
+
+{-| TODO
+-}
+paginationLink : IsCurrent -> Attrs msg -> Htmls msg -> PaginationListItem msg
+paginationLink current
+  = node "a" []
+    [ bulma.pagination.list.link.ui
+    , case current of
+        True  -> bulma.pagination.list.link.state.isCurrent
+        False -> ""
+    ]
+
+{-| TODO
+-}
+easyPaginationLink : IsCurrent -> Attrs msg -> msg -> Int -> PaginationListItem msg
+easyPaginationLink current attrs msg
+  = toString >> text >> ls >> paginationLink current (onClick msg :: attrs)
+
+{-| TODO
+-}
+paginationEllipsis : Attrs msg -> Htmls msg -> PaginationListItem msg
+paginationEllipsis = node "span" [] [ bulma.pagination.list.ellipsis ]
+
+{-| TODO
+-}
+easyPaginationEllipsis : Attrs msg -> PaginationListItem msg
+easyPaginationEllipsis attrs = paginationEllipsis attrs [ text "&hellip;" ]
