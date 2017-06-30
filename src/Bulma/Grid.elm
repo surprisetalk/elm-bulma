@@ -5,8 +5,10 @@ module Bulma.Grid exposing (..)
 
 {-| TODO 
 
-# Modifiers
-@docs Width
+# Table of Contents
+- [Columns](#columns)
+  - [Column](#column)
+- [Tile](#tile)
 
 # Columns
 @docs columns
@@ -15,10 +17,13 @@ module Bulma.Grid exposing (..)
 ## Column
 @docs Column
 @docs column, narrowColumn
-@docs ColumnModifiers, columnModifiers
+@docs ColumnModifiers, Width, columnModifiers
 
 # Tile
-Coming soon!
+@docs Tile, Width
+@docs tile
+@docs tileAncestor, tileParent, tileChild
+@docs verticalTile, verticalTileParent
 
 -}
 
@@ -209,3 +214,143 @@ columnModifiers = { offset = Auto
                              }
                   }
 
+
+-- COLUMN ----------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Tile msg = Html msg
+
+-- TODO: easyTiles
+
+{-| TODO
+-}
+tile : Width -> Attrs msg -> List (Tile msg) -> Tile msg
+tile width
+  = node "div" []
+    [ bulma.tile.container
+    , case width of
+        Auto    -> ""
+        Width1  -> bulma.tile.width.is1
+        Width2  -> bulma.tile.width.is2
+        Width3  -> bulma.tile.width.is3
+        Width4  -> bulma.tile.width.is4
+        Width5  -> bulma.tile.width.is5
+        Width6  -> bulma.tile.width.is6
+        Width7  -> bulma.tile.width.is7
+        Width8  -> bulma.tile.width.is8
+        Width9  -> bulma.tile.width.is9
+        Width10 -> bulma.tile.width.is10
+        Width11 -> bulma.tile.width.is11
+    ]
+
+{-| TODO
+-}
+verticalTile : Width -> Attrs msg -> List (Tile msg) -> Tile msg
+verticalTile width
+  = node "div" []
+    [ bulma.tile.container
+    , bulma.tile.orientation.isVertical
+    , case width of
+        Auto    -> ""
+        Width1  -> bulma.tile.width.is1
+        Width2  -> bulma.tile.width.is2
+        Width3  -> bulma.tile.width.is3
+        Width4  -> bulma.tile.width.is4
+        Width5  -> bulma.tile.width.is5
+        Width6  -> bulma.tile.width.is6
+        Width7  -> bulma.tile.width.is7
+        Width8  -> bulma.tile.width.is8
+        Width9  -> bulma.tile.width.is9
+        Width10 -> bulma.tile.width.is10
+        Width11 -> bulma.tile.width.is11
+    ]
+
+{-| TODO
+-}
+tileAncestor : Width -> Attrs msg -> List (Tile msg) -> Html msg
+tileAncestor width
+  = node "div" []
+    [ bulma.tile.container
+    , bulma.tile.level.isAncestor
+    , case width of
+        Auto    -> ""
+        Width1  -> bulma.tile.width.is1
+        Width2  -> bulma.tile.width.is2
+        Width3  -> bulma.tile.width.is3
+        Width4  -> bulma.tile.width.is4
+        Width5  -> bulma.tile.width.is5
+        Width6  -> bulma.tile.width.is6
+        Width7  -> bulma.tile.width.is7
+        Width8  -> bulma.tile.width.is8
+        Width9  -> bulma.tile.width.is9
+        Width10 -> bulma.tile.width.is10
+        Width11 -> bulma.tile.width.is11
+    ]
+
+{-| TODO
+-}
+tileParent : Width -> Attrs msg -> List (Tile msg) -> Tile msg
+tileParent width
+  = node "div" []
+    [ bulma.tile.container
+    , bulma.tile.level.isParent
+    , case width of
+        Auto    -> ""
+        Width1  -> bulma.tile.width.is1
+        Width2  -> bulma.tile.width.is2
+        Width3  -> bulma.tile.width.is3
+        Width4  -> bulma.tile.width.is4
+        Width5  -> bulma.tile.width.is5
+        Width6  -> bulma.tile.width.is6
+        Width7  -> bulma.tile.width.is7
+        Width8  -> bulma.tile.width.is8
+        Width9  -> bulma.tile.width.is9
+        Width10 -> bulma.tile.width.is10
+        Width11 -> bulma.tile.width.is11
+    ]
+
+{-| TODO
+-}
+verticalTileParent : Width -> Attrs msg -> List (Tile msg) -> Tile msg
+verticalTileParent width
+  = node "div" []
+    [ bulma.tile.container
+    , bulma.tile.level.isParent
+    , bulma.tile.orientation.isVertical
+    , case width of
+        Auto    -> ""
+        Width1  -> bulma.tile.width.is1
+        Width2  -> bulma.tile.width.is2
+        Width3  -> bulma.tile.width.is3
+        Width4  -> bulma.tile.width.is4
+        Width5  -> bulma.tile.width.is5
+        Width6  -> bulma.tile.width.is6
+        Width7  -> bulma.tile.width.is7
+        Width8  -> bulma.tile.width.is8
+        Width9  -> bulma.tile.width.is9
+        Width10 -> bulma.tile.width.is10
+        Width11 -> bulma.tile.width.is11
+    ]
+
+{-| TODO
+-}
+tileChild : Width -> Attrs msg -> Htmls msg -> Tile msg
+tileChild width
+  = node "div" []
+    [ bulma.tile.container
+    , bulma.tile.level.isChild
+    , case width of
+        Auto    -> ""
+        Width1  -> bulma.tile.width.is1
+        Width2  -> bulma.tile.width.is2
+        Width3  -> bulma.tile.width.is3
+        Width4  -> bulma.tile.width.is4
+        Width5  -> bulma.tile.width.is5
+        Width6  -> bulma.tile.width.is6
+        Width7  -> bulma.tile.width.is7
+        Width8  -> bulma.tile.width.is8
+        Width9  -> bulma.tile.width.is9
+        Width10 -> bulma.tile.width.is10
+        Width11 -> bulma.tile.width.is11
+    ]

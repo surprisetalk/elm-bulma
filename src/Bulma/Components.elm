@@ -157,7 +157,7 @@ module Bulma.Components exposing (..)
 @docs panelTab
 
 # Tabs
-@docs Tabs, TabsModifiers, TabsStyle
+@docs Tabs, TabsModifiers, TabsStyle, tabsModifiers
 @docs tabs
 
 ## Tab
@@ -985,6 +985,14 @@ type alias TabsModifiers = { style     : TabsStyle
                            , alignment : HorizontalAlignment
                            , size      : Size
                            }
+
+{-| TODO
+-}
+tabsModifiers : TabsModifiers
+tabsModifiers = { style     = Minimal
+                , alignment = Left
+                , size      = Normal
+                }
 
 {-| TODO
 -}
