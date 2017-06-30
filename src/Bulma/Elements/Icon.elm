@@ -5,16 +5,15 @@ module Bulma.Elements.Icon exposing (..)
 
 {-| TODO 
 
-# Icon Element
+# Icon Wrapper
 @docs Icon
 @docs icon
 
-# Font-Awesome Set
+# Icon Body
+@docs IconBody
 @docs adjust, american_sign_language_interpreting, anchor, archive, area_chart, arrows, arrows_h, arrows_v, asl_interpreting, assistive_listening_systems, asterisk, at, audio_description, automobile, balance_scale, ban, bank, bar_chart, bar_chart_o, barcode, bars, battery_0, battery_1, battery_2, battery_3, battery_4, battery_empty, battery_full, battery_half, battery_quarter, battery_three_quarters, bed, beer, bell, bell_o, bell_slash, bell_slash_o, bicycle, binoculars, birthday_cake, blind, bluetooth, bluetooth_b, bolt, bomb, book, bookmark, bookmark_o, braille, briefcase, bug, building, building_o, bullhorn, bullseye, bus, cab, calculator, calendar, calendar_check_o, calendar_minus_o, calendar_o, calendar_plus_o, calendar_times_o, camera, camera_retro, car, caret_square_o_down, caret_square_o_left, caret_square_o_right, caret_square_o_up, cart_arrow_down, cart_plus, cc, certificate, check, check_circle, check_circle_o, check_square, check_square_o, child, circle, circle_o, circle_o_notch, circle_thin, clock_o, clone, close, cloud, cloud_download, cloud_upload, code, code_fork, coffee, cog, cogs, comment, comment_o, commenting, commenting_o, comments, comments_o, compass, copyright, creative_commons, credit_card, credit_card_alt, crop, crosshairs, cube, cubes, cutlery, dashboard, database, deaf, deafness, desktop, diamond, dot_circle_o, download, edit, ellipsis_h, ellipsis_v, envelope, envelope_o, envelope_square, eraser, exchange, exclamation, exclamation_circle, exclamation_triangle, external_link, external_link_square, eye, eye_slash, eyedropper, fax, feed, female, fighter_jet, file_archive_o, file_audio_o, file_code_o, file_excel_o, file_image_o, file_movie_o, file_pdf_o, file_photo_o, file_picture_o, file_powerpoint_o, file_sound_o, file_video_o, file_word_o, file_zip_o, film, filter, fire, fire_extinguisher, flag, flag_checkered, flag_o, flash, flask, folder, folder_o, folder_open, folder_open_o, frown_o, futbol_o, gamepad, gavel, gear, gears, gift, glass, globe, graduation_cap, group, hand_grab_o, hand_lizard_o, hand_paper_o, hand_peace_o, hand_pointer_o, hand_rock_o, hand_scissors_o, hand_spock_o, hand_stop_o, hard_of_hearing, hashtag, hdd_o, headphones, heart, heart_o, heartbeat, history, home, hotel, hourglass, hourglass_1, hourglass_2, hourglass_3, hourglass_end, hourglass_half, hourglass_o, hourglass_start, i_cursor, image, inbox, industry, info, info_circle, institution, key, keyboard_o, language, laptop, leaf, legal, lemon_o, level_down, level_up, life_bouy, life_buoy, life_ring, life_saver, lightbulb_o, line_chart, location_arrow, lock, low_vision, magic, magnet, mail_forward, mail_reply, mail_reply_all, male, map, map_marker, map_o, map_pin, map_signs, meh_o, microphone, microphone_slash, minus, minus_circle, minus_square, minus_square_o, mobile, mobile_phone, money, moon_o, mortar_board, motorcycle, mouse_pointer, music, navicon, newspaper_o, object_group, object_ungroup, paint_brush, paper_plane, paper_plane_o, paw, pencil, pencil_square, pencil_square_o, percent, phone, phone_square, photo, picture_o, pie_chart, plane, plug, plus, plus_circle, plus_square, plus_square_o, power_off, print, puzzle_piece, qrcode, question, question_circle, question_circle_o, quote_left, quote_right, random, recycle, refresh, registered, remove, reorder, reply, reply_all, retweet, road, rocket, rss, rss_square, search, search_minus, search_plus, send, send_o, server, share, share_alt, share_alt_square, share_square, share_square_o, shield, ship, shopping_bag, shopping_basket, shopping_cart, sign_in, sign_language, sign_out, signal, signing, sitemap, sliders, smile_o, soccer_ball_o, sort, sort_alpha_asc, sort_alpha_desc, sort_amount_asc, sort_amount_desc, sort_asc, sort_desc, sort_down, sort_numeric_asc, sort_numeric_desc, sort_up, space_shuttle, spinner, spoon, square, square_o, star, star_half, star_half_empty, star_half_full, star_half_o, star_o, sticky_note, sticky_note_o, street_view, suitcase, sun_o, support, tablet, tachometer, tag, tags, tasks, taxi, television, terminal, thumb_tack, thumbs_down, thumbs_o_down, thumbs_o_up, thumbs_up, ticket, times, times_circle, times_circle_o, tint, toggle_down, toggle_left, toggle_off, toggle_on, toggle_right, toggle_up, trademark, trash, trash_o, tree, trophy, truck, tty, tv, umbrella, universal_access, university, unlock, unlock_alt, unsorted, upload, user, user_plus, user_secret, user_times, users, video_camera, volume_control_phone, volume_down, volume_off, volume_up, warning, wheelchair, wheelchair_alt, wifi, wrench, fiveHundredPX, adn, amazon, android, angellist, apple, behance, behance_square, bitbucket, bitbucket_square, bitcoin, black_tie, btc, buysellads, cc_amex, cc_diners_club, cc_discover, cc_jcb, cc_mastercard, cc_paypal, cc_stripe, cc_visa, chrome, codepen, codiepie, connectdevelop, contao, css3, dashcube, delicious, deviantart, digg, dribbble, dropbox, drupal, edge, empire, envira, expeditedssl, fa, facebook, facebook_f, facebook_official, facebook_square, firefox, first_order, flickr, font_awesome, fonticons, fort_awesome, forumbee, foursquare, ge, get_pocket, gg, gg_circle, git, git_square, github, github_alt, github_square, gitlab, gittip, glide, glide_g, google, google_plus, google_plus_circle, google_plus_official, google_plus_square, google_wallet, gratipay, hacker_news, houzz, html5, instagram, internet_explorer, ioxhost, joomla, jsfiddle, lastfm, lastfm_square, leanpub, linkedin, linkedin_square, linux, maxcdn, meanpath, medium_, mixcloud, modx, odnoklassniki, odnoklassniki_square, opencart, openid, opera, optin_monster, pagelines, paypal, pied_piper, pied_piper_alt, pied_piper_pp, pinterest, pinterest_p, pinterest_square, product_hunt, qq, ra, rebel, reddit, reddit_alien, reddit_square, renren, resistance, safari, scribd, sellsy, shirtsinbulk, simplybuilt, skyatlas, skype, slack, slideshare, snapchat, snapchat_ghost, snapchat_square, soundcloud, spotify, stack_exchange, stack_overflow, steam, steam_square, stumbleupon, stumbleupon_circle, tencent_weibo, themeisle, trello, tripadvisor, tumblr, tumblr_square, twitch, twitter, twitter_square, usb, viacoin, viadeo, viadeo_square, vimeo, vimeo_square, vine, vk, wechat, weibo, weixin, whatsapp, wikipedia_w, windows, wordpress, wpbeginner, wpforms, xing, xing_square, y_combinator, y_combinator_square, yahoo, yc, yc_square, yelp, yoast, youtube, youtube_play, youtube_square 
 
 -}
-
--- TODO : make sure to give credit to Fresheyeball
 
 
 -- IMPORTS ---------------------------------------------------------------------
@@ -25,11 +24,8 @@ import BulmaClasses exposing (..)
 
 import Bulma.Modifiers exposing ( Size(..) )
 
-import Html exposing ( Html, Attribute, span )
-import Html.Attributes as Attr exposing ( max, value )
-
-import FontAwesome.Web   as FAW
-import FontAwesome.Brand as FAB
+import Html exposing ( Html, Attribute, i, span )
+import Html.Attributes as Attr exposing ( class )
 
 
 -- ICON ------------------------------------------------------------------------
@@ -40,7 +36,7 @@ type alias Icon msg = Html msg
 
 {-| TODO
 -}
-icon : Size -> Attrs msg -> Htmls msg -> Icon msg
+icon : Size -> Attrs msg -> List (IconBody msg) -> Icon msg
 icon size
   = node "span" []
     [ bulma.icon.container
@@ -54,2904 +50,2906 @@ icon size
 
 -- ICONS -----------------------------------------------------------------------
 
--- TODO: minimize dependencies using "fa fa-..."
+{-| TODO
+-}
+type alias IconBody msg = Html msg
 
 {-| TODO
 -}
-adjust                              : Size -> Attrs msg -> Icon msg
-adjust                              = \size attrs -> icon size attrs <| ls <| FAW.adjust
+adjust                              : IconBody msg
+adjust                              = i [ class "fa fa-adjust" ] []
 
 {-| TODO
 -}
-american_sign_language_interpreting : Size -> Attrs msg -> Icon msg
-american_sign_language_interpreting = \size attrs -> icon size attrs <| ls <| FAW.american_sign_language_interpreting
+american_sign_language_interpreting : IconBody msg
+american_sign_language_interpreting = i [ class "fa fa-americansignlanguageinterpreting" ] []
 
 {-| TODO
 -}
-anchor                              : Size -> Attrs msg -> Icon msg
-anchor                              = \size attrs -> icon size attrs <| ls <| FAW.anchor
+anchor                              : IconBody msg
+anchor                              = i [ class "fa fa-anchor" ] []
 
 {-| TODO
 -}
-archive                             : Size -> Attrs msg -> Icon msg
-archive                             = \size attrs -> icon size attrs <| ls <| FAW.archive
+archive                             : IconBody msg
+archive                             = i [ class "fa fa-archive" ] []
 
 {-| TODO
 -}
-area_chart                          : Size -> Attrs msg -> Icon msg
-area_chart                          = \size attrs -> icon size attrs <| ls <| FAW.area_chart
+area_chart                          : IconBody msg
+area_chart                          = i [ class "fa fa-areachart" ] []
 
 {-| TODO
 -}
-arrows                              : Size -> Attrs msg -> Icon msg
-arrows                              = \size attrs -> icon size attrs <| ls <| FAW.arrows
+arrows                              : IconBody msg
+arrows                              = i [ class "fa fa-arrows" ] []
 
 {-| TODO
 -}
-arrows_h                            : Size -> Attrs msg -> Icon msg
-arrows_h                            = \size attrs -> icon size attrs <| ls <| FAW.arrows_h
+arrows_h                            : IconBody msg
+arrows_h                            = i [ class "fa fa-arrowsh" ] []
 
 {-| TODO
 -}
-arrows_v                            : Size -> Attrs msg -> Icon msg
-arrows_v                            = \size attrs -> icon size attrs <| ls <| FAW.arrows_v
+arrows_v                            : IconBody msg
+arrows_v                            = i [ class "fa fa-arrowsv" ] []
 
 {-| TODO
 -}
-asl_interpreting                    : Size -> Attrs msg -> Icon msg
-asl_interpreting                    = \size attrs -> icon size attrs <| ls <| FAW.asl_interpreting
+asl_interpreting                    : IconBody msg
+asl_interpreting                    = i [ class "fa fa-aslinterpreting" ] []
 
 {-| TODO
 -}
-assistive_listening_systems         : Size -> Attrs msg -> Icon msg
-assistive_listening_systems         = \size attrs -> icon size attrs <| ls <| FAW.assistive_listening_systems
+assistive_listening_systems         : IconBody msg
+assistive_listening_systems         = i [ class "fa fa-assistivelisteningsystems" ] []
 
 {-| TODO
 -}
-asterisk                            : Size -> Attrs msg -> Icon msg
-asterisk                            = \size attrs -> icon size attrs <| ls <| FAW.asterisk
+asterisk                            : IconBody msg
+asterisk                            = i [ class "fa fa-asterisk" ] []
 
 {-| TODO
 -}
-at                                  : Size -> Attrs msg -> Icon msg
-at                                  = \size attrs -> icon size attrs <| ls <| FAW.at
+at                                  : IconBody msg
+at                                  = i [ class "fa fa-at" ] []
 
 {-| TODO
 -}
-audio_description                   : Size -> Attrs msg -> Icon msg
-audio_description                   = \size attrs -> icon size attrs <| ls <| FAW.audio_description
+audio_description                   : IconBody msg
+audio_description                   = i [ class "fa fa-audiodescription" ] []
 
 {-| TODO
 -}
-automobile                          : Size -> Attrs msg -> Icon msg
-automobile                          = \size attrs -> icon size attrs <| ls <| FAW.automobile
+automobile                          : IconBody msg
+automobile                          = i [ class "fa fa-automobile" ] []
 
 {-| TODO
 -}
-balance_scale                       : Size -> Attrs msg -> Icon msg
-balance_scale                       = \size attrs -> icon size attrs <| ls <| FAW.balance_scale
+balance_scale                       : IconBody msg
+balance_scale                       = i [ class "fa fa-balancescale" ] []
 
 {-| TODO
 -}
-ban                                 : Size -> Attrs msg -> Icon msg
-ban                                 = \size attrs -> icon size attrs <| ls <| FAW.ban
+ban                                 : IconBody msg
+ban                                 = i [ class "fa fa-ban" ] []
 
 {-| TODO
 -}
-bank                                : Size -> Attrs msg -> Icon msg
-bank                                = \size attrs -> icon size attrs <| ls <| FAW.bank
+bank                                : IconBody msg
+bank                                = i [ class "fa fa-bank" ] []
 
 {-| TODO
 -}
-bar_chart                           : Size -> Attrs msg -> Icon msg
-bar_chart                           = \size attrs -> icon size attrs <| ls <| FAW.bar_chart
+bar_chart                           : IconBody msg
+bar_chart                           = i [ class "fa fa-barchart" ] []
 
 {-| TODO
 -}
-bar_chart_o                         : Size -> Attrs msg -> Icon msg
-bar_chart_o                         = \size attrs -> icon size attrs <| ls <| FAW.bar_chart_o
+bar_chart_o                         : IconBody msg
+bar_chart_o                         = i [ class "fa fa-barcharto" ] []
 
 {-| TODO
 -}
-barcode                             : Size -> Attrs msg -> Icon msg
-barcode                             = \size attrs -> icon size attrs <| ls <| FAW.barcode
+barcode                             : IconBody msg
+barcode                             = i [ class "fa fa-barcode" ] []
 
 {-| TODO
 -}
-bars                                : Size -> Attrs msg -> Icon msg
-bars                                = \size attrs -> icon size attrs <| ls <| FAW.bars
+bars                                : IconBody msg
+bars                                = i [ class "fa fa-bars" ] []
 
 {-| TODO
 -}
-battery_0                           : Size -> Attrs msg -> Icon msg
-battery_0                           = \size attrs -> icon size attrs <| ls <| FAW.battery_0
+battery_0                           : IconBody msg
+battery_0                           = i [ class "fa fa-battery0" ] []
 
 {-| TODO
 -}
-battery_1                           : Size -> Attrs msg -> Icon msg
-battery_1                           = \size attrs -> icon size attrs <| ls <| FAW.battery_1
+battery_1                           : IconBody msg
+battery_1                           = i [ class "fa fa-battery1" ] []
 
 {-| TODO
 -}
-battery_2                           : Size -> Attrs msg -> Icon msg
-battery_2                           = \size attrs -> icon size attrs <| ls <| FAW.battery_2
+battery_2                           : IconBody msg
+battery_2                           = i [ class "fa fa-battery2" ] []
 
 {-| TODO
 -}
-battery_3                           : Size -> Attrs msg -> Icon msg
-battery_3                           = \size attrs -> icon size attrs <| ls <| FAW.battery_3
+battery_3                           : IconBody msg
+battery_3                           = i [ class "fa fa-battery3" ] []
 
 {-| TODO
 -}
-battery_4                           : Size -> Attrs msg -> Icon msg
-battery_4                           = \size attrs -> icon size attrs <| ls <| FAW.battery_4
+battery_4                           : IconBody msg
+battery_4                           = i [ class "fa fa-battery4" ] []
 
 {-| TODO
 -}
-battery_empty                       : Size -> Attrs msg -> Icon msg
-battery_empty                       = \size attrs -> icon size attrs <| ls <| FAW.battery_empty
+battery_empty                       : IconBody msg
+battery_empty                       = i [ class "fa fa-batteryempty" ] []
 
 {-| TODO
 -}
-battery_full                        : Size -> Attrs msg -> Icon msg
-battery_full                        = \size attrs -> icon size attrs <| ls <| FAW.battery_full
+battery_full                        : IconBody msg
+battery_full                        = i [ class "fa fa-batteryfull" ] []
 
 {-| TODO
 -}
-battery_half                        : Size -> Attrs msg -> Icon msg
-battery_half                        = \size attrs -> icon size attrs <| ls <| FAW.battery_half
+battery_half                        : IconBody msg
+battery_half                        = i [ class "fa fa-batteryhalf" ] []
 
 {-| TODO
 -}
-battery_quarter                     : Size -> Attrs msg -> Icon msg
-battery_quarter                     = \size attrs -> icon size attrs <| ls <| FAW.battery_quarter
+battery_quarter                     : IconBody msg
+battery_quarter                     = i [ class "fa fa-batteryquarter" ] []
 
 {-| TODO
 -}
-battery_three_quarters              : Size -> Attrs msg -> Icon msg
-battery_three_quarters              = \size attrs -> icon size attrs <| ls <| FAW.battery_three_quarters
+battery_three_quarters              : IconBody msg
+battery_three_quarters              = i [ class "fa fa-batterythreequarters" ] []
 
 {-| TODO
 -}
-bed                                 : Size -> Attrs msg -> Icon msg
-bed                                 = \size attrs -> icon size attrs <| ls <| FAW.bed
+bed                                 : IconBody msg
+bed                                 = i [ class "fa fa-bed" ] []
 
 {-| TODO
 -}
-beer                                : Size -> Attrs msg -> Icon msg
-beer                                = \size attrs -> icon size attrs <| ls <| FAW.beer
+beer                                : IconBody msg
+beer                                = i [ class "fa fa-beer" ] []
 
 {-| TODO
 -}
-bell                                : Size -> Attrs msg -> Icon msg
-bell                                = \size attrs -> icon size attrs <| ls <| FAW.bell
+bell                                : IconBody msg
+bell                                = i [ class "fa fa-bell" ] []
 
 {-| TODO
 -}
-bell_o                              : Size -> Attrs msg -> Icon msg
-bell_o                              = \size attrs -> icon size attrs <| ls <| FAW.bell_o
+bell_o                              : IconBody msg
+bell_o                              = i [ class "fa fa-bello" ] []
 
 {-| TODO
 -}
-bell_slash                          : Size -> Attrs msg -> Icon msg
-bell_slash                          = \size attrs -> icon size attrs <| ls <| FAW.bell_slash
+bell_slash                          : IconBody msg
+bell_slash                          = i [ class "fa fa-bellslash" ] []
 
 {-| TODO
 -}
-bell_slash_o                        : Size -> Attrs msg -> Icon msg
-bell_slash_o                        = \size attrs -> icon size attrs <| ls <| FAW.bell_slash_o
+bell_slash_o                        : IconBody msg
+bell_slash_o                        = i [ class "fa fa-bellslasho" ] []
 
 {-| TODO
 -}
-bicycle                             : Size -> Attrs msg -> Icon msg
-bicycle                             = \size attrs -> icon size attrs <| ls <| FAW.bicycle
+bicycle                             : IconBody msg
+bicycle                             = i [ class "fa fa-bicycle" ] []
 
 {-| TODO
 -}
-binoculars                          : Size -> Attrs msg -> Icon msg
-binoculars                          = \size attrs -> icon size attrs <| ls <| FAW.binoculars
+binoculars                          : IconBody msg
+binoculars                          = i [ class "fa fa-binoculars" ] []
 
 {-| TODO
 -}
-birthday_cake                       : Size -> Attrs msg -> Icon msg
-birthday_cake                       = \size attrs -> icon size attrs <| ls <| FAW.birthday_cake
+birthday_cake                       : IconBody msg
+birthday_cake                       = i [ class "fa fa-birthdaycake" ] []
 
 {-| TODO
 -}
-blind                               : Size -> Attrs msg -> Icon msg
-blind                               = \size attrs -> icon size attrs <| ls <| FAW.blind
+blind                               : IconBody msg
+blind                               = i [ class "fa fa-blind" ] []
 
 {-| TODO
 -}
-bluetooth                           : Size -> Attrs msg -> Icon msg
-bluetooth                           = \size attrs -> icon size attrs <| ls <| FAW.bluetooth
+bluetooth                           : IconBody msg
+bluetooth                           = i [ class "fa fa-bluetooth" ] []
 
 {-| TODO
 -}
-bluetooth_b                         : Size -> Attrs msg -> Icon msg
-bluetooth_b                         = \size attrs -> icon size attrs <| ls <| FAW.bluetooth_b
+bluetooth_b                         : IconBody msg
+bluetooth_b                         = i [ class "fa fa-bluetoothb" ] []
 
 {-| TODO
 -}
-bolt                                : Size -> Attrs msg -> Icon msg
-bolt                                = \size attrs -> icon size attrs <| ls <| FAW.bolt
+bolt                                : IconBody msg
+bolt                                = i [ class "fa fa-bolt" ] []
 
 {-| TODO
 -}
-bomb                                : Size -> Attrs msg -> Icon msg
-bomb                                = \size attrs -> icon size attrs <| ls <| FAW.bomb
+bomb                                : IconBody msg
+bomb                                = i [ class "fa fa-bomb" ] []
 
 {-| TODO
 -}
-book                                : Size -> Attrs msg -> Icon msg
-book                                = \size attrs -> icon size attrs <| ls <| FAW.book
+book                                : IconBody msg
+book                                = i [ class "fa fa-book" ] []
 
 {-| TODO
 -}
-bookmark                            : Size -> Attrs msg -> Icon msg
-bookmark                            = \size attrs -> icon size attrs <| ls <| FAW.bookmark
+bookmark                            : IconBody msg
+bookmark                            = i [ class "fa fa-bookmark" ] []
 
 {-| TODO
 -}
-bookmark_o                          : Size -> Attrs msg -> Icon msg
-bookmark_o                          = \size attrs -> icon size attrs <| ls <| FAW.bookmark_o
+bookmark_o                          : IconBody msg
+bookmark_o                          = i [ class "fa fa-bookmarko" ] []
 
 {-| TODO
 -}
-braille                             : Size -> Attrs msg -> Icon msg
-braille                             = \size attrs -> icon size attrs <| ls <| FAW.braille
+braille                             : IconBody msg
+braille                             = i [ class "fa fa-braille" ] []
 
 {-| TODO
 -}
-briefcase                           : Size -> Attrs msg -> Icon msg
-briefcase                           = \size attrs -> icon size attrs <| ls <| FAW.briefcase
+briefcase                           : IconBody msg
+briefcase                           = i [ class "fa fa-briefcase" ] []
 
 {-| TODO
 -}
-bug                                 : Size -> Attrs msg -> Icon msg
-bug                                 = \size attrs -> icon size attrs <| ls <| FAW.bug
+bug                                 : IconBody msg
+bug                                 = i [ class "fa fa-bug" ] []
 
 {-| TODO
 -}
-building                            : Size -> Attrs msg -> Icon msg
-building                            = \size attrs -> icon size attrs <| ls <| FAW.building
+building                            : IconBody msg
+building                            = i [ class "fa fa-building" ] []
 
 {-| TODO
 -}
-building_o                          : Size -> Attrs msg -> Icon msg
-building_o                          = \size attrs -> icon size attrs <| ls <| FAW.building_o
+building_o                          : IconBody msg
+building_o                          = i [ class "fa fa-buildingo" ] []
 
 {-| TODO
 -}
-bullhorn                            : Size -> Attrs msg -> Icon msg
-bullhorn                            = \size attrs -> icon size attrs <| ls <| FAW.bullhorn
+bullhorn                            : IconBody msg
+bullhorn                            = i [ class "fa fa-bullhorn" ] []
 
 {-| TODO
 -}
-bullseye                            : Size -> Attrs msg -> Icon msg
-bullseye                            = \size attrs -> icon size attrs <| ls <| FAW.bullseye
+bullseye                            : IconBody msg
+bullseye                            = i [ class "fa fa-bullseye" ] []
 
 {-| TODO
 -}
-bus                                 : Size -> Attrs msg -> Icon msg
-bus                                 = \size attrs -> icon size attrs <| ls <| FAW.bus
+bus                                 : IconBody msg
+bus                                 = i [ class "fa fa-bus" ] []
 
 {-| TODO
 -}
-cab                                 : Size -> Attrs msg -> Icon msg
-cab                                 = \size attrs -> icon size attrs <| ls <| FAW.cab
+cab                                 : IconBody msg
+cab                                 = i [ class "fa fa-cab" ] []
 
 {-| TODO
 -}
-calculator                          : Size -> Attrs msg -> Icon msg
-calculator                          = \size attrs -> icon size attrs <| ls <| FAW.calculator
+calculator                          : IconBody msg
+calculator                          = i [ class "fa fa-calculator" ] []
 
 {-| TODO
 -}
-calendar                            : Size -> Attrs msg -> Icon msg
-calendar                            = \size attrs -> icon size attrs <| ls <| FAW.calendar
+calendar                            : IconBody msg
+calendar                            = i [ class "fa fa-calendar" ] []
 
 {-| TODO
 -}
-calendar_check_o                    : Size -> Attrs msg -> Icon msg
-calendar_check_o                    = \size attrs -> icon size attrs <| ls <| FAW.calendar_check_o
+calendar_check_o                    : IconBody msg
+calendar_check_o                    = i [ class "fa fa-calendarchecko" ] []
 
 {-| TODO
 -}
-calendar_minus_o                    : Size -> Attrs msg -> Icon msg
-calendar_minus_o                    = \size attrs -> icon size attrs <| ls <| FAW.calendar_minus_o
+calendar_minus_o                    : IconBody msg
+calendar_minus_o                    = i [ class "fa fa-calendarminuso" ] []
 
 {-| TODO
 -}
-calendar_o                          : Size -> Attrs msg -> Icon msg
-calendar_o                          = \size attrs -> icon size attrs <| ls <| FAW.calendar_o
+calendar_o                          : IconBody msg
+calendar_o                          = i [ class "fa fa-calendaro" ] []
 
 {-| TODO
 -}
-calendar_plus_o                     : Size -> Attrs msg -> Icon msg
-calendar_plus_o                     = \size attrs -> icon size attrs <| ls <| FAW.calendar_plus_o
+calendar_plus_o                     : IconBody msg
+calendar_plus_o                     = i [ class "fa fa-calendarpluso" ] []
 
 {-| TODO
 -}
-calendar_times_o                    : Size -> Attrs msg -> Icon msg
-calendar_times_o                    = \size attrs -> icon size attrs <| ls <| FAW.calendar_times_o
+calendar_times_o                    : IconBody msg
+calendar_times_o                    = i [ class "fa fa-calendartimeso" ] []
 
 {-| TODO
 -}
-camera                              : Size -> Attrs msg -> Icon msg
-camera                              = \size attrs -> icon size attrs <| ls <| FAW.camera
+camera                              : IconBody msg
+camera                              = i [ class "fa fa-camera" ] []
 
 {-| TODO
 -}
-camera_retro                        : Size -> Attrs msg -> Icon msg
-camera_retro                        = \size attrs -> icon size attrs <| ls <| FAW.camera_retro
+camera_retro                        : IconBody msg
+camera_retro                        = i [ class "fa fa-cameraretro" ] []
 
 {-| TODO
 -}
-car                                 : Size -> Attrs msg -> Icon msg
-car                                 = \size attrs -> icon size attrs <| ls <| FAW.car
+car                                 : IconBody msg
+car                                 = i [ class "fa fa-car" ] []
 
 {-| TODO
 -}
-caret_square_o_down                 : Size -> Attrs msg -> Icon msg
-caret_square_o_down                 = \size attrs -> icon size attrs <| ls <| FAW.caret_square_o_down
+caret_square_o_down                 : IconBody msg
+caret_square_o_down                 = i [ class "fa fa-caretsquareodown" ] []
 
 {-| TODO
 -}
-caret_square_o_left                 : Size -> Attrs msg -> Icon msg
-caret_square_o_left                 = \size attrs -> icon size attrs <| ls <| FAW.caret_square_o_left
+caret_square_o_left                 : IconBody msg
+caret_square_o_left                 = i [ class "fa fa-caretsquareoleft" ] []
 
 {-| TODO
 -}
-caret_square_o_right                : Size -> Attrs msg -> Icon msg
-caret_square_o_right                = \size attrs -> icon size attrs <| ls <| FAW.caret_square_o_right
+caret_square_o_right                : IconBody msg
+caret_square_o_right                = i [ class "fa fa-caretsquareoright" ] []
 
 {-| TODO
 -}
-caret_square_o_up                   : Size -> Attrs msg -> Icon msg
-caret_square_o_up                   = \size attrs -> icon size attrs <| ls <| FAW.caret_square_o_up
+caret_square_o_up                   : IconBody msg
+caret_square_o_up                   = i [ class "fa fa-caretsquareoup" ] []
 
 {-| TODO
 -}
-cart_arrow_down                     : Size -> Attrs msg -> Icon msg
-cart_arrow_down                     = \size attrs -> icon size attrs <| ls <| FAW.cart_arrow_down
+cart_arrow_down                     : IconBody msg
+cart_arrow_down                     = i [ class "fa fa-cartarrowdown" ] []
 
 {-| TODO
 -}
-cart_plus                           : Size -> Attrs msg -> Icon msg
-cart_plus                           = \size attrs -> icon size attrs <| ls <| FAW.cart_plus
+cart_plus                           : IconBody msg
+cart_plus                           = i [ class "fa fa-cartplus" ] []
 
 {-| TODO
 -}
-cc                                  : Size -> Attrs msg -> Icon msg
-cc                                  = \size attrs -> icon size attrs <| ls <| FAW.cc
+cc                                  : IconBody msg
+cc                                  = i [ class "fa fa-cc" ] []
 
 {-| TODO
 -}
-certificate                         : Size -> Attrs msg -> Icon msg
-certificate                         = \size attrs -> icon size attrs <| ls <| FAW.certificate
+certificate                         : IconBody msg
+certificate                         = i [ class "fa fa-certificate" ] []
 
 {-| TODO
 -}
-check                               : Size -> Attrs msg -> Icon msg
-check                               = \size attrs -> icon size attrs <| ls <| FAW.check
+check                               : IconBody msg
+check                               = i [ class "fa fa-check" ] []
 
 {-| TODO
 -}
-check_circle                        : Size -> Attrs msg -> Icon msg
-check_circle                        = \size attrs -> icon size attrs <| ls <| FAW.check_circle
+check_circle                        : IconBody msg
+check_circle                        = i [ class "fa fa-checkcircle" ] []
 
 {-| TODO
 -}
-check_circle_o                      : Size -> Attrs msg -> Icon msg
-check_circle_o                      = \size attrs -> icon size attrs <| ls <| FAW.check_circle_o
+check_circle_o                      : IconBody msg
+check_circle_o                      = i [ class "fa fa-checkcircleo" ] []
 
 {-| TODO
 -}
-check_square                        : Size -> Attrs msg -> Icon msg
-check_square                        = \size attrs -> icon size attrs <| ls <| FAW.check_square
+check_square                        : IconBody msg
+check_square                        = i [ class "fa fa-checksquare" ] []
 
 {-| TODO
 -}
-check_square_o                      : Size -> Attrs msg -> Icon msg
-check_square_o                      = \size attrs -> icon size attrs <| ls <| FAW.check_square_o
+check_square_o                      : IconBody msg
+check_square_o                      = i [ class "fa fa-checksquareo" ] []
 
 {-| TODO
 -}
-child                               : Size -> Attrs msg -> Icon msg
-child                               = \size attrs -> icon size attrs <| ls <| FAW.child
+child                               : IconBody msg
+child                               = i [ class "fa fa-child" ] []
 
 {-| TODO
 -}
-circle                              : Size -> Attrs msg -> Icon msg
-circle                              = \size attrs -> icon size attrs <| ls <| FAW.circle
+circle                              : IconBody msg
+circle                              = i [ class "fa fa-circle" ] []
 
 {-| TODO
 -}
-circle_o                            : Size -> Attrs msg -> Icon msg
-circle_o                            = \size attrs -> icon size attrs <| ls <| FAW.circle_o
+circle_o                            : IconBody msg
+circle_o                            = i [ class "fa fa-circleo" ] []
 
 {-| TODO
 -}
-circle_o_notch                      : Size -> Attrs msg -> Icon msg
-circle_o_notch                      = \size attrs -> icon size attrs <| ls <| FAW.circle_o_notch
+circle_o_notch                      : IconBody msg
+circle_o_notch                      = i [ class "fa fa-circleonotch" ] []
 
 {-| TODO
 -}
-circle_thin                         : Size -> Attrs msg -> Icon msg
-circle_thin                         = \size attrs -> icon size attrs <| ls <| FAW.circle_thin
+circle_thin                         : IconBody msg
+circle_thin                         = i [ class "fa fa-circlethin" ] []
 
 {-| TODO
 -}
-clock_o                             : Size -> Attrs msg -> Icon msg
-clock_o                             = \size attrs -> icon size attrs <| ls <| FAW.clock_o
+clock_o                             : IconBody msg
+clock_o                             = i [ class "fa fa-clocko" ] []
 
 {-| TODO
 -}
-clone                               : Size -> Attrs msg -> Icon msg
-clone                               = \size attrs -> icon size attrs <| ls <| FAW.clone
+clone                               : IconBody msg
+clone                               = i [ class "fa fa-clone" ] []
 
 {-| TODO
 -}
-close                               : Size -> Attrs msg -> Icon msg
-close                               = \size attrs -> icon size attrs <| ls <| FAW.close
+close                               : IconBody msg
+close                               = i [ class "fa fa-close" ] []
 
 {-| TODO
 -}
-cloud                               : Size -> Attrs msg -> Icon msg
-cloud                               = \size attrs -> icon size attrs <| ls <| FAW.cloud
+cloud                               : IconBody msg
+cloud                               = i [ class "fa fa-cloud" ] []
 
 {-| TODO
 -}
-cloud_download                      : Size -> Attrs msg -> Icon msg
-cloud_download                      = \size attrs -> icon size attrs <| ls <| FAW.cloud_download
+cloud_download                      : IconBody msg
+cloud_download                      = i [ class "fa fa-clouddownload" ] []
 
 {-| TODO
 -}
-cloud_upload                        : Size -> Attrs msg -> Icon msg
-cloud_upload                        = \size attrs -> icon size attrs <| ls <| FAW.cloud_upload
+cloud_upload                        : IconBody msg
+cloud_upload                        = i [ class "fa fa-cloudupload" ] []
 
 {-| TODO
 -}
-code                                : Size -> Attrs msg -> Icon msg
-code                                = \size attrs -> icon size attrs <| ls <| FAW.code
+code                                : IconBody msg
+code                                = i [ class "fa fa-code" ] []
 
 {-| TODO
 -}
-code_fork                           : Size -> Attrs msg -> Icon msg
-code_fork                           = \size attrs -> icon size attrs <| ls <| FAW.code_fork
+code_fork                           : IconBody msg
+code_fork                           = i [ class "fa fa-codefork" ] []
 
 {-| TODO
 -}
-coffee                              : Size -> Attrs msg -> Icon msg
-coffee                              = \size attrs -> icon size attrs <| ls <| FAW.coffee
+coffee                              : IconBody msg
+coffee                              = i [ class "fa fa-coffee" ] []
 
 {-| TODO
 -}
-cog                                 : Size -> Attrs msg -> Icon msg
-cog                                 = \size attrs -> icon size attrs <| ls <| FAW.cog
+cog                                 : IconBody msg
+cog                                 = i [ class "fa fa-cog" ] []
 
 {-| TODO
 -}
-cogs                                : Size -> Attrs msg -> Icon msg
-cogs                                = \size attrs -> icon size attrs <| ls <| FAW.cogs
+cogs                                : IconBody msg
+cogs                                = i [ class "fa fa-cogs" ] []
 
 {-| TODO
 -}
-comment                             : Size -> Attrs msg -> Icon msg
-comment                             = \size attrs -> icon size attrs <| ls <| FAW.comment
+comment                             : IconBody msg
+comment                             = i [ class "fa fa-comment" ] []
 
 {-| TODO
 -}
-comment_o                           : Size -> Attrs msg -> Icon msg
-comment_o                           = \size attrs -> icon size attrs <| ls <| FAW.comment_o
+comment_o                           : IconBody msg
+comment_o                           = i [ class "fa fa-commento" ] []
 
 {-| TODO
 -}
-commenting                          : Size -> Attrs msg -> Icon msg
-commenting                          = \size attrs -> icon size attrs <| ls <| FAW.commenting
+commenting                          : IconBody msg
+commenting                          = i [ class "fa fa-commenting" ] []
 
 {-| TODO
 -}
-commenting_o                        : Size -> Attrs msg -> Icon msg
-commenting_o                        = \size attrs -> icon size attrs <| ls <| FAW.commenting_o
+commenting_o                        : IconBody msg
+commenting_o                        = i [ class "fa fa-commentingo" ] []
 
 {-| TODO
 -}
-comments                            : Size -> Attrs msg -> Icon msg
-comments                            = \size attrs -> icon size attrs <| ls <| FAW.comments
+comments                            : IconBody msg
+comments                            = i [ class "fa fa-comments" ] []
 
 {-| TODO
 -}
-comments_o                          : Size -> Attrs msg -> Icon msg
-comments_o                          = \size attrs -> icon size attrs <| ls <| FAW.comments_o
+comments_o                          : IconBody msg
+comments_o                          = i [ class "fa fa-commentso" ] []
 
 {-| TODO
 -}
-compass                             : Size -> Attrs msg -> Icon msg
-compass                             = \size attrs -> icon size attrs <| ls <| FAW.compass
+compass                             : IconBody msg
+compass                             = i [ class "fa fa-compass" ] []
 
 {-| TODO
 -}
-copyright                           : Size -> Attrs msg -> Icon msg
-copyright                           = \size attrs -> icon size attrs <| ls <| FAW.copyright
+copyright                           : IconBody msg
+copyright                           = i [ class "fa fa-copyright" ] []
 
 {-| TODO
 -}
-creative_commons                    : Size -> Attrs msg -> Icon msg
-creative_commons                    = \size attrs -> icon size attrs <| ls <| FAW.creative_commons
+creative_commons                    : IconBody msg
+creative_commons                    = i [ class "fa fa-creativecommons" ] []
 
 {-| TODO
 -}
-credit_card                         : Size -> Attrs msg -> Icon msg
-credit_card                         = \size attrs -> icon size attrs <| ls <| FAW.credit_card
+credit_card                         : IconBody msg
+credit_card                         = i [ class "fa fa-creditcard" ] []
 
 {-| TODO
 -}
-credit_card_alt                     : Size -> Attrs msg -> Icon msg
-credit_card_alt                     = \size attrs -> icon size attrs <| ls <| FAW.credit_card_alt
+credit_card_alt                     : IconBody msg
+credit_card_alt                     = i [ class "fa fa-creditcardalt" ] []
 
 {-| TODO
 -}
-crop                                : Size -> Attrs msg -> Icon msg
-crop                                = \size attrs -> icon size attrs <| ls <| FAW.crop
+crop                                : IconBody msg
+crop                                = i [ class "fa fa-crop" ] []
 
 {-| TODO
 -}
-crosshairs                          : Size -> Attrs msg -> Icon msg
-crosshairs                          = \size attrs -> icon size attrs <| ls <| FAW.crosshairs
+crosshairs                          : IconBody msg
+crosshairs                          = i [ class "fa fa-crosshairs" ] []
 
 {-| TODO
 -}
-cube                                : Size -> Attrs msg -> Icon msg
-cube                                = \size attrs -> icon size attrs <| ls <| FAW.cube
+cube                                : IconBody msg
+cube                                = i [ class "fa fa-cube" ] []
 
 {-| TODO
 -}
-cubes                               : Size -> Attrs msg -> Icon msg
-cubes                               = \size attrs -> icon size attrs <| ls <| FAW.cubes
+cubes                               : IconBody msg
+cubes                               = i [ class "fa fa-cubes" ] []
 
 {-| TODO
 -}
-cutlery                             : Size -> Attrs msg -> Icon msg
-cutlery                             = \size attrs -> icon size attrs <| ls <| FAW.cutlery
+cutlery                             : IconBody msg
+cutlery                             = i [ class "fa fa-cutlery" ] []
 
 {-| TODO
 -}
-dashboard                           : Size -> Attrs msg -> Icon msg
-dashboard                           = \size attrs -> icon size attrs <| ls <| FAW.dashboard
+dashboard                           : IconBody msg
+dashboard                           = i [ class "fa fa-dashboard" ] []
 
 {-| TODO
 -}
-database                            : Size -> Attrs msg -> Icon msg
-database                            = \size attrs -> icon size attrs <| ls <| FAW.database
+database                            : IconBody msg
+database                            = i [ class "fa fa-database" ] []
 
 {-| TODO
 -}
-deaf                                : Size -> Attrs msg -> Icon msg
-deaf                                = \size attrs -> icon size attrs <| ls <| FAW.deaf
+deaf                                : IconBody msg
+deaf                                = i [ class "fa fa-deaf" ] []
 
 {-| TODO
 -}
-deafness                            : Size -> Attrs msg -> Icon msg
-deafness                            = \size attrs -> icon size attrs <| ls <| FAW.deafness
+deafness                            : IconBody msg
+deafness                            = i [ class "fa fa-deafness" ] []
 
 {-| TODO
 -}
-desktop                             : Size -> Attrs msg -> Icon msg
-desktop                             = \size attrs -> icon size attrs <| ls <| FAW.desktop
+desktop                             : IconBody msg
+desktop                             = i [ class "fa fa-desktop" ] []
 
 {-| TODO
 -}
-diamond                             : Size -> Attrs msg -> Icon msg
-diamond                             = \size attrs -> icon size attrs <| ls <| FAW.diamond
+diamond                             : IconBody msg
+diamond                             = i [ class "fa fa-diamond" ] []
 
 {-| TODO
 -}
-dot_circle_o                        : Size -> Attrs msg -> Icon msg
-dot_circle_o                        = \size attrs -> icon size attrs <| ls <| FAW.dot_circle_o
+dot_circle_o                        : IconBody msg
+dot_circle_o                        = i [ class "fa fa-dotcircleo" ] []
 
 {-| TODO
 -}
-download                            : Size -> Attrs msg -> Icon msg
-download                            = \size attrs -> icon size attrs <| ls <| FAW.download
+download                            : IconBody msg
+download                            = i [ class "fa fa-download" ] []
 
 {-| TODO
 -}
-edit                                : Size -> Attrs msg -> Icon msg
-edit                                = \size attrs -> icon size attrs <| ls <| FAW.edit
+edit                                : IconBody msg
+edit                                = i [ class "fa fa-edit" ] []
 
 {-| TODO
 -}
-ellipsis_h                          : Size -> Attrs msg -> Icon msg
-ellipsis_h                          = \size attrs -> icon size attrs <| ls <| FAW.ellipsis_h
+ellipsis_h                          : IconBody msg
+ellipsis_h                          = i [ class "fa fa-ellipsish" ] []
 
 {-| TODO
 -}
-ellipsis_v                          : Size -> Attrs msg -> Icon msg
-ellipsis_v                          = \size attrs -> icon size attrs <| ls <| FAW.ellipsis_v
+ellipsis_v                          : IconBody msg
+ellipsis_v                          = i [ class "fa fa-ellipsisv" ] []
 
 {-| TODO
 -}
-envelope                            : Size -> Attrs msg -> Icon msg
-envelope                            = \size attrs -> icon size attrs <| ls <| FAW.envelope
+envelope                            : IconBody msg
+envelope                            = i [ class "fa fa-envelope" ] []
 
 {-| TODO
 -}
-envelope_o                          : Size -> Attrs msg -> Icon msg
-envelope_o                          = \size attrs -> icon size attrs <| ls <| FAW.envelope_o
+envelope_o                          : IconBody msg
+envelope_o                          = i [ class "fa fa-envelopeo" ] []
 
 {-| TODO
 -}
-envelope_square                     : Size -> Attrs msg -> Icon msg
-envelope_square                     = \size attrs -> icon size attrs <| ls <| FAW.envelope_square
+envelope_square                     : IconBody msg
+envelope_square                     = i [ class "fa fa-envelopesquare" ] []
 
 {-| TODO
 -}
-eraser                              : Size -> Attrs msg -> Icon msg
-eraser                              = \size attrs -> icon size attrs <| ls <| FAW.eraser
+eraser                              : IconBody msg
+eraser                              = i [ class "fa fa-eraser" ] []
 
 {-| TODO
 -}
-exchange                            : Size -> Attrs msg -> Icon msg
-exchange                            = \size attrs -> icon size attrs <| ls <| FAW.exchange
+exchange                            : IconBody msg
+exchange                            = i [ class "fa fa-exchange" ] []
 
 {-| TODO
 -}
-exclamation                         : Size -> Attrs msg -> Icon msg
-exclamation                         = \size attrs -> icon size attrs <| ls <| FAW.exclamation
+exclamation                         : IconBody msg
+exclamation                         = i [ class "fa fa-exclamation" ] []
 
 {-| TODO
 -}
-exclamation_circle                  : Size -> Attrs msg -> Icon msg
-exclamation_circle                  = \size attrs -> icon size attrs <| ls <| FAW.exclamation_circle
+exclamation_circle                  : IconBody msg
+exclamation_circle                  = i [ class "fa fa-exclamationcircle" ] []
 
 {-| TODO
 -}
-exclamation_triangle                : Size -> Attrs msg -> Icon msg
-exclamation_triangle                = \size attrs -> icon size attrs <| ls <| FAW.exclamation_triangle
+exclamation_triangle                : IconBody msg
+exclamation_triangle                = i [ class "fa fa-exclamationtriangle" ] []
 
 {-| TODO
 -}
-external_link                       : Size -> Attrs msg -> Icon msg
-external_link                       = \size attrs -> icon size attrs <| ls <| FAW.external_link
+external_link                       : IconBody msg
+external_link                       = i [ class "fa fa-externallink" ] []
 
 {-| TODO
 -}
-external_link_square                : Size -> Attrs msg -> Icon msg
-external_link_square                = \size attrs -> icon size attrs <| ls <| FAW.external_link_square
+external_link_square                : IconBody msg
+external_link_square                = i [ class "fa fa-externallinksquare" ] []
 
 {-| TODO
 -}
-eye                                 : Size -> Attrs msg -> Icon msg
-eye                                 = \size attrs -> icon size attrs <| ls <| FAW.eye
+eye                                 : IconBody msg
+eye                                 = i [ class "fa fa-eye" ] []
 
 {-| TODO
 -}
-eye_slash                           : Size -> Attrs msg -> Icon msg
-eye_slash                           = \size attrs -> icon size attrs <| ls <| FAW.eye_slash
+eye_slash                           : IconBody msg
+eye_slash                           = i [ class "fa fa-eyeslash" ] []
 
 {-| TODO
 -}
-eyedropper                          : Size -> Attrs msg -> Icon msg
-eyedropper                          = \size attrs -> icon size attrs <| ls <| FAW.eyedropper
+eyedropper                          : IconBody msg
+eyedropper                          = i [ class "fa fa-eyedropper" ] []
 
 {-| TODO
 -}
-fax                                 : Size -> Attrs msg -> Icon msg
-fax                                 = \size attrs -> icon size attrs <| ls <| FAW.fax
+fax                                 : IconBody msg
+fax                                 = i [ class "fa fa-fax" ] []
 
 {-| TODO
 -}
-feed                                : Size -> Attrs msg -> Icon msg
-feed                                = \size attrs -> icon size attrs <| ls <| FAW.feed
+feed                                : IconBody msg
+feed                                = i [ class "fa fa-feed" ] []
 
 {-| TODO
 -}
-female                              : Size -> Attrs msg -> Icon msg
-female                              = \size attrs -> icon size attrs <| ls <| FAW.female
+female                              : IconBody msg
+female                              = i [ class "fa fa-female" ] []
 
 {-| TODO
 -}
-fighter_jet                         : Size -> Attrs msg -> Icon msg
-fighter_jet                         = \size attrs -> icon size attrs <| ls <| FAW.fighter_jet
+fighter_jet                         : IconBody msg
+fighter_jet                         = i [ class "fa fa-fighterjet" ] []
 
 {-| TODO
 -}
-file_archive_o                      : Size -> Attrs msg -> Icon msg
-file_archive_o                      = \size attrs -> icon size attrs <| ls <| FAW.file_archive_o
+file_archive_o                      : IconBody msg
+file_archive_o                      = i [ class "fa fa-filearchiveo" ] []
 
 {-| TODO
 -}
-file_audio_o                        : Size -> Attrs msg -> Icon msg
-file_audio_o                        = \size attrs -> icon size attrs <| ls <| FAW.file_audio_o
+file_audio_o                        : IconBody msg
+file_audio_o                        = i [ class "fa fa-fileaudioo" ] []
 
 {-| TODO
 -}
-file_code_o                         : Size -> Attrs msg -> Icon msg
-file_code_o                         = \size attrs -> icon size attrs <| ls <| FAW.file_code_o
+file_code_o                         : IconBody msg
+file_code_o                         = i [ class "fa fa-filecodeo" ] []
 
 {-| TODO
 -}
-file_excel_o                        : Size -> Attrs msg -> Icon msg
-file_excel_o                        = \size attrs -> icon size attrs <| ls <| FAW.file_excel_o
+file_excel_o                        : IconBody msg
+file_excel_o                        = i [ class "fa fa-fileexcelo" ] []
 
 {-| TODO
 -}
-file_image_o                        : Size -> Attrs msg -> Icon msg
-file_image_o                        = \size attrs -> icon size attrs <| ls <| FAW.file_image_o
+file_image_o                        : IconBody msg
+file_image_o                        = i [ class "fa fa-fileimageo" ] []
 
 {-| TODO
 -}
-file_movie_o                        : Size -> Attrs msg -> Icon msg
-file_movie_o                        = \size attrs -> icon size attrs <| ls <| FAW.file_movie_o
+file_movie_o                        : IconBody msg
+file_movie_o                        = i [ class "fa fa-filemovieo" ] []
 
 {-| TODO
 -}
-file_pdf_o                          : Size -> Attrs msg -> Icon msg
-file_pdf_o                          = \size attrs -> icon size attrs <| ls <| FAW.file_pdf_o
+file_pdf_o                          : IconBody msg
+file_pdf_o                          = i [ class "fa fa-filepdfo" ] []
 
 {-| TODO
 -}
-file_photo_o                        : Size -> Attrs msg -> Icon msg
-file_photo_o                        = \size attrs -> icon size attrs <| ls <| FAW.file_photo_o
+file_photo_o                        : IconBody msg
+file_photo_o                        = i [ class "fa fa-filephotoo" ] []
 
 {-| TODO
 -}
-file_picture_o                      : Size -> Attrs msg -> Icon msg
-file_picture_o                      = \size attrs -> icon size attrs <| ls <| FAW.file_picture_o
+file_picture_o                      : IconBody msg
+file_picture_o                      = i [ class "fa fa-filepictureo" ] []
 
 {-| TODO
 -}
-file_powerpoint_o                   : Size -> Attrs msg -> Icon msg
-file_powerpoint_o                   = \size attrs -> icon size attrs <| ls <| FAW.file_powerpoint_o
+file_powerpoint_o                   : IconBody msg
+file_powerpoint_o                   = i [ class "fa fa-filepowerpointo" ] []
 
 {-| TODO
 -}
-file_sound_o                        : Size -> Attrs msg -> Icon msg
-file_sound_o                        = \size attrs -> icon size attrs <| ls <| FAW.file_sound_o
+file_sound_o                        : IconBody msg
+file_sound_o                        = i [ class "fa fa-filesoundo" ] []
 
 {-| TODO
 -}
-file_video_o                        : Size -> Attrs msg -> Icon msg
-file_video_o                        = \size attrs -> icon size attrs <| ls <| FAW.file_video_o
+file_video_o                        : IconBody msg
+file_video_o                        = i [ class "fa fa-filevideoo" ] []
 
 {-| TODO
 -}
-file_word_o                         : Size -> Attrs msg -> Icon msg
-file_word_o                         = \size attrs -> icon size attrs <| ls <| FAW.file_word_o
+file_word_o                         : IconBody msg
+file_word_o                         = i [ class "fa fa-filewordo" ] []
 
 {-| TODO
 -}
-file_zip_o                          : Size -> Attrs msg -> Icon msg
-file_zip_o                          = \size attrs -> icon size attrs <| ls <| FAW.file_zip_o
+file_zip_o                          : IconBody msg
+file_zip_o                          = i [ class "fa fa-filezipo" ] []
 
 {-| TODO
 -}
-film                                : Size -> Attrs msg -> Icon msg
-film                                = \size attrs -> icon size attrs <| ls <| FAW.film
+film                                : IconBody msg
+film                                = i [ class "fa fa-film" ] []
 
 {-| TODO
 -}
-filter                              : Size -> Attrs msg -> Icon msg
-filter                              = \size attrs -> icon size attrs <| ls <| FAW.filter
+filter                              : IconBody msg
+filter                              = i [ class "fa fa-filter" ] []
 
 {-| TODO
 -}
-fire                                : Size -> Attrs msg -> Icon msg
-fire                                = \size attrs -> icon size attrs <| ls <| FAW.fire
+fire                                : IconBody msg
+fire                                = i [ class "fa fa-fire" ] []
 
 {-| TODO
 -}
-fire_extinguisher                   : Size -> Attrs msg -> Icon msg
-fire_extinguisher                   = \size attrs -> icon size attrs <| ls <| FAW.fire_extinguisher
+fire_extinguisher                   : IconBody msg
+fire_extinguisher                   = i [ class "fa fa-fireextinguisher" ] []
 
 {-| TODO
 -}
-flag                                : Size -> Attrs msg -> Icon msg
-flag                                = \size attrs -> icon size attrs <| ls <| FAW.flag
+flag                                : IconBody msg
+flag                                = i [ class "fa fa-flag" ] []
 
 {-| TODO
 -}
-flag_checkered                      : Size -> Attrs msg -> Icon msg
-flag_checkered                      = \size attrs -> icon size attrs <| ls <| FAW.flag_checkered
+flag_checkered                      : IconBody msg
+flag_checkered                      = i [ class "fa fa-flagcheckered" ] []
 
 {-| TODO
 -}
-flag_o                              : Size -> Attrs msg -> Icon msg
-flag_o                              = \size attrs -> icon size attrs <| ls <| FAW.flag_o
+flag_o                              : IconBody msg
+flag_o                              = i [ class "fa fa-flago" ] []
 
 {-| TODO
 -}
-flash                               : Size -> Attrs msg -> Icon msg
-flash                               = \size attrs -> icon size attrs <| ls <| FAW.flash
+flash                               : IconBody msg
+flash                               = i [ class "fa fa-flash" ] []
 
 {-| TODO
 -}
-flask                               : Size -> Attrs msg -> Icon msg
-flask                               = \size attrs -> icon size attrs <| ls <| FAW.flask
+flask                               : IconBody msg
+flask                               = i [ class "fa fa-flask" ] []
 
 {-| TODO
 -}
-folder                              : Size -> Attrs msg -> Icon msg
-folder                              = \size attrs -> icon size attrs <| ls <| FAW.folder
+folder                              : IconBody msg
+folder                              = i [ class "fa fa-folder" ] []
 
 {-| TODO
 -}
-folder_o                            : Size -> Attrs msg -> Icon msg
-folder_o                            = \size attrs -> icon size attrs <| ls <| FAW.folder_o
+folder_o                            : IconBody msg
+folder_o                            = i [ class "fa fa-foldero" ] []
 
 {-| TODO
 -}
-folder_open                         : Size -> Attrs msg -> Icon msg
-folder_open                         = \size attrs -> icon size attrs <| ls <| FAW.folder_open
+folder_open                         : IconBody msg
+folder_open                         = i [ class "fa fa-folderopen" ] []
 
 {-| TODO
 -}
-folder_open_o                       : Size -> Attrs msg -> Icon msg
-folder_open_o                       = \size attrs -> icon size attrs <| ls <| FAW.folder_open_o
+folder_open_o                       : IconBody msg
+folder_open_o                       = i [ class "fa fa-folderopeno" ] []
 
 {-| TODO
 -}
-frown_o                             : Size -> Attrs msg -> Icon msg
-frown_o                             = \size attrs -> icon size attrs <| ls <| FAW.frown_o
+frown_o                             : IconBody msg
+frown_o                             = i [ class "fa fa-frowno" ] []
 
 {-| TODO
 -}
-futbol_o                            : Size -> Attrs msg -> Icon msg
-futbol_o                            = \size attrs -> icon size attrs <| ls <| FAW.futbol_o
+futbol_o                            : IconBody msg
+futbol_o                            = i [ class "fa fa-futbolo" ] []
 
 {-| TODO
 -}
-gamepad                             : Size -> Attrs msg -> Icon msg
-gamepad                             = \size attrs -> icon size attrs <| ls <| FAW.gamepad
+gamepad                             : IconBody msg
+gamepad                             = i [ class "fa fa-gamepad" ] []
 
 {-| TODO
 -}
-gavel                               : Size -> Attrs msg -> Icon msg
-gavel                               = \size attrs -> icon size attrs <| ls <| FAW.gavel
+gavel                               : IconBody msg
+gavel                               = i [ class "fa fa-gavel" ] []
 
 {-| TODO
 -}
-gear                                : Size -> Attrs msg -> Icon msg
-gear                                = \size attrs -> icon size attrs <| ls <| FAW.gear
+gear                                : IconBody msg
+gear                                = i [ class "fa fa-gear" ] []
 
 {-| TODO
 -}
-gears                               : Size -> Attrs msg -> Icon msg
-gears                               = \size attrs -> icon size attrs <| ls <| FAW.gears
+gears                               : IconBody msg
+gears                               = i [ class "fa fa-gears" ] []
 
 {-| TODO
 -}
-gift                                : Size -> Attrs msg -> Icon msg
-gift                                = \size attrs -> icon size attrs <| ls <| FAW.gift
+gift                                : IconBody msg
+gift                                = i [ class "fa fa-gift" ] []
 
 {-| TODO
 -}
-glass                               : Size -> Attrs msg -> Icon msg
-glass                               = \size attrs -> icon size attrs <| ls <| FAW.glass
+glass                               : IconBody msg
+glass                               = i [ class "fa fa-glass" ] []
 
 {-| TODO
 -}
-globe                               : Size -> Attrs msg -> Icon msg
-globe                               = \size attrs -> icon size attrs <| ls <| FAW.globe
+globe                               : IconBody msg
+globe                               = i [ class "fa fa-globe" ] []
 
 {-| TODO
 -}
-graduation_cap                      : Size -> Attrs msg -> Icon msg
-graduation_cap                      = \size attrs -> icon size attrs <| ls <| FAW.graduation_cap
+graduation_cap                      : IconBody msg
+graduation_cap                      = i [ class "fa fa-graduationcap" ] []
 
 {-| TODO
 -}
-group                               : Size -> Attrs msg -> Icon msg
-group                               = \size attrs -> icon size attrs <| ls <| FAW.group
+group                               : IconBody msg
+group                               = i [ class "fa fa-group" ] []
 
 {-| TODO
 -}
-hand_grab_o                         : Size -> Attrs msg -> Icon msg
-hand_grab_o                         = \size attrs -> icon size attrs <| ls <| FAW.hand_grab_o
+hand_grab_o                         : IconBody msg
+hand_grab_o                         = i [ class "fa fa-handgrabo" ] []
 
 {-| TODO
 -}
-hand_lizard_o                       : Size -> Attrs msg -> Icon msg
-hand_lizard_o                       = \size attrs -> icon size attrs <| ls <| FAW.hand_lizard_o
+hand_lizard_o                       : IconBody msg
+hand_lizard_o                       = i [ class "fa fa-handlizardo" ] []
 
 {-| TODO
 -}
-hand_paper_o                        : Size -> Attrs msg -> Icon msg
-hand_paper_o                        = \size attrs -> icon size attrs <| ls <| FAW.hand_paper_o
+hand_paper_o                        : IconBody msg
+hand_paper_o                        = i [ class "fa fa-handpapero" ] []
 
 {-| TODO
 -}
-hand_peace_o                        : Size -> Attrs msg -> Icon msg
-hand_peace_o                        = \size attrs -> icon size attrs <| ls <| FAW.hand_peace_o
+hand_peace_o                        : IconBody msg
+hand_peace_o                        = i [ class "fa fa-handpeaceo" ] []
 
 {-| TODO
 -}
-hand_pointer_o                      : Size -> Attrs msg -> Icon msg
-hand_pointer_o                      = \size attrs -> icon size attrs <| ls <| FAW.hand_pointer_o
+hand_pointer_o                      : IconBody msg
+hand_pointer_o                      = i [ class "fa fa-handpointero" ] []
 
 {-| TODO
 -}
-hand_rock_o                         : Size -> Attrs msg -> Icon msg
-hand_rock_o                         = \size attrs -> icon size attrs <| ls <| FAW.hand_rock_o
+hand_rock_o                         : IconBody msg
+hand_rock_o                         = i [ class "fa fa-handrocko" ] []
 
 {-| TODO
 -}
-hand_scissors_o                     : Size -> Attrs msg -> Icon msg
-hand_scissors_o                     = \size attrs -> icon size attrs <| ls <| FAW.hand_scissors_o
+hand_scissors_o                     : IconBody msg
+hand_scissors_o                     = i [ class "fa fa-handscissorso" ] []
 
 {-| TODO
 -}
-hand_spock_o                        : Size -> Attrs msg -> Icon msg
-hand_spock_o                        = \size attrs -> icon size attrs <| ls <| FAW.hand_spock_o
+hand_spock_o                        : IconBody msg
+hand_spock_o                        = i [ class "fa fa-handspocko" ] []
 
 {-| TODO
 -}
-hand_stop_o                         : Size -> Attrs msg -> Icon msg
-hand_stop_o                         = \size attrs -> icon size attrs <| ls <| FAW.hand_stop_o
+hand_stop_o                         : IconBody msg
+hand_stop_o                         = i [ class "fa fa-handstopo" ] []
 
 {-| TODO
 -}
-hard_of_hearing                     : Size -> Attrs msg -> Icon msg
-hard_of_hearing                     = \size attrs -> icon size attrs <| ls <| FAW.hard_of_hearing
+hard_of_hearing                     : IconBody msg
+hard_of_hearing                     = i [ class "fa fa-hardofhearing" ] []
 
 {-| TODO
 -}
-hashtag                             : Size -> Attrs msg -> Icon msg
-hashtag                             = \size attrs -> icon size attrs <| ls <| FAW.hashtag
+hashtag                             : IconBody msg
+hashtag                             = i [ class "fa fa-hashtag" ] []
 
 {-| TODO
 -}
-hdd_o                               : Size -> Attrs msg -> Icon msg
-hdd_o                               = \size attrs -> icon size attrs <| ls <| FAW.hdd_o
+hdd_o                               : IconBody msg
+hdd_o                               = i [ class "fa fa-hddo" ] []
 
 {-| TODO
 -}
-headphones                          : Size -> Attrs msg -> Icon msg
-headphones                          = \size attrs -> icon size attrs <| ls <| FAW.headphones
+headphones                          : IconBody msg
+headphones                          = i [ class "fa fa-headphones" ] []
 
 {-| TODO
 -}
-heart                               : Size -> Attrs msg -> Icon msg
-heart                               = \size attrs -> icon size attrs <| ls <| FAW.heart
+heart                               : IconBody msg
+heart                               = i [ class "fa fa-heart" ] []
 
 {-| TODO
 -}
-heart_o                             : Size -> Attrs msg -> Icon msg
-heart_o                             = \size attrs -> icon size attrs <| ls <| FAW.heart_o
+heart_o                             : IconBody msg
+heart_o                             = i [ class "fa fa-hearto" ] []
 
 {-| TODO
 -}
-heartbeat                           : Size -> Attrs msg -> Icon msg
-heartbeat                           = \size attrs -> icon size attrs <| ls <| FAW.heartbeat
+heartbeat                           : IconBody msg
+heartbeat                           = i [ class "fa fa-heartbeat" ] []
 
 {-| TODO
 -}
-history                             : Size -> Attrs msg -> Icon msg
-history                             = \size attrs -> icon size attrs <| ls <| FAW.history
+history                             : IconBody msg
+history                             = i [ class "fa fa-history" ] []
 
 {-| TODO
 -}
-home                                : Size -> Attrs msg -> Icon msg
-home                                = \size attrs -> icon size attrs <| ls <| FAW.home
+home                                : IconBody msg
+home                                = i [ class "fa fa-home" ] []
 
 {-| TODO
 -}
-hotel                               : Size -> Attrs msg -> Icon msg
-hotel                               = \size attrs -> icon size attrs <| ls <| FAW.hotel
+hotel                               : IconBody msg
+hotel                               = i [ class "fa fa-hotel" ] []
 
 {-| TODO
 -}
-hourglass                           : Size -> Attrs msg -> Icon msg
-hourglass                           = \size attrs -> icon size attrs <| ls <| FAW.hourglass
+hourglass                           : IconBody msg
+hourglass                           = i [ class "fa fa-hourglass" ] []
 
 {-| TODO
 -}
-hourglass_1                         : Size -> Attrs msg -> Icon msg
-hourglass_1                         = \size attrs -> icon size attrs <| ls <| FAW.hourglass_1
+hourglass_1                         : IconBody msg
+hourglass_1                         = i [ class "fa fa-hourglass1" ] []
 
 {-| TODO
 -}
-hourglass_2                         : Size -> Attrs msg -> Icon msg
-hourglass_2                         = \size attrs -> icon size attrs <| ls <| FAW.hourglass_2
+hourglass_2                         : IconBody msg
+hourglass_2                         = i [ class "fa fa-hourglass2" ] []
 
 {-| TODO
 -}
-hourglass_3                         : Size -> Attrs msg -> Icon msg
-hourglass_3                         = \size attrs -> icon size attrs <| ls <| FAW.hourglass_3
+hourglass_3                         : IconBody msg
+hourglass_3                         = i [ class "fa fa-hourglass3" ] []
 
 {-| TODO
 -}
-hourglass_end                       : Size -> Attrs msg -> Icon msg
-hourglass_end                       = \size attrs -> icon size attrs <| ls <| FAW.hourglass_end
+hourglass_end                       : IconBody msg
+hourglass_end                       = i [ class "fa fa-hourglassend" ] []
 
 {-| TODO
 -}
-hourglass_half                      : Size -> Attrs msg -> Icon msg
-hourglass_half                      = \size attrs -> icon size attrs <| ls <| FAW.hourglass_half
+hourglass_half                      : IconBody msg
+hourglass_half                      = i [ class "fa fa-hourglasshalf" ] []
 
 {-| TODO
 -}
-hourglass_o                         : Size -> Attrs msg -> Icon msg
-hourglass_o                         = \size attrs -> icon size attrs <| ls <| FAW.hourglass_o
+hourglass_o                         : IconBody msg
+hourglass_o                         = i [ class "fa fa-hourglasso" ] []
 
 {-| TODO
 -}
-hourglass_start                     : Size -> Attrs msg -> Icon msg
-hourglass_start                     = \size attrs -> icon size attrs <| ls <| FAW.hourglass_start
+hourglass_start                     : IconBody msg
+hourglass_start                     = i [ class "fa fa-hourglassstart" ] []
 
 {-| TODO
 -}
-i_cursor                            : Size -> Attrs msg -> Icon msg
-i_cursor                            = \size attrs -> icon size attrs <| ls <| FAW.i_cursor
+i_cursor                            : IconBody msg
+i_cursor                            = i [ class "fa fa-icursor" ] []
 
 {-| TODO
 -}
-image                               : Size -> Attrs msg -> Icon msg
-image                               = \size attrs -> icon size attrs <| ls <| FAW.image
+image                               : IconBody msg
+image                               = i [ class "fa fa-image" ] []
 
 {-| TODO
 -}
-inbox                               : Size -> Attrs msg -> Icon msg
-inbox                               = \size attrs -> icon size attrs <| ls <| FAW.inbox
+inbox                               : IconBody msg
+inbox                               = i [ class "fa fa-inbox" ] []
 
 {-| TODO
 -}
-industry                            : Size -> Attrs msg -> Icon msg
-industry                            = \size attrs -> icon size attrs <| ls <| FAW.industry
+industry                            : IconBody msg
+industry                            = i [ class "fa fa-industry" ] []
 
 {-| TODO
 -}
-info                                : Size -> Attrs msg -> Icon msg
-info                                = \size attrs -> icon size attrs <| ls <| FAW.info
+info                                : IconBody msg
+info                                = i [ class "fa fa-info" ] []
 
 {-| TODO
 -}
-info_circle                         : Size -> Attrs msg -> Icon msg
-info_circle                         = \size attrs -> icon size attrs <| ls <| FAW.info_circle
+info_circle                         : IconBody msg
+info_circle                         = i [ class "fa fa-infocircle" ] []
 
 {-| TODO
 -}
-institution                         : Size -> Attrs msg -> Icon msg
-institution                         = \size attrs -> icon size attrs <| ls <| FAW.institution
+institution                         : IconBody msg
+institution                         = i [ class "fa fa-institution" ] []
 
 {-| TODO
 -}
-key                                 : Size -> Attrs msg -> Icon msg
-key                                 = \size attrs -> icon size attrs <| ls <| FAW.key
+key                                 : IconBody msg
+key                                 = i [ class "fa fa-key" ] []
 
 {-| TODO
 -}
-keyboard_o                          : Size -> Attrs msg -> Icon msg
-keyboard_o                          = \size attrs -> icon size attrs <| ls <| FAW.keyboard_o
+keyboard_o                          : IconBody msg
+keyboard_o                          = i [ class "fa fa-keyboardo" ] []
 
 {-| TODO
 -}
-language                            : Size -> Attrs msg -> Icon msg
-language                            = \size attrs -> icon size attrs <| ls <| FAW.language
+language                            : IconBody msg
+language                            = i [ class "fa fa-language" ] []
 
 {-| TODO
 -}
-laptop                              : Size -> Attrs msg -> Icon msg
-laptop                              = \size attrs -> icon size attrs <| ls <| FAW.laptop
+laptop                              : IconBody msg
+laptop                              = i [ class "fa fa-laptop" ] []
 
 {-| TODO
 -}
-leaf                                : Size -> Attrs msg -> Icon msg
-leaf                                = \size attrs -> icon size attrs <| ls <| FAW.leaf
+leaf                                : IconBody msg
+leaf                                = i [ class "fa fa-leaf" ] []
 
 {-| TODO
 -}
-legal                               : Size -> Attrs msg -> Icon msg
-legal                               = \size attrs -> icon size attrs <| ls <| FAW.legal
+legal                               : IconBody msg
+legal                               = i [ class "fa fa-legal" ] []
 
 {-| TODO
 -}
-lemon_o                             : Size -> Attrs msg -> Icon msg
-lemon_o                             = \size attrs -> icon size attrs <| ls <| FAW.lemon_o
+lemon_o                             : IconBody msg
+lemon_o                             = i [ class "fa fa-lemono" ] []
 
 {-| TODO
 -}
-level_down                          : Size -> Attrs msg -> Icon msg
-level_down                          = \size attrs -> icon size attrs <| ls <| FAW.level_down
+level_down                          : IconBody msg
+level_down                          = i [ class "fa fa-leveldown" ] []
 
 {-| TODO
 -}
-level_up                            : Size -> Attrs msg -> Icon msg
-level_up                            = \size attrs -> icon size attrs <| ls <| FAW.level_up
+level_up                            : IconBody msg
+level_up                            = i [ class "fa fa-levelup" ] []
 
 {-| TODO
 -}
-life_bouy                           : Size -> Attrs msg -> Icon msg
-life_bouy                           = \size attrs -> icon size attrs <| ls <| FAW.life_bouy
+life_bouy                           : IconBody msg
+life_bouy                           = i [ class "fa fa-lifebouy" ] []
 
 {-| TODO
 -}
-life_buoy                           : Size -> Attrs msg -> Icon msg
-life_buoy                           = \size attrs -> icon size attrs <| ls <| FAW.life_buoy
+life_buoy                           : IconBody msg
+life_buoy                           = i [ class "fa fa-lifebuoy" ] []
 
 {-| TODO
 -}
-life_ring                           : Size -> Attrs msg -> Icon msg
-life_ring                           = \size attrs -> icon size attrs <| ls <| FAW.life_ring
+life_ring                           : IconBody msg
+life_ring                           = i [ class "fa fa-lifering" ] []
 
 {-| TODO
 -}
-life_saver                          : Size -> Attrs msg -> Icon msg
-life_saver                          = \size attrs -> icon size attrs <| ls <| FAW.life_saver
+life_saver                          : IconBody msg
+life_saver                          = i [ class "fa fa-lifesaver" ] []
 
 {-| TODO
 -}
-lightbulb_o                         : Size -> Attrs msg -> Icon msg
-lightbulb_o                         = \size attrs -> icon size attrs <| ls <| FAW.lightbulb_o
+lightbulb_o                         : IconBody msg
+lightbulb_o                         = i [ class "fa fa-lightbulbo" ] []
 
 {-| TODO
 -}
-line_chart                          : Size -> Attrs msg -> Icon msg
-line_chart                          = \size attrs -> icon size attrs <| ls <| FAW.line_chart
+line_chart                          : IconBody msg
+line_chart                          = i [ class "fa fa-linechart" ] []
 
 {-| TODO
 -}
-location_arrow                      : Size -> Attrs msg -> Icon msg
-location_arrow                      = \size attrs -> icon size attrs <| ls <| FAW.location_arrow
+location_arrow                      : IconBody msg
+location_arrow                      = i [ class "fa fa-locationarrow" ] []
 
 {-| TODO
 -}
-lock                                : Size -> Attrs msg -> Icon msg
-lock                                = \size attrs -> icon size attrs <| ls <| FAW.lock
+lock                                : IconBody msg
+lock                                = i [ class "fa fa-lock" ] []
 
 {-| TODO
 -}
-low_vision                          : Size -> Attrs msg -> Icon msg
-low_vision                          = \size attrs -> icon size attrs <| ls <| FAW.low_vision
+low_vision                          : IconBody msg
+low_vision                          = i [ class "fa fa-lowvision" ] []
 
 {-| TODO
 -}
-magic                               : Size -> Attrs msg -> Icon msg
-magic                               = \size attrs -> icon size attrs <| ls <| FAW.magic
+magic                               : IconBody msg
+magic                               = i [ class "fa fa-magic" ] []
 
 {-| TODO
 -}
-magnet                              : Size -> Attrs msg -> Icon msg
-magnet                              = \size attrs -> icon size attrs <| ls <| FAW.magnet
+magnet                              : IconBody msg
+magnet                              = i [ class "fa fa-magnet" ] []
 
 {-| TODO
 -}
-mail_forward                        : Size -> Attrs msg -> Icon msg
-mail_forward                        = \size attrs -> icon size attrs <| ls <| FAW.mail_forward
+mail_forward                        : IconBody msg
+mail_forward                        = i [ class "fa fa-mailforward" ] []
 
 {-| TODO
 -}
-mail_reply                          : Size -> Attrs msg -> Icon msg
-mail_reply                          = \size attrs -> icon size attrs <| ls <| FAW.mail_reply
+mail_reply                          : IconBody msg
+mail_reply                          = i [ class "fa fa-mailreply" ] []
 
 {-| TODO
 -}
-mail_reply_all                      : Size -> Attrs msg -> Icon msg
-mail_reply_all                      = \size attrs -> icon size attrs <| ls <| FAW.mail_reply_all
+mail_reply_all                      : IconBody msg
+mail_reply_all                      = i [ class "fa fa-mailreplyall" ] []
 
 {-| TODO
 -}
-male                                : Size -> Attrs msg -> Icon msg
-male                                = \size attrs -> icon size attrs <| ls <| FAW.male
+male                                : IconBody msg
+male                                = i [ class "fa fa-male" ] []
 
 {-| TODO
 -}
-map                                 : Size -> Attrs msg -> Icon msg
-map                                 = \size attrs -> icon size attrs <| ls <| FAW.map
+map                                 : IconBody msg
+map                                 = i [ class "fa fa-map" ] []
 
 {-| TODO
 -}
-map_marker                          : Size -> Attrs msg -> Icon msg
-map_marker                          = \size attrs -> icon size attrs <| ls <| FAW.map_marker
+map_marker                          : IconBody msg
+map_marker                          = i [ class "fa fa-mapmarker" ] []
 
 {-| TODO
 -}
-map_o                               : Size -> Attrs msg -> Icon msg
-map_o                               = \size attrs -> icon size attrs <| ls <| FAW.map_o
+map_o                               : IconBody msg
+map_o                               = i [ class "fa fa-mapo" ] []
 
 {-| TODO
 -}
-map_pin                             : Size -> Attrs msg -> Icon msg
-map_pin                             = \size attrs -> icon size attrs <| ls <| FAW.map_pin
+map_pin                             : IconBody msg
+map_pin                             = i [ class "fa fa-mappin" ] []
 
 {-| TODO
 -}
-map_signs                           : Size -> Attrs msg -> Icon msg
-map_signs                           = \size attrs -> icon size attrs <| ls <| FAW.map_signs
+map_signs                           : IconBody msg
+map_signs                           = i [ class "fa fa-mapsigns" ] []
 
 {-| TODO
 -}
-meh_o                               : Size -> Attrs msg -> Icon msg
-meh_o                               = \size attrs -> icon size attrs <| ls <| FAW.meh_o
+meh_o                               : IconBody msg
+meh_o                               = i [ class "fa fa-meho" ] []
 
 {-| TODO
 -}
-microphone                          : Size -> Attrs msg -> Icon msg
-microphone                          = \size attrs -> icon size attrs <| ls <| FAW.microphone
+microphone                          : IconBody msg
+microphone                          = i [ class "fa fa-microphone" ] []
 
 {-| TODO
 -}
-microphone_slash                    : Size -> Attrs msg -> Icon msg
-microphone_slash                    = \size attrs -> icon size attrs <| ls <| FAW.microphone_slash
+microphone_slash                    : IconBody msg
+microphone_slash                    = i [ class "fa fa-microphoneslash" ] []
 
 {-| TODO
 -}
-minus                               : Size -> Attrs msg -> Icon msg
-minus                               = \size attrs -> icon size attrs <| ls <| FAW.minus
+minus                               : IconBody msg
+minus                               = i [ class "fa fa-minus" ] []
 
 {-| TODO
 -}
-minus_circle                        : Size -> Attrs msg -> Icon msg
-minus_circle                        = \size attrs -> icon size attrs <| ls <| FAW.minus_circle
+minus_circle                        : IconBody msg
+minus_circle                        = i [ class "fa fa-minuscircle" ] []
 
 {-| TODO
 -}
-minus_square                        : Size -> Attrs msg -> Icon msg
-minus_square                        = \size attrs -> icon size attrs <| ls <| FAW.minus_square
+minus_square                        : IconBody msg
+minus_square                        = i [ class "fa fa-minussquare" ] []
 
 {-| TODO
 -}
-minus_square_o                      : Size -> Attrs msg -> Icon msg
-minus_square_o                      = \size attrs -> icon size attrs <| ls <| FAW.minus_square_o
+minus_square_o                      : IconBody msg
+minus_square_o                      = i [ class "fa fa-minussquareo" ] []
 
 {-| TODO
 -}
-mobile                              : Size -> Attrs msg -> Icon msg
-mobile                              = \size attrs -> icon size attrs <| ls <| FAW.mobile
+mobile                              : IconBody msg
+mobile                              = i [ class "fa fa-mobile" ] []
 
 {-| TODO
 -}
-mobile_phone                        : Size -> Attrs msg -> Icon msg
-mobile_phone                        = \size attrs -> icon size attrs <| ls <| FAW.mobile_phone
+mobile_phone                        : IconBody msg
+mobile_phone                        = i [ class "fa fa-mobilephone" ] []
 
 {-| TODO
 -}
-money                               : Size -> Attrs msg -> Icon msg
-money                               = \size attrs -> icon size attrs <| ls <| FAW.money
+money                               : IconBody msg
+money                               = i [ class "fa fa-money" ] []
 
 {-| TODO
 -}
-moon_o                              : Size -> Attrs msg -> Icon msg
-moon_o                              = \size attrs -> icon size attrs <| ls <| FAW.moon_o
+moon_o                              : IconBody msg
+moon_o                              = i [ class "fa fa-moono" ] []
 
 {-| TODO
 -}
-mortar_board                        : Size -> Attrs msg -> Icon msg
-mortar_board                        = \size attrs -> icon size attrs <| ls <| FAW.mortar_board
+mortar_board                        : IconBody msg
+mortar_board                        = i [ class "fa fa-mortarboard" ] []
 
 {-| TODO
 -}
-motorcycle                          : Size -> Attrs msg -> Icon msg
-motorcycle                          = \size attrs -> icon size attrs <| ls <| FAW.motorcycle
+motorcycle                          : IconBody msg
+motorcycle                          = i [ class "fa fa-motorcycle" ] []
 
 {-| TODO
 -}
-mouse_pointer                       : Size -> Attrs msg -> Icon msg
-mouse_pointer                       = \size attrs -> icon size attrs <| ls <| FAW.mouse_pointer
+mouse_pointer                       : IconBody msg
+mouse_pointer                       = i [ class "fa fa-mousepointer" ] []
 
 {-| TODO
 -}
-music                               : Size -> Attrs msg -> Icon msg
-music                               = \size attrs -> icon size attrs <| ls <| FAW.music
+music                               : IconBody msg
+music                               = i [ class "fa fa-music" ] []
 
 {-| TODO
 -}
-navicon                             : Size -> Attrs msg -> Icon msg
-navicon                             = \size attrs -> icon size attrs <| ls <| FAW.navicon
+navicon                             : IconBody msg
+navicon                             = i [ class "fa fa-navicon" ] []
 
 {-| TODO
 -}
-newspaper_o                         : Size -> Attrs msg -> Icon msg
-newspaper_o                         = \size attrs -> icon size attrs <| ls <| FAW.newspaper_o
+newspaper_o                         : IconBody msg
+newspaper_o                         = i [ class "fa fa-newspapero" ] []
 
 {-| TODO
 -}
-object_group                        : Size -> Attrs msg -> Icon msg
-object_group                        = \size attrs -> icon size attrs <| ls <| FAW.object_group
+object_group                        : IconBody msg
+object_group                        = i [ class "fa fa-objectgroup" ] []
 
 {-| TODO
 -}
-object_ungroup                      : Size -> Attrs msg -> Icon msg
-object_ungroup                      = \size attrs -> icon size attrs <| ls <| FAW.object_ungroup
+object_ungroup                      : IconBody msg
+object_ungroup                      = i [ class "fa fa-objectungroup" ] []
 
 {-| TODO
 -}
-paint_brush                         : Size -> Attrs msg -> Icon msg
-paint_brush                         = \size attrs -> icon size attrs <| ls <| FAW.paint_brush
+paint_brush                         : IconBody msg
+paint_brush                         = i [ class "fa fa-paintbrush" ] []
 
 {-| TODO
 -}
-paper_plane                         : Size -> Attrs msg -> Icon msg
-paper_plane                         = \size attrs -> icon size attrs <| ls <| FAW.paper_plane
+paper_plane                         : IconBody msg
+paper_plane                         = i [ class "fa fa-paperplane" ] []
 
 {-| TODO
 -}
-paper_plane_o                       : Size -> Attrs msg -> Icon msg
-paper_plane_o                       = \size attrs -> icon size attrs <| ls <| FAW.paper_plane_o
+paper_plane_o                       : IconBody msg
+paper_plane_o                       = i [ class "fa fa-paperplaneo" ] []
 
 {-| TODO
 -}
-paw                                 : Size -> Attrs msg -> Icon msg
-paw                                 = \size attrs -> icon size attrs <| ls <| FAW.paw
+paw                                 : IconBody msg
+paw                                 = i [ class "fa fa-paw" ] []
 
 {-| TODO
 -}
-pencil                              : Size -> Attrs msg -> Icon msg
-pencil                              = \size attrs -> icon size attrs <| ls <| FAW.pencil
+pencil                              : IconBody msg
+pencil                              = i [ class "fa fa-pencil" ] []
 
 {-| TODO
 -}
-pencil_square                       : Size -> Attrs msg -> Icon msg
-pencil_square                       = \size attrs -> icon size attrs <| ls <| FAW.pencil_square
+pencil_square                       : IconBody msg
+pencil_square                       = i [ class "fa fa-pencilsquare" ] []
 
 {-| TODO
 -}
-pencil_square_o                     : Size -> Attrs msg -> Icon msg
-pencil_square_o                     = \size attrs -> icon size attrs <| ls <| FAW.pencil_square_o
+pencil_square_o                     : IconBody msg
+pencil_square_o                     = i [ class "fa fa-pencilsquareo" ] []
 
 {-| TODO
 -}
-percent                             : Size -> Attrs msg -> Icon msg
-percent                             = \size attrs -> icon size attrs <| ls <| FAW.percent
+percent                             : IconBody msg
+percent                             = i [ class "fa fa-percent" ] []
 
 {-| TODO
 -}
-phone                               : Size -> Attrs msg -> Icon msg
-phone                               = \size attrs -> icon size attrs <| ls <| FAW.phone
+phone                               : IconBody msg
+phone                               = i [ class "fa fa-phone" ] []
 
 {-| TODO
 -}
-phone_square                        : Size -> Attrs msg -> Icon msg
-phone_square                        = \size attrs -> icon size attrs <| ls <| FAW.phone_square
+phone_square                        : IconBody msg
+phone_square                        = i [ class "fa fa-phonesquare" ] []
 
 {-| TODO
 -}
-photo                               : Size -> Attrs msg -> Icon msg
-photo                               = \size attrs -> icon size attrs <| ls <| FAW.photo
+photo                               : IconBody msg
+photo                               = i [ class "fa fa-photo" ] []
 
 {-| TODO
 -}
-picture_o                           : Size -> Attrs msg -> Icon msg
-picture_o                           = \size attrs -> icon size attrs <| ls <| FAW.picture_o
+picture_o                           : IconBody msg
+picture_o                           = i [ class "fa fa-pictureo" ] []
 
 {-| TODO
 -}
-pie_chart                           : Size -> Attrs msg -> Icon msg
-pie_chart                           = \size attrs -> icon size attrs <| ls <| FAW.pie_chart
+pie_chart                           : IconBody msg
+pie_chart                           = i [ class "fa fa-piechart" ] []
 
 {-| TODO
 -}
-plane                               : Size -> Attrs msg -> Icon msg
-plane                               = \size attrs -> icon size attrs <| ls <| FAW.plane
+plane                               : IconBody msg
+plane                               = i [ class "fa fa-plane" ] []
 
 {-| TODO
 -}
-plug                                : Size -> Attrs msg -> Icon msg
-plug                                = \size attrs -> icon size attrs <| ls <| FAW.plug
+plug                                : IconBody msg
+plug                                = i [ class "fa fa-plug" ] []
 
 {-| TODO
 -}
-plus                                : Size -> Attrs msg -> Icon msg
-plus                                = \size attrs -> icon size attrs <| ls <| FAW.plus
+plus                                : IconBody msg
+plus                                = i [ class "fa fa-plus" ] []
 
 {-| TODO
 -}
-plus_circle                         : Size -> Attrs msg -> Icon msg
-plus_circle                         = \size attrs -> icon size attrs <| ls <| FAW.plus_circle
+plus_circle                         : IconBody msg
+plus_circle                         = i [ class "fa fa-pluscircle" ] []
 
 {-| TODO
 -}
-plus_square                         : Size -> Attrs msg -> Icon msg
-plus_square                         = \size attrs -> icon size attrs <| ls <| FAW.plus_square
+plus_square                         : IconBody msg
+plus_square                         = i [ class "fa fa-plussquare" ] []
 
 {-| TODO
 -}
-plus_square_o                       : Size -> Attrs msg -> Icon msg
-plus_square_o                       = \size attrs -> icon size attrs <| ls <| FAW.plus_square_o
+plus_square_o                       : IconBody msg
+plus_square_o                       = i [ class "fa fa-plussquareo" ] []
 
 {-| TODO
 -}
-power_off                           : Size -> Attrs msg -> Icon msg
-power_off                           = \size attrs -> icon size attrs <| ls <| FAW.power_off
+power_off                           : IconBody msg
+power_off                           = i [ class "fa fa-poweroff" ] []
 
 {-| TODO
 -}
-print                               : Size -> Attrs msg -> Icon msg
-print                               = \size attrs -> icon size attrs <| ls <| FAW.print
+print                               : IconBody msg
+print                               = i [ class "fa fa-print" ] []
 
 {-| TODO
 -}
-puzzle_piece                        : Size -> Attrs msg -> Icon msg
-puzzle_piece                        = \size attrs -> icon size attrs <| ls <| FAW.puzzle_piece
+puzzle_piece                        : IconBody msg
+puzzle_piece                        = i [ class "fa fa-puzzlepiece" ] []
 
 {-| TODO
 -}
-qrcode                              : Size -> Attrs msg -> Icon msg
-qrcode                              = \size attrs -> icon size attrs <| ls <| FAW.qrcode
+qrcode                              : IconBody msg
+qrcode                              = i [ class "fa fa-qrcode" ] []
 
 {-| TODO
 -}
-question                            : Size -> Attrs msg -> Icon msg
-question                            = \size attrs -> icon size attrs <| ls <| FAW.question
+question                            : IconBody msg
+question                            = i [ class "fa fa-question" ] []
 
 {-| TODO
 -}
-question_circle                     : Size -> Attrs msg -> Icon msg
-question_circle                     = \size attrs -> icon size attrs <| ls <| FAW.question_circle
+question_circle                     : IconBody msg
+question_circle                     = i [ class "fa fa-questioncircle" ] []
 
 {-| TODO
 -}
-question_circle_o                   : Size -> Attrs msg -> Icon msg
-question_circle_o                   = \size attrs -> icon size attrs <| ls <| FAW.question_circle_o
+question_circle_o                   : IconBody msg
+question_circle_o                   = i [ class "fa fa-questioncircleo" ] []
 
 {-| TODO
 -}
-quote_left                          : Size -> Attrs msg -> Icon msg
-quote_left                          = \size attrs -> icon size attrs <| ls <| FAW.quote_left
+quote_left                          : IconBody msg
+quote_left                          = i [ class "fa fa-quoteleft" ] []
 
 {-| TODO
 -}
-quote_right                         : Size -> Attrs msg -> Icon msg
-quote_right                         = \size attrs -> icon size attrs <| ls <| FAW.quote_right
+quote_right                         : IconBody msg
+quote_right                         = i [ class "fa fa-quoteright" ] []
 
 {-| TODO
 -}
-random                              : Size -> Attrs msg -> Icon msg
-random                              = \size attrs -> icon size attrs <| ls <| FAW.random
+random                              : IconBody msg
+random                              = i [ class "fa fa-random" ] []
 
 {-| TODO
 -}
-recycle                             : Size -> Attrs msg -> Icon msg
-recycle                             = \size attrs -> icon size attrs <| ls <| FAW.recycle
+recycle                             : IconBody msg
+recycle                             = i [ class "fa fa-recycle" ] []
 
 {-| TODO
 -}
-refresh                             : Size -> Attrs msg -> Icon msg
-refresh                             = \size attrs -> icon size attrs <| ls <| FAW.refresh
+refresh                             : IconBody msg
+refresh                             = i [ class "fa fa-refresh" ] []
 
 {-| TODO
 -}
-registered                          : Size -> Attrs msg -> Icon msg
-registered                          = \size attrs -> icon size attrs <| ls <| FAW.registered
+registered                          : IconBody msg
+registered                          = i [ class "fa fa-registered" ] []
 
 {-| TODO
 -}
-remove                              : Size -> Attrs msg -> Icon msg
-remove                              = \size attrs -> icon size attrs <| ls <| FAW.remove
+remove                              : IconBody msg
+remove                              = i [ class "fa fa-remove" ] []
 
 {-| TODO
 -}
-reorder                             : Size -> Attrs msg -> Icon msg
-reorder                             = \size attrs -> icon size attrs <| ls <| FAW.reorder
+reorder                             : IconBody msg
+reorder                             = i [ class "fa fa-reorder" ] []
 
 {-| TODO
 -}
-reply                               : Size -> Attrs msg -> Icon msg
-reply                               = \size attrs -> icon size attrs <| ls <| FAW.reply
+reply                               : IconBody msg
+reply                               = i [ class "fa fa-reply" ] []
 
 {-| TODO
 -}
-reply_all                           : Size -> Attrs msg -> Icon msg
-reply_all                           = \size attrs -> icon size attrs <| ls <| FAW.reply_all
+reply_all                           : IconBody msg
+reply_all                           = i [ class "fa fa-replyall" ] []
 
 {-| TODO
 -}
-retweet                             : Size -> Attrs msg -> Icon msg
-retweet                             = \size attrs -> icon size attrs <| ls <| FAW.retweet
+retweet                             : IconBody msg
+retweet                             = i [ class "fa fa-retweet" ] []
 
 {-| TODO
 -}
-road                                : Size -> Attrs msg -> Icon msg
-road                                = \size attrs -> icon size attrs <| ls <| FAW.road
+road                                : IconBody msg
+road                                = i [ class "fa fa-road" ] []
 
 {-| TODO
 -}
-rocket                              : Size -> Attrs msg -> Icon msg
-rocket                              = \size attrs -> icon size attrs <| ls <| FAW.rocket
+rocket                              : IconBody msg
+rocket                              = i [ class "fa fa-rocket" ] []
 
 {-| TODO
 -}
-rss                                 : Size -> Attrs msg -> Icon msg
-rss                                 = \size attrs -> icon size attrs <| ls <| FAW.rss
+rss                                 : IconBody msg
+rss                                 = i [ class "fa fa-rss" ] []
 
 {-| TODO
 -}
-rss_square                          : Size -> Attrs msg -> Icon msg
-rss_square                          = \size attrs -> icon size attrs <| ls <| FAW.rss_square
+rss_square                          : IconBody msg
+rss_square                          = i [ class "fa fa-rsssquare" ] []
 
 {-| TODO
 -}
-search                              : Size -> Attrs msg -> Icon msg
-search                              = \size attrs -> icon size attrs <| ls <| FAW.search
+search                              : IconBody msg
+search                              = i [ class "fa fa-search" ] []
 
 {-| TODO
 -}
-search_minus                        : Size -> Attrs msg -> Icon msg
-search_minus                        = \size attrs -> icon size attrs <| ls <| FAW.search_minus
+search_minus                        : IconBody msg
+search_minus                        = i [ class "fa fa-searchminus" ] []
 
 {-| TODO
 -}
-search_plus                         : Size -> Attrs msg -> Icon msg
-search_plus                         = \size attrs -> icon size attrs <| ls <| FAW.search_plus
+search_plus                         : IconBody msg
+search_plus                         = i [ class "fa fa-searchplus" ] []
 
 {-| TODO
 -}
-send                                : Size -> Attrs msg -> Icon msg
-send                                = \size attrs -> icon size attrs <| ls <| FAW.send
+send                                : IconBody msg
+send                                = i [ class "fa fa-send" ] []
 
 {-| TODO
 -}
-send_o                              : Size -> Attrs msg -> Icon msg
-send_o                              = \size attrs -> icon size attrs <| ls <| FAW.send_o
+send_o                              : IconBody msg
+send_o                              = i [ class "fa fa-sendo" ] []
 
 {-| TODO
 -}
-server                              : Size -> Attrs msg -> Icon msg
-server                              = \size attrs -> icon size attrs <| ls <| FAW.server
+server                              : IconBody msg
+server                              = i [ class "fa fa-server" ] []
 
 {-| TODO
 -}
-share                               : Size -> Attrs msg -> Icon msg
-share                               = \size attrs -> icon size attrs <| ls <| FAW.share
+share                               : IconBody msg
+share                               = i [ class "fa fa-share" ] []
 
 {-| TODO
 -}
-share_alt                           : Size -> Attrs msg -> Icon msg
-share_alt                           = \size attrs -> icon size attrs <| ls <| FAW.share_alt
+share_alt                           : IconBody msg
+share_alt                           = i [ class "fa fa-sharealt" ] []
 
 {-| TODO
 -}
-share_alt_square                    : Size -> Attrs msg -> Icon msg
-share_alt_square                    = \size attrs -> icon size attrs <| ls <| FAW.share_alt_square
+share_alt_square                    : IconBody msg
+share_alt_square                    = i [ class "fa fa-sharealtsquare" ] []
 
 {-| TODO
 -}
-share_square                        : Size -> Attrs msg -> Icon msg
-share_square                        = \size attrs -> icon size attrs <| ls <| FAW.share_square
+share_square                        : IconBody msg
+share_square                        = i [ class "fa fa-sharesquare" ] []
 
 {-| TODO
 -}
-share_square_o                      : Size -> Attrs msg -> Icon msg
-share_square_o                      = \size attrs -> icon size attrs <| ls <| FAW.share_square_o
+share_square_o                      : IconBody msg
+share_square_o                      = i [ class "fa fa-sharesquareo" ] []
 
 {-| TODO
 -}
-shield                              : Size -> Attrs msg -> Icon msg
-shield                              = \size attrs -> icon size attrs <| ls <| FAW.shield
+shield                              : IconBody msg
+shield                              = i [ class "fa fa-shield" ] []
 
 {-| TODO
 -}
-ship                                : Size -> Attrs msg -> Icon msg
-ship                                = \size attrs -> icon size attrs <| ls <| FAW.ship
+ship                                : IconBody msg
+ship                                = i [ class "fa fa-ship" ] []
 
 {-| TODO
 -}
-shopping_bag                        : Size -> Attrs msg -> Icon msg
-shopping_bag                        = \size attrs -> icon size attrs <| ls <| FAW.shopping_bag
+shopping_bag                        : IconBody msg
+shopping_bag                        = i [ class "fa fa-shoppingbag" ] []
 
 {-| TODO
 -}
-shopping_basket                     : Size -> Attrs msg -> Icon msg
-shopping_basket                     = \size attrs -> icon size attrs <| ls <| FAW.shopping_basket
+shopping_basket                     : IconBody msg
+shopping_basket                     = i [ class "fa fa-shoppingbasket" ] []
 
 {-| TODO
 -}
-shopping_cart                       : Size -> Attrs msg -> Icon msg
-shopping_cart                       = \size attrs -> icon size attrs <| ls <| FAW.shopping_cart
+shopping_cart                       : IconBody msg
+shopping_cart                       = i [ class "fa fa-shoppingcart" ] []
 
 {-| TODO
 -}
-sign_in                             : Size -> Attrs msg -> Icon msg
-sign_in                             = \size attrs -> icon size attrs <| ls <| FAW.sign_in
+sign_in                             : IconBody msg
+sign_in                             = i [ class "fa fa-signin" ] []
 
 {-| TODO
 -}
-sign_language                       : Size -> Attrs msg -> Icon msg
-sign_language                       = \size attrs -> icon size attrs <| ls <| FAW.sign_language
+sign_language                       : IconBody msg
+sign_language                       = i [ class "fa fa-signlanguage" ] []
 
 {-| TODO
 -}
-sign_out                            : Size -> Attrs msg -> Icon msg
-sign_out                            = \size attrs -> icon size attrs <| ls <| FAW.sign_out
+sign_out                            : IconBody msg
+sign_out                            = i [ class "fa fa-signout" ] []
 
 {-| TODO
 -}
-signal                              : Size -> Attrs msg -> Icon msg
-signal                              = \size attrs -> icon size attrs <| ls <| FAW.signal
+signal                              : IconBody msg
+signal                              = i [ class "fa fa-signal" ] []
 
 {-| TODO
 -}
-signing                             : Size -> Attrs msg -> Icon msg
-signing                             = \size attrs -> icon size attrs <| ls <| FAW.signing
+signing                             : IconBody msg
+signing                             = i [ class "fa fa-signing" ] []
 
 {-| TODO
 -}
-sitemap                             : Size -> Attrs msg -> Icon msg
-sitemap                             = \size attrs -> icon size attrs <| ls <| FAW.sitemap
+sitemap                             : IconBody msg
+sitemap                             = i [ class "fa fa-sitemap" ] []
 
 {-| TODO
 -}
-sliders                             : Size -> Attrs msg -> Icon msg
-sliders                             = \size attrs -> icon size attrs <| ls <| FAW.sliders
+sliders                             : IconBody msg
+sliders                             = i [ class "fa fa-sliders" ] []
 
 {-| TODO
 -}
-smile_o                             : Size -> Attrs msg -> Icon msg
-smile_o                             = \size attrs -> icon size attrs <| ls <| FAW.smile_o
+smile_o                             : IconBody msg
+smile_o                             = i [ class "fa fa-smileo" ] []
 
 {-| TODO
 -}
-soccer_ball_o                       : Size -> Attrs msg -> Icon msg
-soccer_ball_o                       = \size attrs -> icon size attrs <| ls <| FAW.soccer_ball_o
+soccer_ball_o                       : IconBody msg
+soccer_ball_o                       = i [ class "fa fa-soccerballo" ] []
 
 {-| TODO
 -}
-sort                                : Size -> Attrs msg -> Icon msg
-sort                                = \size attrs -> icon size attrs <| ls <| FAW.sort
+sort                                : IconBody msg
+sort                                = i [ class "fa fa-sort" ] []
 
 {-| TODO
 -}
-sort_alpha_asc                      : Size -> Attrs msg -> Icon msg
-sort_alpha_asc                      = \size attrs -> icon size attrs <| ls <| FAW.sort_alpha_asc
+sort_alpha_asc                      : IconBody msg
+sort_alpha_asc                      = i [ class "fa fa-sortalphaasc" ] []
 
 {-| TODO
 -}
-sort_alpha_desc                     : Size -> Attrs msg -> Icon msg
-sort_alpha_desc                     = \size attrs -> icon size attrs <| ls <| FAW.sort_alpha_desc
+sort_alpha_desc                     : IconBody msg
+sort_alpha_desc                     = i [ class "fa fa-sortalphadesc" ] []
 
 {-| TODO
 -}
-sort_amount_asc                     : Size -> Attrs msg -> Icon msg
-sort_amount_asc                     = \size attrs -> icon size attrs <| ls <| FAW.sort_amount_asc
+sort_amount_asc                     : IconBody msg
+sort_amount_asc                     = i [ class "fa fa-sortamountasc" ] []
 
 {-| TODO
 -}
-sort_amount_desc                    : Size -> Attrs msg -> Icon msg
-sort_amount_desc                    = \size attrs -> icon size attrs <| ls <| FAW.sort_amount_desc
+sort_amount_desc                    : IconBody msg
+sort_amount_desc                    = i [ class "fa fa-sortamountdesc" ] []
 
 {-| TODO
 -}
-sort_asc                            : Size -> Attrs msg -> Icon msg
-sort_asc                            = \size attrs -> icon size attrs <| ls <| FAW.sort_asc
+sort_asc                            : IconBody msg
+sort_asc                            = i [ class "fa fa-sortasc" ] []
 
 {-| TODO
 -}
-sort_desc                           : Size -> Attrs msg -> Icon msg
-sort_desc                           = \size attrs -> icon size attrs <| ls <| FAW.sort_desc
+sort_desc                           : IconBody msg
+sort_desc                           = i [ class "fa fa-sortdesc" ] []
 
 {-| TODO
 -}
-sort_down                           : Size -> Attrs msg -> Icon msg
-sort_down                           = \size attrs -> icon size attrs <| ls <| FAW.sort_down
+sort_down                           : IconBody msg
+sort_down                           = i [ class "fa fa-sortdown" ] []
 
 {-| TODO
 -}
-sort_numeric_asc                    : Size -> Attrs msg -> Icon msg
-sort_numeric_asc                    = \size attrs -> icon size attrs <| ls <| FAW.sort_numeric_asc
+sort_numeric_asc                    : IconBody msg
+sort_numeric_asc                    = i [ class "fa fa-sortnumericasc" ] []
 
 {-| TODO
 -}
-sort_numeric_desc                   : Size -> Attrs msg -> Icon msg
-sort_numeric_desc                   = \size attrs -> icon size attrs <| ls <| FAW.sort_numeric_desc
+sort_numeric_desc                   : IconBody msg
+sort_numeric_desc                   = i [ class "fa fa-sortnumericdesc" ] []
 
 {-| TODO
 -}
-sort_up                             : Size -> Attrs msg -> Icon msg
-sort_up                             = \size attrs -> icon size attrs <| ls <| FAW.sort_up
+sort_up                             : IconBody msg
+sort_up                             = i [ class "fa fa-sortup" ] []
 
 {-| TODO
 -}
-space_shuttle                       : Size -> Attrs msg -> Icon msg
-space_shuttle                       = \size attrs -> icon size attrs <| ls <| FAW.space_shuttle
+space_shuttle                       : IconBody msg
+space_shuttle                       = i [ class "fa fa-spaceshuttle" ] []
 
 {-| TODO
 -}
-spinner                             : Size -> Attrs msg -> Icon msg
-spinner                             = \size attrs -> icon size attrs <| ls <| FAW.spinner
+spinner                             : IconBody msg
+spinner                             = i [ class "fa fa-spinner" ] []
 
 {-| TODO
 -}
-spoon                               : Size -> Attrs msg -> Icon msg
-spoon                               = \size attrs -> icon size attrs <| ls <| FAW.spoon
+spoon                               : IconBody msg
+spoon                               = i [ class "fa fa-spoon" ] []
 
 {-| TODO
 -}
-square                              : Size -> Attrs msg -> Icon msg
-square                              = \size attrs -> icon size attrs <| ls <| FAW.square
+square                              : IconBody msg
+square                              = i [ class "fa fa-square" ] []
 
 {-| TODO
 -}
-square_o                            : Size -> Attrs msg -> Icon msg
-square_o                            = \size attrs -> icon size attrs <| ls <| FAW.square_o
+square_o                            : IconBody msg
+square_o                            = i [ class "fa fa-squareo" ] []
 
 {-| TODO
 -}
-star                                : Size -> Attrs msg -> Icon msg
-star                                = \size attrs -> icon size attrs <| ls <| FAW.star
+star                                : IconBody msg
+star                                = i [ class "fa fa-star" ] []
 
 {-| TODO
 -}
-star_half                           : Size -> Attrs msg -> Icon msg
-star_half                           = \size attrs -> icon size attrs <| ls <| FAW.star_half
+star_half                           : IconBody msg
+star_half                           = i [ class "fa fa-starhalf" ] []
 
 {-| TODO
 -}
-star_half_empty                     : Size -> Attrs msg -> Icon msg
-star_half_empty                     = \size attrs -> icon size attrs <| ls <| FAW.star_half_empty
+star_half_empty                     : IconBody msg
+star_half_empty                     = i [ class "fa fa-starhalfempty" ] []
 
 {-| TODO
 -}
-star_half_full                      : Size -> Attrs msg -> Icon msg
-star_half_full                      = \size attrs -> icon size attrs <| ls <| FAW.star_half_full
+star_half_full                      : IconBody msg
+star_half_full                      = i [ class "fa fa-starhalffull" ] []
 
 {-| TODO
 -}
-star_half_o                         : Size -> Attrs msg -> Icon msg
-star_half_o                         = \size attrs -> icon size attrs <| ls <| FAW.star_half_o
+star_half_o                         : IconBody msg
+star_half_o                         = i [ class "fa fa-starhalfo" ] []
 
 {-| TODO
 -}
-star_o                              : Size -> Attrs msg -> Icon msg
-star_o                              = \size attrs -> icon size attrs <| ls <| FAW.star_o
+star_o                              : IconBody msg
+star_o                              = i [ class "fa fa-staro" ] []
 
 {-| TODO
 -}
-sticky_note                         : Size -> Attrs msg -> Icon msg
-sticky_note                         = \size attrs -> icon size attrs <| ls <| FAW.sticky_note
+sticky_note                         : IconBody msg
+sticky_note                         = i [ class "fa fa-stickynote" ] []
 
 {-| TODO
 -}
-sticky_note_o                       : Size -> Attrs msg -> Icon msg
-sticky_note_o                       = \size attrs -> icon size attrs <| ls <| FAW.sticky_note_o
+sticky_note_o                       : IconBody msg
+sticky_note_o                       = i [ class "fa fa-stickynoteo" ] []
 
 {-| TODO
 -}
-street_view                         : Size -> Attrs msg -> Icon msg
-street_view                         = \size attrs -> icon size attrs <| ls <| FAW.street_view
+street_view                         : IconBody msg
+street_view                         = i [ class "fa fa-streetview" ] []
 
 {-| TODO
 -}
-suitcase                            : Size -> Attrs msg -> Icon msg
-suitcase                            = \size attrs -> icon size attrs <| ls <| FAW.suitcase
+suitcase                            : IconBody msg
+suitcase                            = i [ class "fa fa-suitcase" ] []
 
 {-| TODO
 -}
-sun_o                               : Size -> Attrs msg -> Icon msg
-sun_o                               = \size attrs -> icon size attrs <| ls <| FAW.sun_o
+sun_o                               : IconBody msg
+sun_o                               = i [ class "fa fa-suno" ] []
 
 {-| TODO
 -}
-support                             : Size -> Attrs msg -> Icon msg
-support                             = \size attrs -> icon size attrs <| ls <| FAW.support
+support                             : IconBody msg
+support                             = i [ class "fa fa-support" ] []
 
 {-| TODO
 -}
-tablet                              : Size -> Attrs msg -> Icon msg
-tablet                              = \size attrs -> icon size attrs <| ls <| FAW.tablet
+tablet                              : IconBody msg
+tablet                              = i [ class "fa fa-tablet" ] []
 
 {-| TODO
 -}
-tachometer                          : Size -> Attrs msg -> Icon msg
-tachometer                          = \size attrs -> icon size attrs <| ls <| FAW.tachometer
+tachometer                          : IconBody msg
+tachometer                          = i [ class "fa fa-tachometer" ] []
 
 {-| TODO
 -}
-tag                                 : Size -> Attrs msg -> Icon msg
-tag                                 = \size attrs -> icon size attrs <| ls <| FAW.tag
+tag                                 : IconBody msg
+tag                                 = i [ class "fa fa-tag" ] []
 
 {-| TODO
 -}
-tags                                : Size -> Attrs msg -> Icon msg
-tags                                = \size attrs -> icon size attrs <| ls <| FAW.tags
+tags                                : IconBody msg
+tags                                = i [ class "fa fa-tags" ] []
 
 {-| TODO
 -}
-tasks                               : Size -> Attrs msg -> Icon msg
-tasks                               = \size attrs -> icon size attrs <| ls <| FAW.tasks
+tasks                               : IconBody msg
+tasks                               = i [ class "fa fa-tasks" ] []
 
 {-| TODO
 -}
-taxi                                : Size -> Attrs msg -> Icon msg
-taxi                                = \size attrs -> icon size attrs <| ls <| FAW.taxi
+taxi                                : IconBody msg
+taxi                                = i [ class "fa fa-taxi" ] []
 
 {-| TODO
 -}
-television                          : Size -> Attrs msg -> Icon msg
-television                          = \size attrs -> icon size attrs <| ls <| FAW.television
+television                          : IconBody msg
+television                          = i [ class "fa fa-television" ] []
 
 {-| TODO
 -}
-terminal                            : Size -> Attrs msg -> Icon msg
-terminal                            = \size attrs -> icon size attrs <| ls <| FAW.terminal
+terminal                            : IconBody msg
+terminal                            = i [ class "fa fa-terminal" ] []
 
 {-| TODO
 -}
-thumb_tack                          : Size -> Attrs msg -> Icon msg
-thumb_tack                          = \size attrs -> icon size attrs <| ls <| FAW.thumb_tack
+thumb_tack                          : IconBody msg
+thumb_tack                          = i [ class "fa fa-thumbtack" ] []
 
 {-| TODO
 -}
-thumbs_down                         : Size -> Attrs msg -> Icon msg
-thumbs_down                         = \size attrs -> icon size attrs <| ls <| FAW.thumbs_down
+thumbs_down                         : IconBody msg
+thumbs_down                         = i [ class "fa fa-thumbsdown" ] []
 
 {-| TODO
 -}
-thumbs_o_down                       : Size -> Attrs msg -> Icon msg
-thumbs_o_down                       = \size attrs -> icon size attrs <| ls <| FAW.thumbs_o_down
+thumbs_o_down                       : IconBody msg
+thumbs_o_down                       = i [ class "fa fa-thumbsodown" ] []
 
 {-| TODO
 -}
-thumbs_o_up                         : Size -> Attrs msg -> Icon msg
-thumbs_o_up                         = \size attrs -> icon size attrs <| ls <| FAW.thumbs_o_up
+thumbs_o_up                         : IconBody msg
+thumbs_o_up                         = i [ class "fa fa-thumbsoup" ] []
 
 {-| TODO
 -}
-thumbs_up                           : Size -> Attrs msg -> Icon msg
-thumbs_up                           = \size attrs -> icon size attrs <| ls <| FAW.thumbs_up
+thumbs_up                           : IconBody msg
+thumbs_up                           = i [ class "fa fa-thumbsup" ] []
 
 {-| TODO
 -}
-ticket                              : Size -> Attrs msg -> Icon msg
-ticket                              = \size attrs -> icon size attrs <| ls <| FAW.ticket
+ticket                              : IconBody msg
+ticket                              = i [ class "fa fa-ticket" ] []
 
 {-| TODO
 -}
-times                               : Size -> Attrs msg -> Icon msg
-times                               = \size attrs -> icon size attrs <| ls <| FAW.times
+times                               : IconBody msg
+times                               = i [ class "fa fa-times" ] []
 
 {-| TODO
 -}
-times_circle                        : Size -> Attrs msg -> Icon msg
-times_circle                        = \size attrs -> icon size attrs <| ls <| FAW.times_circle
+times_circle                        : IconBody msg
+times_circle                        = i [ class "fa fa-timescircle" ] []
 
 {-| TODO
 -}
-times_circle_o                      : Size -> Attrs msg -> Icon msg
-times_circle_o                      = \size attrs -> icon size attrs <| ls <| FAW.times_circle_o
+times_circle_o                      : IconBody msg
+times_circle_o                      = i [ class "fa fa-timescircleo" ] []
 
 {-| TODO
 -}
-tint                                : Size -> Attrs msg -> Icon msg
-tint                                = \size attrs -> icon size attrs <| ls <| FAW.tint
+tint                                : IconBody msg
+tint                                = i [ class "fa fa-tint" ] []
 
 {-| TODO
 -}
-toggle_down                         : Size -> Attrs msg -> Icon msg
-toggle_down                         = \size attrs -> icon size attrs <| ls <| FAW.toggle_down
+toggle_down                         : IconBody msg
+toggle_down                         = i [ class "fa fa-toggledown" ] []
 
 {-| TODO
 -}
-toggle_left                         : Size -> Attrs msg -> Icon msg
-toggle_left                         = \size attrs -> icon size attrs <| ls <| FAW.toggle_left
+toggle_left                         : IconBody msg
+toggle_left                         = i [ class "fa fa-toggleleft" ] []
 
 {-| TODO
 -}
-toggle_off                          : Size -> Attrs msg -> Icon msg
-toggle_off                          = \size attrs -> icon size attrs <| ls <| FAW.toggle_off
+toggle_off                          : IconBody msg
+toggle_off                          = i [ class "fa fa-toggleoff" ] []
 
 {-| TODO
 -}
-toggle_on                           : Size -> Attrs msg -> Icon msg
-toggle_on                           = \size attrs -> icon size attrs <| ls <| FAW.toggle_on
+toggle_on                           : IconBody msg
+toggle_on                           = i [ class "fa fa-toggleon" ] []
 
 {-| TODO
 -}
-toggle_right                        : Size -> Attrs msg -> Icon msg
-toggle_right                        = \size attrs -> icon size attrs <| ls <| FAW.toggle_right
+toggle_right                        : IconBody msg
+toggle_right                        = i [ class "fa fa-toggleright" ] []
 
 {-| TODO
 -}
-toggle_up                           : Size -> Attrs msg -> Icon msg
-toggle_up                           = \size attrs -> icon size attrs <| ls <| FAW.toggle_up
+toggle_up                           : IconBody msg
+toggle_up                           = i [ class "fa fa-toggleup" ] []
 
 {-| TODO
 -}
-trademark                           : Size -> Attrs msg -> Icon msg
-trademark                           = \size attrs -> icon size attrs <| ls <| FAW.trademark
+trademark                           : IconBody msg
+trademark                           = i [ class "fa fa-trademark" ] []
 
 {-| TODO
 -}
-trash                               : Size -> Attrs msg -> Icon msg
-trash                               = \size attrs -> icon size attrs <| ls <| FAW.trash
+trash                               : IconBody msg
+trash                               = i [ class "fa fa-trash" ] []
 
 {-| TODO
 -}
-trash_o                             : Size -> Attrs msg -> Icon msg
-trash_o                             = \size attrs -> icon size attrs <| ls <| FAW.trash_o
+trash_o                             : IconBody msg
+trash_o                             = i [ class "fa fa-trasho" ] []
 
 {-| TODO
 -}
-tree                                : Size -> Attrs msg -> Icon msg
-tree                                = \size attrs -> icon size attrs <| ls <| FAW.tree
+tree                                : IconBody msg
+tree                                = i [ class "fa fa-tree" ] []
 
 {-| TODO
 -}
-trophy                              : Size -> Attrs msg -> Icon msg
-trophy                              = \size attrs -> icon size attrs <| ls <| FAW.trophy
+trophy                              : IconBody msg
+trophy                              = i [ class "fa fa-trophy" ] []
 
 {-| TODO
 -}
-truck                               : Size -> Attrs msg -> Icon msg
-truck                               = \size attrs -> icon size attrs <| ls <| FAW.truck
+truck                               : IconBody msg
+truck                               = i [ class "fa fa-truck" ] []
 
 {-| TODO
 -}
-tty                                 : Size -> Attrs msg -> Icon msg
-tty                                 = \size attrs -> icon size attrs <| ls <| FAW.tty
+tty                                 : IconBody msg
+tty                                 = i [ class "fa fa-tty" ] []
 
 {-| TODO
 -}
-tv                                  : Size -> Attrs msg -> Icon msg
-tv                                  = \size attrs -> icon size attrs <| ls <| FAW.tv
+tv                                  : IconBody msg
+tv                                  = i [ class "fa fa-tv" ] []
 
 {-| TODO
 -}
-umbrella                            : Size -> Attrs msg -> Icon msg
-umbrella                            = \size attrs -> icon size attrs <| ls <| FAW.umbrella
+umbrella                            : IconBody msg
+umbrella                            = i [ class "fa fa-umbrella" ] []
 
 {-| TODO
 -}
-universal_access                    : Size -> Attrs msg -> Icon msg
-universal_access                    = \size attrs -> icon size attrs <| ls <| FAW.universal_access
+universal_access                    : IconBody msg
+universal_access                    = i [ class "fa fa-universalaccess" ] []
 
 {-| TODO
 -}
-university                          : Size -> Attrs msg -> Icon msg
-university                          = \size attrs -> icon size attrs <| ls <| FAW.university
+university                          : IconBody msg
+university                          = i [ class "fa fa-university" ] []
 
 {-| TODO
 -}
-unlock                              : Size -> Attrs msg -> Icon msg
-unlock                              = \size attrs -> icon size attrs <| ls <| FAW.unlock
+unlock                              : IconBody msg
+unlock                              = i [ class "fa fa-unlock" ] []
 
 {-| TODO
 -}
-unlock_alt                          : Size -> Attrs msg -> Icon msg
-unlock_alt                          = \size attrs -> icon size attrs <| ls <| FAW.unlock_alt
+unlock_alt                          : IconBody msg
+unlock_alt                          = i [ class "fa fa-unlockalt" ] []
 
 {-| TODO
 -}
-unsorted                            : Size -> Attrs msg -> Icon msg
-unsorted                            = \size attrs -> icon size attrs <| ls <| FAW.unsorted
+unsorted                            : IconBody msg
+unsorted                            = i [ class "fa fa-unsorted" ] []
 
 {-| TODO
 -}
-upload                              : Size -> Attrs msg -> Icon msg
-upload                              = \size attrs -> icon size attrs <| ls <| FAW.upload
+upload                              : IconBody msg
+upload                              = i [ class "fa fa-upload" ] []
 
 {-| TODO
 -}
-user                                : Size -> Attrs msg -> Icon msg
-user                                = \size attrs -> icon size attrs <| ls <| FAW.user
+user                                : IconBody msg
+user                                = i [ class "fa fa-user" ] []
 
 {-| TODO
 -}
-user_plus                           : Size -> Attrs msg -> Icon msg
-user_plus                           = \size attrs -> icon size attrs <| ls <| FAW.user_plus
+user_plus                           : IconBody msg
+user_plus                           = i [ class "fa fa-userplus" ] []
 
 {-| TODO
 -}
-user_secret                         : Size -> Attrs msg -> Icon msg
-user_secret                         = \size attrs -> icon size attrs <| ls <| FAW.user_secret
+user_secret                         : IconBody msg
+user_secret                         = i [ class "fa fa-usersecret" ] []
 
 {-| TODO
 -}
-user_times                          : Size -> Attrs msg -> Icon msg
-user_times                          = \size attrs -> icon size attrs <| ls <| FAW.user_times
+user_times                          : IconBody msg
+user_times                          = i [ class "fa fa-usertimes" ] []
 
 {-| TODO
 -}
-users                               : Size -> Attrs msg -> Icon msg
-users                               = \size attrs -> icon size attrs <| ls <| FAW.users
+users                               : IconBody msg
+users                               = i [ class "fa fa-users" ] []
 
 {-| TODO
 -}
-video_camera                        : Size -> Attrs msg -> Icon msg
-video_camera                        = \size attrs -> icon size attrs <| ls <| FAW.video_camera
+video_camera                        : IconBody msg
+video_camera                        = i [ class "fa fa-videocamera" ] []
 
 {-| TODO
 -}
-volume_control_phone                : Size -> Attrs msg -> Icon msg
-volume_control_phone                = \size attrs -> icon size attrs <| ls <| FAW.volume_control_phone
+volume_control_phone                : IconBody msg
+volume_control_phone                = i [ class "fa fa-volumecontrolphone" ] []
 
 {-| TODO
 -}
-volume_down                         : Size -> Attrs msg -> Icon msg
-volume_down                         = \size attrs -> icon size attrs <| ls <| FAW.volume_down
+volume_down                         : IconBody msg
+volume_down                         = i [ class "fa fa-volumedown" ] []
 
 {-| TODO
 -}
-volume_off                          : Size -> Attrs msg -> Icon msg
-volume_off                          = \size attrs -> icon size attrs <| ls <| FAW.volume_off
+volume_off                          : IconBody msg
+volume_off                          = i [ class "fa fa-volumeoff" ] []
 
 {-| TODO
 -}
-volume_up                           : Size -> Attrs msg -> Icon msg
-volume_up                           = \size attrs -> icon size attrs <| ls <| FAW.volume_up
+volume_up                           : IconBody msg
+volume_up                           = i [ class "fa fa-volumeup" ] []
 
 {-| TODO
 -}
-warning                             : Size -> Attrs msg -> Icon msg
-warning                             = \size attrs -> icon size attrs <| ls <| FAW.warning
+warning                             : IconBody msg
+warning                             = i [ class "fa fa-warning" ] []
 
 {-| TODO
 -}
-wheelchair                          : Size -> Attrs msg -> Icon msg
-wheelchair                          = \size attrs -> icon size attrs <| ls <| FAW.wheelchair
+wheelchair                          : IconBody msg
+wheelchair                          = i [ class "fa fa-wheelchair" ] []
 
 {-| TODO
 -}
-wheelchair_alt                      : Size -> Attrs msg -> Icon msg
-wheelchair_alt                      = \size attrs -> icon size attrs <| ls <| FAW.wheelchair_alt
+wheelchair_alt                      : IconBody msg
+wheelchair_alt                      = i [ class "fa fa-wheelchairalt" ] []
 
 {-| TODO
 -}
-wifi                                : Size -> Attrs msg -> Icon msg
-wifi                                = \size attrs -> icon size attrs <| ls <| FAW.wifi
+wifi                                : IconBody msg
+wifi                                = i [ class "fa fa-wifi" ] []
 
 {-| TODO
 -}
-wrench                              : Size -> Attrs msg -> Icon msg
-wrench                              = \size attrs -> icon size attrs <| ls <| FAW.wrench
+wrench                              : IconBody msg
+wrench                              = i [ class "fa fa-wrench" ] []
 
 {-| TODO
 -}
-fiveHundredPX                       : Size -> Attrs msg -> Icon msg
-fiveHundredPX                       = \size attrs -> icon size attrs <| ls <| FAB.fiveHundredPX
+fiveHundredPX                       : IconBody msg
+fiveHundredPX                       = i [ class "fa fa-fiveHundredPX" ] []
 
 {-| TODO
 -}
-adn                                 : Size -> Attrs msg -> Icon msg
-adn                                 = \size attrs -> icon size attrs <| ls <| FAB.adn
+adn                                 : IconBody msg
+adn                                 = i [ class "fa fa-adn" ] []
 
 {-| TODO
 -}
-amazon                              : Size -> Attrs msg -> Icon msg
-amazon                              = \size attrs -> icon size attrs <| ls <| FAB.amazon
+amazon                              : IconBody msg
+amazon                              = i [ class "fa fa-amazon" ] []
 
 {-| TODO
 -}
-android                             : Size -> Attrs msg -> Icon msg
-android                             = \size attrs -> icon size attrs <| ls <| FAB.android
+android                             : IconBody msg
+android                             = i [ class "fa fa-android" ] []
 
 {-| TODO
 -}
-angellist                           : Size -> Attrs msg -> Icon msg
-angellist                           = \size attrs -> icon size attrs <| ls <| FAB.angellist
+angellist                           : IconBody msg
+angellist                           = i [ class "fa fa-angellist" ] []
 
 {-| TODO
 -}
-apple                               : Size -> Attrs msg -> Icon msg
-apple                               = \size attrs -> icon size attrs <| ls <| FAB.apple
+apple                               : IconBody msg
+apple                               = i [ class "fa fa-apple" ] []
 
 {-| TODO
 -}
-behance                             : Size -> Attrs msg -> Icon msg
-behance                             = \size attrs -> icon size attrs <| ls <| FAB.behance
+behance                             : IconBody msg
+behance                             = i [ class "fa fa-behance" ] []
 
 {-| TODO
 -}
-behance_square                      : Size -> Attrs msg -> Icon msg
-behance_square                      = \size attrs -> icon size attrs <| ls <| FAB.behance_square
+behance_square                      : IconBody msg
+behance_square                      = i [ class "fa fa-behancesquare" ] []
 
 {-| TODO
 -}
-bitbucket                           : Size -> Attrs msg -> Icon msg
-bitbucket                           = \size attrs -> icon size attrs <| ls <| FAB.bitbucket
+bitbucket                           : IconBody msg
+bitbucket                           = i [ class "fa fa-bitbucket" ] []
 
 {-| TODO
 -}
-bitbucket_square                    : Size -> Attrs msg -> Icon msg
-bitbucket_square                    = \size attrs -> icon size attrs <| ls <| FAB.bitbucket_square
+bitbucket_square                    : IconBody msg
+bitbucket_square                    = i [ class "fa fa-bitbucketsquare" ] []
 
 {-| TODO
 -}
-bitcoin                             : Size -> Attrs msg -> Icon msg
-bitcoin                             = \size attrs -> icon size attrs <| ls <| FAB.bitcoin
+bitcoin                             : IconBody msg
+bitcoin                             = i [ class "fa fa-bitcoin" ] []
 
 {-| TODO
 -}
-black_tie                           : Size -> Attrs msg -> Icon msg
-black_tie                           = \size attrs -> icon size attrs <| ls <| FAB.black_tie
+black_tie                           : IconBody msg
+black_tie                           = i [ class "fa fa-blacktie" ] []
 
 {-| TODO
 -}
-btc                                 : Size -> Attrs msg -> Icon msg
-btc                                 = \size attrs -> icon size attrs <| ls <| FAB.btc
+btc                                 : IconBody msg
+btc                                 = i [ class "fa fa-btc" ] []
 
 {-| TODO
 -}
-buysellads                          : Size -> Attrs msg -> Icon msg
-buysellads                          = \size attrs -> icon size attrs <| ls <| FAB.buysellads
+buysellads                          : IconBody msg
+buysellads                          = i [ class "fa fa-buysellads" ] []
 
 {-| TODO
 -}
-cc_amex                             : Size -> Attrs msg -> Icon msg
-cc_amex                             = \size attrs -> icon size attrs <| ls <| FAB.cc_amex
+cc_amex                             : IconBody msg
+cc_amex                             = i [ class "fa fa-ccamex" ] []
 
 {-| TODO
 -}
-cc_diners_club                      : Size -> Attrs msg -> Icon msg
-cc_diners_club                      = \size attrs -> icon size attrs <| ls <| FAB.cc_diners_club
+cc_diners_club                      : IconBody msg
+cc_diners_club                      = i [ class "fa fa-ccdinersclub" ] []
 
 {-| TODO
 -}
-cc_discover                         : Size -> Attrs msg -> Icon msg
-cc_discover                         = \size attrs -> icon size attrs <| ls <| FAB.cc_discover
+cc_discover                         : IconBody msg
+cc_discover                         = i [ class "fa fa-ccdiscover" ] []
 
 {-| TODO
 -}
-cc_jcb                              : Size -> Attrs msg -> Icon msg
-cc_jcb                              = \size attrs -> icon size attrs <| ls <| FAB.cc_jcb
+cc_jcb                              : IconBody msg
+cc_jcb                              = i [ class "fa fa-ccjcb" ] []
 
 {-| TODO
 -}
-cc_mastercard                       : Size -> Attrs msg -> Icon msg
-cc_mastercard                       = \size attrs -> icon size attrs <| ls <| FAB.cc_mastercard
+cc_mastercard                       : IconBody msg
+cc_mastercard                       = i [ class "fa fa-ccmastercard" ] []
 
 {-| TODO
 -}
-cc_paypal                           : Size -> Attrs msg -> Icon msg
-cc_paypal                           = \size attrs -> icon size attrs <| ls <| FAB.cc_paypal
+cc_paypal                           : IconBody msg
+cc_paypal                           = i [ class "fa fa-ccpaypal" ] []
 
 {-| TODO
 -}
-cc_stripe                           : Size -> Attrs msg -> Icon msg
-cc_stripe                           = \size attrs -> icon size attrs <| ls <| FAB.cc_stripe
+cc_stripe                           : IconBody msg
+cc_stripe                           = i [ class "fa fa-ccstripe" ] []
 
 {-| TODO
 -}
-cc_visa                             : Size -> Attrs msg -> Icon msg
-cc_visa                             = \size attrs -> icon size attrs <| ls <| FAB.cc_visa
+cc_visa                             : IconBody msg
+cc_visa                             = i [ class "fa fa-ccvisa" ] []
 
 {-| TODO
 -}
-chrome                              : Size -> Attrs msg -> Icon msg
-chrome                              = \size attrs -> icon size attrs <| ls <| FAB.chrome
+chrome                              : IconBody msg
+chrome                              = i [ class "fa fa-chrome" ] []
 
 {-| TODO
 -}
-codepen                             : Size -> Attrs msg -> Icon msg
-codepen                             = \size attrs -> icon size attrs <| ls <| FAB.codepen
+codepen                             : IconBody msg
+codepen                             = i [ class "fa fa-codepen" ] []
 
 {-| TODO
 -}
-codiepie                            : Size -> Attrs msg -> Icon msg
-codiepie                            = \size attrs -> icon size attrs <| ls <| FAB.codiepie
+codiepie                            : IconBody msg
+codiepie                            = i [ class "fa fa-codiepie" ] []
 
 {-| TODO
 -}
-connectdevelop                      : Size -> Attrs msg -> Icon msg
-connectdevelop                      = \size attrs -> icon size attrs <| ls <| FAB.connectdevelop
+connectdevelop                      : IconBody msg
+connectdevelop                      = i [ class "fa fa-connectdevelop" ] []
 
 {-| TODO
 -}
-contao                              : Size -> Attrs msg -> Icon msg
-contao                              = \size attrs -> icon size attrs <| ls <| FAB.contao
+contao                              : IconBody msg
+contao                              = i [ class "fa fa-contao" ] []
 
 {-| TODO
 -}
-css3                                : Size -> Attrs msg -> Icon msg
-css3                                = \size attrs -> icon size attrs <| ls <| FAB.css3
+css3                                : IconBody msg
+css3                                = i [ class "fa fa-css3" ] []
 
 {-| TODO
 -}
-dashcube                            : Size -> Attrs msg -> Icon msg
-dashcube                            = \size attrs -> icon size attrs <| ls <| FAB.dashcube
+dashcube                            : IconBody msg
+dashcube                            = i [ class "fa fa-dashcube" ] []
 
 {-| TODO
 -}
-delicious                           : Size -> Attrs msg -> Icon msg
-delicious                           = \size attrs -> icon size attrs <| ls <| FAB.delicious
+delicious                           : IconBody msg
+delicious                           = i [ class "fa fa-delicious" ] []
 
 {-| TODO
 -}
-deviantart                          : Size -> Attrs msg -> Icon msg
-deviantart                          = \size attrs -> icon size attrs <| ls <| FAB.deviantart
+deviantart                          : IconBody msg
+deviantart                          = i [ class "fa fa-deviantart" ] []
 
 {-| TODO
 -}
-digg                                : Size -> Attrs msg -> Icon msg
-digg                                = \size attrs -> icon size attrs <| ls <| FAB.digg
+digg                                : IconBody msg
+digg                                = i [ class "fa fa-digg" ] []
 
 {-| TODO
 -}
-dribbble                            : Size -> Attrs msg -> Icon msg
-dribbble                            = \size attrs -> icon size attrs <| ls <| FAB.dribbble
+dribbble                            : IconBody msg
+dribbble                            = i [ class "fa fa-dribbble" ] []
 
 {-| TODO
 -}
-dropbox                             : Size -> Attrs msg -> Icon msg
-dropbox                             = \size attrs -> icon size attrs <| ls <| FAB.dropbox
+dropbox                             : IconBody msg
+dropbox                             = i [ class "fa fa-dropbox" ] []
 
 {-| TODO
 -}
-drupal                              : Size -> Attrs msg -> Icon msg
-drupal                              = \size attrs -> icon size attrs <| ls <| FAB.drupal
+drupal                              : IconBody msg
+drupal                              = i [ class "fa fa-drupal" ] []
 
 {-| TODO
 -}
-edge                                : Size -> Attrs msg -> Icon msg
-edge                                = \size attrs -> icon size attrs <| ls <| FAB.edge
+edge                                : IconBody msg
+edge                                = i [ class "fa fa-edge" ] []
 
 {-| TODO
 -}
-empire                              : Size -> Attrs msg -> Icon msg
-empire                              = \size attrs -> icon size attrs <| ls <| FAB.empire
+empire                              : IconBody msg
+empire                              = i [ class "fa fa-empire" ] []
 
 {-| TODO
 -}
-envira                              : Size -> Attrs msg -> Icon msg
-envira                              = \size attrs -> icon size attrs <| ls <| FAB.envira
+envira                              : IconBody msg
+envira                              = i [ class "fa fa-envira" ] []
 
 {-| TODO
 -}
-expeditedssl                        : Size -> Attrs msg -> Icon msg
-expeditedssl                        = \size attrs -> icon size attrs <| ls <| FAB.expeditedssl
+expeditedssl                        : IconBody msg
+expeditedssl                        = i [ class "fa fa-expeditedssl" ] []
 
 {-| TODO
 -}
-fa                                  : Size -> Attrs msg -> Icon msg
-fa                                  = \size attrs -> icon size attrs <| ls <| FAB.fa
+fa                                  : IconBody msg
+fa                                  = i [ class "fa fa-fa" ] []
 
 {-| TODO
 -}
-facebook                            : Size -> Attrs msg -> Icon msg
-facebook                            = \size attrs -> icon size attrs <| ls <| FAB.facebook
+facebook                            : IconBody msg
+facebook                            = i [ class "fa fa-facebook" ] []
 
 {-| TODO
 -}
-facebook_f                          : Size -> Attrs msg -> Icon msg
-facebook_f                          = \size attrs -> icon size attrs <| ls <| FAB.facebook_f
+facebook_f                          : IconBody msg
+facebook_f                          = i [ class "fa fa-facebookf" ] []
 
 {-| TODO
 -}
-facebook_official                   : Size -> Attrs msg -> Icon msg
-facebook_official                   = \size attrs -> icon size attrs <| ls <| FAB.facebook_official
+facebook_official                   : IconBody msg
+facebook_official                   = i [ class "fa fa-facebookofficial" ] []
 
 {-| TODO
 -}
-facebook_square                     : Size -> Attrs msg -> Icon msg
-facebook_square                     = \size attrs -> icon size attrs <| ls <| FAB.facebook_square
+facebook_square                     : IconBody msg
+facebook_square                     = i [ class "fa fa-facebooksquare" ] []
 
 {-| TODO
 -}
-firefox                             : Size -> Attrs msg -> Icon msg
-firefox                             = \size attrs -> icon size attrs <| ls <| FAB.firefox
+firefox                             : IconBody msg
+firefox                             = i [ class "fa fa-firefox" ] []
 
 {-| TODO
 -}
-first_order                         : Size -> Attrs msg -> Icon msg
-first_order                         = \size attrs -> icon size attrs <| ls <| FAB.first_order
+first_order                         : IconBody msg
+first_order                         = i [ class "fa fa-firstorder" ] []
 
 {-| TODO
 -}
-flickr                              : Size -> Attrs msg -> Icon msg
-flickr                              = \size attrs -> icon size attrs <| ls <| FAB.flickr
+flickr                              : IconBody msg
+flickr                              = i [ class "fa fa-flickr" ] []
 
 {-| TODO
 -}
-font_awesome                        : Size -> Attrs msg -> Icon msg
-font_awesome                        = \size attrs -> icon size attrs <| ls <| FAB.font_awesome
+font_awesome                        : IconBody msg
+font_awesome                        = i [ class "fa fa-fontawesome" ] []
 
 {-| TODO
 -}
-fonticons                           : Size -> Attrs msg -> Icon msg
-fonticons                           = \size attrs -> icon size attrs <| ls <| FAB.fonticons
+fonticons                           : IconBody msg
+fonticons                           = i [ class "fa fa-fonticons" ] []
 
 {-| TODO
 -}
-fort_awesome                        : Size -> Attrs msg -> Icon msg
-fort_awesome                        = \size attrs -> icon size attrs <| ls <| FAB.fort_awesome
+fort_awesome                        : IconBody msg
+fort_awesome                        = i [ class "fa fa-fortawesome" ] []
 
 {-| TODO
 -}
-forumbee                            : Size -> Attrs msg -> Icon msg
-forumbee                            = \size attrs -> icon size attrs <| ls <| FAB.forumbee
+forumbee                            : IconBody msg
+forumbee                            = i [ class "fa fa-forumbee" ] []
 
 {-| TODO
 -}
-foursquare                          : Size -> Attrs msg -> Icon msg
-foursquare                          = \size attrs -> icon size attrs <| ls <| FAB.foursquare
+foursquare                          : IconBody msg
+foursquare                          = i [ class "fa fa-foursquare" ] []
 
 {-| TODO
 -}
-ge                                  : Size -> Attrs msg -> Icon msg
-ge                                  = \size attrs -> icon size attrs <| ls <| FAB.ge
+ge                                  : IconBody msg
+ge                                  = i [ class "fa fa-ge" ] []
 
 {-| TODO
 -}
-get_pocket                          : Size -> Attrs msg -> Icon msg
-get_pocket                          = \size attrs -> icon size attrs <| ls <| FAB.get_pocket
+get_pocket                          : IconBody msg
+get_pocket                          = i [ class "fa fa-getpocket" ] []
 
 {-| TODO
 -}
-gg                                  : Size -> Attrs msg -> Icon msg
-gg                                  = \size attrs -> icon size attrs <| ls <| FAB.gg
+gg                                  : IconBody msg
+gg                                  = i [ class "fa fa-gg" ] []
 
 {-| TODO
 -}
-gg_circle                           : Size -> Attrs msg -> Icon msg
-gg_circle                           = \size attrs -> icon size attrs <| ls <| FAB.gg_circle
+gg_circle                           : IconBody msg
+gg_circle                           = i [ class "fa fa-ggcircle" ] []
 
 {-| TODO
 -}
-git                                 : Size -> Attrs msg -> Icon msg
-git                                 = \size attrs -> icon size attrs <| ls <| FAB.git
+git                                 : IconBody msg
+git                                 = i [ class "fa fa-git" ] []
 
 {-| TODO
 -}
-git_square                          : Size -> Attrs msg -> Icon msg
-git_square                          = \size attrs -> icon size attrs <| ls <| FAB.git_square
+git_square                          : IconBody msg
+git_square                          = i [ class "fa fa-gitsquare" ] []
 
 {-| TODO
 -}
-github                              : Size -> Attrs msg -> Icon msg
-github                              = \size attrs -> icon size attrs <| ls <| FAB.github
+github                              : IconBody msg
+github                              = i [ class "fa fa-github" ] []
 
 {-| TODO
 -}
-github_alt                          : Size -> Attrs msg -> Icon msg
-github_alt                          = \size attrs -> icon size attrs <| ls <| FAB.github_alt
+github_alt                          : IconBody msg
+github_alt                          = i [ class "fa fa-githubalt" ] []
 
 {-| TODO
 -}
-github_square                       : Size -> Attrs msg -> Icon msg
-github_square                       = \size attrs -> icon size attrs <| ls <| FAB.github_square
+github_square                       : IconBody msg
+github_square                       = i [ class "fa fa-githubsquare" ] []
 
 {-| TODO
 -}
-gitlab                              : Size -> Attrs msg -> Icon msg
-gitlab                              = \size attrs -> icon size attrs <| ls <| FAB.gitlab
+gitlab                              : IconBody msg
+gitlab                              = i [ class "fa fa-gitlab" ] []
 
 {-| TODO
 -}
-gittip                              : Size -> Attrs msg -> Icon msg
-gittip                              = \size attrs -> icon size attrs <| ls <| FAB.gittip
+gittip                              : IconBody msg
+gittip                              = i [ class "fa fa-gittip" ] []
 
 {-| TODO
 -}
-glide                               : Size -> Attrs msg -> Icon msg
-glide                               = \size attrs -> icon size attrs <| ls <| FAB.glide
+glide                               : IconBody msg
+glide                               = i [ class "fa fa-glide" ] []
 
 {-| TODO
 -}
-glide_g                             : Size -> Attrs msg -> Icon msg
-glide_g                             = \size attrs -> icon size attrs <| ls <| FAB.glide_g
+glide_g                             : IconBody msg
+glide_g                             = i [ class "fa fa-glideg" ] []
 
 {-| TODO
 -}
-google                              : Size -> Attrs msg -> Icon msg
-google                              = \size attrs -> icon size attrs <| ls <| FAB.google
+google                              : IconBody msg
+google                              = i [ class "fa fa-google" ] []
 
 {-| TODO
 -}
-google_plus                         : Size -> Attrs msg -> Icon msg
-google_plus                         = \size attrs -> icon size attrs <| ls <| FAB.google_plus
+google_plus                         : IconBody msg
+google_plus                         = i [ class "fa fa-googleplus" ] []
 
 {-| TODO
 -}
-google_plus_circle                  : Size -> Attrs msg -> Icon msg
-google_plus_circle                  = \size attrs -> icon size attrs <| ls <| FAB.google_plus_circle
+google_plus_circle                  : IconBody msg
+google_plus_circle                  = i [ class "fa fa-googlepluscircle" ] []
 
 {-| TODO
 -}
-google_plus_official                : Size -> Attrs msg -> Icon msg
-google_plus_official                = \size attrs -> icon size attrs <| ls <| FAB.google_plus_official
+google_plus_official                : IconBody msg
+google_plus_official                = i [ class "fa fa-googleplusofficial" ] []
 
 {-| TODO
 -}
-google_plus_square                  : Size -> Attrs msg -> Icon msg
-google_plus_square                  = \size attrs -> icon size attrs <| ls <| FAB.google_plus_square
+google_plus_square                  : IconBody msg
+google_plus_square                  = i [ class "fa fa-googleplussquare" ] []
 
 {-| TODO
 -}
-google_wallet                       : Size -> Attrs msg -> Icon msg
-google_wallet                       = \size attrs -> icon size attrs <| ls <| FAB.google_wallet
+google_wallet                       : IconBody msg
+google_wallet                       = i [ class "fa fa-googlewallet" ] []
 
 {-| TODO
 -}
-gratipay                            : Size -> Attrs msg -> Icon msg
-gratipay                            = \size attrs -> icon size attrs <| ls <| FAB.gratipay
+gratipay                            : IconBody msg
+gratipay                            = i [ class "fa fa-gratipay" ] []
 
 {-| TODO
 -}
-hacker_news                         : Size -> Attrs msg -> Icon msg
-hacker_news                         = \size attrs -> icon size attrs <| ls <| FAB.hacker_news
+hacker_news                         : IconBody msg
+hacker_news                         = i [ class "fa fa-hackernews" ] []
 
 {-| TODO
 -}
-houzz                               : Size -> Attrs msg -> Icon msg
-houzz                               = \size attrs -> icon size attrs <| ls <| FAB.houzz
+houzz                               : IconBody msg
+houzz                               = i [ class "fa fa-houzz" ] []
 
 {-| TODO
 -}
-html5                               : Size -> Attrs msg -> Icon msg
-html5                               = \size attrs -> icon size attrs <| ls <| FAB.html5
+html5                               : IconBody msg
+html5                               = i [ class "fa fa-html5" ] []
 
 {-| TODO
 -}
-instagram                           : Size -> Attrs msg -> Icon msg
-instagram                           = \size attrs -> icon size attrs <| ls <| FAB.instagram
+instagram                           : IconBody msg
+instagram                           = i [ class "fa fa-instagram" ] []
 
 {-| TODO
 -}
-internet_explorer                   : Size -> Attrs msg -> Icon msg
-internet_explorer                   = \size attrs -> icon size attrs <| ls <| FAB.internet_explorer
+internet_explorer                   : IconBody msg
+internet_explorer                   = i [ class "fa fa-internetexplorer" ] []
 
 {-| TODO
 -}
-ioxhost                             : Size -> Attrs msg -> Icon msg
-ioxhost                             = \size attrs -> icon size attrs <| ls <| FAB.ioxhost
+ioxhost                             : IconBody msg
+ioxhost                             = i [ class "fa fa-ioxhost" ] []
 
 {-| TODO
 -}
-joomla                              : Size -> Attrs msg -> Icon msg
-joomla                              = \size attrs -> icon size attrs <| ls <| FAB.joomla
+joomla                              : IconBody msg
+joomla                              = i [ class "fa fa-joomla" ] []
 
 {-| TODO
 -}
-jsfiddle                            : Size -> Attrs msg -> Icon msg
-jsfiddle                            = \size attrs -> icon size attrs <| ls <| FAB.jsfiddle
+jsfiddle                            : IconBody msg
+jsfiddle                            = i [ class "fa fa-jsfiddle" ] []
 
 {-| TODO
 -}
-lastfm                              : Size -> Attrs msg -> Icon msg
-lastfm                              = \size attrs -> icon size attrs <| ls <| FAB.lastfm
+lastfm                              : IconBody msg
+lastfm                              = i [ class "fa fa-lastfm" ] []
 
 {-| TODO
 -}
-lastfm_square                       : Size -> Attrs msg -> Icon msg
-lastfm_square                       = \size attrs -> icon size attrs <| ls <| FAB.lastfm_square
+lastfm_square                       : IconBody msg
+lastfm_square                       = i [ class "fa fa-lastfmsquare" ] []
 
 {-| TODO
 -}
-leanpub                             : Size -> Attrs msg -> Icon msg
-leanpub                             = \size attrs -> icon size attrs <| ls <| FAB.leanpub
+leanpub                             : IconBody msg
+leanpub                             = i [ class "fa fa-leanpub" ] []
 
 {-| TODO
 -}
-linkedin                            : Size -> Attrs msg -> Icon msg
-linkedin                            = \size attrs -> icon size attrs <| ls <| FAB.linkedin
+linkedin                            : IconBody msg
+linkedin                            = i [ class "fa fa-linkedin" ] []
 
 {-| TODO
 -}
-linkedin_square                     : Size -> Attrs msg -> Icon msg
-linkedin_square                     = \size attrs -> icon size attrs <| ls <| FAB.linkedin_square
+linkedin_square                     : IconBody msg
+linkedin_square                     = i [ class "fa fa-linkedinsquare" ] []
 
 {-| TODO
 -}
-linux                               : Size -> Attrs msg -> Icon msg
-linux                               = \size attrs -> icon size attrs <| ls <| FAB.linux
+linux                               : IconBody msg
+linux                               = i [ class "fa fa-linux" ] []
 
 {-| TODO
 -}
-maxcdn                              : Size -> Attrs msg -> Icon msg
-maxcdn                              = \size attrs -> icon size attrs <| ls <| FAB.maxcdn
+maxcdn                              : IconBody msg
+maxcdn                              = i [ class "fa fa-maxcdn" ] []
 
 {-| TODO
 -}
-meanpath                            : Size -> Attrs msg -> Icon msg
-meanpath                            = \size attrs -> icon size attrs <| ls <| FAB.meanpath
+meanpath                            : IconBody msg
+meanpath                            = i [ class "fa fa-meanpath" ] []
 
 {-| TODO
 -}
-medium_                             : Size -> Attrs msg -> Icon msg
-medium_                             = \size attrs -> icon size attrs <| ls <| FAB.medium
+medium_                             : IconBody msg
+medium_                             = i [ class "fa fa-medium" ] []
 
 {-| TODO
 -}
-mixcloud                            : Size -> Attrs msg -> Icon msg
-mixcloud                            = \size attrs -> icon size attrs <| ls <| FAB.mixcloud
+mixcloud                            : IconBody msg
+mixcloud                            = i [ class "fa fa-mixcloud" ] []
 
 {-| TODO
 -}
-modx                                : Size -> Attrs msg -> Icon msg
-modx                                = \size attrs -> icon size attrs <| ls <| FAB.modx
+modx                                : IconBody msg
+modx                                = i [ class "fa fa-modx" ] []
 
 {-| TODO
 -}
-odnoklassniki                       : Size -> Attrs msg -> Icon msg
-odnoklassniki                       = \size attrs -> icon size attrs <| ls <| FAB.odnoklassniki
+odnoklassniki                       : IconBody msg
+odnoklassniki                       = i [ class "fa fa-odnoklassniki" ] []
 
 {-| TODO
 -}
-odnoklassniki_square                : Size -> Attrs msg -> Icon msg
-odnoklassniki_square                = \size attrs -> icon size attrs <| ls <| FAB.odnoklassniki_square
+odnoklassniki_square                : IconBody msg
+odnoklassniki_square                = i [ class "fa fa-odnoklassnikisquare" ] []
 
 {-| TODO
 -}
-opencart                            : Size -> Attrs msg -> Icon msg
-opencart                            = \size attrs -> icon size attrs <| ls <| FAB.opencart
+opencart                            : IconBody msg
+opencart                            = i [ class "fa fa-opencart" ] []
 
 {-| TODO
 -}
-openid                              : Size -> Attrs msg -> Icon msg
-openid                              = \size attrs -> icon size attrs <| ls <| FAB.openid
+openid                              : IconBody msg
+openid                              = i [ class "fa fa-openid" ] []
 
 {-| TODO
 -}
-opera                               : Size -> Attrs msg -> Icon msg
-opera                               = \size attrs -> icon size attrs <| ls <| FAB.opera
+opera                               : IconBody msg
+opera                               = i [ class "fa fa-opera" ] []
 
 {-| TODO
 -}
-optin_monster                       : Size -> Attrs msg -> Icon msg
-optin_monster                       = \size attrs -> icon size attrs <| ls <| FAB.optin_monster
+optin_monster                       : IconBody msg
+optin_monster                       = i [ class "fa fa-optinmonster" ] []
 
 {-| TODO
 -}
-pagelines                           : Size -> Attrs msg -> Icon msg
-pagelines                           = \size attrs -> icon size attrs <| ls <| FAB.pagelines
+pagelines                           : IconBody msg
+pagelines                           = i [ class "fa fa-pagelines" ] []
 
 {-| TODO
 -}
-paypal                              : Size -> Attrs msg -> Icon msg
-paypal                              = \size attrs -> icon size attrs <| ls <| FAB.paypal
+paypal                              : IconBody msg
+paypal                              = i [ class "fa fa-paypal" ] []
 
 {-| TODO
 -}
-pied_piper                          : Size -> Attrs msg -> Icon msg
-pied_piper                          = \size attrs -> icon size attrs <| ls <| FAB.pied_piper
+pied_piper                          : IconBody msg
+pied_piper                          = i [ class "fa fa-piedpiper" ] []
 
 {-| TODO
 -}
-pied_piper_alt                      : Size -> Attrs msg -> Icon msg
-pied_piper_alt                      = \size attrs -> icon size attrs <| ls <| FAB.pied_piper_alt
+pied_piper_alt                      : IconBody msg
+pied_piper_alt                      = i [ class "fa fa-piedpiperalt" ] []
 
 {-| TODO
 -}
-pied_piper_pp                       : Size -> Attrs msg -> Icon msg
-pied_piper_pp                       = \size attrs -> icon size attrs <| ls <| FAB.pied_piper_pp
+pied_piper_pp                       : IconBody msg
+pied_piper_pp                       = i [ class "fa fa-piedpiperpp" ] []
 
 {-| TODO
 -}
-pinterest                           : Size -> Attrs msg -> Icon msg
-pinterest                           = \size attrs -> icon size attrs <| ls <| FAB.pinterest
+pinterest                           : IconBody msg
+pinterest                           = i [ class "fa fa-pinterest" ] []
 
 {-| TODO
 -}
-pinterest_p                         : Size -> Attrs msg -> Icon msg
-pinterest_p                         = \size attrs -> icon size attrs <| ls <| FAB.pinterest_p
+pinterest_p                         : IconBody msg
+pinterest_p                         = i [ class "fa fa-pinterestp" ] []
 
 {-| TODO
 -}
-pinterest_square                    : Size -> Attrs msg -> Icon msg
-pinterest_square                    = \size attrs -> icon size attrs <| ls <| FAB.pinterest_square
+pinterest_square                    : IconBody msg
+pinterest_square                    = i [ class "fa fa-pinterestsquare" ] []
 
 {-| TODO
 -}
-product_hunt                        : Size -> Attrs msg -> Icon msg
-product_hunt                        = \size attrs -> icon size attrs <| ls <| FAB.product_hunt
+product_hunt                        : IconBody msg
+product_hunt                        = i [ class "fa fa-producthunt" ] []
 
 {-| TODO
 -}
-qq                                  : Size -> Attrs msg -> Icon msg
-qq                                  = \size attrs -> icon size attrs <| ls <| FAB.qq
+qq                                  : IconBody msg
+qq                                  = i [ class "fa fa-qq" ] []
 
 {-| TODO
 -}
-ra                                  : Size -> Attrs msg -> Icon msg
-ra                                  = \size attrs -> icon size attrs <| ls <| FAB.ra
+ra                                  : IconBody msg
+ra                                  = i [ class "fa fa-ra" ] []
 
 {-| TODO
 -}
-rebel                               : Size -> Attrs msg -> Icon msg
-rebel                               = \size attrs -> icon size attrs <| ls <| FAB.rebel
+rebel                               : IconBody msg
+rebel                               = i [ class "fa fa-rebel" ] []
 
 {-| TODO
 -}
-reddit                              : Size -> Attrs msg -> Icon msg
-reddit                              = \size attrs -> icon size attrs <| ls <| FAB.reddit
+reddit                              : IconBody msg
+reddit                              = i [ class "fa fa-reddit" ] []
 
 {-| TODO
 -}
-reddit_alien                        : Size -> Attrs msg -> Icon msg
-reddit_alien                        = \size attrs -> icon size attrs <| ls <| FAB.reddit_alien
+reddit_alien                        : IconBody msg
+reddit_alien                        = i [ class "fa fa-redditalien" ] []
 
 {-| TODO
 -}
-reddit_square                       : Size -> Attrs msg -> Icon msg
-reddit_square                       = \size attrs -> icon size attrs <| ls <| FAB.reddit_square
+reddit_square                       : IconBody msg
+reddit_square                       = i [ class "fa fa-redditsquare" ] []
 
 {-| TODO
 -}
-renren                              : Size -> Attrs msg -> Icon msg
-renren                              = \size attrs -> icon size attrs <| ls <| FAB.renren
+renren                              : IconBody msg
+renren                              = i [ class "fa fa-renren" ] []
 
 {-| TODO
 -}
-resistance                          : Size -> Attrs msg -> Icon msg
-resistance                          = \size attrs -> icon size attrs <| ls <| FAB.resistance
+resistance                          : IconBody msg
+resistance                          = i [ class "fa fa-resistance" ] []
 
 {-| TODO
 -}
-safari                              : Size -> Attrs msg -> Icon msg
-safari                              = \size attrs -> icon size attrs <| ls <| FAB.safari
+safari                              : IconBody msg
+safari                              = i [ class "fa fa-safari" ] []
 
 {-| TODO
 -}
-scribd                              : Size -> Attrs msg -> Icon msg
-scribd                              = \size attrs -> icon size attrs <| ls <| FAB.scribd
+scribd                              : IconBody msg
+scribd                              = i [ class "fa fa-scribd" ] []
 
 {-| TODO
 -}
-sellsy                              : Size -> Attrs msg -> Icon msg
-sellsy                              = \size attrs -> icon size attrs <| ls <| FAB.sellsy
+sellsy                              : IconBody msg
+sellsy                              = i [ class "fa fa-sellsy" ] []
 
 {-| TODO
 -}
-shirtsinbulk                        : Size -> Attrs msg -> Icon msg
-shirtsinbulk                        = \size attrs -> icon size attrs <| ls <| FAB.shirtsinbulk
+shirtsinbulk                        : IconBody msg
+shirtsinbulk                        = i [ class "fa fa-shirtsinbulk" ] []
 
 {-| TODO
 -}
-simplybuilt                         : Size -> Attrs msg -> Icon msg
-simplybuilt                         = \size attrs -> icon size attrs <| ls <| FAB.simplybuilt
+simplybuilt                         : IconBody msg
+simplybuilt                         = i [ class "fa fa-simplybuilt" ] []
 
 {-| TODO
 -}
-skyatlas                            : Size -> Attrs msg -> Icon msg
-skyatlas                            = \size attrs -> icon size attrs <| ls <| FAB.skyatlas
+skyatlas                            : IconBody msg
+skyatlas                            = i [ class "fa fa-skyatlas" ] []
 
 {-| TODO
 -}
-skype                               : Size -> Attrs msg -> Icon msg
-skype                               = \size attrs -> icon size attrs <| ls <| FAB.skype
+skype                               : IconBody msg
+skype                               = i [ class "fa fa-skype" ] []
 
 {-| TODO
 -}
-slack                               : Size -> Attrs msg -> Icon msg
-slack                               = \size attrs -> icon size attrs <| ls <| FAB.slack
+slack                               : IconBody msg
+slack                               = i [ class "fa fa-slack" ] []
 
 {-| TODO
 -}
-slideshare                          : Size -> Attrs msg -> Icon msg
-slideshare                          = \size attrs -> icon size attrs <| ls <| FAB.slideshare
+slideshare                          : IconBody msg
+slideshare                          = i [ class "fa fa-slideshare" ] []
 
 {-| TODO
 -}
-snapchat                            : Size -> Attrs msg -> Icon msg
-snapchat                            = \size attrs -> icon size attrs <| ls <| FAB.snapchat
+snapchat                            : IconBody msg
+snapchat                            = i [ class "fa fa-snapchat" ] []
 
 {-| TODO
 -}
-snapchat_ghost                      : Size -> Attrs msg -> Icon msg
-snapchat_ghost                      = \size attrs -> icon size attrs <| ls <| FAB.snapchat_ghost
+snapchat_ghost                      : IconBody msg
+snapchat_ghost                      = i [ class "fa fa-snapchatghost" ] []
 
 {-| TODO
 -}
-snapchat_square                     : Size -> Attrs msg -> Icon msg
-snapchat_square                     = \size attrs -> icon size attrs <| ls <| FAB.snapchat_square
+snapchat_square                     : IconBody msg
+snapchat_square                     = i [ class "fa fa-snapchatsquare" ] []
 
 {-| TODO
 -}
-soundcloud                          : Size -> Attrs msg -> Icon msg
-soundcloud                          = \size attrs -> icon size attrs <| ls <| FAB.soundcloud
+soundcloud                          : IconBody msg
+soundcloud                          = i [ class "fa fa-soundcloud" ] []
 
 {-| TODO
 -}
-spotify                             : Size -> Attrs msg -> Icon msg
-spotify                             = \size attrs -> icon size attrs <| ls <| FAB.spotify
+spotify                             : IconBody msg
+spotify                             = i [ class "fa fa-spotify" ] []
 
 {-| TODO
 -}
-stack_exchange                      : Size -> Attrs msg -> Icon msg
-stack_exchange                      = \size attrs -> icon size attrs <| ls <| FAB.stack_exchange
+stack_exchange                      : IconBody msg
+stack_exchange                      = i [ class "fa fa-stackexchange" ] []
 
 {-| TODO
 -}
-stack_overflow                      : Size -> Attrs msg -> Icon msg
-stack_overflow                      = \size attrs -> icon size attrs <| ls <| FAB.stack_overflow
+stack_overflow                      : IconBody msg
+stack_overflow                      = i [ class "fa fa-stackoverflow" ] []
 
 {-| TODO
 -}
-steam                               : Size -> Attrs msg -> Icon msg
-steam                               = \size attrs -> icon size attrs <| ls <| FAB.steam
+steam                               : IconBody msg
+steam                               = i [ class "fa fa-steam" ] []
 
 {-| TODO
 -}
-steam_square                        : Size -> Attrs msg -> Icon msg
-steam_square                        = \size attrs -> icon size attrs <| ls <| FAB.steam_square
+steam_square                        : IconBody msg
+steam_square                        = i [ class "fa fa-steamsquare" ] []
 
 {-| TODO
 -}
-stumbleupon                         : Size -> Attrs msg -> Icon msg
-stumbleupon                         = \size attrs -> icon size attrs <| ls <| FAB.stumbleupon
+stumbleupon                         : IconBody msg
+stumbleupon                         = i [ class "fa fa-stumbleupon" ] []
 
 {-| TODO
 -}
-stumbleupon_circle                  : Size -> Attrs msg -> Icon msg
-stumbleupon_circle                  = \size attrs -> icon size attrs <| ls <| FAB.stumbleupon_circle
+stumbleupon_circle                  : IconBody msg
+stumbleupon_circle                  = i [ class "fa fa-stumbleuponcircle" ] []
 
 {-| TODO
 -}
-tencent_weibo                       : Size -> Attrs msg -> Icon msg
-tencent_weibo                       = \size attrs -> icon size attrs <| ls <| FAB.tencent_weibo
+tencent_weibo                       : IconBody msg
+tencent_weibo                       = i [ class "fa fa-tencentweibo" ] []
 
 {-| TODO
 -}
-themeisle                           : Size -> Attrs msg -> Icon msg
-themeisle                           = \size attrs -> icon size attrs <| ls <| FAB.themeisle
+themeisle                           : IconBody msg
+themeisle                           = i [ class "fa fa-themeisle" ] []
 
 {-| TODO
 -}
-trello                              : Size -> Attrs msg -> Icon msg
-trello                              = \size attrs -> icon size attrs <| ls <| FAB.trello
+trello                              : IconBody msg
+trello                              = i [ class "fa fa-trello" ] []
 
 {-| TODO
 -}
-tripadvisor                         : Size -> Attrs msg -> Icon msg
-tripadvisor                         = \size attrs -> icon size attrs <| ls <| FAB.tripadvisor
+tripadvisor                         : IconBody msg
+tripadvisor                         = i [ class "fa fa-tripadvisor" ] []
 
 {-| TODO
 -}
-tumblr                              : Size -> Attrs msg -> Icon msg
-tumblr                              = \size attrs -> icon size attrs <| ls <| FAB.tumblr
+tumblr                              : IconBody msg
+tumblr                              = i [ class "fa fa-tumblr" ] []
 
 {-| TODO
 -}
-tumblr_square                       : Size -> Attrs msg -> Icon msg
-tumblr_square                       = \size attrs -> icon size attrs <| ls <| FAB.tumblr_square
+tumblr_square                       : IconBody msg
+tumblr_square                       = i [ class "fa fa-tumblrsquare" ] []
 
 {-| TODO
 -}
-twitch                              : Size -> Attrs msg -> Icon msg
-twitch                              = \size attrs -> icon size attrs <| ls <| FAB.twitch
+twitch                              : IconBody msg
+twitch                              = i [ class "fa fa-twitch" ] []
 
 {-| TODO
 -}
-twitter                             : Size -> Attrs msg -> Icon msg
-twitter                             = \size attrs -> icon size attrs <| ls <| FAB.twitter
+twitter                             : IconBody msg
+twitter                             = i [ class "fa fa-twitter" ] []
 
 {-| TODO
 -}
-twitter_square                      : Size -> Attrs msg -> Icon msg
-twitter_square                      = \size attrs -> icon size attrs <| ls <| FAB.twitter_square
+twitter_square                      : IconBody msg
+twitter_square                      = i [ class "fa fa-twittersquare" ] []
 
 {-| TODO
 -}
-usb                                 : Size -> Attrs msg -> Icon msg
-usb                                 = \size attrs -> icon size attrs <| ls <| FAB.usb
+usb                                 : IconBody msg
+usb                                 = i [ class "fa fa-usb" ] []
 
 {-| TODO
 -}
-viacoin                             : Size -> Attrs msg -> Icon msg
-viacoin                             = \size attrs -> icon size attrs <| ls <| FAB.viacoin
+viacoin                             : IconBody msg
+viacoin                             = i [ class "fa fa-viacoin" ] []
 
 {-| TODO
 -}
-viadeo                              : Size -> Attrs msg -> Icon msg
-viadeo                              = \size attrs -> icon size attrs <| ls <| FAB.viadeo
+viadeo                              : IconBody msg
+viadeo                              = i [ class "fa fa-viadeo" ] []
 
 {-| TODO
 -}
-viadeo_square                       : Size -> Attrs msg -> Icon msg
-viadeo_square                       = \size attrs -> icon size attrs <| ls <| FAB.viadeo_square
+viadeo_square                       : IconBody msg
+viadeo_square                       = i [ class "fa fa-viadeosquare" ] []
 
 {-| TODO
 -}
-vimeo                               : Size -> Attrs msg -> Icon msg
-vimeo                               = \size attrs -> icon size attrs <| ls <| FAB.vimeo
+vimeo                               : IconBody msg
+vimeo                               = i [ class "fa fa-vimeo" ] []
 
 {-| TODO
 -}
-vimeo_square                        : Size -> Attrs msg -> Icon msg
-vimeo_square                        = \size attrs -> icon size attrs <| ls <| FAB.vimeo_square
+vimeo_square                        : IconBody msg
+vimeo_square                        = i [ class "fa fa-vimeosquare" ] []
 
 {-| TODO
 -}
-vine                                : Size -> Attrs msg -> Icon msg
-vine                                = \size attrs -> icon size attrs <| ls <| FAB.vine
+vine                                : IconBody msg
+vine                                = i [ class "fa fa-vine" ] []
 
 {-| TODO
 -}
-vk                                  : Size -> Attrs msg -> Icon msg
-vk                                  = \size attrs -> icon size attrs <| ls <| FAB.vk
+vk                                  : IconBody msg
+vk                                  = i [ class "fa fa-vk" ] []
 
 {-| TODO
 -}
-wechat                              : Size -> Attrs msg -> Icon msg
-wechat                              = \size attrs -> icon size attrs <| ls <| FAB.wechat
+wechat                              : IconBody msg
+wechat                              = i [ class "fa fa-wechat" ] []
 
 {-| TODO
 -}
-weibo                               : Size -> Attrs msg -> Icon msg
-weibo                               = \size attrs -> icon size attrs <| ls <| FAB.weibo
+weibo                               : IconBody msg
+weibo                               = i [ class "fa fa-weibo" ] []
 
 {-| TODO
 -}
-weixin                              : Size -> Attrs msg -> Icon msg
-weixin                              = \size attrs -> icon size attrs <| ls <| FAB.weixin
+weixin                              : IconBody msg
+weixin                              = i [ class "fa fa-weixin" ] []
 
 {-| TODO
 -}
-whatsapp                            : Size -> Attrs msg -> Icon msg
-whatsapp                            = \size attrs -> icon size attrs <| ls <| FAB.whatsapp
+whatsapp                            : IconBody msg
+whatsapp                            = i [ class "fa fa-whatsapp" ] []
 
 {-| TODO
 -}
-wikipedia_w                         : Size -> Attrs msg -> Icon msg
-wikipedia_w                         = \size attrs -> icon size attrs <| ls <| FAB.wikipedia_w
+wikipedia_w                         : IconBody msg
+wikipedia_w                         = i [ class "fa fa-wikipediaw" ] []
 
 {-| TODO
 -}
-windows                             : Size -> Attrs msg -> Icon msg
-windows                             = \size attrs -> icon size attrs <| ls <| FAB.windows
+windows                             : IconBody msg
+windows                             = i [ class "fa fa-windows" ] []
 
 {-| TODO
 -}
-wordpress                           : Size -> Attrs msg -> Icon msg
-wordpress                           = \size attrs -> icon size attrs <| ls <| FAB.wordpress
+wordpress                           : IconBody msg
+wordpress                           = i [ class "fa fa-wordpress" ] []
 
 {-| TODO
 -}
-wpbeginner                          : Size -> Attrs msg -> Icon msg
-wpbeginner                          = \size attrs -> icon size attrs <| ls <| FAB.wpbeginner
+wpbeginner                          : IconBody msg
+wpbeginner                          = i [ class "fa fa-wpbeginner" ] []
 
 {-| TODO
 -}
-wpforms                             : Size -> Attrs msg -> Icon msg
-wpforms                             = \size attrs -> icon size attrs <| ls <| FAB.wpforms
+wpforms                             : IconBody msg
+wpforms                             = i [ class "fa fa-wpforms" ] []
 
 {-| TODO
 -}
-xing                                : Size -> Attrs msg -> Icon msg
-xing                                = \size attrs -> icon size attrs <| ls <| FAB.xing
+xing                                : IconBody msg
+xing                                = i [ class "fa fa-xing" ] []
 
 {-| TODO
 -}
-xing_square                         : Size -> Attrs msg -> Icon msg
-xing_square                         = \size attrs -> icon size attrs <| ls <| FAB.xing_square
+xing_square                         : IconBody msg
+xing_square                         = i [ class "fa fa-xingsquare" ] []
 
 {-| TODO
 -}
-y_combinator                        : Size -> Attrs msg -> Icon msg
-y_combinator                        = \size attrs -> icon size attrs <| ls <| FAB.y_combinator
+y_combinator                        : IconBody msg
+y_combinator                        = i [ class "fa fa-ycombinator" ] []
 
 {-| TODO
 -}
-y_combinator_square                 : Size -> Attrs msg -> Icon msg
-y_combinator_square                 = \size attrs -> icon size attrs <| ls <| FAB.y_combinator_square
+y_combinator_square                 : IconBody msg
+y_combinator_square                 = i [ class "fa fa-ycombinatorsquare" ] []
 
 {-| TODO
 -}
-yahoo                               : Size -> Attrs msg -> Icon msg
-yahoo                               = \size attrs -> icon size attrs <| ls <| FAB.yahoo
+yahoo                               : IconBody msg
+yahoo                               = i [ class "fa fa-yahoo" ] []
 
 {-| TODO
 -}
-yc                                  : Size -> Attrs msg -> Icon msg
-yc                                  = \size attrs -> icon size attrs <| ls <| FAB.yc
+yc                                  : IconBody msg
+yc                                  = i [ class "fa fa-yc" ] []
 
 {-| TODO
 -}
-yc_square                           : Size -> Attrs msg -> Icon msg
-yc_square                           = \size attrs -> icon size attrs <| ls <| FAB.yc_square
+yc_square                           : IconBody msg
+yc_square                           = i [ class "fa fa-ycsquare" ] []
 
 {-| TODO
 -}
-yelp                                : Size -> Attrs msg -> Icon msg
-yelp                                = \size attrs -> icon size attrs <| ls <| FAB.yelp
+yelp                                : IconBody msg
+yelp                                = i [ class "fa fa-yelp" ] []
 
 {-| TODO
 -}
-yoast                               : Size -> Attrs msg -> Icon msg
-yoast                               = \size attrs -> icon size attrs <| ls <| FAB.yoast
+yoast                               : IconBody msg
+yoast                               = i [ class "fa fa-yoast" ] []
 
 {-| TODO
 -}
-youtube                             : Size -> Attrs msg -> Icon msg
-youtube                             = \size attrs -> icon size attrs <| ls <| FAB.youtube
+youtube                             : IconBody msg
+youtube                             = i [ class "fa fa-youtube" ] []
 
 {-| TODO
 -}
-youtube_play                        : Size -> Attrs msg -> Icon msg
-youtube_play                        = \size attrs -> icon size attrs <| ls <| FAB.youtube_play
+youtube_play                        : IconBody msg
+youtube_play                        = i [ class "fa fa-youtubeplay" ] []
 
 {-| TODO
 -}
-youtube_square                      : Size -> Attrs msg -> Icon msg
-youtube_square                      = \size attrs -> icon size attrs <| ls <| FAB.youtube_square
+youtube_square                      : IconBody msg
+youtube_square                      = i [ class "fa fa-youtubesquare" ] []

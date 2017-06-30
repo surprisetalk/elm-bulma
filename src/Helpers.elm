@@ -5,14 +5,10 @@ module Helpers exposing (..)
 
 import Html exposing ( Html, Attribute )
 import Html.Attributes as Attrs exposing ( class )
-import Function exposing (..)
-
-import  List.Extra as List_  exposing ( splitWhen )
-import Maybe.Extra as Maybe_ 
 
 import Tuple exposing (..)
 
-import List exposing ( filter )
+import List exposing ( foldr, filter )
 import String exposing ( join )
 
 
@@ -70,7 +66,13 @@ uncurry4 f (a,b,c,d) = f a b c d
 (?*) = fl (*?)
 
 mvalues : List (Maybe a) -> List a
-mvalues = Maybe_.values
+mvalues
+  = flip foldr []
+  <| \x xs ->
+    case x of
+      Nothing ->       xs
+      Just x_ -> x_ :: xs
+    
 
 
 -- TUPLES ----------------------------------------------------------------------
@@ -105,21 +107,21 @@ node tag attrs_ classes attrs
   <| classes
 
 
--- FLISTS ----------------------------------------------------------------------
+-- -- FLISTS ----------------------------------------------------------------------
 
-type alias FList a = ( List a, a, List a )
+-- type alias FList a = ( List a, a, List a )
 
-flmap : (a -> b) -> (a -> b) -> (a -> b) -> FList a -> FList b
-flmap f g h (xs,y,zs) = ( List.map f xs
-                        ,          g y
-                        , List.map h zs
-                        )
+-- flmap : (a -> b) -> (a -> b) -> (a -> b) -> FList a -> FList b
+-- flmap f g h (xs,y,zs) = ( List.map f xs
+--                         ,          g y
+--                         , List.map h zs
+--                         )
 
-fromFList : FList a -> List a
-fromFList (a,b,c) = a ++ [ b ] ++ c
+-- fromFList : FList a -> List a
+-- fromFList (a,b,c) = a ++ [ b ] ++ c
 
-selectWhen : (a -> Bool) -> FList a -> FList a
-selectWhen f flist
-  = case splitWhen f <| fromFList flist of
-      Just ( xs, y :: zs ) -> ( xs, y, zs )
-      _                    -> flist
+-- selectWhen : (a -> Bool) -> FList a -> FList a
+-- selectWhen f flist
+--   = case splitWhen f <| fromFList flist of
+--       Just ( xs, y :: zs ) -> ( xs, y, zs )
+--       _                    -> flist
