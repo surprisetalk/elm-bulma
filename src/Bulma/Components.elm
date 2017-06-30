@@ -143,10 +143,26 @@ module Bulma.Components exposing (..)
 @docs paginationEllipsis, easyPaginationEllipsis
 
 # Panel
-Coming soon!
+@docs Panel
+@docs panel
+
+## Panel Partition
+@docs PanelPartition, IsActive
+@docs panelHeading
+@docs panelBlock, panelLink, panelLabel
+@docs panelTabs
+
+### Panel Tab
+@docs PanelTab, IsActive
+@docs panelTab
 
 # Tabs
-Coming soon!
+@docs Tabs, TabsModifiers, TabsStyle
+@docs tabs
+
+## Tab
+@docs Tab, IsActive
+@docs tab
 
 -}
 
@@ -860,3 +876,153 @@ paginationEllipsis = node "span" [] [ bulma.pagination.list.ellipsis ]
 -}
 easyPaginationEllipsis : Attrs msg -> PaginationListItem msg
 easyPaginationEllipsis attrs = paginationEllipsis attrs [ text "&hellip;" ]
+
+
+-- PANEL -----------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Panel msg = Html msg
+
+{-| TODO
+-}
+panel : Attrs msg -> List (PanelPartition msg) -> Panel msg
+panel = node "div" [] [ bulma.panel.container ]
+
+-- TODO: easyPanel
+
+
+-- PANEL PARTITIONS --
+
+{-| TODO
+-}
+type alias PanelPartition msg = Html msg
+
+{-| TODO
+-}
+panelHeading : Attrs msg  -> Htmls msg -> PanelPartition msg
+panelHeading = node "p" [] [ bulma.panel.heading ]
+
+{-| TODO
+-}
+panelTabs : Attrs msg -> List (PanelTab msg) -> PanelPartition msg
+panelTabs = node "p" [] [ bulma.panel.tabs.container ]
+
+{-| TODO
+-}
+panelBlock : IsActive -> Attrs msg -> Htmls msg -> PanelPartition msg
+panelBlock active
+  = node "div" []
+    [ bulma.panel.block.container
+    , case active of
+        True  -> bulma.panel.block.state.isActive
+        False -> ""
+    ]
+
+{-| TODO
+-}
+panelLink : IsActive -> Attrs msg -> Htmls msg -> PanelPartition msg
+panelLink active
+  = node "a" []
+    [ bulma.panel.block.container
+    , case active of
+        True  -> bulma.panel.block.state.isActive
+        False -> ""
+    ]
+
+-- easyPanelLink : IsActive -> Attrs msg -> msg -> Icon msg -> String -> PanelPartition msg
+-- easyPanelLink active attrs msg icon str
+--   = panelBlockLink active (onClick msg :: attrs) [ panelLinkIcon icon ]
+
+-- TODO: panelLinkIcon : (Attrs msg -> Htmls msg -> Icon msg) -> Attrs msg -> Htmls msg -> Icon msg
+
+{-| TODO
+-}
+panelLabel : IsActive -> Attrs msg -> Htmls msg -> PanelPartition msg
+panelLabel active
+  = node "label" []
+    [ bulma.panel.block.container
+    , case active of
+        True  -> bulma.panel.block.state.isActive
+        False -> ""
+    ]
+
+-- TODO: easyPanelRadio
+
+
+-- PANEL TABS --
+
+{-| TODO
+-}
+type alias PanelTab msg = Html msg
+
+{-| TODO
+-}
+panelTab : IsActive -> Attrs msg -> Htmls msg -> PanelTab msg
+panelTab active
+  = node "a" []
+    [ case active of
+        True  -> bulma.panel.tabs.tab.state.isActive
+        False -> ""
+    ]
+
+
+-- TABS ------------------------------------------------------------------------
+
+{-| TODO
+-}
+type alias Tabs msg = Html msg
+
+{-| TODO
+-}
+type TabsStyle = Minimal
+               | Boxed
+               | Toggle
+
+{-| TODO
+-}
+type alias TabsModifiers = { style     : TabsStyle
+                           , alignment : HorizontalAlignment
+                           , size      : Size
+                           }
+
+{-| TODO
+-}
+tabs : TabsModifiers -> Attrs msg -> List (Tab msg) -> Tabs msg
+tabs {style,alignment,size}
+  = node "div" []
+    [ bulma.tabs.container
+    , case style of
+        Minimal -> ""
+        Boxed   -> bulma.tabs.style.isBoxed
+        Toggle  -> bulma.tabs.style.isToggle
+    , case alignment of
+        Left     -> ""
+        Centered -> bulma.tabs.alignment.isCentered
+        Right    -> bulma.tabs.alignment.isRight
+    , case size of
+        Small  -> bulma.tabs.size.isSmall
+        Normal -> ""
+        Medium -> bulma.tabs.size.isMedium
+        Large  -> bulma.tabs.size.isLarge
+    ]
+
+
+-- TAB --
+
+{-| TODO
+-}
+type alias Tab msg = Html msg
+
+{-| TODO
+-}
+tab : IsActive -> Attrs msg -> Htmls msg -> Tab msg
+tab active
+  = node "li" []
+    [ case active of
+        True  -> bulma.tabs.tab.state.isActive
+        False -> ""
+    ]
+
+
+
