@@ -1,5 +1,5 @@
 {
-    "version": "4.0.1",
+    "version": "4.1.0",
     "summary": "Bulma HTML/CSS Framework for Elm",
     "repository": "https://github.com/surprisetalk/elm-bulma.git",
     "license": "BSD3",
@@ -9,6 +9,7 @@
     "exposed-modules": [
         "Bulma.CDN",
         "Bulma.Helpers",
+        "Bulma.Modifiers",
         "Bulma.Grid",
         "Bulma.Elements",
         "Bulma.Elements.Icon",
