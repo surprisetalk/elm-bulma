@@ -11,13 +11,12 @@ module Bulma.Grid exposing (..)
 - [Tile](#tile)
 
 # Columns
-@docs columns
 @docs ColumnsModifiers, Display, columnsModifiers
+@docs columns
 
 ## Column
-@docs Column
+@docs Column, ColumnModifiers, Width, columnModifiers
 @docs column, narrowColumn
-@docs ColumnModifiers, Width, columnModifiers
 
 # Tile
 @docs Tile, Width
@@ -115,48 +114,46 @@ type alias Column msg = Html msg
 column : ColumnModifiers -> Attrs msg -> Htmls msg -> Html msg
 column {widths,offset}
   = node "div" []
-    [ flip (++) "-mobile"
-    <| case widths.mobile of
+    [ bulma.columns.column.container
+    , case widths.mobile of
          Auto    -> ""
-         Width1  -> bulma.columns.column.width.is1
-         Width2  -> bulma.columns.column.width.is2
-         Width3  -> bulma.columns.column.width.is3
-         Width4  -> bulma.columns.column.width.is4
-         Width5  -> bulma.columns.column.width.is5
-         Width6  -> bulma.columns.column.width.is6
-         Width7  -> bulma.columns.column.width.is7
-         Width8  -> bulma.columns.column.width.is8
-         Width9  -> bulma.columns.column.width.is9
-         Width10 -> bulma.columns.column.width.is10
-         Width11 -> bulma.columns.column.width.is11
-    , flip (++) "-tablet"
-    <| case widths.tablet of
+         Width1  -> flip (++) "-mobile" bulma.columns.column.width.is1
+         Width2  -> flip (++) "-mobile" bulma.columns.column.width.is2
+         Width3  -> flip (++) "-mobile" bulma.columns.column.width.is3
+         Width4  -> flip (++) "-mobile" bulma.columns.column.width.is4
+         Width5  -> flip (++) "-mobile" bulma.columns.column.width.is5
+         Width6  -> flip (++) "-mobile" bulma.columns.column.width.is6
+         Width7  -> flip (++) "-mobile" bulma.columns.column.width.is7
+         Width8  -> flip (++) "-mobile" bulma.columns.column.width.is8
+         Width9  -> flip (++) "-mobile" bulma.columns.column.width.is9
+         Width10 -> flip (++) "-mobile" bulma.columns.column.width.is10
+         Width11 -> flip (++) "-mobile" bulma.columns.column.width.is11
+    , case widths.tablet of
          Auto    -> ""
-         Width1  -> bulma.columns.column.width.is1
-         Width2  -> bulma.columns.column.width.is2
-         Width3  -> bulma.columns.column.width.is3
-         Width4  -> bulma.columns.column.width.is4
-         Width5  -> bulma.columns.column.width.is5
-         Width6  -> bulma.columns.column.width.is6
-         Width7  -> bulma.columns.column.width.is7
-         Width8  -> bulma.columns.column.width.is8
-         Width9  -> bulma.columns.column.width.is9
-         Width10 -> bulma.columns.column.width.is10
-         Width11 -> bulma.columns.column.width.is11
-    , flip (++) "-desktop"
-    <| case widths.desktop of
+         Width1  -> flip (++) "-tablet" bulma.columns.column.width.is1
+         Width2  -> flip (++) "-tablet" bulma.columns.column.width.is2
+         Width3  -> flip (++) "-tablet" bulma.columns.column.width.is3
+         Width4  -> flip (++) "-tablet" bulma.columns.column.width.is4
+         Width5  -> flip (++) "-tablet" bulma.columns.column.width.is5
+         Width6  -> flip (++) "-tablet" bulma.columns.column.width.is6
+         Width7  -> flip (++) "-tablet" bulma.columns.column.width.is7
+         Width8  -> flip (++) "-tablet" bulma.columns.column.width.is8
+         Width9  -> flip (++) "-tablet" bulma.columns.column.width.is9
+         Width10 -> flip (++) "-tablet" bulma.columns.column.width.is10
+         Width11 -> flip (++) "-tablet" bulma.columns.column.width.is11
+    , case widths.desktop of
          Auto    -> ""
-         Width1  -> bulma.columns.column.width.is1
-         Width2  -> bulma.columns.column.width.is2
-         Width3  -> bulma.columns.column.width.is3
-         Width4  -> bulma.columns.column.width.is4
-         Width5  -> bulma.columns.column.width.is5
-         Width6  -> bulma.columns.column.width.is6
-         Width7  -> bulma.columns.column.width.is7
-         Width8  -> bulma.columns.column.width.is8
-         Width9  -> bulma.columns.column.width.is9
-         Width10 -> bulma.columns.column.width.is10
-         Width11 -> bulma.columns.column.width.is11
+         Width1  -> flip (++) "-desktop" bulma.columns.column.width.is1
+         Width2  -> flip (++) "-desktop" bulma.columns.column.width.is2
+         Width3  -> flip (++) "-desktop" bulma.columns.column.width.is3
+         Width4  -> flip (++) "-desktop" bulma.columns.column.width.is4
+         Width5  -> flip (++) "-desktop" bulma.columns.column.width.is5
+         Width6  -> flip (++) "-desktop" bulma.columns.column.width.is6
+         Width7  -> flip (++) "-desktop" bulma.columns.column.width.is7
+         Width8  -> flip (++) "-desktop" bulma.columns.column.width.is8
+         Width9  -> flip (++) "-desktop" bulma.columns.column.width.is9
+         Width10 -> flip (++) "-desktop" bulma.columns.column.width.is10
+         Width11 -> flip (++) "-desktop" bulma.columns.column.width.is11
     , case offset of
          Auto    -> ""
          Width1  -> bulma.columns.column.offset.is1
@@ -178,7 +175,8 @@ column {widths,offset}
 narrowColumn : Width -> Attrs msg -> Htmls msg -> Html msg
 narrowColumn offset
   = node "div" []
-    [ case offset of
+    [ bulma.columns.column.container
+    , case offset of
          Auto    -> ""
          Width1  -> bulma.columns.column.offset.is1
          Width2  -> bulma.columns.column.offset.is2
