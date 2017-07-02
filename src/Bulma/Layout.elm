@@ -10,7 +10,7 @@ module Bulma.Layout exposing (..)
 @docs container, fluidContainer
 
 # Hero
-@docs Hero, HeroModifiers, HeroSize
+@docs Hero, HeroModifiers, HeroSize, heroModifiers
 @docs hero, easyHero
 
 ## Hero Partition
@@ -106,6 +106,14 @@ type alias HeroModifiers = { bold  : Bool
                            , size  : HeroSize
                            , color : Color
                            }
+
+{-| TODO
+-}
+heroModifiers : HeroModifiers
+heroModifiers = { bold  = False
+                , size  = Normal
+                , color = Default
+                }
 
 {-| TODO
 -}
