@@ -1015,6 +1015,7 @@ tabs {style,alignment,size}
         Large  -> bulma.tabs.size.isLarge
     ]
 
+-- TODO: contained tabs
 
 -- TAB --
 

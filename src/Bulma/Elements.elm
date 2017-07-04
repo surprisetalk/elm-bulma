@@ -463,7 +463,8 @@ controlLabel ({size} as mods) attrs attrs_
   = control mods attrs
   << ls
   << node "label" []
-    [ case size of
+    [ bulma.label.ui
+    , case size of
         Small  -> bulma.label.size.isSmall
         Normal -> ""
         Medium -> bulma.label.size.isMedium
@@ -478,7 +479,8 @@ controlInput inline ({size,state,color,expanded} as mods) attrs attrs_
   = control mods attrs
   << ls
   << node "input" []
-    [ case inline of
+    [ bulma.input.ui
+    , case inline of
         True  -> bulma.input.display.isInline
         False -> ""
     , case size of
@@ -516,7 +518,8 @@ controlTextArea inline ({size,state,color} as mods) attrs attrs_
   = control mods attrs
   << ls
   << node "textarea" []
-    [ case inline of
+    [ bulma.textarea.ui
+    , case inline of
         True  -> bulma.textarea.display.isInline
         False -> ""
     , case size of
@@ -549,6 +552,8 @@ controlTextArea inline ({size,state,color} as mods) attrs attrs_
 controlSelect : ControlModifiers msg -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
 controlSelect ({size,state,expanded} as mods) attrs attrs_
   = control mods attrs
+  << ls
+  << node "span" [] [ bulma.select.ui ] []
   << ls
   << node "select" []
     [ case size of
@@ -584,12 +589,12 @@ controlRadio : ControlModifiers msg -> Attrs msg -> Attrs msg -> Htmls msg -> Co
 controlRadio mods attrs attrs_
   = control mods attrs
   << ls
-  << node "label" [] [ bulma.checkbox.ui ] attrs_
+  << node "label" [] [ bulma.radio.ui ] attrs_
 
 {-| TODO
 -}
 controlRadioButton : Attrs msg -> Htmls msg -> Html msg
-controlRadioButton = node "input" [] [ bulma.radio.ui ]
+controlRadioButton = node "input" [ Attr.type_ "radio" ] []
 
 -- {-| TODO
 -- -}
