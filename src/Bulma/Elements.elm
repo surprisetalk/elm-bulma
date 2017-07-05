@@ -114,7 +114,7 @@ import Bulma.Modifiers as Modifiers exposing (..)
 
 import Bulma.Elements.Icon as Icon exposing ( Icon, IconBody, icon )
 
-import Html exposing ( Html, text, div, a, img )
+import Html exposing ( Html, text, div, a, img, span )
 import Html.Events exposing ( onClick )
 import Html.Attributes as Attr exposing ( class )
 
@@ -202,7 +202,7 @@ easyIconButton : ButtonModifiers -> Icon msg -> Attrs msg -> msg -> String -> Bu
 easyIconButton mods icon attrs msg str
   = button mods (onClick msg :: attrs)
     [ icon 
-    , text str
+    , span [] [ text str ]
     ]
 
 -- GROUP --
