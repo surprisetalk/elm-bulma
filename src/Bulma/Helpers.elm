@@ -138,10 +138,10 @@ display d
   = case d of
       Block       -> class bulma.properties.display.isBlock.always
       Flex        -> class bulma.properties.display.isFlex.always
-      Hidden      -> class bulma.properties.display.isInline.always
-      Inline      -> class bulma.properties.display.isInlineBlock.always
-      InlineBlock -> class bulma.properties.display.isInlineFlex.always
-      InlineFlex  -> class bulma.properties.visibility.isHidden.always
+      Inline      -> class bulma.properties.display.isInline.always
+      InlineBlock -> class bulma.properties.display.isInlineBlock.always
+      InlineFlex  -> class bulma.properties.display.isInlineFlex.always
+      Hidden      -> class bulma.properties.visibility.isHidden.always
 
 {-| TODO
 -}
@@ -152,30 +152,30 @@ displayByDevice {mobile,tablet,desktop,widescreen}
     [ case mobile of
         Block       -> bulma.properties.display.isBlock.mobile
         Flex        -> bulma.properties.display.isFlex.mobile
-        Hidden      -> bulma.properties.display.isInline.mobile
-        Inline      -> bulma.properties.display.isInlineBlock.mobile
-        InlineBlock -> bulma.properties.display.isInlineFlex.mobile
-        InlineFlex  -> bulma.properties.visibility.isHidden.mobile
+        Inline      -> bulma.properties.display.isInline.mobile
+        InlineBlock -> bulma.properties.display.isInlineBlock.mobile
+        InlineFlex  -> bulma.properties.display.isInlineFlex.mobile
+        Hidden      -> bulma.properties.visibility.isHidden.mobile
     , case tablet of
         Block       -> bulma.properties.display.isBlock.tabletOnly
         Flex        -> bulma.properties.display.isFlex.tabletOnly
-        Hidden      -> bulma.properties.display.isInline.tabletOnly
-        Inline      -> bulma.properties.display.isInlineBlock.tabletOnly
-        InlineBlock -> bulma.properties.display.isInlineFlex.tabletOnly
-        InlineFlex  -> bulma.properties.visibility.isHidden.tabletOnly
+        Inline      -> bulma.properties.display.isInline.tabletOnly
+        InlineBlock -> bulma.properties.display.isInlineBlock.tabletOnly
+        InlineFlex  -> bulma.properties.display.isInlineFlex.tabletOnly
+        Hidden      -> bulma.properties.visibility.isHidden.tabletOnly
     , case desktop of
         Block       -> bulma.properties.display.isBlock.desktopOnly
         Flex        -> bulma.properties.display.isFlex.desktopOnly
-        Hidden      -> bulma.properties.display.isInline.desktopOnly
-        Inline      -> bulma.properties.display.isInlineBlock.desktopOnly
-        InlineBlock -> bulma.properties.display.isInlineFlex.desktopOnly
-        InlineFlex  -> bulma.properties.visibility.isHidden.desktopOnly
+        Inline      -> bulma.properties.display.isInline.desktopOnly
+        InlineBlock -> bulma.properties.display.isInlineBlock.desktopOnly
+        InlineFlex  -> bulma.properties.display.isInlineFlex.desktopOnly
+        Hidden      -> bulma.properties.visibility.isHidden.desktopOnly
     , case widescreen of
         Block       -> bulma.properties.display.isBlock.widescreen
         Flex        -> bulma.properties.display.isFlex.widescreen
-        Hidden      -> bulma.properties.display.isInline.widescreen
-        Inline      -> bulma.properties.display.isInlineBlock.widescreen
-        InlineBlock -> bulma.properties.display.isInlineFlex.widescreen
-        InlineFlex  -> bulma.properties.visibility.isHidden.widescreen
+        Inline      -> bulma.properties.display.isInline.widescreen
+        InlineBlock -> bulma.properties.display.isInlineBlock.widescreen
+        InlineFlex  -> bulma.properties.display.isInlineFlex.widescreen
+        Hidden      -> bulma.properties.visibility.isHidden.widescreen
     ]
 
