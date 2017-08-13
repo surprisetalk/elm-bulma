@@ -3,8 +3,7 @@ module Bulma.Elements exposing (..)
 
 -- DOCS ------------------------------------------------------------------------
 
-{-| TODO 
-
+{-| 
 # Table of Contents
 - [Box](#box)
 - [Button](#button)
@@ -101,7 +100,6 @@ module Bulma.Elements exposing (..)
 ## Title Pair
 @docs TitleSpacing 
 @docs easyTitleWithSubtitle
-
 -}
 
 -- IMPORTS ---------------------------------------------------------------------
@@ -123,11 +121,18 @@ import List exposing ( filter )
 
 -- BOX -------------------------------------------------------------------------
 
-{-| TODO
--}
+{-| -}
 type alias Box msg = Html msg
 
-{-| TODO
+{-| A white box to contain other elements.
+The box is simply a container with a shadow, a border, a radius, and some padding.
+
+    myBox : Html msg
+    myBox 
+      = box []
+        [ p [] 
+          [ text "I'm the box ghost!" ]
+        ]
 -}
 box : Attrs msg -> Htmls msg -> Box msg
 box = node "div" [] [ bulma.box.container ]
@@ -135,11 +140,18 @@ box = node "div" [] [ bulma.box.container ]
 
 -- BUTTON ----------------------------------------------------------------------
 
-{-| TODO
--}
+{-| -}
 type alias Button msg = Html msg
 
-{-| TODO
+{-| 
+    type Msg = DoSomething
+             | DoSomethingElse
+
+    myButton : Html Msg
+    myButton
+      = button myButtonModifiers 
+        [ onClick DoSomething ]
+        [ text "Click me!" ]
 -}
 button : ButtonModifiers -> Attrs msg -> Htmls msg -> Button msg
 button {disabled,outlined,inverted,size,state,color}
@@ -170,12 +182,21 @@ button {disabled,outlined,inverted,size,state,color}
     -- TODO: state
     ]
   
-{-| TODO
+{-| These are like disabled buttons, but more dull-looking.
+Static buttons are useful to align text labels with inputs.
 -}
 staticButton : ButtonModifiers -> Attrs msg -> Htmls msg -> Button msg
 staticButton mods = button mods << (::) (class bulma.button.style.isStatic)
 
-{-| TODO
+{-| 
+    type Msg = DoSomething
+             | DoSomethingElse
+
+    myEasyButton : Html Msg
+    myEasyButton
+      = easyButton myButtonModifiers []
+        DoSomethingElse
+        "Click me!"
 -}
 easyButton : ButtonModifiers -> Attrs msg -> msg -> String -> Button msg
 easyButton mods attrs msg str
@@ -185,19 +206,31 @@ easyButton mods attrs msg str
 
 -- WITH ICON --
 
-{-| TODO
+{-| 
+    import Bulma.Icon exposing (icon,check)
+    import Bulma.Modifiers exposing (Size(Small))
+
+    type Msg = SaveMsg
+
+    myIconButton : Html Msg
+    myIconButton
+      = let myIcon : Html Msg
+            myIcon = icon Small [] [ check ] 
+        in iconButton 
+           myButtonModifiers 
+           myIcon 
+           [ SaveMsg ]
+           [ text "Save" ]
 -}
 iconButton : ButtonModifiers -> Icon msg -> Attrs msg -> Htmls msg -> Button msg
 iconButton mods icon attrs htmls
   = button mods attrs <| icon :: htmls
     
-{-| TODO
--}
+{-| -}
 staticIconButton : ButtonModifiers -> Icon msg -> Attrs msg -> Htmls msg -> Button msg
 staticIconButton mods icon = iconButton mods icon << (::) (class bulma.button.style.isStatic)
 
-{-| TODO
--}
+{-| -}
 easyIconButton : ButtonModifiers -> Icon msg -> Attrs msg -> msg -> String -> Button msg
 easyIconButton mods icon attrs msg str
   = button mods (onClick msg :: attrs)
@@ -207,25 +240,37 @@ easyIconButton mods icon attrs msg str
 
 -- GROUP --
 
-{-| TODO
--}
+{-| -}
 type alias ButtonGroup msg = Html msg
 
-{-| TODO
+{-| 
+    import Bulma.Modifiers exposing (HorizontalAlignment(Centered))
+    
+    myButtonGroup : Html msg
+    myButtonGroup 
+      = buttonGroup Centered []
+        [ control [] 
+          [ myFirstButton 
+          ]
+        , control [] 
+          [ mySecondButton 
+          ]
+        ]
 -}
-buttonGroup : HorizontalAlignment -> Attrs msg -> List (Button msg) -> ButtonGroup msg
+buttonGroup : HorizontalAlignment -> Attrs msg -> List (Control msg) -> ButtonGroup msg
 buttonGroup alignment
   = node "div" []
     [ bulma.field.container
     , case alignment of
-        Left     -> ""
+        Left     -> bulma.field.isGrouped.left
         Centered -> bulma.field.isGrouped.centered
         Right    -> bulma.field.isGrouped.right
     ]
 
-{-| TODO
+{-| Just like `buttonGroup`, but all the buttons are joined together.
+This uses Bulma's "has-addons" class.
 -}
-connectedButtonGroup : HorizontalAlignment -> Attrs msg -> List (Button msg) -> ButtonGroup msg
+connectedButtonGroup : HorizontalAlignment -> Attrs msg -> List (Control msg) -> ButtonGroup msg
 connectedButtonGroup alignment
   = node "div" [] [ bulma.field.container
                   , case alignment of
@@ -236,8 +281,7 @@ connectedButtonGroup alignment
 
 -- MODIFIERS --
 
-{-| TODO
--}
+{-| -}
 type alias ButtonModifiers = { disabled : Bool
                              , outlined : Bool
                              , inverted : Bool
@@ -246,7 +290,22 @@ type alias ButtonModifiers = { disabled : Bool
                              , color    : Color
                              }
 
-{-| TODO
+{-| The basic defaults for buttons.
+
+    import Bulma.Modifiers exposing ( State(Blur) 
+                                    , Color(Default)
+                                    , Size(Normal)
+                                    )
+                                   
+    myButtonModifiers : ButtonModifiers
+    myButtonModifiers 
+      = { disabled = False
+        , outlined = False
+        , inverted = False
+        , size     = Normal
+        , state    = Blur
+        , color    = Default
+        }
 -}
 buttonModifiers : ButtonModifiers
 buttonModifiers = { disabled = False
@@ -260,11 +319,26 @@ buttonModifiers = { disabled = False
 
 -- CONTENT ---------------------------------------------------------------------
 
-{-| TODO
--}
+{-| -}
 type alias Content msg = Html msg
 
-{-| TODO
+{-| A single class to handle WYSIWYG-generated content, where only HTML tags are available.
+
+    import Bulma.Modifiers exposing (Size(Normal))
+
+    myContent : Html msg
+    myContent
+      = content Normal []
+        [ p [] [ text "Lorem ipsum..." ] 
+        ]
+        
+It can handle almost any HTML element, including:
+- `p`
+- `ul` / `ol` / `dl`
+- `h1` through `h6`
+- `blockquote`
+- `em` & `strong`
+- `table`, `tr`, `th`, and `td` tables
 -}
 content : Size -> Attrs msg -> Htmls msg -> Content msg
 content size
@@ -280,16 +354,20 @@ content size
 
 -- DELETE ----------------------------------------------------------------------
 
-{-| TODO
--}
+{-| -}
 type alias Delete msg = Html msg
 
-{-| TODO
+{-| Versatile delete cross.
 -}
 delete : Attrs msg -> Htmls msg -> Delete msg
 delete = node "a" [] [ bulma.delete.ui ]
 
-{-| TODO
+{-| 
+    type Msg = DeleteMsg
+
+    myEasyDelete : Html Msg
+    myEasyDelete
+      = easyDelete [] DeleteMsg
 -}
 easyDelete : Attrs msg -> msg -> Delete msg
 easyDelete attrs msg = delete (onClick msg :: attrs) []

@@ -3,7 +3,8 @@ module Bulma.Modifiers exposing (..)
 
 -- DOCS ------------------------------------------------------------------------
 
-{-| TODO 
+{-| Most Bulma elements have alternative styles. 
+These types will come in handy for various modifiers records throughout this library.
 
 # Size
 @docs Size
@@ -21,39 +22,37 @@ module Bulma.Modifiers exposing (..)
 
 -- MODIFIERS -------------------------------------------------------------------
 
-{-| TODO
--}
-type Size = Small
-          | Normal
-          | Medium
-          | Large
+{-| -}
+type Size
+  = Small
+  | Normal
+  | Medium
+  | Large
 
-{-| TODO
--}
-type State = Blur
-           | Hover
-           | Focus
-           | Active
-           | Loading
-           | Static
+{-| -}
+type State
+  = Blur
+  | Hover
+  | Focus
+  | Active
+  | Loading
+  | Static
 
-{-| TODO
--}
-type Color = Default
-           | White
-           | Light
-           | Dark
-           | Black
-           | Primary
-           | Info
-           | Success
-           | Warning
-           | Danger
+{-| -}
+type Color
+  = Default
+  | White
+  | Light
+  | Dark
+  | Black
+  | Primary
+  | Info
+  | Success
+  | Warning
+  | Danger
 
-{-| TODO
--}
-type HorizontalAlignment = Left
-                         | Centered
-                         | Right
-
-
+{-| -}
+type HorizontalAlignment
+  = Left
+  | Centered
+  | Right
