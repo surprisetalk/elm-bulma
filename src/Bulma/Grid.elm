@@ -11,6 +11,22 @@ module Bulma.Grid exposing (..)
 - [Tile](#tile)
 
 # Columns
+Learn more about columnar grids in the [official docs](http://bulma.io/documentation/grid/columns/).
+
+    myGrid : Html msg
+    myGrid
+      = columns myColumnsModifiers []
+        [ column myColumnModifiers [] 
+          [ text "First Column"
+          ]
+        , column myColumnModifiers [] 
+          [ text "Second Column"
+          ]
+        , column myColumnModifiers [] 
+          [ text "Third Column"
+          ]
+        ]
+
 @docs ColumnsModifiers, Display, columnsModifiers
 @docs columns
 
@@ -19,6 +35,8 @@ module Bulma.Grid exposing (..)
 @docs column, narrowColumn
 
 # Tile
+Learn more about tiled grids in the [official docs](http://bulma.io/documentation/grid/tiles/).
+
     myGrid : Html msg
     myGrid 
       = tileAncestor Auto []
@@ -84,20 +102,6 @@ type Width = Auto
 -- COLUMNS ---------------------------------------------------------------------
 
 {-| Make a columnar grid! The widths of all your columns should be no greater than twelve.
-
-    myGrid : Html msg
-    myGrid
-      = columns myColumnsModifiers []
-        [ column myColumnModifiers [] 
-          [ text "First Column"
-          ]
-        , column myColumnModifiers [] 
-          [ text "Second Column"
-          ]
-        , column myColumnModifiers [] 
-          [ text "Third Column"
-          ]
-        ]
 -}
 columns : ColumnsModifiers -> Attrs msg -> List (Column msg) -> Html msg
 columns {verticallyCentered,multiline,gapless,display}
@@ -289,7 +293,7 @@ type alias Tile msg = Html msg
 
 -- TODO: easyTiles
 
-{-| This element is a plain tile element. 
+{-| This element is a plain tile container. 
 It's best used as an intermediate tile in a 2D grid. 
 You can also add "is-ancestor", "is-parent", "is-child", and "is-vertical" classes to to make a custom Bulma-grid implementation.
 -}

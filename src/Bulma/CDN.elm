@@ -4,7 +4,7 @@ module Bulma.CDN exposing ( stylesheet, fontAwesome )
 
 -- DOCS ------------------------------------------------------------------------
 
-{-| TODO 
+{-| Convenient resources.
 
 @docs stylesheet
 @docs fontAwesome
@@ -19,20 +19,44 @@ import Html.Attributes exposing ( rel, href )
 
 -- STYLESHEET ------------------------------------------------------------------
 
-{-| TODO
+{-| Include Bulma 0.5.1 in your Elm project.
+
+    import Bulma.CDN exposing (stylesheet)
+
+    view : Model -> Html msg
+    view model
+      = div []
+        [ stylesheet
+        , text "wow!"
+        ]
+
 -}
 stylesheet : Html msg
 stylesheet =
   node "link"
   [ rel  "stylesheet"
-  , href "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css"
+  , href "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css"
   ]
   []
 
 
 -- FONT AWESOME ----------------------------------------------------------------
 
-{-| TODO
+{-| Include Font Awesome 4.7.0 in your Elm project.
+
+    import Bulma.CDN exposing (fontAwesome)
+    import Bulma.Modifiers exposing (Size(Large))
+    import Bulma.Elements.Icon exposing (icon,meh_o)
+
+    view : Model -> Html msg
+    view model
+      = div []
+        [ fontAwesome
+        , icon Large [] 
+          [ meh_o
+          ]
+        ]
+
 -}
 fontAwesome : Html msg
 fontAwesome =
