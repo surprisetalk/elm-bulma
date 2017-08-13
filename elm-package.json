@@ -10,6 +10,7 @@
         "Bulma.CDN",
         "Bulma.Helpers",
         "Bulma.Modifiers",
+        "Bulma.Form",
         "Bulma.Grid",
         "Bulma.Elements",
         "Bulma.Elements.Icon",
