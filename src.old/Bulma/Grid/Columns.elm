@@ -14,7 +14,7 @@ module Bulma.Grid.Columns exposing ( Column, column
 
 -- DOCS ------------------------------------------------------------------------
 
-{-| TODO 
+{-| A simple way to build responsive columns.
 
 @docs Columns
 @docs columns, toColumn

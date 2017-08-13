@@ -3,7 +3,7 @@ module Bulma.Grid exposing (..)
 
 -- DOCS ------------------------------------------------------------------------
 
-{-| TODO 
+{-| A simple way to build responsive grids.
 
 # Table of Contents
 - [Columns](#columns)
@@ -19,6 +19,35 @@ module Bulma.Grid exposing (..)
 @docs column, narrowColumn
 
 # Tile
+    myGrid : Html msg
+    myGrid 
+      = tileAncestor Auto []
+        [ verticalTile Width8 []
+          [ tile Auto []
+            [ verticalTileParent Auto []
+              [ tileChild Auto []
+                [ text "I'm in the top-left corner!"
+                ]
+              , [ text "I'm on the middle-left edge!"
+                ]
+              ]
+            , tileParent Auto []
+              [ text "I'm a tile touching the top-middle edge!"
+              ]
+            ]
+          , tileParent Auto []
+            [ tileChild Auto []
+              [ text "I'm taking up the bottom-left half of the grid!"
+              ]
+            ]
+          ]
+        , tileParent Auto []
+          [ tileChild Auto []
+            [ text "I'm a tall column taking up the entire right edge!"
+            ]
+          ]
+        ]
+
 @docs Tile, Width
 @docs tile
 @docs tileAncestor, tileParent, tileChild
@@ -37,8 +66,7 @@ import Html exposing ( Html, text, div, a )
 
 -- COLUMNS ---------------------------------------------------------------------
 
-{-| TODO
--}
+{-| -}
 type Width = Auto
            | Width1
            | Width2
@@ -55,7 +83,21 @@ type Width = Auto
 
 -- COLUMNS ---------------------------------------------------------------------
 
-{-| TODO
+{-| Make a columnar grid! The widths of all your columns should be no greater than twelve.
+
+    myGrid : Html msg
+    myGrid
+      = columns myColumnsModifiers []
+        [ column myColumnModifiers [] 
+          [ text "First Column"
+          ]
+        , column myColumnModifiers [] 
+          [ text "Second Column"
+          ]
+        , column myColumnModifiers [] 
+          [ text "Third Column"
+          ]
+        ]
 -}
 columns : ColumnsModifiers -> Attrs msg -> List (Column msg) -> Html msg
 columns {verticallyCentered,multiline,gapless,display}
@@ -79,21 +121,29 @@ columns {verticallyCentered,multiline,gapless,display}
 
 -- MODIFIERS --
 
-{-| TODO
--}
+{-| -}
 type alias ColumnsModifiers = { multiline          : Bool
                               , gapless            : Bool
                               , display            : Display
                               , verticallyCentered : Bool
                               }
 
-{-| TODO
--}
+{-| -}
 type Display = MobileAndBeyond
              | TabletAndBeyond
              | DesktopAndBeyond
 
-{-| TODO
+{-| Default column attributes.
+
+    myColumnsModifiers : ColumnsModifiers
+    myColumnsModifiers 
+      = { multiline          = False
+        , gapless            = False             
+        , display            = TabletAndBeyond
+        , verticallyCentered = False
+        }
+    
+    myColumnsModifiers == columnsModifiers
 -}
 columnsModifiers : ColumnsModifiers
 columnsModifiers = { multiline          = False
@@ -105,13 +155,22 @@ columnsModifiers = { multiline          = False
 
 -- COLUMN ----------------------------------------------------------------------
 
-{-| TODO
--}
+{-| -}
 type alias Column msg = Html msg
 
-{-| TODO
+{-| A column element that is meant to be placed in `columns`.
+
+    myColumn : Html msg
+    myColumn
+      = column myColumnModifiers []
+        [ h1 [] [ text "Lorem" ]
+        , h2 [] [ text "ipsum" ]
+        , h3 [] [ text "dolor" ]
+        , h4 [] [ text "sit" ]
+        , h5 [] [ text "amet" ]
+        ]
 -}
-column : ColumnModifiers -> Attrs msg -> Htmls msg -> Html msg
+column : ColumnModifiers -> Attrs msg -> Htmls msg -> Column msg
 column {widths,offset}
   = node "div" []
     [ bulma.columns.column.container
@@ -170,9 +229,19 @@ column {widths,offset}
     ]
 
 
-{-| TODO
+{-| Narrow columns are used just like other columns, but they only take up as much space as they need.
+
+The other non-narrow columns will take up the remaining space.
+
+    myNarrowColumn : Html msg
+    myNarrowColumn
+      = let offset : Width
+            offset = Auto
+        in narrowColumn offset []
+           [ text "I only take what I need!"
+           ]
 -}
-narrowColumn : Width -> Attrs msg -> Htmls msg -> Html msg
+narrowColumn : Width -> Attrs msg -> Htmls msg -> Column msg
 narrowColumn offset
   = node "div" []
     [ bulma.columns.column.container
@@ -193,8 +262,7 @@ narrowColumn offset
 
 -- MODIFIERS --
 
-{-| TODO
--}
+{-| -}
 type alias ColumnModifiers = { offset : Width
                              , widths : { mobile  : Width
                                         , tablet  : Width
@@ -202,7 +270,8 @@ type alias ColumnModifiers = { offset : Width
                                         }
                              }
 
-{-| TODO
+{-| Default offsets and widths for individiual columns. 
+Everything defaults to `Auto`.
 -}
 columnModifiers : ColumnModifiers
 columnModifiers = { offset = Auto
@@ -215,13 +284,14 @@ columnModifiers = { offset = Auto
 
 -- COLUMN ----------------------------------------------------------------------
 
-{-| TODO
--}
+{-| -}
 type alias Tile msg = Html msg
 
 -- TODO: easyTiles
 
-{-| TODO
+{-| This element is a plain tile element. 
+It's best used as an intermediate tile in a 2D grid. 
+You can also add "is-ancestor", "is-parent", "is-child", and "is-vertical" classes to to make a custom Bulma-grid implementation.
 -}
 tile : Width -> Attrs msg -> List (Tile msg) -> Tile msg
 tile width
@@ -242,7 +312,7 @@ tile width
         Width11 -> bulma.tile.width.is11
     ]
 
-{-| TODO
+{-| If you want to stack tiles vertically, use a vertical tile!
 -}
 verticalTile : Width -> Attrs msg -> List (Tile msg) -> Tile msg
 verticalTile width
@@ -264,7 +334,20 @@ verticalTile width
         Width11 -> bulma.tile.width.is11
     ]
 
-{-| TODO
+{-| This should always be your outer-most tile.
+
+    myGrid : Html msg
+    myGrid
+      = tileAncestor Auto []
+        [ tileParent Auto [] 
+          [ tileChild Auto [] []
+          , tileChild Auto [] []
+          ]
+        [ tileParent Auto [] 
+          [ tileChild Auto [] []
+          , tileChild Auto [] []
+          ]
+        ]
 -}
 tileAncestor : Width -> Attrs msg -> List (Tile msg) -> Html msg
 tileAncestor width
@@ -286,7 +369,7 @@ tileAncestor width
         Width11 -> bulma.tile.width.is11
     ]
 
-{-| TODO
+{-| Your tile-children must always be accompanied by a parent!
 -}
 tileParent : Width -> Attrs msg -> List (Tile msg) -> Tile msg
 tileParent width
@@ -308,7 +391,7 @@ tileParent width
         Width11 -> bulma.tile.width.is11
     ]
 
-{-| TODO
+{-| Your tile-children must always be accompanied by a parent!
 -}
 verticalTileParent : Width -> Attrs msg -> List (Tile msg) -> Tile msg
 verticalTileParent width
@@ -331,7 +414,7 @@ verticalTileParent width
         Width11 -> bulma.tile.width.is11
     ]
 
-{-| TODO
+{-| This tile holds your content! Its parent should always be `tileParent` or `verticalTileParent`.
 -}
 tileChild : Width -> Attrs msg -> Htmls msg -> Tile msg
 tileChild width

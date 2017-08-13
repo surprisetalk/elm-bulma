@@ -3,8 +3,14 @@ module Bulma.Helpers exposing (..)
 
 -- DOCS ------------------------------------------------------------------------
 
-{-| 
-# [General Helpers](http://bulma.io/documentation/modifiers/helpers/)
+{-| A set of helpers for style, layout, and typography.
+
+# Table of Contents
+- [General Helpers](#general)
+- [Display Helpers](#display)
+- [Typography Helpers](#typography)
+
+# General
 
 ## Float
 @docs clearfix
@@ -28,14 +34,11 @@ module Bulma.Helpers exposing (..)
 ## Style
 @docs radiusless, shadowless
 
-# [Responsive Helpers](http://bulma.io/documentation/modifiers/responsive-helpers/)
-Show & hide content depending on the width of the viewport.
-
-## Display
+# Display
 @docs Devices, Display
 @docs display, displayByDevice
 
-# [Typography Helpers](http://bulma.io/documentation/modifiers/typography-helpers/)
+# Typography
 
 ## Transformations
 @docs capitalize, uppercase, lowercase
@@ -400,8 +403,7 @@ textAlignmentByDevice {mobile,tablet,desktop,widescreen,fullhd}
 
 -- TEXT COLOR ------------------------------------------------------------------
 
-{-|
--}
+{-| -}
 type TextColor
   = Black
   | BlackLight
