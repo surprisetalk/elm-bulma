@@ -7,7 +7,6 @@ module Bulma.Layout exposing (..)
 # Table of Contents
 - [Container](#container)
 - [Hero](#hero)
-  - [Hero Partition](#hero-partition)
 - [Section](#section)
 - [Footer](#footer)
 
