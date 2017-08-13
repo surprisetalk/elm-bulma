@@ -3,36 +3,62 @@ module Bulma.Helpers exposing (..)
 
 -- DOCS ------------------------------------------------------------------------
 
-{-| TODO 
+{-| 
+# [General Helpers](http://bulma.io/documentation/modifiers/helpers/)
 
-# Float
+## Float
 @docs clearfix
 @docs pulledLeft, pulledRight
 
-# Overlay
+## Overlay
 @docs overlay
 
-# Size
+## Size
 @docs fullWidth
 
-# Text Alignment
-@docs textLeft, textCentered, textRight
-
-# Spacing
+## Spacing
 @docs marginless, paddingless
 
-# Selectability
+## Selectability
 @docs unselectable
 
-# Display
+## Overflow
+@docs clipped
+
+## Style
+@docs radiusless, shadowless
+
+# [Responsive Helpers](http://bulma.io/documentation/modifiers/responsive-helpers/)
+Show & hide content depending on the width of the viewport.
+
+## Display
 @docs Devices, Display
 @docs display, displayByDevice
+
+# [Typography Helpers](http://bulma.io/documentation/modifiers/typography-helpers/)
+
+## Transformations
+@docs capitalize, uppercase, lowercase
+
+## Size
+@docs Display
+@docs textSize, textSizeByDevice
+
+## Colors
+@docs TextColor
+@docs textColor
+
+## Alignment
+@docs textLeft, textCentered, textRight
+@docs textAlignment, textAlignmentByDevice
 
 -}
 
 -- IMPORTS ---------------------------------------------------------------------
 
 import BulmaClasses exposing (..)
+
+import Bulma.Modifiers exposing ( HorizontalAlignment(..) )
 
 import Html exposing ( Attribute )
 import Html.Attributes exposing ( class )
@@ -55,24 +81,6 @@ pulledLeft = class bulma.properties.float.isPulledLeft
 -}
 pulledRight : Attribute msg
 pulledRight = class bulma.properties.float.isPulledRight
-
-
--- TEXT ALIGNMENT --------------------------------------------------------------
-
-{-| Aligns text to the left.
--}
-textLeft : Attribute msg
-textLeft = class bulma.properties.alignment.hasTextLeft
-
-{-| Aligns text to the right.
--}
-textCentered : Attribute msg
-textCentered = class bulma.properties.alignment.hasTextCentered
-
-{-| Centers text.
--}
-textRight : Attribute msg
-textRight = class bulma.properties.alignment.hasTextRight
 
 
 -- INTERACTION -----------------------------------------------------------------
@@ -112,18 +120,44 @@ paddingless : Attribute msg
 paddingless = class bulma.properties.sizing.isPaddingless
 
 
+-- CLIPPED ---------------------------------------------------------------------
+
+{-| Adds overflow:hidden.
+-}
+clipped : Attribute msg
+clipped = class "is-clipped"
+-- KLUDGE: add "is-clipped" to BulmaClasses
+
+
+-- RADIUSLESS ------------------------------------------------------------------
+
+{-| Removes any radius.
+-}
+radiusless : Attribute msg
+radiusless = class "is-radiusless"
+-- KLUDGE: add "is-radiusless" to BulmaClasses
+
+
+-- SHADOWLESS ------------------------------------------------------------------
+
+{-| Removes any shadow.
+-}
+shadowless : Attribute msg
+shadowless = class "is-shadowless"
+-- KLUDGE: add "is-shadowless" to BulmaClasses
+
+
 -- DISPLAY ---------------------------------------------------------------------
 
-{-| TODO
--}
+{-| -}
 type alias Devices a = { mobile     : a
                        , tablet     : a
                        , desktop    : a
                        , widescreen : a
+                       , fullhd     : a
                        }
 
-{-| TODO
--}
+{-| -}
 type Display = Block       
              | Flex       
              | Hidden
@@ -131,7 +165,7 @@ type Display = Block
              | InlineBlock
              | InlineFlex
 
-{-| TODO
+{-| This sets a certain display attributes across all device sizes.
 -}
 display : Display -> Attribute msg
 display d
@@ -143,10 +177,20 @@ display d
       InlineFlex  -> class bulma.properties.display.isInlineFlex.always
       Hidden      -> class bulma.properties.visibility.isHidden.always
 
-{-| TODO
+{-| This sets display attributes per-device.
+
+    tabletOnly 
+      = displayByDevice 
+        { mobile     = Hidden
+        , tablet     = Block
+        , desktop    = Hidden
+        , widescreen = Hidden
+        , fullhd     = Hidden
+        }
+
 -}
 displayByDevice : Devices Display -> Attribute msg
-displayByDevice {mobile,tablet,desktop,widescreen}
+displayByDevice {mobile,tablet,desktop,widescreen,fullhd}
   = class
   <| join " "
     [ case mobile of
@@ -171,11 +215,230 @@ displayByDevice {mobile,tablet,desktop,widescreen}
         InlineFlex  -> bulma.properties.display.isInlineFlex.desktopOnly
         Hidden      -> bulma.properties.visibility.isHidden.desktopOnly
     , case widescreen of
-        Block       -> bulma.properties.display.isBlock.widescreen
-        Flex        -> bulma.properties.display.isFlex.widescreen
-        Inline      -> bulma.properties.display.isInline.widescreen
-        InlineBlock -> bulma.properties.display.isInlineBlock.widescreen
-        InlineFlex  -> bulma.properties.display.isInlineFlex.widescreen
-        Hidden      -> bulma.properties.visibility.isHidden.widescreen
+        Block       -> "is-block-widescreen-only"
+        Flex        -> "is-flex-widescreen-only"
+        Inline      -> "is-inline-widescreen-only"
+        InlineBlock -> "is-inline-block-widescreen-only"
+        InlineFlex  -> "is-inline-flex-widescreen-only"
+        Hidden      -> "is-hidden-widescreen-only"
+        -- KLUDGE: add widescreen helpers to BulmaClasses
+    , case fullhd of
+        Block       -> "is-block-fullhd-only"
+        Flex        -> "is-flex-fullhd-only"
+        Inline      -> "is-inline-fullhd-only"
+        InlineBlock -> "is-inline-block-fullhd-only"
+        InlineFlex  -> "is-inline-flex-fullhd-only"
+        Hidden      -> "is-hidden-fullhd"
+        -- KLUDGE: add fullhd helpers to BulmaClasses
     ]
 
+
+-- TEXT TRANSFORMATIONS --------------------------------------------------------
+
+{-| Transforms the first character to each word to uppercase.
+-}
+capitalize : Attribute msg
+capitalize = class "is-capitalized"
+-- KLUDGE: add to BulmaClasses
+
+{-| Transforms all characters to lowercase.
+-}
+lowercase : Attribute msg
+lowercase = class "is-lowercase"
+-- KLUDGE: add to BulmaClasses
+
+{-| Transforms all characters to uppercase.
+-}
+uppercase : Attribute msg
+uppercase = class "is-uppercase"
+-- KLUDGE: add to BulmaClasses
+
+
+-- TEXT SIZE -------------------------------------------------------------------
+
+{-| There are 7 font sizes to choose from:
+- `textSize 1`: 3.00rem
+- `textSize 2`: 2.50rem
+- `textSize 3`: 2.00rem
+- `textSize 4`: 1.50rem
+- `textSize 5`: 1.25rem
+- `textSize 6`: 1.00rem
+- `textSize 7`: 0.75rem
+-}
+textSize : Int -> Attribute msg
+textSize ts
+  = class
+    <| case clamp 1 7 ts of
+        1 -> "is-size-1"
+        2 -> "is-size-2"
+        3 -> "is-size-3"
+        4 -> "is-size-4"
+        5 -> "is-size-5"
+        6 -> "is-size-6"
+        7 -> "is-size-7"
+        _ -> ""
+        -- KLUDGE: add to BulmaClasses
+
+{-| You can choose a font specific size for each viewport width.
+-}
+textSizeByDevice : Devices Int -> Attribute msg
+textSizeByDevice {mobile,tablet,desktop,widescreen,fullhd}
+  = class
+  <| join " "
+    [ case clamp 1 7 mobile of
+        1 -> "is-size-1-mobile"
+        2 -> "is-size-2-mobile"
+        3 -> "is-size-3-mobile"
+        4 -> "is-size-4-mobile"
+        5 -> "is-size-5-mobile"
+        6 -> "is-size-6-mobile"
+        7 -> "is-size-7-mobile"
+        _ -> ""
+        -- KLUDGE: add to BulmaClasses
+    , case clamp 1 7 tablet of
+        1 -> "is-size-1-tablet"
+        2 -> "is-size-2-tablet"
+        3 -> "is-size-3-tablet"
+        4 -> "is-size-4-tablet"
+        5 -> "is-size-5-tablet"
+        6 -> "is-size-6-tablet"
+        7 -> "is-size-7-tablet"
+        _ -> ""
+        -- KLUDGE: add to BulmaClasses
+    , case clamp 1 7 desktop of
+        1 -> "is-size-1-desktop"
+        2 -> "is-size-2-desktop"
+        3 -> "is-size-3-desktop"
+        4 -> "is-size-4-desktop"
+        5 -> "is-size-5-desktop"
+        6 -> "is-size-6-desktop"
+        7 -> "is-size-7-desktop"
+        _ -> ""
+        -- KLUDGE: add to BulmaClasses
+    , case clamp 1 7 widescreen of
+        1 -> "is-size-1-widescreen"
+        2 -> "is-size-2-widescreen"
+        3 -> "is-size-3-widescreen"
+        4 -> "is-size-4-widescreen"
+        5 -> "is-size-5-widescreen"
+        6 -> "is-size-6-widescreen"
+        7 -> "is-size-7-widescreen"
+        _ -> ""
+        -- KLUDGE: add to BulmaClasses
+    , case clamp 1 7 fullhd of
+        1 -> "is-size-1-fullhd"
+        2 -> "is-size-2-fullhd"
+        3 -> "is-size-3-fullhd"
+        4 -> "is-size-4-fullhd"
+        5 -> "is-size-5-fullhd"
+        6 -> "is-size-6-fullhd"
+        7 -> "is-size-7-fullhd"
+        _ -> ""
+        -- KLUDGE: add to BulmaClasses
+    ]
+
+
+-- TEXT ALIGNMENT --------------------------------------------------------------
+
+{-| Aligns text to the left.
+-}
+textLeft : Attribute msg
+textLeft = class bulma.properties.alignment.hasTextLeft
+
+{-| Aligns text to the right.
+-}
+textCentered : Attribute msg
+textCentered = class bulma.properties.alignment.hasTextCentered
+
+{-| Centers text.
+-}
+textRight : Attribute msg
+textRight = class bulma.properties.alignment.hasTextRight
+
+{-| Aligns text.
+-}
+textAlignment : HorizontalAlignment -> Attribute msg
+textAlignment alignment
+  = case alignment of
+        Left     -> textLeft
+        Centered -> textCentered
+        Right    -> textRight
+
+{-| Aligns text based on a device's viewport width.
+-}
+textAlignmentByDevice : Devices HorizontalAlignment -> Attribute msg
+textAlignmentByDevice {mobile,tablet,desktop,widescreen,fullhd}
+  = class
+  <| join " "
+    [ case mobile of
+        Left     -> "has-text-left-mobile"
+        Centered -> "has-text-centered-mobile"
+        Right    -> "has-text-right-mobile"
+        -- KLUDGE: add to BulmaClasses
+    , case tablet of
+        Left     -> "has-text-left-tablet-only"
+        Centered -> "has-text-centered-tablet-only"
+        Right    -> "has-text-right-tablet-only"
+        -- KLUDGE: add to BulmaClasses
+    , case desktop of
+        Left     -> "has-text-left-desktop-only"
+        Centered -> "has-text-centered-desktop-only"
+        Right    -> "has-text-right-desktop-only"
+        -- KLUDGE: add to BulmaClasses
+    , case widescreen of
+        Left     -> "has-text-left-widescreen-only"
+        Centered -> "has-text-centered-widescreen-only"
+        Right    -> "has-text-right-widescreen-only"
+        -- KLUDGE: add to BulmaClasses
+    , case fullhd of
+        Left     -> "has-text-left-fullhd"
+        Centered -> "has-text-centered-fullhd"
+        Right    -> "has-text-right-fullhd"
+        -- KLUDGE: add to BulmaClasses
+    ]
+
+
+-- TEXT COLOR ------------------------------------------------------------------
+
+{-|
+-}
+type TextColor
+  = Black
+  | BlackLight
+  | BlackLighter
+  | GreyDarker
+  | GreyDark
+  | Grey
+  | GreyLight
+  | GreyLighter
+  | WhiteDarker
+  | WhiteDark
+  | White
+  | Primary
+  | Info
+  | Success
+  | Warning
+  | Danger
+
+{-| You can set any text to one of the 5 colors or 11 shades of grey.
+-}
+textColor : TextColor -> Attribute msg
+textColor color
+  = class
+  <| case color of
+      Black        -> "has-text-black"
+      BlackLight   -> "has-text-black-bis"
+      BlackLighter -> "has-text-black-ter"
+      GreyDarker   -> "has-text-grey-darker"
+      GreyDark     -> "has-text-grey-dark"
+      Grey         -> "has-text-grey"
+      GreyLight    -> "has-text-grey-light"
+      GreyLighter  -> "has-text-grey-lighter"
+      WhiteDarker  -> "has-text-white-bis"
+      WhiteDark    -> "has-text-white-ter"
+      White        -> "has-text-white"
+      Primary      -> "has-text-primary"
+      Info         -> "has-text-info"
+      Success      -> "has-text-success"
+      Warning      -> "has-text-warning"
+      Danger       -> "has-text-danger"
