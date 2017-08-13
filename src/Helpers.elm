@@ -106,22 +106,3 @@ node tag attrs_ classes attrs
   <| filter ((/=) "")
   <| classes
 
-
--- -- FLISTS ----------------------------------------------------------------------
-
--- type alias FList a = ( List a, a, List a )
-
--- flmap : (a -> b) -> (a -> b) -> (a -> b) -> FList a -> FList b
--- flmap f g h (xs,y,zs) = ( List.map f xs
---                         ,          g y
---                         , List.map h zs
---                         )
-
--- fromFList : FList a -> List a
--- fromFList (a,b,c) = a ++ [ b ] ++ c
-
--- selectWhen : (a -> Bool) -> FList a -> FList a
--- selectWhen f flist
---   = case splitWhen f <| fromFList flist of
---       Just ( xs, y :: zs ) -> ( xs, y, zs )
---       _                    -> flist

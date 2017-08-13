@@ -7,7 +7,6 @@ module Bulma.Grid exposing (..)
 
 # Table of Contents
 - [Columns](#columns)
-  - [Column](#column)
 - [Tile](#tile)
 
 # Columns
