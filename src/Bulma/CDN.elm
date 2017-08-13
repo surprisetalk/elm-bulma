@@ -4,11 +4,9 @@ module Bulma.CDN exposing ( stylesheet, fontAwesome )
 
 -- DOCS ------------------------------------------------------------------------
 
-{-| Convenient resources.
-
+{-| 
 @docs stylesheet
 @docs fontAwesome
-
 -}
 
 -- IMPORTS ---------------------------------------------------------------------

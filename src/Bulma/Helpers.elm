@@ -157,7 +157,7 @@ type alias Devices a = { mobile     : a
                        , tablet     : a
                        , desktop    : a
                        , widescreen : a
-                       , fullhd     : a
+                       , fullHD     : a
                        }
 
 {-| -}
@@ -188,12 +188,12 @@ display d
         , tablet     = Block
         , desktop    = Hidden
         , widescreen = Hidden
-        , fullhd     = Hidden
+        , fullHD     = Hidden
         }
 
 -}
 displayByDevice : Devices Display -> Attribute msg
-displayByDevice {mobile,tablet,desktop,widescreen,fullhd}
+displayByDevice {mobile,tablet,desktop,widescreen,fullHD}
   = class
   <| join " "
     [ case mobile of
@@ -225,14 +225,14 @@ displayByDevice {mobile,tablet,desktop,widescreen,fullhd}
         InlineFlex  -> "is-inline-flex-widescreen-only"
         Hidden      -> "is-hidden-widescreen-only"
         -- KLUDGE: add widescreen helpers to BulmaClasses
-    , case fullhd of
-        Block       -> "is-block-fullhd-only"
-        Flex        -> "is-flex-fullhd-only"
-        Inline      -> "is-inline-fullhd-only"
-        InlineBlock -> "is-inline-block-fullhd-only"
-        InlineFlex  -> "is-inline-flex-fullhd-only"
-        Hidden      -> "is-hidden-fullhd"
-        -- KLUDGE: add fullhd helpers to BulmaClasses
+    , case fullHD of
+        Block       -> "is-block-fullHD-only"
+        Flex        -> "is-flex-fullHD-only"
+        Inline      -> "is-inline-fullHD-only"
+        InlineBlock -> "is-inline-block-fullHD-only"
+        InlineFlex  -> "is-inline-flex-fullHD-only"
+        Hidden      -> "is-hidden-fullHD"
+        -- KLUDGE: add fullHD helpers to BulmaClasses
     ]
 
 
@@ -285,7 +285,7 @@ textSize ts
 {-| You can choose a font specific size for each viewport width.
 -}
 textSizeByDevice : Devices Int -> Attribute msg
-textSizeByDevice {mobile,tablet,desktop,widescreen,fullhd}
+textSizeByDevice {mobile,tablet,desktop,widescreen,fullHD}
   = class
   <| join " "
     [ case clamp 1 7 mobile of
@@ -328,7 +328,7 @@ textSizeByDevice {mobile,tablet,desktop,widescreen,fullhd}
         7 -> "is-size-7-widescreen"
         _ -> ""
         -- KLUDGE: add to BulmaClasses
-    , case clamp 1 7 fullhd of
+    , case clamp 1 7 fullHD of
         1 -> "is-size-1-fullhd"
         2 -> "is-size-2-fullhd"
         3 -> "is-size-3-fullhd"
@@ -370,7 +370,7 @@ textAlignment alignment
 {-| Aligns text based on a device's viewport width.
 -}
 textAlignmentByDevice : Devices HorizontalAlignment -> Attribute msg
-textAlignmentByDevice {mobile,tablet,desktop,widescreen,fullhd}
+textAlignmentByDevice {mobile,tablet,desktop,widescreen,fullHD}
   = class
   <| join " "
     [ case mobile of
@@ -393,10 +393,10 @@ textAlignmentByDevice {mobile,tablet,desktop,widescreen,fullhd}
         Centered -> "has-text-centered-widescreen-only"
         Right    -> "has-text-right-widescreen-only"
         -- KLUDGE: add to BulmaClasses
-    , case fullhd of
-        Left     -> "has-text-left-fullhd"
-        Centered -> "has-text-centered-fullhd"
-        Right    -> "has-text-right-fullhd"
+    , case fullHD of
+        Left     -> "has-text-left-fullHD"
+        Centered -> "has-text-centered-fullHD"
+        Right    -> "has-text-right-fullHD"
         -- KLUDGE: add to BulmaClasses
     ]
 

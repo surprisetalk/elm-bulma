@@ -3,11 +3,18 @@ module Bulma.Layout exposing (..)
 
 -- DOCS ------------------------------------------------------------------------
 
-{-| TODO 
+{-| 
+# Table of Contents
+- [Container](#container)
+- [Hero](#hero)
+  - [Hero Partition](#hero-partition)
+- [Section](#section)
+- [Footer](#footer)
 
 # Container
 @docs Container
 @docs container, fluidContainer
+@docs widescreenContainer, fullHDContainer
 
 # Hero
 @docs Hero, HeroModifiers, HeroSize, heroModifiers
@@ -24,7 +31,6 @@ module Bulma.Layout exposing (..)
 # Footer
 @docs Footer
 @docs footer
-
 -}
 
 -- IMPORTS ---------------------------------------------------------------------
@@ -40,30 +46,97 @@ import Html exposing ( Html )
 
 -- CONTAINER -------------------------------------------------------------------
    
-{-| TODO
--}
+{-| -}
 type alias Container msg = Html msg
 
-{-| TODO
+{-| A simple container to center your content horizontally.
+
+    myContainer : Html msg
+    myContainer
+      = container []
+        [ p []
+          [ text "My container is centered on a desktop!"
+          ]
+        ]
+
+Containers can be used in any context, but mostly as a direct child of:
+- `navbar`
+- `hero`
+- `section`
+- `footer`
 -}
 container : Attrs msg -> Htmls msg -> Container msg
 container = node "div" [] [ bulma.feature.container ]
 
-{-| TODO
+{-| If you don't want to have a maximum width, but want to keep the 24px margin on the left and right sides, `fluidContainer` is for you!
+
+    myFluidContainer : Html msg
+    myFluidContainer
+      = container []
+        [ p []
+          [ text "My container will have a 24px gap on its left and right."
+          ]
+        [ p []
+          [ text "This gap holds for all viewport sizes."
+          ]
+        ]
 -}
 fluidContainer : Attrs msg -> Htmls msg -> Container msg
 fluidContainer = node "div" [] [ bulma.feature.container
                                , bulma.feature.sizing.isFluid
                                ]
 
+{-| This container is full-width until the "widescreen" breakpoint.
+
+    myWidescreenContainer : Html msg
+    myWidescreenContainer
+      = widescreenContainer []
+        [ p [] [ text "This container fills the screen-width..." ]
+        , p [] [ text "...until it hits the widescreen breakpoint." ]
+        ]
+-}
+widescreenContainer : Attrs msg -> Htmls msg -> Container msg
+widescreenContainer = node "div" [] [ bulma.feature.container
+                                    , "is-widescreen"
+                                      -- TODO: add to BulmaClasses
+                                    ]
+
+{-| This container is full-width until the "fullHD" breakpoint.
+
+    fullHDContainer : Html msg
+    fullHDContainer
+      = widescreenContainer []
+        [ p [] [ text "This container fills the screen-width..." ]
+        , p [] [ text "...until it hits the fullHD breakpoint." ]
+        ]
+-}
+fullHDContainer : Attrs msg -> Htmls msg -> Container msg
+fullHDContainer = node "div" [] [ bulma.feature.container
+                                , "is-fullhd"
+                                  -- TODO: add to BulmaClasses
+                                ]
+
 
 -- HERO ------------------------------------------------------------------------
 
-{-| TODO
--}
+{-| -}
 type alias Hero msg = Html msg
 
-{-| TODO
+{-| An imposing Hero banner to showcase something.
+
+    import Bulma.Layout exposing (hero,heroBody,container)
+    import Bulma.Elements exposing (TitleSize(H1,H2),title)
+
+    myHero : Html msg
+    myHero
+      = hero myHeroModifiers []
+        [ heroBody [] 
+          [ container []
+            [ title H1 [] [ text "Hero Title" ]
+            , title H2 [] [ text "Hero Subtitle" ]
+            ]
+          ]
+        ]
 -}
 hero : HeroModifiers -> Attrs msg -> List (HeroPartition msg) -> Hero msg
 hero {bold,size,color}
@@ -90,24 +163,41 @@ hero {bold,size,color}
         Danger  -> bulma.hero.color.isDanger
     ]
 
-{-| TODO
+{-| The `hero` element with some added guard-rails.
+
+    myHero : Html msg
+    myHero
+      = easyHero myHeroModifiers []
+        { head = heroHead [] []
+        , body = heroBody [] []
+        , foot = heroFoot [] []
+        }
 -}
 easyHero : HeroModifiers -> Attrs msg -> { head : HeroPartition msg, body : HeroPartition msg, foot : HeroPartition msg } -> Hero msg
 easyHero mods attrs {head,body,foot}
   = hero mods attrs [ head, body, foot ]
 
--- TODO: hero video???
 
 -- HERO MODIFIERS --
 
-{-| TODO
--}
+{-| -}
 type alias HeroModifiers = { bold  : Bool
                            , size  : HeroSize
                            , color : Color
                            }
 
-{-| TODO
+{-| These are the stylistic defaults for `hero` containers.
+
+    import Bulma.Modifiers exposing ( Size(Normal)
+                                    , Color(Default)
+                                    )
+
+    myHeroModifiers : HeroModifiers
+    myHeroModifiers
+      = { bold  = False
+        , size  = Normal
+        , color = Default
+        }
 -}
 heroModifiers : HeroModifiers
 heroModifiers = { bold  = False
@@ -115,8 +205,7 @@ heroModifiers = { bold  = False
                 , color = Default
                 }
 
-{-| TODO
--}
+{-| -}
 type HeroSize = Normal
               | Medium
               | Large
@@ -125,33 +214,38 @@ type HeroSize = Normal
 
 -- HERO PARTITIONS --
 
-{-| TODO
--}
+{-| -}
 type alias HeroPartition msg = Html msg
 
-{-| TODO
--}
+{-| -}
 heroHead : Attrs msg -> Htmls msg -> HeroPartition msg
 heroHead = node "div" [] [ bulma.hero.head ]
 
-{-| TODO
--}
+{-| -}
 heroBody : Attrs msg -> Htmls msg -> HeroPartition msg
 heroBody = node "div" [] [ bulma.hero.body ]
 
-{-| TODO
--}
+{-| -}
 heroFoot : Attrs msg -> Htmls msg -> HeroPartition msg
 heroFoot = node "div" [] [ bulma.hero.foot ]
 
 
 -- SECTION ---------------------------------------------------------------------
 
-{-| TODO
--}
+{-| -}
 type alias Section msg = Html msg
 
-{-| TODO
+{-| Use sections as direct children of your top HTML element.
+
+    view : Model -> Html msg
+    view model
+      = div []
+        [ section NotSpaced []
+          [ container []
+            [ p [] [ text "Containers for your containers!" ]
+            ]
+          ]
+        ]
 -}
 section : SectionSpacing -> Attrs msg -> Htmls msg -> Section msg
 section spacing
@@ -165,8 +259,7 @@ section spacing
 
 -- MODIFIERS --
 
-{-| TODO
--}
+{-| -}
 type SectionSpacing = NotSpaced
                     | Spaced
                     | VerySpaced
@@ -174,11 +267,23 @@ type SectionSpacing = NotSpaced
 
 -- FOOTER ----------------------------------------------------------------------
 
-{-| TODO
--}
+{-| -}
 type alias Footer msg = Html msg
 
-{-| TODO
+{-| A simple responsive footer which can include anything: lists, headings, columns, icons, buttons, etc.
+
+    myFooter : Html msg
+    myFooter
+      = footer []
+        [ container []
+          [ content [ textCentered ]
+            [ p [] 
+              [ text "Ask your doctor if Bulma is right for you."
+              ]
+            ]
+          ]
+        ]
+
 -}
 footer : Attrs msg -> Htmls msg -> Footer msg
 footer = node "footer" [] [ bulma.footer.container ]

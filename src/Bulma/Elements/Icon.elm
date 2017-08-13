@@ -13,9 +13,8 @@ module Bulma.Elements.Icon exposing (..)
     view model
       = div []
         [ fontAwesome
-        , icon Large [] 
-          [ meh_o
-          ]
+        , icon Large [] [             meh_o  ]
+        , icon Large [] [ i [] "fa fa-meh-o" ]
         ]
 
 # Icon Wrapper
