@@ -69,7 +69,12 @@ module Bulma.Elements exposing (..)
 # Tag
 @docs Tag, TagModifiers, tagModifiers
 @docs tag, easyTag
-@docs tagWithDelete, easyTagWithDelete
+@docs roundedTag, easyRoundedTag
+@docs tagWithDelete, easyTagWithDelete, easyRoundedTagWithDelete
+
+## Tag Groups
+@docs tags
+@docs multitag
 
 # Title
 @docs Title, TitleSize
@@ -817,15 +822,15 @@ tags = node "div" [] [ "tags" ]
 -- TODO: add to BulmaClasses
 
 {-| 
-    myMultiTag : Html msg
-    myMultiTag
-      = multiTag []
+    myMultitag : Html msg
+    myMultitag
+      = multitag []
         [ myFirstTag
         , mySecondTag
         ]
 
-    myMultiTags : Html msg
-    myMultiTags
+    myMultitags : Html msg
+    myMultitags
       = fieldGroup myFieldGroupModifiers []
         [ control myControlModifiers []
           [ myMultiTag 
@@ -838,8 +843,8 @@ tags = node "div" [] [ "tags" ]
           ]
         ]
 -}
-multiTag : Attrs msg -> List (Tag msg) -> Html msg
-multiTag = node "div" [] [ "tags", "has-addons" ]
+multitag : Attrs msg -> List (Tag msg) -> Html msg
+multitag = node "div" [] [ "tags", "has-addons" ]
 -- TODO: this example should probably use is-grouped-multiline
 
 
