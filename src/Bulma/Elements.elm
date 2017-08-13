@@ -40,7 +40,7 @@ module Bulma.Elements exposing (..)
 
 # Image
 @docs Image, ImageModifiers, ImageSize, ImageAspectRatio, imageModifiers
-@docs image, easyImage
+@docs image, easyImage, easyPlaceholderImage
 
 # Notification
 @docs Notification
@@ -397,8 +397,7 @@ imageModifiers = { size        = Nothing
     myImage : Html msg
     myImage
       = image myImageModifiers []
-        [ img [ src "https://i.imgur.com/pPjvmVS.jpg" ] 
-          []
+        [ img [ src "https://i.imgur.com/pPjvmVS.jpg" ] []
         ]
 -}
 image : ImageModifiers -> Attrs msg -> Htmls msg -> Image msg
@@ -574,26 +573,30 @@ easyProgress mods attrs val
 
 -- TABLE -----------------------------------------------------------------------
 
-{-| TODO
--}
+{-| -}
 type alias Table msg = Html msg
 
-{-| TODO
--}
+{-| -}
 type alias TableModifiers = { bordered : Bool
                             , striped  : Bool
                             , narrow   : Bool
                             }
 
-{-| TODO
--}
+{-| -}
 tableModifiers : TableModifiers
 tableModifiers = { bordered = False
                  , striped  = False
                  , narrow   = False
                  }
 
-{-| TODO
+{-| 
+    myTable : Html msg
+    myTable 
+      = table myTableModifiers []
+        [ tableHead [] []
+        , tableBody [] []
+        , tableFoot [] []
+        ]
 -}
 table : TableModifiers -> Attrs msg -> List (TablePartition msg) -> Table msg
 table {bordered,striped,narrow}
@@ -613,21 +616,52 @@ table {bordered,striped,narrow}
 
 -- TABLE PARTITIONS --
 
-{-| TODO
--}
+{-| -}
 type alias TablePartition msg = Html msg
 
-{-| TODO
+{-|
+    myTableHead : Html msg
+    myTableHead 
+      = tableHead []
+        [ tableRow False []
+          [ tableCellHead [] []
+          , tableCellHead [] []
+          , tableCellHead [] []
+          ]
+        ]
 -}
 tableHead : Attrs msg -> List (TableRow msg) -> TablePartition msg
 tableHead = node "thead" [] []
 
-{-| TODO
+{-|
+    myTableBody : Html msg
+    myTableBody 
+      = tableBody []
+        [ tableRow False []
+          [ tableCell [] []
+          , tableCell [] []
+          , tableCell [] []
+          ]
+        , tableRow True  []
+          [ tableCell [] []
+          , tableCell [] []
+          , tableCell [] []
+          ]
+        ]
 -}
 tableBody : Attrs msg -> List (TableRow msg) -> TablePartition msg
 tableBody = node "tbody" [] []
 
-{-| TODO
+{-|
+    myTableFoot : Html msg
+    myTableFoot 
+      = tableFoot []
+        [ tableRow False []
+          [ tableCellHead [] []
+          , tableCellHead [] []
+          , tableCellHead [] []
+          ]
+        ]
 -}
 tableFoot : Attrs msg -> List (TableRow msg) -> TablePartition msg
 tableFoot = node "tfoot" [] []
@@ -635,16 +669,13 @@ tableFoot = node "tfoot" [] []
 
 -- TABLE ROW --
 
-{-| TODO
--}
+{-| -}
 type alias TableRow msg = Html msg
 
-{-| TODO
--}
+{-| -}
 type alias IsHighlighted = Bool
 
-{-| TODO
--}
+{-| -}
 tableRow : IsHighlighted -> Attrs msg -> List (TableCell msg) -> TableRow msg
 tableRow highlighted
   = node "tr" []
@@ -656,41 +687,40 @@ tableRow highlighted
 
 -- TABLE CELLS --
 
-{-| TODO
--}
+{-| -}
 type alias TableCell msg = Html msg
 
-{-| TODO
--}
+{-| -}
 tableCell : Attrs msg -> Htmls msg -> TableCell msg
 tableCell = node "td" [] []
 
-{-| TODO
--}
+{-| -}
 tableCellHead : Attrs msg -> Htmls msg -> TableCell msg
 tableCellHead = node "th" [] []
 
 
 -- TAG -------------------------------------------------------------------------
 
-{-| TODO
--}
+{-| -}
 type alias Tag msg = Html msg
 
-{-| TODO
--}
+{-| -}
 type alias TagModifiers = { size  : Size
                           , color : Color
                           }
 
-{-| TODO
--}
+{-| -}
 tagModifiers : TagModifiers
 tagModifiers = { size  = Normal
                , color = Default
                } 
 
-{-| TODO
+{-| 
+    myTag : Html msg
+    myTag
+      = tag myTagModifiers []
+        [ text "Hip to Be Square"
+        ]
 -}
 tag : TagModifiers -> Attrs msg -> Htmls msg -> Tag msg
 tag {size,color}
@@ -714,32 +744,111 @@ tag {size,color}
         Danger  -> bulma.tag.color.isDanger
     ]
 
-{-| TODO
+{-| 
+    myTag : Html msg
+    myTag
+      = roundedTag myTagModifiers []
+        [ text "Behold! I'm circlular!"
+        ]
+-}
+roundedTag : TagModifiers -> Attrs msg -> Htmls msg -> Tag msg
+roundedTag mods attrs
+  = tag mods <| class "is-rounded" :: attrs
+
+{-| 
+    myTag : Html msg
+    myTag
+      = easyTag myTagModifiers []
+        "That was easy."
 -}
 easyTag : TagModifiers -> Attrs msg -> String -> Tag msg
 easyTag mods attrs = text >> ls >> tag mods attrs 
 
-{-| TODO
+{-| -}
+easyRoundedTag : TagModifiers -> Attrs msg -> String -> Tag msg
+easyRoundedTag mods attrs = text >> ls >> roundedTag mods attrs 
+
+{-|
+    type Msg = DeleteTag Id
+
+    myTag : Id -> Html Msg
+    myTag id
+      = tagWithDelete myTagModifiers []
+        (DeleteTag id)
+        [ text "cool"
+        ]
 -}
 tagWithDelete : TagModifiers -> Attrs msg -> msg -> Htmls msg -> Tag msg
 tagWithDelete mods attrs msg
   = flip (++) [ easyDelete [] msg ] >> tag mods attrs
 
-{-| TODO
+{-|
+    type Msg = DeleteTag Id
+
+    myTag : Id -> Html Msg
+    myTag id
+      = tagWithDelete myTagModifiers []
+        (DeleteTag id)
+        "cooler"
 -}
 easyTagWithDelete : TagModifiers -> Attrs msg -> msg -> String -> Tag msg
 easyTagWithDelete mods attrs msg str
   = tag mods attrs [ text str, easyDelete [] msg ]
 
+{-| -}
+easyRoundedTagWithDelete : TagModifiers -> Attrs msg -> msg -> String -> Tag msg
+easyRoundedTagWithDelete mods attrs msg str
+  = roundedTag mods attrs [ text str, easyDelete [] msg ]
+
+    
+-- TAG GROUPS --
+
+-- TODO: add to BulmaClasses
+{-| 
+    myTags : Html msg
+    myTags
+      = tags []
+        [ myFirstTag
+        , mySecondTag
+        ]
+-}
+tags : Attrs msg -> List (Tag msg) -> Html msg
+tags = node "div" [] [ "tags" ]
+-- TODO: add to BulmaClasses
+
+{-| 
+    myMultiTag : Html msg
+    myMultiTag
+      = multiTag []
+        [ myFirstTag
+        , mySecondTag
+        ]
+
+    myMultiTags : Html msg
+    myMultiTags
+      = fieldGroup myFieldGroupModifiers []
+        [ control myControlModifiers []
+          [ myMultiTag 
+          ]
+        , control myControlModifiers []
+          [ myMultiTag 
+          ]
+        , control myControlModifiers []
+          [ myMultiTag 
+          ]
+        ]
+-}
+multiTag : Attrs msg -> List (Tag msg) -> Html msg
+multiTag = node "div" [] [ "tags", "has-addons" ]
+-- TODO: this example should probably use is-grouped-multiline
+
 
 -- TITLE -----------------------------------------------------------------------
 
-{-| TODO
--}
+{-| -}
 type alias Title msg = Html msg
 
-{-| TODO
--}
+{-| -}
 type TitleSize = H1
                | H2
                | H3
@@ -747,7 +856,12 @@ type TitleSize = H1
                | H5
                | H6
 
-{-| TODO
+{-|
+    myTitle : Html msg
+    myTitle
+      = title H1 [] 
+        [ text "Hullo"
+        ]
 -}
 title : TitleSize -> Attrs msg -> Htmls msg -> Title msg
 title size
@@ -765,7 +879,12 @@ title size
 
 -- SUBTITLE --
 
-{-| TODO
+{-|
+    mySubtitle : Html msg
+    mySubtitle
+      = subtitle H3 [] 
+        [ text "World"
+        ]
 -}
 subtitle : TitleSize -> Attrs msg -> Htmls msg -> Title msg
 subtitle size
@@ -783,11 +902,15 @@ subtitle size
 
 -- TITLE PAIR --
 
-{-| TODO
--}
+{-| -}
 type alias TitleSpacing = Bool
 
-{-| TODO
+{-| 
+    myTitle : Html msg
+    myTitle
+      = easyTitleWithSubtitle False H1
+        [ text "EPISODE V" ]
+        [ text "THE EMPIRE STRIKES BACK" ]
 -}
 easyTitleWithSubtitle : TitleSpacing -> TitleSize -> Htmls msg -> Htmls msg -> List (Title msg)
 easyTitleWithSubtitle spacing size title subtitle
