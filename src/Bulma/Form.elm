@@ -57,7 +57,7 @@ module Bulma.Form exposing (..)
 @docs help
 
 ### File
-Coming soon!
+Coming Soon!
 
 ## Field Group
 @docs fieldGroup, connectedFieldGroup
@@ -665,10 +665,10 @@ controlRadioButton name attrs attrs_ htmls
      <| node "input" inputAttrs [                ] attrs_ []
        :: htmls
 
--- {-| TODO
--- -}
--- easyControlRadio : String -> ControlModifiers -> Attrs msg -> List (String, String -> msg, Htmls msg) -> Control msg
--- easyControlRadio name mods attrs controls
+-- TODO: {-| TODO
+-- TODO: -}
+-- TODO: easyControlRadio : String -> ControlModifiers -> Attrs msg -> List (String, String -> msg, Htmls msg) -> Control msg
+-- TODO: easyControlRadio name mods attrs controls
 
 {-| 
     import Bulma.Modifiers exposing (Color(Danger))
@@ -700,6 +700,9 @@ help color
 -}
 controlHelp : Color -> Attrs msg -> Htmls msg -> Control msg
 controlHelp = help
+
+
+-- FILE ------------------------------------------------------------------------
 
 -- TODO: file
 

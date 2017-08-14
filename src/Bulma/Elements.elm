@@ -622,7 +622,6 @@ easyRoundedTagWithDelete mods attrs msg str
     
 -- TAG GROUPS --
 
--- TODO: add to BulmaClasses
 {-| 
     myTags : Html msg
     myTags
@@ -633,7 +632,7 @@ easyRoundedTagWithDelete mods attrs msg str
 -}
 tags : Attrs msg -> List (Tag msg) -> Html msg
 tags = node "div" [] [ "tags" ]
--- TODO: add to BulmaClasses
+-- KLUDGE: add to BulmaClasses
 
 {-| 
     myMultitag : Html msg
@@ -645,7 +644,7 @@ tags = node "div" [] [ "tags" ]
 
     myMultitags : Html msg
     myMultitags
-      = fieldGroup myFieldGroupModifiers []
+      = multilineFieldGroup []
         [ control myControlModifiers []
           [ myMultiTag 
           ]
@@ -659,7 +658,6 @@ tags = node "div" [] [ "tags" ]
 -}
 multitag : Attrs msg -> List (Tag msg) -> Html msg
 multitag = node "div" [] [ "tags", "has-addons" ]
--- TODO: this example should probably use is-grouped-multiline
 
 
 -- TITLE -----------------------------------------------------------------------

@@ -97,7 +97,7 @@ fluidContainer = node "div" [] [ bulma.feature.container
 widescreenContainer : Attrs msg -> Htmls msg -> Container msg
 widescreenContainer = node "div" [] [ bulma.feature.container
                                     , "is-widescreen"
-                                      -- TODO: add to BulmaClasses
+                                      -- KLUDGE: add to BulmaClasses
                                     ]
 
 {-| This container is full-width until the "fullHD" breakpoint.
@@ -112,7 +112,7 @@ widescreenContainer = node "div" [] [ bulma.feature.container
 fullHDContainer : Attrs msg -> Htmls msg -> Container msg
 fullHDContainer = node "div" [] [ bulma.feature.container
                                 , "is-fullhd"
-                                  -- TODO: add to BulmaClasses
+                                  -- KLUDGE: add to BulmaClasses
                                 ]
 
 
