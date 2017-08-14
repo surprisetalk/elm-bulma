@@ -36,7 +36,6 @@ type State
   | Focus
   | Active
   | Loading
-  | Static
 
 {-| -}
 type Color
