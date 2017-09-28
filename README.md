@@ -70,3 +70,8 @@ exampleGrid
 - [elm-bootstrap](http://package.elm-lang.org/packages/rundis/elm-bootstrap/latest)
 - [elm-bulma-classes](http://package.elm-lang.org/packages/danielnarey/elm-bulma-classes/latest/BulmaClasses)
 
+## Next Steps
+- Adding the remaining Bulma `0.5.3` components.
+- Improving documentation.
+- Cleaning the codebase.
+- Making the library web-accessible by default, using the [elm-html-a11y](http://package.elm-lang.org/packages/tesk9/elm-html-a11y/latest) package.
