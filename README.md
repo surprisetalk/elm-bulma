@@ -14,52 +14,63 @@ Elm-Bulma is a simple and beautiful front-end library.
 ``` elm
 module Main exposing (..)
 
-import Html 
-  exposing ( main 
-           )
+import Bulma.CDN exposing (..)
+import Bulma.Elements exposing (..)
+import Bulma.Grid as Grid exposing (..)
+import Bulma.Layout exposing (..)
+import Html
+    exposing
+        ( Html
+        , main_
+        , text
+        )
 
-import Bulma.CDN    as CDN
-import Bulma.Grid   as Grid
-import Bulma.Layout as Layout 
-  exposing ( SectionSpacing(Spaced) 
-           , section
-           , container
-           , hero
-           , heroBody
-           )
 
-import Bulma.Elements as Elems
-  exposing ( title
-           )
+type Model
+    = NoModel
+
+
+main =
+    Html.beginnerProgram
+        { model = NoModel
+        , view = view
+        , update = \msg -> \model -> model
+        }
 
 
 view : Model -> Html msg
-view model
-  = main []
-    [ section Spaced [] [ exampleHero ]
-    , section Spaced [] [ exampleGrid ]
-    ]
+view model =
+    main_ []
+        [ stylesheet
+        , section Spaced [] [ exampleHero ]
+        , section Spaced [] [ exampleGrid ]
+        ]
+
 
 exampleHero : Html msg
-exampleHero
-  = Grid.columns columnsModifiers []
-    [ hero myHeroModifiers []
-      [ heroBody [] 
-        [ container []
-          [ title H1 [] [ text "Hero Title"    ]
-          , title H2 [] [ text "Hero Subtitle" ]
-          ]
+exampleHero =
+    Grid.columns columnsModifiers
+        []
+        [ hero heroModifiers
+            []
+            [ heroBody []
+                [ container []
+                    [ title H1 [] [ text "Hero Title" ]
+                    , title H2 [] [ text "Hero Subtitle" ]
+                    ]
+                ]
+            ]
         ]
-      ]
-    ]
+
 
 exampleGrid : Html msg
-exampleGrid
-  = Grid.columns columnsModifiers []
-    [ column columnModifiers [] [ text "First Column"  ]
-    , column columnModifiers [] [ text "Second Column" ]
-    , column columnModifiers [] [ text "Third Column"  ]
-    ]
+exampleGrid =
+    Grid.columns columnsModifiers
+        []
+        [ column columnModifiers [] [ text "First Column" ]
+        , column columnModifiers [] [ text "Second Column" ]
+        , column columnModifiers [] [ text "Third Column" ]
+        ]
 ```
 
 ## Contributions
