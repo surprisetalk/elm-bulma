@@ -328,6 +328,8 @@ cardFooterItemLink = node "a" [] [ bulma.card.footer.item ]
 
 -- LEVEL -----------------------------------------------------------------------
 
+-- TODO: move to Layout and update
+
 {-| -}
 type alias Level msg = Html msg
 
@@ -410,6 +412,8 @@ easyLevelItemWithHeading attrs heading title
 
 
 -- MEDIA OBJECT ----------------------------------------------------------------
+
+-- TODO: move to Layout and update
 
 {-| -}
 type alias Media msg = Html msg
@@ -519,6 +523,8 @@ easyMenuListItemLink active attrs msg icon str
 
 
 -- MESSAGE ---------------------------------------------------------------------
+
+-- TODO: update message
 
 {-| -}
 type alias Message msg = Html msg
@@ -849,6 +855,8 @@ type alias IsActive = Bool
 
 -- PAGINATION ------------------------------------------------------------------
 
+-- TODO: update pagination
+
 {-| -}
 type alias Pagination msg = Html msg
 
@@ -1041,6 +1049,8 @@ panelTab active
 
 
 -- TABS ------------------------------------------------------------------------
+
+-- TODO: update tabs
 
 {-| -}
 type alias Tabs msg = Html msg

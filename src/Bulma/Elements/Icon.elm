@@ -1,6 +1,8 @@
 
 module Bulma.Elements.Icon exposing (..)
 
+-- TODO: update icons
+
 -- DOCS ------------------------------------------------------------------------
 
 {-| Icon elements! Includes aliases for all the icons in Font Awesome 4.7.0.

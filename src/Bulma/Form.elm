@@ -1,6 +1,11 @@
 
 module Bulma.Form exposing (..)
 
+-- TODO: double-check that all the features here work correctly
+-- TODO: update inputs
+-- TODO: update textarea
+-- TODO: update dropdowns
+
 -- DOCS ------------------------------------------------------------------------
 
 {-| 
@@ -708,6 +713,9 @@ controlHelp = help
 
 
 -- BUTTON ----------------------------------------------------------------------
+
+-- TODO: consider moving back to Elements or Elements.Button
+-- TODO: update button
 
 {-| -}
 type alias Button msg = Html msg

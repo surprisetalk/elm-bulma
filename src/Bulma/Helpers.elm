@@ -32,7 +32,7 @@ module Bulma.Helpers exposing (..)
 @docs clipped
 
 ## Style
-@docs radiusless, shadowless
+@docs radiusless, shadowless, invisible
 
 # Display
 @docs Devices, Display
@@ -150,6 +150,15 @@ shadowless = class "is-shadowless"
 -- KLUDGE: add "is-shadowless" to BulmaClasses
 
 
+-- INVISIBLE -------------------------------------------------------------------
+
+{-| Makes it disappear.
+-}
+invisible : Attribute msg
+invisible = class "is-invisible"
+-- KLUDGE: add "is-invisible" to BulmaClasses
+
+
 -- DISPLAY ---------------------------------------------------------------------
 
 {-| -}
@@ -238,6 +247,8 @@ displayByDevice {mobile,tablet,desktop,widescreen,fullHD}
 
 -- TEXT TRANSFORMATIONS --------------------------------------------------------
 
+-- TODO: italicize
+
 {-| Transforms the first character to each word to uppercase.
 -}
 capitalize : Attribute msg
@@ -255,6 +266,11 @@ lowercase = class "is-lowercase"
 uppercase : Attribute msg
 uppercase = class "is-uppercase"
 -- KLUDGE: add to BulmaClasses
+
+
+-- TEXT TRANSFORMATIONS --------------------------------------------------------
+
+-- TODO: text weight
 
 
 -- TEXT SIZE -------------------------------------------------------------------
@@ -342,6 +358,8 @@ textSizeByDevice {mobile,tablet,desktop,widescreen,fullHD}
 
 
 -- TEXT ALIGNMENT --------------------------------------------------------------
+
+-- TODO: textJustified
 
 {-| Aligns text to the left.
 -}

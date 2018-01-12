@@ -1,6 +1,10 @@
 
 module Bulma.Grid exposing (..)
 
+-- TODO rename module to Columns
+-- TODO integrate variable gaps
+-- TODO centered
+
 -- DOCS ------------------------------------------------------------------------
 
 {-| A simple way to build responsive grids.
@@ -286,6 +290,8 @@ columnModifiers = { offset = Auto
 
 
 -- COLUMN ----------------------------------------------------------------------
+
+-- TODO: move to Layout and update
 
 {-| -}
 type alias Tile msg = Html msg

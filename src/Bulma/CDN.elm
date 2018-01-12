@@ -34,6 +34,7 @@ stylesheet =
   node "link"
   [ rel  "stylesheet"
   , href "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css"
+    -- TODO: upgrade to 0.6.2
   ]
   []
 

@@ -392,6 +392,8 @@ easyProgress mods attrs val
 
 -- TABLE -----------------------------------------------------------------------
 
+-- TODO: update table
+
 {-| -}
 type alias Table msg = Html msg
 
@@ -519,6 +521,8 @@ tableCellHead = node "th" [] []
 
 
 -- TAG -------------------------------------------------------------------------
+
+-- TODO: update tag
 
 {-| -}
 type alias Tag msg = Html msg
