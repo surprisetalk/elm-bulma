@@ -8,10 +8,9 @@
     ],
     "exposed-modules": [
         "Bulma.CDN",
-        "Bulma.Helpers",
         "Bulma.Modifiers",
         "Bulma.Form",
-        "Bulma.Grid",
+        "Bulma.Columns",
         "Bulma.Elements",
         "Bulma.Elements.Icon",
         "Bulma.Components",

@@ -5,11 +5,9 @@ module Bulma.Components exposing (..)
 
 {-| 
 # Table of Contents
-- [BreadCrumb](#breadcrumb)
+- [Breadcrumb](#breadcrumb)
 - [Card](#card)
 - [Dropdown](#dropdown)
-- [Level](#level)
-- [Media](#media)
 - [Menu](#menu)
 - [Message](#message)
 - [Modal](#modal)
@@ -18,8 +16,13 @@ module Bulma.Components exposing (..)
 - [Panel](#panel)
 - [Tabs](#tabs)
 
-# BreadCrumb
-Coming Soon!
+# Breadcrumb
+@docs Breadcrumb, BreadcrumbModifiers, BreadcrumbSeparator, breadcrumbModifiers
+@docs breadcrumb
+
+## Crumblet
+@docs Crumblet
+@docs crumblet
 
 # Card
 @docs Card
@@ -50,30 +53,20 @@ Coming Soon!
 @docs cardFooterItem, cardFooterItemLink
 
 # Dropdown
-Coming Soon!
+@docs Dropdown, DropdownModifiers, dropdownModifiers
+@docs dropdown, hoverableDropdown
 
-# Level
-@docs Level
-@docs level, horizontalLevel
-@docs centeredLevel
+## Dropdown Trigger
+@docs DropdownTrigger
+@docs dropdownTrigger
 
-## Level Partition
-@docs LevelPartition
-@docs levelLeft, levelRight
+## Dropdown Menu
+@docs DropdownMenu
+@docs dropdownMenu
 
-## Level Item
-@docs LevelItem
-@docs levelItem, levelItemLink, levelItemText
-@docs easyLevelItemWithHeading 
-
-# Media Object
-@docs Media
-@docs media
-
-## Media Object Partition
-@docs MediaPartition 
-@docs mediaContent
-@docs mediaLeft, mediaRight
+### Dropdown Item
+@docs DropdownItem 
+@docs dropdownItem, dropdownItemLink, dropdownDivider
 
 # Menu
 @docs Menu
@@ -120,10 +113,36 @@ Coming Soon!
 @docs modalCardFoot
 
 # Navbar
-Coming Soon!
+@docs Navbar, NavbarModifiers
+@docs navbar
+@docs fixedNavbar
+
+## Navbar Brand
+@docs NavbarBrand, navbarBrand
+
+### Navbar Burger
+@docs NavbarBurger
+@docs navbarBurger, navbarCross
+
+## Navbar Menu
+@docs NavbarMenu, navbarMenu
+
+@docs NavbarStart, navbarStart
+
+@docs NavbarEnd, navbarEnd
+
+### Navbar Item
+@docs NavbarItem
+@docs navbarItem, navbarItemLink
+@docs navbarDivider
+
+#### Navbar Item Dropdown
+@docs navbarItemDropdown, hoverableNavbarItemDropdown
+@docs NavbarDropdown, IsBoxed, navbarDropdown
+@docs NavbarLink, navbarLink
 
 # Pagination
-@docs Pagination, pagination
+@docs Pagination, pagination, roundedPagination
 
 ## Pagination Partition
 @docs PaginationPartition
@@ -165,21 +184,95 @@ import Helpers exposing (..)
 
 import BulmaClasses exposing (..)
 
-import Bulma.Modifiers exposing ( Color(..), Size(..), HorizontalAlignment(..) )
+import Bulma.Modifiers exposing ( Color(..), Size(..), HorizontalAlignment(..), VerticalAlignment(..), VerticalDirection(..) )
 
-import Bulma.Layout exposing ( container )
-
-import Bulma.Elements exposing ( Image, easyDelete ) 
+import Bulma.Elements exposing ( Image, easyDelete, Button, ButtonModifiers, button ) 
 import Bulma.Elements.Icon exposing ( Icon ) 
 
 import Html exposing ( Html, text, div, p, a, ul, li, span )
 import Html.Events exposing ( onClick )
-import Html.Attributes exposing ( class )
+import Html.Attributes exposing ( attribute, class )
 
 
 -- BREADCRUMB ------------------------------------------------------------------
 
--- TODO: breadcrumb
+{-| -}
+type alias Breadcrumb msg = Html msg
+
+{-| -}
+type BreadcrumbSeparator
+  = Slash
+  | Arrow
+  | Bullet
+  | Dot
+  | Succeeds
+
+{-| -}
+type alias BreadcrumbModifiers
+  = { separator : BreadcrumbSeparator
+    , alignment : HorizontalAlignment
+    , size      : Size
+    }
+
+{-| -}
+breadcrumbModifiers : BreadcrumbModifiers
+breadcrumbModifiers
+  = { separator = Slash
+    , alignment = Left
+    , size      = Normal
+    }
+
+{-| A navigation thingy.
+The first list of attributes is for a `nav.breadcrumb` tag. The second is for an inner `ul` tag.
+
+    type Msg = GoHome
+             | GoAway
+             | GoTeam
+
+    myBreadCrumb : Html Msg
+    myBreadCrumb
+      = breadcrumb breadcrumbModifiers [] []
+        [ crumblet False [] [ onClick GoHome ]
+        , crumblet False [] [ onClick GoAway ]
+        , crumblet False [] [ onClick GoTeam ]
+        , crumblet True  [] [                ]
+        ]
+-}
+breadcrumb : BreadcrumbModifiers -> Attrs msg -> Attrs msg -> List (Crumblet msg) -> Breadcrumb msg
+breadcrumb {separator,alignment,size} attrs attrs_
+  = node "nav" [ attribute "aria-label" "breadcrumb" ]
+    [ "breadcrumb"
+    , case separator of
+        Slash    -> ""
+        Arrow    -> "has-arrow-separator"
+        Bullet   -> "has-bullet-separator"
+        Dot      -> "has-dot-separator"
+        Succeeds -> "has-succeeds-separator"
+    , case size of
+        Small  -> "is-small"
+        Normal -> ""
+        Medium -> "is-medium"
+        Large  -> "is-large"
+    , case alignment of
+        Left     -> ""
+        Centered -> "is-centered"
+        Right    -> "is-right"
+    ]
+    attrs
+    << ls
+      << ul attrs_
+
+{-| -}
+type alias Crumblet msg = Html msg
+
+{-| A convenience element for `breadcrumb`.
+The first attribute list applies to the outer `li` tag. The second attribute list applies to the inner `a` tag.
+-}
+crumblet : IsActive -> Attrs msg -> Attrs msg -> Htmls msg -> Crumblet msg
+crumblet isActive attrs attrs_
+  = li ( if isActive then class "is-active" :: attrs else attrs )
+    << ls
+      << a attrs_
 
 
 -- CARD ------------------------------------------------------------------------
@@ -323,135 +416,143 @@ cardFooterItemLink = node "a" [] [ bulma.card.footer.item ]
 
 -- DROPDOWN --------------------------------------------------------------------
 
--- TODO: dropdown
-
-
--- LEVEL -----------------------------------------------------------------------
-
--- TODO: move to Layout and update
+{-| -}
+type alias Dropdown msg = Html msg
 
 {-| -}
-type alias Level msg = Html msg
-
-{-|
-    myLevel : Html msg
-    myLevel
-      = level []
-        [ levelLeft []
-          [ levelItem [] []
-          , levelItem [] []
-          , levelItem [] []
-          ]
-        , levelRight []
-          [ levelItem [] []
-          , levelItem [] []
-          , levelItem [] []
-          ]
-        ]
--}
-level : Attrs msg -> List (LevelPartition msg) -> Level msg
-level = node "nav" [] [ bulma.level.container ]
+type alias DropdownTrigger msg = Html msg
 
 {-| -}
-horizontalLevel : Attrs msg -> List (LevelPartition msg) -> Level msg
-horizontalLevel = node "nav" [] [ bulma.level.container
-                                , bulma.level.mobile.isHorizontal
-                                ]
-{-|
-    myLevel : Html msg
-    myLevel
-      = centeredLevel []
-        [ levelItem [] []
-        , levelItem [] []
-        , levelItem [] []
-        ]
--}
-centeredLevel : Attrs msg -> List (LevelItem msg) -> Level msg
-centeredLevel = level
-
-
--- LEVEL PARTITONS --
+type alias DropdownMenu msg = Html msg
 
 {-| -}
-type alias LevelPartition msg = Html msg
+type alias DropdownItem msg = Html msg
 
 {-| -}
-levelLeft : Attrs msg -> List (LevelItem msg) -> LevelPartition msg
-levelLeft = node "div" [] [ bulma.level.left ]
+type alias DropdownModifiers
+  = { horizontalAlignment : HorizontalAlignment
+    , verticalDirection   : VerticalDirection
+    }
 
 {-| -}
-levelRight : Attrs msg -> List (LevelItem msg) -> LevelPartition msg
-levelRight = node "div" [] [ bulma.level.right ]
-
--- LEVEL ITEMS --
-
-{-| -}
-type alias LevelItem msg = Html msg
-
-{-| -}
-levelItem : Attrs msg -> Htmls msg -> LevelItem msg
-levelItem = node "div" [] [ bulma.level.item ]
-
-{-| -}
-levelItemText : Attrs msg -> Htmls msg -> LevelItem msg
-levelItemText = node "p" [] [ bulma.level.item ]
-
-{-| -}
-levelItemLink : Attrs msg -> Htmls msg -> LevelItem msg
-levelItemLink = node "a" [] [ bulma.level.item ]
-
-{-| -}
-easyLevelItemWithHeading : Attrs msg -> String -> String -> LevelItem msg
-easyLevelItemWithHeading attrs heading title
-  = levelItem attrs
-    [ div []
-      [ p [ class "heading" ] [ text heading ]
-      , p [ class "title"   ] [ text title   ]
-      ]
-    ]
-
-
--- MEDIA OBJECT ----------------------------------------------------------------
-
--- TODO: move to Layout and update
-
-{-| -}
-type alias Media msg = Html msg
+dropdownModifiers : DropdownModifiers
+dropdownModifiers
+  = { horizontalAlignment = Left
+    , verticalDirection   = Down
+    }
 
 {-| 
-    myMediaObject : Html msg
-    myMediaObject
-      = media []
-        [ mediaLeft    [] []
-        , mediaContent [] []
-        , mediaRight   [] []
+    type Msg = ToggleMenu
+
+    myDropdownTrigger : Html Msg
+    myDropdownTrigger 
+      = dropdownTrigger []
+        [ button buttonModifiers 
+          [ onClick ToggleMenu 
+          , attribute "aria-haspopup" "true"
+          , attribute "aria-controls" "dropdown-menu"
+          ]
+          [ text "Toggle Me"
+          ]
         ]
+
+    myDropdownMenu : Html Msg
+    myDropdownMenu
+      = dropdownMenu [] []
+        [ dropdownItem     False [               ] [ text "Cool Birds" ]
+        , dropdownDivider        [               ]
+        , dropdownItemLink False [ href "#duck"  ] [ text "Duck"  ]
+        , dropdownItemLink False [ href "#duck"  ] [ text "Duck"  ]
+        , dropdownItemLink True  [ href "#goose" ] [ text "Goose" ]
+        ]
+
+    myDropdown : Bool -> Html Msg
+    myDropdown isMenuOpen
+      = dropdown isMenuOpen dropdownModifiers []
+        myDropdownTrigger
+        myDropdownMenu
 -}
-media : Attrs msg -> List (MediaPartition msg) -> Media msg
-media = node "article" [] [ bulma.media.container ]
+dropdown : IsActive -> DropdownModifiers -> Attrs msg -> DropdownTrigger msg -> DropdownMenu msg -> Dropdown msg
+dropdown isActive {horizontalAlignment,verticalDirection} attrs trigger menu
+  = node "div" []
+    [ "dropdown"
+    , case isActive of
+        True  -> "is-active"
+        _     -> ""
+    , case horizontalAlignment of
+        Right    -> "is-right"
+        _        -> ""
+    , case verticalDirection of
+        Up -> "is-up"
+        _  -> ""
+    ]
+    attrs
+    [ trigger
+    , menu
+    ]
 
--- {-| -}
--- largeMedia : Attrs msg -> List (MediaPartition msg) -> Media msg
--- largeMedia = node "article" [] [ bulma.media.container
---                                , bulma.media.size.isLarge
---                                ]
+{-| A hoverable variant of `dropdown`.
+-}
+hoverableDropdown : DropdownModifiers -> Attrs msg -> DropdownTrigger msg -> DropdownMenu msg -> Dropdown msg
+hoverableDropdown {horizontalAlignment,verticalDirection} attrs trigger menu
+  = node "div" []
+    [ "dropdown"
+    , "is-hoverable"
+    , case horizontalAlignment of
+        Right -> "is-right"
+        _     -> ""
+    , case verticalDirection of
+        Up -> "is-up"
+        _  -> ""
+    ]
+    attrs
+    [ trigger
+    , menu
+    ]
 
--- MEDIA PARTITION --
+{-| The container for the button/link that activates the dropdown menu.
+-}
+dropdownTrigger : Attrs msg -> List (Button msg) -> DropdownTrigger msg
+dropdownTrigger = node "div" [] [ "dropdown-trigger" ]
 
-{-| -}
-type alias MediaPartition msg = Html msg
+-- {-| TODO 
+-- -}
+-- dropdownTriggerButton : ButtonModifiers msg -> Attrs msg -> List (Html msg) -> Button msg
+-- dropdownTriggerButton mods 
+--   = button mods
+--     << (++)
+--       [ attribute "aria-haspopup" "true"
+--       , attribute "aria-controls" "dropdown-menu"
+--       ]
 
-{-| -}
-mediaLeft : Attrs msg -> Htmls msg -> MediaPartition msg
-mediaLeft = node "div" [] [ bulma.media.left ]
+{-| The container for the dropdown's items.
+The first attributes list is for the outer `div.dropdown-menu`. The inner list is for the `dropdown-content`.
+-}
+dropdownMenu : Attrs msg -> Attrs msg -> List (DropdownItem msg) -> DropdownMenu msg
+dropdownMenu attrs attrs_ items
+  = div ( attrs
+       ++ [ class "dropdown-menu"
+          , attribute "role" "menu"
+          ]
+        )
+    [ div ( class "dropdown-content" :: attrs_ )
+      items
+    ]
 
-{-| -}
-mediaContent : Attrs msg -> Htmls msg -> MediaPartition msg
-mediaContent = node "div" [] [ bulma.media.content ]
+{-| A synonym for `a.dropdown-item.is-active`.
+-}
+dropdownItemLink : IsActive -> Attrs msg -> List (Html msg) -> DropdownItem msg
+dropdownItemLink isActive = node "a" [] [ "dropdown-item", if isActive then "is-active" else "" ]
 
-{-| -}
-mediaRight : Attrs msg -> Htmls msg -> MediaPartition msg
-mediaRight = node "div" [] [ bulma.media.right ]
+{-| A synonym for `div.dropdown-item.is-active`.
+-}
+dropdownItem : IsActive -> Attrs msg -> List (Html msg) -> DropdownItem msg
+dropdownItem isActive = node "div" [] [ "dropdown-item", if isActive then "is-active" else "" ]
+
+{-| An empty `hr.dropdown-divider` element.
+-}
+dropdownDivider : Attrs msg -> DropdownItem msg
+dropdownDivider attrs = node "hr" [] [ "dropdown-divider" ] attrs []
 
 
 -- MENU ------------------------------------------------------------------------
@@ -523,8 +624,6 @@ easyMenuListItemLink active attrs msg icon str
 
 
 -- MESSAGE ---------------------------------------------------------------------
-
--- TODO: update message
 
 {-| -}
 type alias Message msg = Html msg
@@ -708,154 +807,272 @@ modalCardFoot = node "div" [] [ bulma.modal.card.foot ]
 
 -- NAVBAR ----------------------------------------------------------------------
 
--- TODO: nav -> navbar
+{-| -}
+type alias Navbar msg = Html msg
 
--- {-| -}
--- type alias Nav msg = Html msg
+{-| -}
+type alias NavbarBrand msg = Html msg
+
+{-| -}
+type alias NavbarMenu msg = Html msg
+
+{-| -}
+type alias NavbarItem msg = Html msg
+
+{-| -}
+type alias NavbarBurger msg = Html msg
+
+{-| -}
+type alias NavbarStart msg = Html msg
+
+{-| -}
+type alias NavbarEnd msg = Html msg
+
+{-| -}
+type alias NavbarLink msg = Html msg
+
+{-| -}
+type alias NavbarDropdown msg = Html msg
+
+{-| -}
+type alias NavbarModifiers
+  = { color       : Color
+    , transparent : Bool
+    }
+
+{-|
+    myNavbarBurger : Html Msg
+    myNavbarBurger 
+      = navbarBurger isMenuOpen []
+        [ span [] []
+        , span [] []
+        , span [] []
+        ]
+        
+    myNavbar : Bool -> Bool -> Html Msg
+    myNavbar isMenuOpen isMenuDropdownOpen
+      = navbar navbarModifiers []
+        [ navbarBrand [] myNavbarBurger
+          [ navbarItem False []
+            [ img [ src "https://bulma.io/images/bulma-logo.png" ] []
+            ]
+          ]
+        ]
+        [ navbarMenu isMenuOpen []
+          ( navbarStart [] 
+            [ navbarItemLink False [] [ text "Home"  ]
+            , navbarItemLink False [] [ text "Blog"    ]
+            , navbarItemLink True  [] [ text "Carrots" ]
+            , navbarItemLink False [] [ text "About"   ]
+            ]
+          )
+          ( navbarEnd [] 
+            [ navbarItemDropdown isMenuDropdownOpen Down []
+              ( navbarLink [] [ text "More Junk" ] 
+              )
+              ( navbarDropdown False Left [] 
+                [ navbarItemLink False [] [ text "Crud"     ]
+                , navbarItemLink False [] [ text "Detritus" ]
+                , navbarItemLink True  [] [ text "Refuse"   ]
+                , navbarItemLink False [] [ text "Trash"    ]
+                ]
+              )
+            ]
+          )
+        ]
+-}
+navbar : NavbarModifiers -> Attrs msg -> Maybe (NavbarBrand msg) -> Maybe (NavbarMenu msg) -> Navbar msg
+navbar {color,transparent} attrs brand menu
+  = node "div" []
+    [ case transparent of
+        True -> "is-transparent"
+        _    -> ""
+    , case color of
+        Default -> ""
+        White   -> "is-white"
+        Light   -> "is-light"
+        Dark    -> "is-dark"
+        Black   -> "is-black"
+        Primary -> "is-primary"
+        Info    -> "is-info"
+        Success -> "is-success"
+        Warning -> "is-warning"
+        Danger  -> "is-danger"
+    ]
+    attrs
+    <| case ( brand, menu ) of
+        ( Just brand_, Just menu_ ) -> [ brand_, menu_ ]
+        ( Just brand_, Nothing    ) -> [ brand_        ]
+        ( Nothing    , Just menu_ ) -> [         menu_ ]
+        ( Nothing    , Nothing    ) -> [               ]
+
+{-| A sticky variant of `navbar`.
+Remember to change your root `<html>` tag to `<html class="has-navbar-fixed-top">` or `<html class="has-navbar-fixed-bottom">`.
+-}
+fixedNavbar : VerticalAlignment -> NavbarModifiers -> Attrs msg -> Maybe (NavbarBrand msg) -> Maybe (NavbarMenu msg) -> Navbar msg
+fixedNavbar dir mods
+  = navbar mods
+    << (::)
+      ( case dir of
+          Top    -> class "is-fixed-top"
+          Bottom -> class "is-fixed-bottom"
+      )
+
+-- {-| TODO 
+-- -}
+-- fixedNavbarContainer : VerticalAlignment -> Attrs msg -> List (Html msg) -> Navbar msg
+-- fixedNavbarContainer dir attrs
+--   = div
+--     <| (::)
+--       ( case dir of
+--           Top    -> class "has-navbar-fixed-top"
+--           Bottom -> class "has-navbar-fixed-bottom"
+--       )
+--     <| attrs
+
+-- TODO: easyNavbar
+
+{-| This is a child of `navbar`, and a sibling to `navbarBrand`.
+This element stays to the left side of the `navbar`.
+This section is always visible, so try not to place too many links in here -- they'll overflow past the right side of the screen on mobile devices.
+-}
+navbarBrand : Attrs msg -> NavbarBurger msg -> List (NavbarItem msg) -> NavbarBrand msg
+navbarBrand attrs burger items
+  = div ( class "navbar-brand" :: attrs )
+    <| items ++ [ burger ]
+
+{-| This is a little hamburger menu icon that only appears on mobile devices, when placed in a `navbarBrand`.
+Place empty `span` elements inside to add/subtract numbers of lines.
+When its first argument is `True`, it transforms into a `navbarCross`.
+
+    myNavbarBurger : Bool -> Html Msg
+    myNavbarBurger isMenuOpen
+      = navbarBurger isMenuOpen []
+        [ span [] []
+        , span [] []
+        , span [] []
+        ]
+
+-}
+navbarBurger : IsActive -> Attrs msg -> List (Html msg) -> NavbarBurger msg
+navbarBurger isActive = node "div" [] [ "navbar-burger", if isActive then "is-active" else ""  ]
+
+{-| A simple "X" character; the active version of `navbarBurger`.
+-}
+navbarCross : Attrs msg -> NavbarBurger msg
+navbarCross attrs = navbarBurger True attrs []
+
+{-| This is a child of `navbar`, and a sibling to `navbarBrand`.
+On small screens, passing `True` to `navbarMenu` will show the mobile-device menu.
+Its third and fourth arguments should be `navbarStart` and `navbarEnd`, respectively.
+-}
+navbarMenu : IsActive -> Attrs msg -> NavbarStart msg -> NavbarEnd msg -> NavbarMenu msg
+navbarMenu isActive attrs start end
+  = node "div" [] [ "navbar-menu", if isActive then "is-active" else "" ] attrs
+    [ start
+    , end
+    ]
+
+{-| This element is a child of `navbarMenu`.
+On normal screens, this section will appear on the left of the `navbar`.
+-}
+navbarStart : Attrs msg -> List (NavbarItem msg) -> NavbarStart msg
+navbarStart = node "div" [] [ "navbar-start" ]
+
+{-| This element is a child of `navbarMenu`.
+On normal screens, this section will appear on the left of the `navbar`.
+-}
+navbarEnd : Attrs msg -> List (NavbarItem msg) -> NavbarEnd msg
+navbarEnd = node "div" [] [ "navbar-end" ]
+
+{-| This is a synonym for `div.navbar-item`.
+You can use this element in `navbarStart`, `navbarEnd`, `navbarBrand`, and `navbarDropdown`.
+-}
+navbarItem : IsActive -> Attrs msg -> List (Html msg) -> NavbarItem msg
+navbarItem isActive = node "div" [] [ "navbar-item", if isActive then "is-active" else "" ]
+
+{-| This is a synonym for `a.navbar-item`.
+You can use this element in `navbarStart`, `navbarEnd`, `navbarBrand`, and `navbarDropdown`.
+When the first argument is `True`, the link will be highlighted.
+-}
+navbarItemLink : IsActive -> Attrs msg -> List (Html msg) -> NavbarItem msg
+navbarItemLink isActive = node "a" [] [ "navbar-item", if isActive then "is-active" else "" ]
+
+{-| This is a dropdown item that expects `navbarLink` and `navbarDropdown` tags.
+When the first argument is `True` the menu contents will be visible.
+The second argument determines which way its child dropdown opens vertically.
+You can use this element in `navbarStart`, `navbarEnd`, `navbarBrand`, and `navbarDropdown`.
+-}
+navbarItemDropdown : IsActive -> VerticalDirection -> Attrs msg -> NavbarLink msg -> NavbarDropdown msg -> NavbarItem msg
+navbarItemDropdown isActive dir attrs link dropdown
+  = node "div" []
+    [ "navbar-item"
+    , "is-hoverable"
+    , case isActive of
+        True -> "is-active"
+        _    -> ""
+    , case dir of
+        Up -> "has-dropdown has-dropdown-up"
+        _  -> "has-dropdown"
+    ]
+    attrs
+    [ link
+    , dropdown
+    ]
+
+{-| A hoverable variant of `navbarItemDropdown`.
+-}
+hoverableNavbarItemDropdown : VerticalDirection -> Attrs msg -> NavbarLink msg -> NavbarDropdown msg -> NavbarItem msg
+hoverableNavbarItemDropdown dir attrs link dropdown
+  = node "div" []
+    [ "navbar-item"
+    , "is-hoverable"
+    , case dir of
+        Up -> "has-dropdown has-dropdown-up"
+        _  -> "has-dropdown"
+    ]
+    attrs
+    [ link
+    , dropdown
+    ]
+
+{-| This element represents `a.navbar-link`. It is only useful as a child of `navbarDropdown`.
+-}
+navbarLink : Attrs msg -> List (Html msg) -> NavbarLink msg
+navbarLink = node "a" [] [ "navbar-link" ]
+
+{-| -}
+type alias IsBoxed = Bool
+
+{-| This is a `div.navbar-dropdown` element.
+It is intended to be a child of `navbarItemDropdown`.
+When its first argument is `True`, it will add a border on the top of the menu. This is most useful when you're using a transparent menu.
+Its second argument determines which side of the button the menu aligns with.
+-}
+navbarDropdown : IsBoxed -> HorizontalAlignment -> Attrs msg -> List (NavbarItem msg) -> NavbarDropdown msg
+navbarDropdown isBoxed alignment
+  = node "div" []
+    [ "navbar-dropdown"
+    , case isBoxed of
+        True -> "is-boxed"
+        _    -> ""
+    , case alignment of
+        Right -> "is-right"
+        _     -> ""
+    ]
+
+{-| A tiny 'lil `hr.navbar-divider`.
+-}
+navbarDivider : Attrs msg -> NavbarItem msg
+navbarDivider attrs = node "hr" [] [ "navbar-divider" ] attrs []
    
--- {-| -}
--- nav : HasShadow -> Attrs msg -> List (NavPartition msg) -> Nav msg
--- nav shadow
---   = node "nav" []
---     [ bulma.nav.container
---     , case shadow of
---         True  -> bulma.nav.style.hasShadow
---         False -> ""
---     ]
-
--- {-| -}
--- containedNav : HasShadow -> Attrs msg -> List (NavPartition msg) -> Nav msg
--- containedNav shadow attrs
---   = container [] >> ls >> nav shadow attrs
-
--- {-| -}
--- easyNav : HasShadow -> Attrs msg -> { toggle : NavToggle msg, left : NavPartition msg, center : NavPartition msg, right : NavPartition msg } -> Nav msg
--- easyNav shadow attrs {left,center,right,toggle}
---   = nav shadow attrs
---     [ left
---     , center
---     , toggle
---     , right
---     ]
-
--- {-| -}
--- easierNav : HasShadow -> Attrs msg -> { toggleMsg : msg, isMenuOpen : Bool, left : List (NavItem msg), center : List (NavItem msg), right : List (NavItem msg) } -> Nav msg
--- easierNav shadow attrs {toggleMsg,isMenuOpen,left,center,right}
---   = nav shadow attrs
---     [ navLeft [] left
---     , navCenter [] center
---     , navToggle isMenuOpen [ onClick toggleMsg ]
---     , navRightMenu isMenuOpen [] right
---     ]
-
-
--- -- NAV PARTITION --
-
--- {-| -}
--- type alias NavPartition msg = Html msg
-
--- {-| -}
--- navLeft : Attrs msg -> List (NavItem msg) -> NavPartition msg
--- navLeft = node "div" [] [ bulma.nav.left ] 
-
--- {-| -}
--- navCenter : Attrs msg -> List (NavItem msg) -> NavPartition msg
--- navCenter = node "div" [] [ bulma.nav.center ] 
-
--- {-| -}
--- navRight : Attrs msg -> List (NavItem msg) -> NavPartition msg
--- navRight = node "div" [] [ bulma.nav.right ] 
-
--- {-| -}
--- navRightMenu : IsMenuOpen -> Attrs msg -> List (NavItem msg) -> NavPartition msg
--- navRightMenu active
---   = node "div" [] [ bulma.nav.right
---                   , bulma.nav.menu.container
---                   , case active of
---                       True  -> bulma.nav.menu.state.isActive
---                       False -> ""
---                   ] 
-
-
--- -- NAV TOGGLE --
-
--- {-| -}
--- type alias NavToggle msg = Html msg
-
--- {-| -}
--- navToggle : IsMenuOpen -> Attrs msg -> NavToggle msg
--- navToggle active attrs
---   = node "span" [] [ bulma.nav.toggle.ui
---                    , case active of
---                        True  -> bulma.nav.toggle.state.isActive
---                        False -> ""
---                    ]
---     attrs
---     [ span [] []
---     , span [] []
---     , span [] []
---     ]
-
-
--- -- NAV ITEM --
-
--- {-| -}
--- type alias NavItem msg = Html msg
-
--- {-| -}
--- navItem : IsActive -> Attrs msg -> Htmls msg -> NavItem msg
--- navItem active
---   = node "div" [] [ bulma.nav.item.container
---                   , case active of
---                       True  -> bulma.nav.item.state.isActive
---                       False -> ""
---                   ]
-
--- {-| -}
--- navItemTab : IsActive -> Attrs msg -> Htmls msg -> NavItem msg
--- navItemTab active
---   = node "div" [] [ bulma.nav.item.container
---                   , bulma.nav.item.style.isTab
---                   , case active of
---                       True  -> bulma.nav.item.state.isActive
---                       False -> ""
---                   ]
-
--- {-| -}
--- navItemLink : IsActive -> Attrs msg -> Htmls msg -> NavItem msg
--- navItemLink active
---   = node "a" [] [ bulma.nav.item.container
---                   , case active of
---                       True  -> bulma.nav.item.state.isActive
---                       False -> ""
---                   ]
-
--- {-| -}
--- navItemTabLink : IsActive -> Attrs msg -> Htmls msg -> NavItem msg
--- navItemTabLink active
---   = node "a" [] [ bulma.nav.item.container
---                   , bulma.nav.item.style.isTab
---                   , case active of
---                       True  -> bulma.nav.item.state.isActive
---                       False -> ""
---                   ]
-
-
 -- MODIFIERS --
-
--- {-| -}
--- type alias HasShadow = Bool
-
--- {-| -}
--- type alias IsMenuOpen = Bool
 
 {-| -}
 type alias IsActive = Bool
 
 
 -- PAGINATION ------------------------------------------------------------------
-
--- TODO: update pagination
 
 {-| -}
 type alias Pagination msg = Html msg
@@ -885,6 +1102,11 @@ pagination alignment
         Centered -> bulma.pagination.position.isCentered
         Right    -> bulma.pagination.position.isRight
     ]
+
+{-| A rounded variant of `pagination`.
+-}
+roundedPagination : HorizontalAlignment -> Attrs msg -> List (PaginationPartition msg) -> Pagination msg
+roundedPagination alignment = pagination alignment << (::) (class "is-rounded")
 
 
 -- PAGINATION PARTITIONS --
@@ -1050,8 +1272,6 @@ panelTab active
 
 -- TABS ------------------------------------------------------------------------
 
--- TODO: update tabs
-
 {-| -}
 type alias Tabs msg = Html msg
 
@@ -1059,6 +1279,7 @@ type alias Tabs msg = Html msg
 type TabsStyle = Minimal
                | Boxed
                | Toggle
+               | Round
 
 {-| -}
 type alias TabsModifiers = { style     : TabsStyle
@@ -1083,14 +1304,15 @@ tabsModifiers = { style     = Minimal
         , tab False [] [ text "Docs"     ]
         ]
 -}
-tabs : TabsModifiers -> Attrs msg -> List (Tab msg) -> Tabs msg
-tabs {style,alignment,size} attrs
+tabs : TabsModifiers -> Attrs msg -> Attrs msg -> List (Tab msg) -> Tabs msg
+tabs {style,alignment,size} attrs attrs_
   = node "div" []
     [ bulma.tabs.container
     , case style of
         Minimal -> ""
         Boxed   -> bulma.tabs.style.isBoxed
         Toggle  -> bulma.tabs.style.isToggle
+        Round   -> "is-toggle is-toggle-rounded"
     , case alignment of
         Left     -> ""
         Centered -> bulma.tabs.alignment.isCentered
@@ -1103,9 +1325,7 @@ tabs {style,alignment,size} attrs
     ]
     attrs
   << ls
-  << ul []
-
--- TODO: contained tabs
+  << ul attrs_
 
 -- TAB --
 

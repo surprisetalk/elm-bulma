@@ -1,9 +1,5 @@
 
-module Bulma.Grid exposing (..)
-
--- TODO rename module to Columns
--- TODO integrate variable gaps
--- TODO centered
+module Bulma.Columns exposing (..)
 
 -- DOCS ------------------------------------------------------------------------
 
@@ -11,7 +7,6 @@ module Bulma.Grid exposing (..)
 
 # Table of Contents
 - [Columns](#columns)
-- [Tile](#tile)
 
 # Columns
 Learn more about columnar grids in the [official docs](http://bulma.io/documentation/grid/columns/).
@@ -34,45 +29,8 @@ Learn more about columnar grids in the [official docs](http://bulma.io/documenta
 @docs columns
 
 ## Column
-@docs Column, ColumnModifiers, Width, columnModifiers
+@docs Column, ColumnModifiers, columnModifiers
 @docs column, narrowColumn
-
-# Tile
-Learn more about tiled grids in the [official docs](http://bulma.io/documentation/grid/tiles/).
-
-    myGrid : Html msg
-    myGrid 
-      = tileAncestor Auto []
-        [ verticalTile Width8 []
-          [ tile Auto []
-            [ verticalTileParent Auto []
-              [ tileChild Auto []
-                [ text "I'm in the top-left corner!"
-                ]
-              , [ text "I'm on the middle-left edge!"
-                ]
-              ]
-            , tileParent Auto []
-              [ text "I'm a tile touching the top-middle edge!"
-              ]
-            ]
-          , tileParent Auto []
-            [ tileChild Auto []
-              [ text "I'm taking up the bottom-left half of the grid!"
-              ]
-            ]
-          ]
-        , tileParent Auto []
-          [ tileChild Auto []
-            [ text "I'm a tall column taking up the entire right edge!"
-            ]
-          ]
-        ]
-
-@docs Tile, Width
-@docs tile
-@docs tileAncestor, tileParent, tileChild
-@docs verticalTile, verticalTileParent
 
 -}
 
@@ -82,37 +40,27 @@ import Helpers exposing (..)
 
 import BulmaClasses exposing (..)
 
+import Bulma.Modifiers exposing ( Width(..) )
+
 import Html exposing ( Html, text, div, a )
 
 
 -- COLUMNS ---------------------------------------------------------------------
 
-{-| -}
-type Width = Auto
-           | Width1
-           | Width2
-           | Width3
-           | Width4
-           | Width5
-           | Width6
-           | Width7
-           | Width8
-           | Width9
-           | Width10
-           | Width11
-
-
--- COLUMNS ---------------------------------------------------------------------
+-- TODO: replace gapless with gapSize (0-8)
 
 {-| Make a columnar grid! The widths of all your columns should be no greater than twelve.
 -}
 columns : ColumnsModifiers -> Attrs msg -> List (Column msg) -> Html msg
-columns {verticallyCentered,multiline,gapless,display}
+columns {centered,multiline,gapless,display}
   = node "div" []
     [ bulma.columns.container
-    , case verticallyCentered of
-        True  -> bulma.columns.alignment.isVCentered
+    , case centered of
+        True  -> bulma.columns.alignment.isCentered
         False -> ""
+    -- , case verticallyCentered of
+    --     True  -> bulma.columns.alignment.isVCentered
+    --     False -> ""
     , case multiline of
         True  -> bulma.columns.spacing.isMultiline
         False -> ""
@@ -132,7 +80,8 @@ columns {verticallyCentered,multiline,gapless,display}
 type alias ColumnsModifiers = { multiline          : Bool
                               , gapless            : Bool
                               , display            : Display
-                              , verticallyCentered : Bool
+                              , centered           : Bool
+                              -- , verticallyCentered : Bool
                               }
 
 {-| -}
@@ -147,7 +96,7 @@ type Display = MobileAndBeyond
       = { multiline          = False
         , gapless            = False             
         , display            = TabletAndBeyond
-        , verticallyCentered = False
+        , centered           = False
         }
     
     myColumnsModifiers == columnsModifiers
@@ -156,7 +105,8 @@ columnsModifiers : ColumnsModifiers
 columnsModifiers = { multiline          = False
                    , gapless            = False
                    , display            = TabletAndBeyond
-                   , verticallyCentered = False
+                   , centered           = False
+                   -- , verticallyCentered = False
                    }
 
 
@@ -250,6 +200,7 @@ The other non-narrow columns will take up the remaining space.
 -}
 narrowColumn : Width -> Attrs msg -> Htmls msg -> Column msg
 narrowColumn offset
+-- TODO: narrow columns by device
   = node "div" []
     [ bulma.columns.column.container
     , case offset of
@@ -289,158 +240,3 @@ columnModifiers = { offset = Auto
                   }
 
 
--- COLUMN ----------------------------------------------------------------------
-
--- TODO: move to Layout and update
-
-{-| -}
-type alias Tile msg = Html msg
-
--- TODO: easyTiles
-
-{-| This element is a plain tile container. 
-It's best used as an intermediate tile in a 2D grid. 
-You can also add "is-ancestor", "is-parent", "is-child", and "is-vertical" classes to to make a custom Bulma-grid implementation.
--}
-tile : Width -> Attrs msg -> List (Tile msg) -> Tile msg
-tile width
-  = node "div" []
-    [ bulma.tile.container
-    , case width of
-        Auto    -> ""
-        Width1  -> bulma.tile.width.is1
-        Width2  -> bulma.tile.width.is2
-        Width3  -> bulma.tile.width.is3
-        Width4  -> bulma.tile.width.is4
-        Width5  -> bulma.tile.width.is5
-        Width6  -> bulma.tile.width.is6
-        Width7  -> bulma.tile.width.is7
-        Width8  -> bulma.tile.width.is8
-        Width9  -> bulma.tile.width.is9
-        Width10 -> bulma.tile.width.is10
-        Width11 -> bulma.tile.width.is11
-    ]
-
-{-| If you want to stack tiles vertically, use a vertical tile!
--}
-verticalTile : Width -> Attrs msg -> List (Tile msg) -> Tile msg
-verticalTile width
-  = node "div" []
-    [ bulma.tile.container
-    , bulma.tile.orientation.isVertical
-    , case width of
-        Auto    -> ""
-        Width1  -> bulma.tile.width.is1
-        Width2  -> bulma.tile.width.is2
-        Width3  -> bulma.tile.width.is3
-        Width4  -> bulma.tile.width.is4
-        Width5  -> bulma.tile.width.is5
-        Width6  -> bulma.tile.width.is6
-        Width7  -> bulma.tile.width.is7
-        Width8  -> bulma.tile.width.is8
-        Width9  -> bulma.tile.width.is9
-        Width10 -> bulma.tile.width.is10
-        Width11 -> bulma.tile.width.is11
-    ]
-
-{-| This should always be your outer-most tile.
-
-    myGrid : Html msg
-    myGrid
-      = tileAncestor Auto []
-        [ tileParent Auto [] 
-          [ tileChild Auto [] []
-          , tileChild Auto [] []
-          ]
-        [ tileParent Auto [] 
-          [ tileChild Auto [] []
-          , tileChild Auto [] []
-          ]
-        ]
--}
-tileAncestor : Width -> Attrs msg -> List (Tile msg) -> Html msg
-tileAncestor width
-  = node "div" []
-    [ bulma.tile.container
-    , bulma.tile.level.isAncestor
-    , case width of
-        Auto    -> ""
-        Width1  -> bulma.tile.width.is1
-        Width2  -> bulma.tile.width.is2
-        Width3  -> bulma.tile.width.is3
-        Width4  -> bulma.tile.width.is4
-        Width5  -> bulma.tile.width.is5
-        Width6  -> bulma.tile.width.is6
-        Width7  -> bulma.tile.width.is7
-        Width8  -> bulma.tile.width.is8
-        Width9  -> bulma.tile.width.is9
-        Width10 -> bulma.tile.width.is10
-        Width11 -> bulma.tile.width.is11
-    ]
-
-{-| Your tile-children must always be accompanied by a parent!
--}
-tileParent : Width -> Attrs msg -> List (Tile msg) -> Tile msg
-tileParent width
-  = node "div" []
-    [ bulma.tile.container
-    , bulma.tile.level.isParent
-    , case width of
-        Auto    -> ""
-        Width1  -> bulma.tile.width.is1
-        Width2  -> bulma.tile.width.is2
-        Width3  -> bulma.tile.width.is3
-        Width4  -> bulma.tile.width.is4
-        Width5  -> bulma.tile.width.is5
-        Width6  -> bulma.tile.width.is6
-        Width7  -> bulma.tile.width.is7
-        Width8  -> bulma.tile.width.is8
-        Width9  -> bulma.tile.width.is9
-        Width10 -> bulma.tile.width.is10
-        Width11 -> bulma.tile.width.is11
-    ]
-
-{-| Your tile-children must always be accompanied by a parent!
--}
-verticalTileParent : Width -> Attrs msg -> List (Tile msg) -> Tile msg
-verticalTileParent width
-  = node "div" []
-    [ bulma.tile.container
-    , bulma.tile.level.isParent
-    , bulma.tile.orientation.isVertical
-    , case width of
-        Auto    -> ""
-        Width1  -> bulma.tile.width.is1
-        Width2  -> bulma.tile.width.is2
-        Width3  -> bulma.tile.width.is3
-        Width4  -> bulma.tile.width.is4
-        Width5  -> bulma.tile.width.is5
-        Width6  -> bulma.tile.width.is6
-        Width7  -> bulma.tile.width.is7
-        Width8  -> bulma.tile.width.is8
-        Width9  -> bulma.tile.width.is9
-        Width10 -> bulma.tile.width.is10
-        Width11 -> bulma.tile.width.is11
-    ]
-
-{-| This tile holds your content! Its parent should always be `tileParent` or `verticalTileParent`.
--}
-tileChild : Width -> Attrs msg -> Htmls msg -> Tile msg
-tileChild width
-  = node "div" []
-    [ bulma.tile.container
-    , bulma.tile.level.isChild
-    , case width of
-        Auto    -> ""
-        Width1  -> bulma.tile.width.is1
-        Width2  -> bulma.tile.width.is2
-        Width3  -> bulma.tile.width.is3
-        Width4  -> bulma.tile.width.is4
-        Width5  -> bulma.tile.width.is5
-        Width6  -> bulma.tile.width.is6
-        Width7  -> bulma.tile.width.is7
-        Width8  -> bulma.tile.width.is8
-        Width9  -> bulma.tile.width.is9
-        Width10 -> bulma.tile.width.is10
-        Width11 -> bulma.tile.width.is11
-    ]

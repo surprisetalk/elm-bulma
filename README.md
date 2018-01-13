@@ -82,12 +82,14 @@ exampleGrid =
 - [elm-bulma-classes](http://package.elm-lang.org/packages/danielnarey/elm-bulma-classes/latest/BulmaClasses)
 
 ## Next Steps
-- Fix the hacky `Attrs msg` stuff (sorry!).
-- Consider changing to `elm-style-elements` format -- get rid of all the unique modifiers records.
-- Upgrade to `0.6.2`.
-- Example/test page with all the Bulma features.
-- Remove `elm-bulma-classes` as dependency.
-- Improve documentation.
-- Talk to the Bulma peeps about featuring this package!
-- Clean the codebase.
-- Make the library web-accessible by default, using the [elm-html-a11y](http://package.elm-lang.org/packages/tesk9/elm-html-a11y/latest) package.
+- [ ] Fix the hacky `Attrs msg` stuff (sorry!).
+- [ ] Rethink position on modifiers: giant global record or more args.
+- [ ] Reconsider stance on "easy" things.
+- [ ] Argument arrangement/consistency review.
+- [-] Upgrade to `0.6.2`.
+- [ ] Example/test page with all the Bulma features.
+- [ ] Remove `elm-bulma-classes` as dependency.
+- [ ] Improve documentation.
+- [ ] Talk to the Bulma peeps about featuring this package!
+- [-] Clean the codebase.
+- [ ] Make the library web-accessible by default, using the [elm-html-a11y](http://package.elm-lang.org/packages/tesk9/elm-html-a11y/latest) package.

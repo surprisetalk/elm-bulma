@@ -22,7 +22,9 @@ module Bulma.Elements exposing (..)
 @docs box
 
 # Button
-Moved to [Bulma.Form](http://package.elm-lang.org/packages/surprisetalk/elm-bulma/latest/Bulma-Grid#Button).
+@docs Button, ButtonModifiers, buttonModifiers
+@docs button, easyButton
+@docs buttons, connectedButtons 
 
 # Content
 @docs Content
@@ -89,7 +91,7 @@ import Bulma.Modifiers as Modifiers exposing (..)
 
 import Bulma.Elements.Icon as Icon exposing ( Icon, IconBody, icon )
 
-import Bulma.Form as Form exposing ( Control )
+-- import Bulma.Form as Form exposing ( Control )
 
 import Html exposing ( Html, text, div, a, img, span )
 import Html.Events exposing ( onClick )
@@ -115,6 +117,172 @@ The box is simply a container with a shadow, a border, a radius, and some paddin
 -}
 box : Attrs msg -> Htmls msg -> Box msg
 box = node "div" [] [ bulma.box.container ]
+
+
+-- BUTTON ----------------------------------------------------------------------
+
+{-| -}
+type alias Button msg = Html msg
+
+{-| 
+    type Msg = DoSomething
+             | DoSomethingElse
+
+    myButton : Html Msg
+    myButton
+      = button myButtonModifiers 
+        [ onClick DoSomething ]
+        [ text "Click me!" ]
+-}
+button : ButtonModifiers msg -> Attrs msg -> Htmls msg -> Button msg
+button {disabled,outlined,inverted,rounded,size,state,color,static,iconLeft,iconRight} attrs htmls
+  = let htmls_ : Htmls msg
+        htmls_ = iconLeft_ ++ htmls ++ iconRight_
+        iconLeft_ : Htmls msg
+        iconLeft_
+          = case iconLeft of
+              Just ( size, attrs, body ) -> [ icon size attrs [ body ] ]
+              Nothing                    -> [                          ]
+        iconRight_ : Htmls msg
+        iconRight_
+          = case iconRight of
+              Just ( size, attrs, body ) -> [ icon size attrs [ body ] ]
+              Nothing                    -> [                          ]
+    in node "a" ( if disabled then [ Attr.disabled disabled ] else [] )
+       [ bulma.button.ui
+       , case static of
+           True  -> bulma.button.style.isStatic
+           False -> ""
+       , case outlined of
+           True  -> bulma.button.style.isOutlined
+           False -> ""
+       , case inverted of
+           True  -> bulma.button.style.isInverted
+           False -> ""
+       , case rounded of
+           True  -> "is-rounded"
+           False -> ""
+       , case color of
+           Default -> ""
+           White   -> "is-selected " ++ bulma.button.color.isWhite
+           Light   -> "is-selected " ++ bulma.button.color.isLight
+           Dark    -> "is-selected " ++ bulma.button.color.isDark
+           Black   -> "is-selected " ++ bulma.button.color.isBlack
+           Primary -> "is-selected " ++ bulma.button.color.isPrimary
+           Info    -> "is-selected " ++ bulma.button.color.isInfo
+           Success -> "is-selected " ++ bulma.button.color.isSuccess
+           Warning -> "is-selected " ++ bulma.button.color.isWarning
+           Danger  -> "is-selected " ++ bulma.button.color.isDanger
+       , case size of
+           Small  -> bulma.button.size.isSmall
+           Normal -> ""
+           Medium -> bulma.button.size.isMedium
+           Large  -> bulma.button.size.isLarge
+       , case state of
+           Blur    -> ""
+           Hover   -> "is-hovered"
+           Focus   -> "is-focused"
+           Active  -> "is-active"
+           Loading -> "is-loading"
+           -- KLUDGE: add to BulmaClasses
+       ]
+       attrs
+       htmls_
+  
+
+{-| 
+    type Msg = DoSomething
+             | DoSomethingElse
+
+    myEasyButton : Html Msg
+    myEasyButton
+      = easyButton myButtonModifiers []
+        DoSomethingElse
+        "Click me!"
+-}
+easyButton : ButtonModifiers msg -> Attrs msg -> msg -> String -> Button msg
+easyButton mods attrs msg str
+  = button mods
+    (onClick msg :: attrs)
+    [ text str ]
+
+-- BUTTON LIST --
+
+{-| 
+    myButtons : Html Msg
+    myButtons
+      = buttons Left []
+        [ button { buttonModifiers | color = Success } [ text "Save changes"      ]
+        , button { buttonModifiers | color = Primary } [ text "Save and continue" ]
+        , button { buttonModifiers | color = Danger  } [ text "Cancel"            ]
+        ]
+-}
+buttons: HorizontalAlignment -> Attrs msg -> List (Button msg) -> Html msg
+buttons alignment
+  = node "div" []
+    [ case alignment of
+        Left     -> ""
+        Centered -> "is-centered"
+        Right    -> "is-right"
+    ]
+
+{-| 
+    myConnectedButtons : Html Msg
+    myConnectedButtons
+      = buttons Left []
+        [ button   buttonModifiers                     [ text "Yes"   ]
+        , button { buttonModifiers | color = Primary } [ text "Maybe" ]
+        , button   buttonModifiers                     [ text "No"    ]
+        ]
+-}
+connectedButtons: HorizontalAlignment -> Attrs msg -> List (Button msg) -> Html msg
+connectedButtons alignment = buttons alignment << (::) (class "has-addons")
+
+-- MODIFIERS --
+
+{-| -}
+type alias ButtonModifiers msg
+  = { disabled  : Bool
+    , outlined  : Bool
+    , inverted  : Bool
+    , rounded   : Bool
+    , static    : Bool
+    , size      : Size
+    , state     : State
+    , color     : Color
+    , iconLeft  : Maybe (Size, Attrs msg, IconBody msg)
+    , iconRight : Maybe (Size, Attrs msg, IconBody msg)
+    }
+
+{-| The basic defaults for buttons.
+
+    import Bulma.Modifiers exposing ( State(Blur) 
+                                    , Color(Default)
+                                    , Size(Normal)
+                                    )
+                                   
+    myButtonModifiers : ButtonModifiers msg
+    myButtonModifiers 
+      = { disabled = False
+        , outlined = False
+        , inverted = False
+        , size     = Normal
+        , state    = Blur
+        , color    = Default
+        }
+-}
+buttonModifiers : ButtonModifiers msg
+buttonModifiers = { disabled  = False
+                  , outlined  = False
+                  , inverted  = False
+                  , rounded   = False
+                  , static    = False
+                  , size      = Normal
+                  , state     = Blur
+                  , color     = Default
+                  , iconLeft  = Nothing
+                  , iconRight = Nothing
+                  }
 
 
 -- CONTENT ---------------------------------------------------------------------
@@ -392,22 +560,24 @@ easyProgress mods attrs val
 
 -- TABLE -----------------------------------------------------------------------
 
--- TODO: update table
-
 {-| -}
 type alias Table msg = Html msg
 
 {-| -}
-type alias TableModifiers = { bordered : Bool
-                            , striped  : Bool
-                            , narrow   : Bool
+type alias TableModifiers = { bordered  : Bool
+                            , striped   : Bool
+                            , narrow    : Bool
+                            , hoverable : Bool
+                            , fullWidth : Bool
                             }
 
 {-| -}
 tableModifiers : TableModifiers
-tableModifiers = { bordered = False
-                 , striped  = False
-                 , narrow   = False
+tableModifiers = { bordered  = False
+                 , striped   = False
+                 , narrow    = False
+                 , hoverable = False
+                 , fullWidth = False
                  }
 
 {-| 
@@ -420,7 +590,7 @@ tableModifiers = { bordered = False
         ]
 -}
 table : TableModifiers -> Attrs msg -> List (TablePartition msg) -> Table msg
-table {bordered,striped,narrow}
+table {bordered,striped,narrow,hoverable,fullWidth}
   = node "table" []
     [ bulma.table.container
     , case bordered of
@@ -431,6 +601,12 @@ table {bordered,striped,narrow}
         False -> ""
     , case narrow of
         True  -> bulma.table.spacing.isNarrow
+        False -> ""
+    , case hoverable of
+        True  -> "is-hoverable"
+        False -> ""
+    , case fullWidth of
+        True  -> "is-fullwidth"
         False -> ""
     ]
 
@@ -521,8 +697,6 @@ tableCellHead = node "th" [] []
 
 
 -- TAG -------------------------------------------------------------------------
-
--- TODO: update tag
 
 {-| -}
 type alias Tag msg = Html msg

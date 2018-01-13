@@ -17,7 +17,7 @@ import Html.Attributes exposing ( rel, href )
 
 -- STYLESHEET ------------------------------------------------------------------
 
-{-| Include Bulma 0.5.1 in your Elm project.
+{-| Include Bulma 0.6.2 in your Elm project.
 
     import Bulma.CDN exposing (stylesheet)
 
@@ -33,8 +33,7 @@ stylesheet : Html msg
 stylesheet =
   node "link"
   [ rel  "stylesheet"
-  , href "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css"
-    -- TODO: upgrade to 0.6.2
+  , href "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"
   ]
   []
 

@@ -1,24 +1,20 @@
 
 module Bulma.Form exposing (..)
 
--- TODO: double-check that all the features here work correctly
--- TODO: update inputs
--- TODO: update textarea
--- TODO: update dropdowns
-
 -- DOCS ------------------------------------------------------------------------
 
 {-| 
 # Table of Contents
 - [Field](#field)
   - [Control](#control)
-    - [Button](#button)
     - [Input](#input)
+    - [TextArea](#textarea)
     - [Select](#select)
     - [Label](#label)
     - [CheckBox](#button)
     - [Radio](#radio)
     - [Help](#help)
+    - [Button](#button)
     - [File](#file)
   - [Field Group](#field-group)
 
@@ -30,20 +26,20 @@ module Bulma.Form exposing (..)
 @docs Control, ControlModifiers, controlModifiers
 @docs control
 
-### Button
-@docs Button, ButtonModifiers, buttonModifiers
-@docs controlButton
-@docs button, easyButton
-
 ### Input
 @docs ControlInputModifiers, controlInputModifiers
 @docs controlInput
+@docs ControlInputModifiers, controlInputModifiers
 @docs controlText, controlPassword, controlEmail, controlPhone
+
+### TextArea
+@docs ControlTextAreaModifiers, controlTextAreaModifiers
 @docs controlTextArea
 
 ### Select
+@docs ControlSelectModifiers, controlSelectModifiers
 @docs Option
-@docs controlSelect
+@docs controlSelect, controlSelectRounded
 @docs controlMultiselect
 
 ### Label
@@ -51,11 +47,16 @@ module Bulma.Form exposing (..)
 @docs label
 
 ### CheckBox
+@docs IsDisabled
 @docs controlCheckBox 
 
 ### Radio
+@docs IsChecked, IsDisabled
 @docs RadioButton
 @docs controlRadio, controlRadioButton 
+
+### Button
+@docs controlButton
 
 ### Help
 @docs controlHelp
@@ -83,11 +84,12 @@ import BulmaClasses exposing (..)
 
 import Bulma.Modifiers as Modifiers exposing (..)
 
+import Bulma.Elements exposing ( ButtonModifiers, button )
+
 import Bulma.Elements.Icon as Icon exposing ( Icon, IconBody, icon )
 
 import Html exposing ( Html, text, div, a, img, span )
-import Html.Events exposing ( onClick )
-import Html.Attributes as Attr exposing ( class )
+import Html.Attributes as Attr exposing ( class, readonly, disabled )
 
 import List exposing ( filter )
 
@@ -120,6 +122,8 @@ field = node "div" [] [ bulma.field.container ]
 
 
 -- FIELD GROUPS --
+
+-- TODO: rename to fields?
 
 {-| This is a container for gluing controls together on the same line. 
 This variation will leave spaces between each control.
@@ -362,6 +366,9 @@ type alias ControlInputModifiers msg
     , state     : State
     , color     : Color
     , expanded  : Bool
+    , rounded   : Bool
+    , readonly  : Bool
+    , disabled  : Bool
     , iconLeft  : Maybe (Size, Attrs msg, IconBody msg)
     , iconRight : Maybe (Size, Attrs msg, IconBody msg)
     }
@@ -373,6 +380,9 @@ controlInputModifiers
     , state     = Blur
     , color     = Default
     , expanded  = False
+    , rounded   = False
+    , readonly  = False
+    , disabled  = False
     , iconLeft  = Nothing
     , iconRight = Nothing
     }
@@ -395,19 +405,23 @@ controlInputModifiers
             []
 -}
 controlInput : ControlInputModifiers msg -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
-controlInput ({size,state,color,expanded,iconLeft,iconRight} as mods) attrs attrs_
+controlInput ({size,state,color,expanded,rounded,readonly,disabled,iconLeft,iconRight} as mods) attrs attrs_
   = let controlMods : ControlModifiers msg
         controlMods
-          = { expanded  = False
-            , iconLeft  = Nothing
-            , iconRight = Nothing
+          = { expanded  = expanded
+            , iconLeft  = iconLeft
+            , iconRight = iconRight
             , loading   = case state of
                             Loading -> Just size
                             _       -> Nothing
             }
     in control controlMods attrs
      << ls
-     << node "input" []
+     << node "input"
+       ( if readonly
+         then [ Attr.disabled disabled, Attr.readonly readonly ]
+         else [ Attr.disabled disabled                         ]
+       )
        [ bulma.input.ui
        , case size of
            Small  -> bulma.input.size.isSmall
@@ -431,6 +445,9 @@ controlInput ({size,state,color,expanded,iconLeft,iconRight} as mods) attrs attr
            Success -> bulma.input.color.isSuccess
            Warning -> bulma.input.color.isWarning
            Danger  -> bulma.input.color.isDanger
+       , case rounded of
+           False   -> ""
+           True    -> "is-rounded"
        ]
        attrs_
 
@@ -462,6 +479,25 @@ controlPhone mods attrs attrs_
   = controlInput mods attrs
     <| Attr.type_ "tel" :: attrs_
 
+{-| -}
+type alias ControlTextAreaModifiers
+  = { size      : Size
+    , state     : State
+    , color     : Color
+    , readonly  : Bool
+    , disabled  : Bool
+    }
+
+{-| -}
+controlTextAreaModifiers : ControlTextAreaModifiers
+controlTextAreaModifiers 
+  = { size      = Normal
+    , state     = Blur
+    , color     = Default
+    , readonly  = False
+    , disabled  = False
+    }
+
 {-| 
     type Msg = UpdateDesc String
 
@@ -474,13 +510,13 @@ controlPhone mods attrs attrs_
                               , placeholder "Description"
                               ]
 
-        in  controlTextArea myControlInputModifiers 
+        in  controlTextArea myControlTextAreaModifiers 
             myControlAttrs
             myTextAreaAttrs
             []
 -}
-controlTextArea : ControlInputModifiers msg -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
-controlTextArea ({size,state,color,expanded,iconLeft,iconRight} as mods) attrs attrs_
+controlTextArea : ControlTextAreaModifiers -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
+controlTextArea ({size,state,color,readonly,disabled} as mods) attrs attrs_
   = let controlMods : ControlModifiers msg
         controlMods
           = { expanded  = False
@@ -492,7 +528,11 @@ controlTextArea ({size,state,color,expanded,iconLeft,iconRight} as mods) attrs a
             }
     in control controlMods attrs
      << ls
-     << node "textarea" []
+     << node "textarea"
+       ( if readonly
+         then [ Attr.disabled disabled, Attr.readonly readonly ]
+         else [ Attr.disabled disabled                         ]
+       )
        [ bulma.textarea.ui
        , case size of
            Small  -> bulma.textarea.size.isSmall
@@ -522,6 +562,25 @@ controlTextArea ({size,state,color,expanded,iconLeft,iconRight} as mods) attrs a
 {-| -}
 type alias Option msg = Html msg
 
+{-| -}
+type alias ControlSelectModifiers msg
+  = { size      : Size
+    , state     : State
+    , color     : Color
+    , expanded  : Bool
+    , iconLeft  : Maybe (Size, Attrs msg, IconBody msg)
+    }
+
+{-| -}
+controlSelectModifiers : ControlSelectModifiers msg
+controlSelectModifiers 
+  = { size      = Normal
+    , state     = Blur
+    , color     = Default
+    , expanded  = False
+    , iconLeft  = Nothing
+    }
+
 {-|
     type Msg = UpdateChoice String
     
@@ -546,12 +605,12 @@ type alias Option msg = Html msg
             , ( "shrink", "drink me" )
             ]
 -}
-controlSelect : ControlInputModifiers msg -> Attrs msg -> Attrs msg -> List (Option msg) -> Control msg
-controlSelect ({size,state,color,expanded,iconLeft,iconRight} as mods) attrs attrs_
+controlSelect : ControlSelectModifiers msg -> Attrs msg -> Attrs msg -> List (Option msg) -> Control msg
+controlSelect ({size,state,color,expanded,iconLeft} as mods) attrs attrs_
   = let controlMods : ControlModifiers msg
         controlMods
-          = { expanded  = False
-            , iconLeft  = Nothing
+          = { expanded  = expanded
+            , iconLeft  = iconLeft
             , iconRight = Nothing
             , loading   = case state of
                             Loading -> Just size
@@ -585,16 +644,31 @@ controlSelect ({size,state,color,expanded,iconLeft,iconRight} as mods) attrs att
            Warning -> bulma.input.color.isWarning
            Danger  -> bulma.input.color.isDanger
            -- KLUDGE: add to BulmaClass
+       , case expanded of
+           True    -> "is-fullwidth"
+           False   -> ""
        ]
        attrs_
 
+{-| A rounded variation of `controlSelect`.
+-}
+controlSelectRounded : ControlSelectModifiers msg -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
+controlSelectRounded mods attrs attrs_
+  = controlSelect mods attrs
+    <| class "is-rounded" :: attrs_
+
 {-| Accepts options just like `controlSelect`, except it allows you to select multiple list items.
 -}
-controlMultiselect : ControlInputModifiers msg -> Attrs msg -> Attrs msg -> List (Option msg) -> Control msg
+controlMultiselect : ControlSelectModifiers msg -> Attrs msg -> Attrs msg -> List (Option msg) -> Control msg
 controlMultiselect mods attrs attrs_
   = controlSelect mods attrs
     <| class "is-multiple" :: attrs_
       -- KLUDGE: add to BulmaClasses
+
+{-|
+-}
+type alias IsDisabled
+  = Bool
 
 {-| 
     type Msg = UpdateChoice Bool
@@ -608,20 +682,23 @@ controlMultiselect mods attrs attrs_
             myCheckBoxAttrs : List (Attribute Msg)
             myCheckBoxAttrs = [ onCheck UpdateChoice ]
 
-        in  controlCheckBox
+        in  controlCheckBox False
             myControlAttrs
             myLabelAttrs
             myCheckBoxAttrs
             [ text "I don't agree to the terms and conditions"
             ]
 -}
-controlCheckBox : Attrs msg -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
-controlCheckBox attrs attrs_ attrs__ htmls
+controlCheckBox : IsDisabled -> Attrs msg -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
+controlCheckBox disabled attrs attrs_ attrs__ htmls
   = control controlModifiers attrs
   <| ls
-  <| node "label" [ Attr.disabled False ] [ bulma.checkbox.ui ] attrs_
-  <| node "input" [ Attr.disabled False ] [ bulma.checkbox.ui ] attrs__ []
+  <| node "label" [ Attr.disabled disabled ] [ bulma.checkbox.ui ] attrs_
+  <| node "input" [ Attr.disabled disabled ] [ bulma.checkbox.ui ] attrs__ []
  :: htmls
+
+{-| -}
+type alias IsChecked = Bool
 
 {-| -}
 type alias RadioButton msg = Html msg
@@ -639,32 +716,37 @@ type alias RadioButton msg = Html msg
             myRadioAttrs   = [ onInput UpdateChoice ]
 
         in  controlRadio myControlAttrs
-            [ controlRadioButton "answer"
+            [ controlRadioButton False False "yes"
               myLabelAttrs
               (value "1" :: myRadioAttrs)
               [ text "yep" ]
-            , controlRadioButton "answer"
+            , controlRadioButton False True "no"
               myLabelAttrs
               (value "0" :: myRadioAttrs)
               [ text "nope" ]
+            , controlRadioButton True False "maybe"
+              myLabelAttrs
+              (value "0" :: myRadioAttrs)
+              [ text "uhh" ]
             ]
 -}
-controlRadio : Attrs msg -> Htmls msg -> Control msg
+controlRadio : Attrs msg -> List (RadioButton msg) -> Control msg
 controlRadio
   = control controlModifiers
 
 {-| -}
-controlRadioButton : String -> Attrs msg -> Attrs msg -> Htmls msg -> RadioButton msg
-controlRadioButton name attrs attrs_ htmls
+controlRadioButton : IsDisabled -> IsChecked -> String -> Attrs msg -> Attrs msg -> Htmls msg -> RadioButton msg
+controlRadioButton disabled checked name attrs attrs_ htmls
   = let inputAttrs : List (Html.Attribute msg)
         inputAttrs
           = [ Attr.name name
             , Attr.type_ "radio"
-            , Attr.disabled False
+            , Attr.disabled disabled
+            , Attr.checked checked
             ]
         labelAttrs : List (Html.Attribute msg)
         labelAttrs
-          = [ Attr.disabled False
+          = [ Attr.disabled disabled
             ]
     in node "label" labelAttrs [ bulma.radio.ui ] attrs
      <| node "input" inputAttrs [                ] attrs_ []
@@ -674,6 +756,28 @@ controlRadioButton name attrs attrs_ htmls
 -- TODO: -}
 -- TODO: easyControlRadio : String -> ControlModifiers -> Attrs msg -> List (String, String -> msg, Htmls msg) -> Control msg
 -- TODO: easyControlRadio name mods attrs controls
+
+{-|
+    type Msg = DoSomething
+    
+    myButton : Html Msg
+    myButton
+      = let myControlAttrs : List (Attribute Msg)
+            myControlAttrs = []
+            myButtonAttrs   : List (Attribute Msg)
+            myButtonAttrs   = [ onClick DoSomething ]
+
+        in  controlButton myButtonModifiers 
+            myControlAttrs
+            myButtonAttrs
+            [ text "Click me!"
+            ]
+-}
+controlButton : ButtonModifiers msg -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
+controlButton mods attrs attrs_
+  = control controlModifiers attrs
+  << ls
+  << button mods attrs_
 
 {-| 
     import Bulma.Modifiers exposing (Color(Danger))
@@ -710,191 +814,3 @@ controlHelp = help
 -- FILE ------------------------------------------------------------------------
 
 -- TODO: file
-
-
--- BUTTON ----------------------------------------------------------------------
-
--- TODO: consider moving back to Elements or Elements.Button
--- TODO: update button
-
-{-| -}
-type alias Button msg = Html msg
-
-{-| 
-    type Msg = DoSomething
-             | DoSomethingElse
-
-    myButton : Html Msg
-    myButton
-      = button myButtonModifiers 
-        [ onClick DoSomething ]
-        [ text "Click me!" ]
--}
-button : ButtonModifiers msg -> Attrs msg -> Htmls msg -> Button msg
-button {disabled,outlined,inverted,size,state,color,static,iconLeft,iconRight} attrs htmls
-  = let htmls_ : Htmls msg
-        htmls_ = iconLeft_ ++ htmls ++ iconRight_
-        iconLeft_ : Htmls msg
-        iconLeft_
-          = case iconLeft of
-              Just ( size, attrs, body ) -> [ icon size attrs [ body ] ]
-              Nothing                    -> [                          ]
-        iconRight_ : Htmls msg
-        iconRight_
-          = case iconRight of
-              Just ( size, attrs, body ) -> [ icon size attrs [ body ] ]
-              Nothing                    -> [                          ]
-    in node "a" ( if disabled then [ Attr.disabled disabled ] else [] )
-       [ bulma.button.ui
-       , case static of
-           True  -> bulma.button.style.isStatic
-           False -> ""
-       , case outlined of
-           True  -> bulma.button.style.isOutlined
-           False -> ""
-       , case inverted of
-           True  -> bulma.button.style.isInverted
-           False -> ""
-       , case color of
-           Default -> ""
-           White   -> bulma.button.color.isWhite
-           Light   -> bulma.button.color.isLight
-           Dark    -> bulma.button.color.isDark
-           Black   -> bulma.button.color.isBlack
-           Primary -> bulma.button.color.isPrimary
-           Info    -> bulma.button.color.isInfo
-           Success -> bulma.button.color.isSuccess
-           Warning -> bulma.button.color.isWarning
-           Danger  -> bulma.button.color.isDanger
-       , case size of
-           Small  -> bulma.button.size.isSmall
-           Normal -> ""
-           Medium -> bulma.button.size.isMedium
-           Large  -> bulma.button.size.isLarge
-       , case state of
-           Blur    -> ""
-           Hover   -> "is-hovered"
-           Focus   -> "is-focused"
-           Active  -> "is-active"
-           Loading -> "is-loading"
-           -- KLUDGE: add to BulmaClasses
-       ]
-       attrs
-       htmls_
-  
-{-|
-    type Msg = DoSomething
-    
-    myButton : Html Msg
-    myButton
-      = let myControlAttrs : List (Attribute Msg)
-            myControlAttrs = []
-            myButtonAttrs   : List (Attribute Msg)
-            myButtonAttrs   = [ onClick DoSomething ]
-
-        in  controlButton myButtonModifiers 
-            myControlAttrs
-            myButtonAttrs
-            [ text "Click me!"
-            ]
--}
-controlButton : ButtonModifiers msg -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
-controlButton mods attrs attrs_
-  = control controlModifiers attrs
-  << ls
-  << button mods attrs_
-
-{-| 
-    type Msg = DoSomething
-             | DoSomethingElse
-
-    myEasyButton : Html Msg
-    myEasyButton
-      = easyButton myButtonModifiers []
-        DoSomethingElse
-        "Click me!"
--}
-easyButton : ButtonModifiers msg -> Attrs msg -> msg -> String -> Button msg
-easyButton mods attrs msg str
-  = button mods
-    (onClick msg :: attrs)
-    [ text str ]
-
--- -- WITH ICON --
-
--- {-| 
---     import Bulma.Icon exposing (icon,check)
---     import Bulma.Modifiers exposing (Size(Small))
-
---     type Msg = SaveMsg
-
---     myIconButton : Html Msg
---     myIconButton
---       = let myIcon : Html Msg
---             myIcon = icon Small [] [ check ] 
---         in iconButton 
---            myButtonModifiers 
---            myIcon 
---            [ SaveMsg ]
---            [ text "Save" ]
--- -}
--- iconButton : ButtonModifiers msg -> Icon msg -> Attrs msg -> Htmls msg -> Button msg
--- iconButton mods icon attrs htmls
---   = button mods attrs <| icon :: htmls
-    
--- {-| -}
--- staticIconButton : ButtonModifiers msg -> Icon msg -> Attrs msg -> Htmls msg -> Button msg
--- staticIconButton mods icon = iconButton mods icon << (::) (class bulma.button.style.isStatic)
-
--- {-| -}
--- easyIconButton : ButtonModifiers msg -> Icon msg -> Attrs msg -> msg -> String -> Button msg
--- easyIconButton mods icon attrs msg str
---   = button mods (onClick msg :: attrs)
---     [ icon 
---     , span [] [ text str ]
---     ]
-
--- MODIFIERS --
-
-{-| -}
-type alias ButtonModifiers msg
-  = { disabled  : Bool
-    , outlined  : Bool
-    , inverted  : Bool
-    , static    : Bool
-    , size      : Size
-    , state     : State
-    , color     : Color
-    , iconLeft  : Maybe (Size, Attrs msg, IconBody msg)
-    , iconRight : Maybe (Size, Attrs msg, IconBody msg)
-    }
-
-{-| The basic defaults for buttons.
-
-    import Bulma.Modifiers exposing ( State(Blur) 
-                                    , Color(Default)
-                                    , Size(Normal)
-                                    )
-                                   
-    myButtonModifiers : ButtonModifiers msg
-    myButtonModifiers 
-      = { disabled = False
-        , outlined = False
-        , inverted = False
-        , size     = Normal
-        , state    = Blur
-        , color    = Default
-        }
--}
-buttonModifiers : ButtonModifiers msg
-buttonModifiers = { disabled  = False
-                  , outlined  = False
-                  , inverted  = False
-                  , static    = False
-                  , size      = Normal
-                  , state     = Blur
-                  , color     = Default
-                  , iconLeft  = Nothing
-                  , iconRight = Nothing
-                  }
-
