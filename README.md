@@ -8,7 +8,7 @@ Elm-Bulma is a simple and beautiful front-end library.
 ## Getting Started
 1. Make a new project: `mkdir bulma-example && cd bulma-example`.
 2. Install the package: `elm package install --yes surprisetalk/elm-bulma`.
-3. Create a new file `Main.elm` and copy the code below.
+3. Create a new file `Main.elm` and copy the code below or [this example file](https://github.com/surprisetalk/elm-bulma/blob/master/src/Example.elm).
 4. Start `elm reactor` and navigate to [http://localhost:8000/Main.elm](http://localhost:8000).
 
 ``` elm
