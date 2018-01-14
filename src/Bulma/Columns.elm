@@ -40,7 +40,7 @@ import Helpers exposing (..)
 
 import BulmaClasses exposing (..)
 
-import Bulma.Modifiers exposing ( Width(..) )
+import Bulma.Modifiers exposing ( Devices, Width(..) )
 
 import Html exposing ( Html, text, div, a )
 
@@ -170,6 +170,32 @@ column {widths,offset}
          Width9  -> flip (++) "-desktop" bulma.columns.column.width.is9
          Width10 -> flip (++) "-desktop" bulma.columns.column.width.is10
          Width11 -> flip (++) "-desktop" bulma.columns.column.width.is11
+    , case widths.widescreen of
+         Auto    -> ""
+         Width1  -> flip (++) "-widescreen" bulma.columns.column.width.is1
+         Width2  -> flip (++) "-widescreen" bulma.columns.column.width.is2
+         Width3  -> flip (++) "-widescreen" bulma.columns.column.width.is3
+         Width4  -> flip (++) "-widescreen" bulma.columns.column.width.is4
+         Width5  -> flip (++) "-widescreen" bulma.columns.column.width.is5
+         Width6  -> flip (++) "-widescreen" bulma.columns.column.width.is6
+         Width7  -> flip (++) "-widescreen" bulma.columns.column.width.is7
+         Width8  -> flip (++) "-widescreen" bulma.columns.column.width.is8
+         Width9  -> flip (++) "-widescreen" bulma.columns.column.width.is9
+         Width10 -> flip (++) "-widescreen" bulma.columns.column.width.is10
+         Width11 -> flip (++) "-widescreen" bulma.columns.column.width.is11
+    , case widths.fullHD of
+         Auto    -> ""
+         Width1  -> flip (++) "-fullhd" bulma.columns.column.width.is1
+         Width2  -> flip (++) "-fullhd" bulma.columns.column.width.is2
+         Width3  -> flip (++) "-fullhd" bulma.columns.column.width.is3
+         Width4  -> flip (++) "-fullhd" bulma.columns.column.width.is4
+         Width5  -> flip (++) "-fullhd" bulma.columns.column.width.is5
+         Width6  -> flip (++) "-fullhd" bulma.columns.column.width.is6
+         Width7  -> flip (++) "-fullhd" bulma.columns.column.width.is7
+         Width8  -> flip (++) "-fullhd" bulma.columns.column.width.is8
+         Width9  -> flip (++) "-fullhd" bulma.columns.column.width.is9
+         Width10 -> flip (++) "-fullhd" bulma.columns.column.width.is10
+         Width11 -> flip (++) "-fullhd" bulma.columns.column.width.is11
     , case offset of
          Auto    -> ""
          Width1  -> bulma.columns.column.offset.is1
@@ -222,10 +248,7 @@ narrowColumn offset
 
 {-| -}
 type alias ColumnModifiers = { offset : Width
-                             , widths : { mobile  : Width
-                                        , tablet  : Width
-                                        , desktop : Width
-                                        }
+                             , widths : Devices Width
                              }
 
 {-| Default offsets and widths for individiual columns. 
@@ -233,9 +256,11 @@ Everything defaults to `Auto`.
 -}
 columnModifiers : ColumnModifiers
 columnModifiers = { offset = Auto
-                  , widths = { mobile  = Auto
-                             , tablet  = Auto
-                             , desktop = Auto
+                  , widths = { mobile     = Auto
+                             , tablet     = Auto
+                             , desktop    = Auto
+                             , widescreen = Auto
+                             , fullHD     = Auto
                              }
                   }
 

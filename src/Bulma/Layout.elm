@@ -42,7 +42,7 @@ module Bulma.Layout exposing (..)
 @docs mediaLeft, mediaRight
 
 # Hero
-@docs Hero, HeroModifiers, HeroSize, heroModifiers
+@docs Hero, HeroModifiers, heroModifiers
 @docs hero, easyHero
 
 ## Hero Partition
@@ -334,10 +334,10 @@ hero {bold,size,color}
         True  -> bulma.hero.style.isBold
         False -> ""
     , case size of
-        Normal     -> ""
-        Medium     -> bulma.hero.size.isMedium
-        Large      -> bulma.hero.size.isLarge
-        FullHeight -> bulma.hero.size.isFullheight
+        Small  -> ""
+        Normal -> bulma.hero.size.isMedium
+        Medium -> bulma.hero.size.isLarge
+        Large  -> bulma.hero.size.isFullheight
     , case color of
         Default -> ""
         White   -> bulma.hero.color.isWhite
@@ -345,6 +345,7 @@ hero {bold,size,color}
         Light   -> bulma.hero.color.isLight
         Dark    -> bulma.hero.color.isDark
         Primary -> bulma.hero.color.isPrimary
+        Link    -> "is-link"
         Info    -> bulma.hero.color.isInfo
         Success -> bulma.hero.color.isSuccess
         Warning -> bulma.hero.color.isWarning
@@ -370,11 +371,13 @@ easyHero mods attrs {head,body,foot}
 
 {-| -}
 type alias HeroModifiers = { bold  : Bool
-                           , size  : HeroSize
+                           , size  : Size
                            , color : Color
                            }
 
 {-| These are the stylistic defaults for `hero` containers.
+
+    TODO: explain that normal=medium, medium=large, and large=fullheight
 
     import Bulma.Modifiers exposing ( Size(Normal)
                                     , Color(Default)
@@ -383,21 +386,21 @@ type alias HeroModifiers = { bold  : Bool
     myHeroModifiers : HeroModifiers
     myHeroModifiers
       = { bold  = False
-        , size  = Normal
+        , size  = Large
         , color = Default
         }
 -}
 heroModifiers : HeroModifiers
 heroModifiers = { bold  = False
-                , size  = Normal
+                , size  = Small
                 , color = Default
                 }
 
-{-| -}
-type HeroSize = Normal
-              | Medium
-              | Large
-              | FullHeight
+-- {-| -}
+-- type HeroSize = Normal
+--               | Medium
+--               | Large
+--               | FullHeight
 
 
 -- HERO PARTITIONS --

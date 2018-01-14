@@ -114,7 +114,7 @@ Usually this will be a single `control`, with optional an `label` and `help`.
       = field []
         [ controlLabel [] []
         , controlInput myControlInputModifiers [] [] [] 
-        , controlHelp myControlModifiers [] []
+        , controlHelp Default [] []
         ]
 -}
 field : Attrs msg -> List (Control msg) -> Field msg
@@ -142,9 +142,9 @@ fieldGroup alignment
   = node "div" []
     [ bulma.field.container
     , case alignment of
-        Left     -> bulma.field.hasAddons.left
-        Centered -> bulma.field.hasAddons.centered
-        Right    -> bulma.field.hasAddons.right
+        Left     -> bulma.field.isGrouped.left
+        Centered -> bulma.field.isGrouped.centered
+        Right    -> bulma.field.isGrouped.right
     ]
 
 {-| This is a container for gluing controls together on the same line. 
@@ -164,9 +164,9 @@ connectedFieldGroup alignment
   = node "div" []
     [ bulma.field.container
     , case alignment of
-        Left     -> bulma.field.isGrouped.left
-        Centered -> bulma.field.isGrouped.centered
-        Right    -> bulma.field.isGrouped.right
+        Left     -> bulma.field.hasAddons.left
+        Centered -> bulma.field.hasAddons.centered
+        Right    -> bulma.field.hasAddons.right
     ]
 
 {-| This is a container for gluing controls together when you expect it to take up multiple lines.
@@ -441,6 +441,7 @@ controlInput ({size,state,color,expanded,rounded,readonly,disabled,iconLeft,icon
            Dark    -> bulma.input.color.isDark
            Black   -> bulma.input.color.isBlack
            Primary -> bulma.input.color.isPrimary
+           Link    -> "is-link"
            Info    -> bulma.input.color.isInfo
            Success -> bulma.input.color.isSuccess
            Warning -> bulma.input.color.isWarning
@@ -552,6 +553,7 @@ controlTextArea ({size,state,color,readonly,disabled} as mods) attrs attrs_
            Dark    -> bulma.textarea.color.isDark
            Black   -> bulma.textarea.color.isBlack
            Primary -> bulma.textarea.color.isPrimary
+           Link    -> "is-link"
            Info    -> bulma.textarea.color.isInfo
            Success -> bulma.textarea.color.isSuccess
            Warning -> bulma.textarea.color.isWarning
@@ -639,6 +641,7 @@ controlSelect ({size,state,color,expanded,iconLeft} as mods) attrs attrs_
            Dark    -> bulma.input.color.isDark
            Black   -> bulma.input.color.isBlack
            Primary -> bulma.input.color.isPrimary
+           Link    -> "is-link"
            Info    -> bulma.input.color.isInfo
            Success -> bulma.input.color.isSuccess
            Warning -> bulma.input.color.isWarning
@@ -693,9 +696,10 @@ controlCheckBox : IsDisabled -> Attrs msg -> Attrs msg -> Attrs msg -> Htmls msg
 controlCheckBox disabled attrs attrs_ attrs__ htmls
   = control controlModifiers attrs
   <| ls
-  <| node "label" [ Attr.disabled disabled ] [ bulma.checkbox.ui ] attrs_
-  <| node "input" [ Attr.disabled disabled ] [ bulma.checkbox.ui ] attrs__ []
- :: htmls
+  <| node "label" [ Attr.disabled disabled                        ] [ "checkbox" ] attrs_
+  <| node "input" [ Attr.disabled disabled, Attr.type_ "checkbox" ] [            ] attrs__ []
+ :: (text " " :: htmls)
+    -- KLUDGE: it looks much better with the space, but should we force that on the developer?
 
 {-| -}
 type alias IsChecked = Bool
@@ -750,7 +754,7 @@ controlRadioButton disabled checked name attrs attrs_ htmls
             ]
     in node "label" labelAttrs [ bulma.radio.ui ] attrs
      <| node "input" inputAttrs [                ] attrs_ []
-       :: htmls
+    :: (text " " :: htmls)
 
 -- TODO: {-| TODO
 -- TODO: -}
@@ -799,6 +803,7 @@ help color
         Dark    -> bulma.help.color.isDark
         Black   -> bulma.help.color.isBlack
         Primary -> bulma.help.color.isPrimary
+        Link    -> "is-link"
         Info    -> bulma.help.color.isInfo
         Success -> bulma.help.color.isSuccess
         Warning -> bulma.help.color.isWarning

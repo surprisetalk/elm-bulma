@@ -133,6 +133,14 @@ type alias Button msg = Html msg
       = button myButtonModifiers 
         [ onClick DoSomething ]
         [ text "Click me!" ]
+
+    myIconButton : Html Msg
+    myIconButton
+      = button myButtonModifiers 
+        [ onClick DoSomething ]
+        [ icon [] [ Bulm.Elements.Icon.star ]
+        , span [] [ text "No, click me!" ]
+        ]
 -}
 button : ButtonModifiers msg -> Attrs msg -> Htmls msg -> Button msg
 button {disabled,outlined,inverted,rounded,size,state,color,static,iconLeft,iconRight} attrs htmls
@@ -169,6 +177,7 @@ button {disabled,outlined,inverted,rounded,size,state,color,static,iconLeft,icon
            Dark    -> "is-selected " ++ bulma.button.color.isDark
            Black   -> "is-selected " ++ bulma.button.color.isBlack
            Primary -> "is-selected " ++ bulma.button.color.isPrimary
+           Link    -> "is-selected " ++ "is-link"
            Info    -> "is-selected " ++ bulma.button.color.isInfo
            Success -> "is-selected " ++ bulma.button.color.isSuccess
            Warning -> "is-selected " ++ bulma.button.color.isWarning
@@ -220,7 +229,8 @@ easyButton mods attrs msg str
 buttons: HorizontalAlignment -> Attrs msg -> List (Button msg) -> Html msg
 buttons alignment
   = node "div" []
-    [ case alignment of
+    [ "buttons"
+    , case alignment of
         Left     -> ""
         Centered -> "is-centered"
         Right    -> "is-right"
@@ -477,6 +487,7 @@ notification color
         Dark    -> bulma.notification.color.isDark
         Black   -> bulma.notification.color.isBlack
         Primary -> bulma.notification.color.isPrimary
+        Link    -> "is-link"
         Info    -> bulma.notification.color.isInfo
         Success -> bulma.notification.color.isSuccess
         Warning -> bulma.notification.color.isWarning
@@ -541,6 +552,7 @@ progress {size,color}
         Dark    -> bulma.progress.color.isDark
         Black   -> bulma.progress.color.isBlack
         Primary -> bulma.progress.color.isPrimary
+        Link    -> "is-link"
         Info    -> bulma.progress.color.isInfo
         Success -> bulma.progress.color.isSuccess
         Warning -> bulma.progress.color.isWarning
@@ -555,7 +567,7 @@ progress {size,color}
 -}
 easyProgress : ProgressModifiers -> Attrs msg -> Float -> Progress msg
 easyProgress mods attrs val
-  = progress mods (Attr.value (toString (round (val * 100))) :: attrs) []
+  = progress mods (Attr.value (toString (round (val * 100))) :: (Attr.max "100" :: attrs)) []
 
 
 -- TABLE -----------------------------------------------------------------------
@@ -735,6 +747,7 @@ tag {size,color}
         Dark    -> bulma.tag.color.isDark
         Black   -> bulma.tag.color.isBlack
         Primary -> bulma.tag.color.isPrimary
+        Link    -> "is-link"
         Info    -> bulma.tag.color.isInfo
         Success -> bulma.tag.color.isSuccess
         Warning -> bulma.tag.color.isWarning
@@ -883,7 +896,16 @@ title size
 -}
 subtitle : TitleSize -> Attrs msg -> Htmls msg -> Title msg
 subtitle size
-  = node "p" [] 
+  = node 
+    ( case size of
+        H1 -> "h1"
+        H2 -> "h2"
+        H3 -> "h3"
+        H4 -> "h4"
+        H5 -> "h5"
+        H6 -> "h6"
+    )
+    [] 
     [ bulma.heading.subtitle
     , case size of
         H1 -> bulma.heading.size.is1

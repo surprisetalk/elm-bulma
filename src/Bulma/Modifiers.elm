@@ -118,6 +118,7 @@ type Color
   | Dark
   | Black
   | Primary
+  | Link
   | Info
   | Success
   | Warning

@@ -71,7 +71,7 @@ adjust                              = i [ class "fa fa-adjust" ] []
 
 {-| -}
 american_sign_language_interpreting : IconBody msg
-american_sign_language_interpreting = i [ class "fa fa-americansignlanguageinterpreting" ] []
+american_sign_language_interpreting = i [ class "fa fa-american-sign-language-interpreting" ] []
 
 {-| -}
 anchor                              : IconBody msg
@@ -83,7 +83,7 @@ archive                             = i [ class "fa fa-archive" ] []
 
 {-| -}
 area_chart                          : IconBody msg
-area_chart                          = i [ class "fa fa-areachart" ] []
+area_chart                          = i [ class "fa fa-area-chart" ] []
 
 {-| -}
 arrows                              : IconBody msg
@@ -91,19 +91,19 @@ arrows                              = i [ class "fa fa-arrows" ] []
 
 {-| -}
 arrows_h                            : IconBody msg
-arrows_h                            = i [ class "fa fa-arrowsh" ] []
+arrows_h                            = i [ class "fa fa-arrows-h" ] []
 
 {-| -}
 arrows_v                            : IconBody msg
-arrows_v                            = i [ class "fa fa-arrowsv" ] []
+arrows_v                            = i [ class "fa fa-arrows-v" ] []
 
 {-| -}
 asl_interpreting                    : IconBody msg
-asl_interpreting                    = i [ class "fa fa-aslinterpreting" ] []
+asl_interpreting                    = i [ class "fa fa-asl-interpreting" ] []
 
 {-| -}
 assistive_listening_systems         : IconBody msg
-assistive_listening_systems         = i [ class "fa fa-assistivelisteningsystems" ] []
+assistive_listening_systems         = i [ class "fa fa-assistive-listening-systems" ] []
 
 {-| -}
 asterisk                            : IconBody msg
@@ -115,7 +115,7 @@ at                                  = i [ class "fa fa-at" ] []
 
 {-| -}
 audio_description                   : IconBody msg
-audio_description                   = i [ class "fa fa-audiodescription" ] []
+audio_description                   = i [ class "fa fa-audio-description" ] []
 
 {-| -}
 automobile                          : IconBody msg
@@ -123,7 +123,7 @@ automobile                          = i [ class "fa fa-automobile" ] []
 
 {-| -}
 balance_scale                       : IconBody msg
-balance_scale                       = i [ class "fa fa-balancescale" ] []
+balance_scale                       = i [ class "fa fa-balance-scale" ] []
 
 {-| -}
 ban                                 : IconBody msg
@@ -135,11 +135,11 @@ bank                                = i [ class "fa fa-bank" ] []
 
 {-| -}
 bar_chart                           : IconBody msg
-bar_chart                           = i [ class "fa fa-barchart" ] []
+bar_chart                           = i [ class "fa fa-bar-chart" ] []
 
 {-| -}
 bar_chart_o                         : IconBody msg
-bar_chart_o                         = i [ class "fa fa-barcharto" ] []
+bar_chart_o                         = i [ class "fa fa-bar-chart-o" ] []
 
 {-| -}
 barcode                             : IconBody msg
@@ -151,43 +151,43 @@ bars                                = i [ class "fa fa-bars" ] []
 
 {-| -}
 battery_0                           : IconBody msg
-battery_0                           = i [ class "fa fa-battery0" ] []
+battery_0                           = i [ class "fa fa-battery-0" ] []
 
 {-| -}
 battery_1                           : IconBody msg
-battery_1                           = i [ class "fa fa-battery1" ] []
+battery_1                           = i [ class "fa fa-battery-1" ] []
 
 {-| -}
 battery_2                           : IconBody msg
-battery_2                           = i [ class "fa fa-battery2" ] []
+battery_2                           = i [ class "fa fa-battery-2" ] []
 
 {-| -}
 battery_3                           : IconBody msg
-battery_3                           = i [ class "fa fa-battery3" ] []
+battery_3                           = i [ class "fa fa-battery-3" ] []
 
 {-| -}
 battery_4                           : IconBody msg
-battery_4                           = i [ class "fa fa-battery4" ] []
+battery_4                           = i [ class "fa fa-battery-4" ] []
 
 {-| -}
 battery_empty                       : IconBody msg
-battery_empty                       = i [ class "fa fa-batteryempty" ] []
+battery_empty                       = i [ class "fa fa-battery-empty" ] []
 
 {-| -}
 battery_full                        : IconBody msg
-battery_full                        = i [ class "fa fa-batteryfull" ] []
+battery_full                        = i [ class "fa fa-battery-full" ] []
 
 {-| -}
 battery_half                        : IconBody msg
-battery_half                        = i [ class "fa fa-batteryhalf" ] []
+battery_half                        = i [ class "fa fa-battery-half" ] []
 
 {-| -}
 battery_quarter                     : IconBody msg
-battery_quarter                     = i [ class "fa fa-batteryquarter" ] []
+battery_quarter                     = i [ class "fa fa-battery-quarter" ] []
 
 {-| -}
 battery_three_quarters              : IconBody msg
-battery_three_quarters              = i [ class "fa fa-batterythreequarters" ] []
+battery_three_quarters              = i [ class "fa fa-battery-three-quarters" ] []
 
 {-| -}
 bed                                 : IconBody msg
@@ -203,15 +203,15 @@ bell                                = i [ class "fa fa-bell" ] []
 
 {-| -}
 bell_o                              : IconBody msg
-bell_o                              = i [ class "fa fa-bello" ] []
+bell_o                              = i [ class "fa fa-bell-o" ] []
 
 {-| -}
 bell_slash                          : IconBody msg
-bell_slash                          = i [ class "fa fa-bellslash" ] []
+bell_slash                          = i [ class "fa fa-bell-slash" ] []
 
 {-| -}
 bell_slash_o                        : IconBody msg
-bell_slash_o                        = i [ class "fa fa-bellslasho" ] []
+bell_slash_o                        = i [ class "fa fa-bell-slash-o" ] []
 
 {-| -}
 bicycle                             : IconBody msg
@@ -223,7 +223,7 @@ binoculars                          = i [ class "fa fa-binoculars" ] []
 
 {-| -}
 birthday_cake                       : IconBody msg
-birthday_cake                       = i [ class "fa fa-birthdaycake" ] []
+birthday_cake                       = i [ class "fa fa-birthday-cake" ] []
 
 {-| -}
 blind                               : IconBody msg
@@ -235,7 +235,7 @@ bluetooth                           = i [ class "fa fa-bluetooth" ] []
 
 {-| -}
 bluetooth_b                         : IconBody msg
-bluetooth_b                         = i [ class "fa fa-bluetoothb" ] []
+bluetooth_b                         = i [ class "fa fa-bluetooth-b" ] []
 
 {-| -}
 bolt                                : IconBody msg
@@ -255,7 +255,7 @@ bookmark                            = i [ class "fa fa-bookmark" ] []
 
 {-| -}
 bookmark_o                          : IconBody msg
-bookmark_o                          = i [ class "fa fa-bookmarko" ] []
+bookmark_o                          = i [ class "fa fa-bookmark-o" ] []
 
 {-| -}
 braille                             : IconBody msg
@@ -275,7 +275,7 @@ building                            = i [ class "fa fa-building" ] []
 
 {-| -}
 building_o                          : IconBody msg
-building_o                          = i [ class "fa fa-buildingo" ] []
+building_o                          = i [ class "fa fa-building-o" ] []
 
 {-| -}
 bullhorn                            : IconBody msg
@@ -303,23 +303,23 @@ calendar                            = i [ class "fa fa-calendar" ] []
 
 {-| -}
 calendar_check_o                    : IconBody msg
-calendar_check_o                    = i [ class "fa fa-calendarchecko" ] []
+calendar_check_o                    = i [ class "fa fa-calendar-check-o" ] []
 
 {-| -}
 calendar_minus_o                    : IconBody msg
-calendar_minus_o                    = i [ class "fa fa-calendarminuso" ] []
+calendar_minus_o                    = i [ class "fa fa-calendar-minus-o" ] []
 
 {-| -}
 calendar_o                          : IconBody msg
-calendar_o                          = i [ class "fa fa-calendaro" ] []
+calendar_o                          = i [ class "fa fa-calendar-o" ] []
 
 {-| -}
 calendar_plus_o                     : IconBody msg
-calendar_plus_o                     = i [ class "fa fa-calendarpluso" ] []
+calendar_plus_o                     = i [ class "fa fa-calendar-plus-o" ] []
 
 {-| -}
 calendar_times_o                    : IconBody msg
-calendar_times_o                    = i [ class "fa fa-calendartimeso" ] []
+calendar_times_o                    = i [ class "fa fa-calendar-times-o" ] []
 
 {-| -}
 camera                              : IconBody msg
@@ -327,7 +327,7 @@ camera                              = i [ class "fa fa-camera" ] []
 
 {-| -}
 camera_retro                        : IconBody msg
-camera_retro                        = i [ class "fa fa-cameraretro" ] []
+camera_retro                        = i [ class "fa fa-camera-retro" ] []
 
 {-| -}
 car                                 : IconBody msg
@@ -335,27 +335,27 @@ car                                 = i [ class "fa fa-car" ] []
 
 {-| -}
 caret_square_o_down                 : IconBody msg
-caret_square_o_down                 = i [ class "fa fa-caretsquareodown" ] []
+caret_square_o_down                 = i [ class "fa fa-caret-square-o-down" ] []
 
 {-| -}
 caret_square_o_left                 : IconBody msg
-caret_square_o_left                 = i [ class "fa fa-caretsquareoleft" ] []
+caret_square_o_left                 = i [ class "fa fa-caret-square-o-left" ] []
 
 {-| -}
 caret_square_o_right                : IconBody msg
-caret_square_o_right                = i [ class "fa fa-caretsquareoright" ] []
+caret_square_o_right                = i [ class "fa fa-caret-square-o-right" ] []
 
 {-| -}
 caret_square_o_up                   : IconBody msg
-caret_square_o_up                   = i [ class "fa fa-caretsquareoup" ] []
+caret_square_o_up                   = i [ class "fa fa-caret-square-o-up" ] []
 
 {-| -}
 cart_arrow_down                     : IconBody msg
-cart_arrow_down                     = i [ class "fa fa-cartarrowdown" ] []
+cart_arrow_down                     = i [ class "fa fa-cart-arrow-down" ] []
 
 {-| -}
 cart_plus                           : IconBody msg
-cart_plus                           = i [ class "fa fa-cartplus" ] []
+cart_plus                           = i [ class "fa fa-cart-plus" ] []
 
 {-| -}
 cc                                  : IconBody msg
@@ -371,19 +371,19 @@ check                               = i [ class "fa fa-check" ] []
 
 {-| -}
 check_circle                        : IconBody msg
-check_circle                        = i [ class "fa fa-checkcircle" ] []
+check_circle                        = i [ class "fa fa-check-circle" ] []
 
 {-| -}
 check_circle_o                      : IconBody msg
-check_circle_o                      = i [ class "fa fa-checkcircleo" ] []
+check_circle_o                      = i [ class "fa fa-check-circle-o" ] []
 
 {-| -}
 check_square                        : IconBody msg
-check_square                        = i [ class "fa fa-checksquare" ] []
+check_square                        = i [ class "fa fa-check-square" ] []
 
 {-| -}
 check_square_o                      : IconBody msg
-check_square_o                      = i [ class "fa fa-checksquareo" ] []
+check_square_o                      = i [ class "fa fa-check-square-o" ] []
 
 {-| -}
 child                               : IconBody msg
@@ -395,19 +395,19 @@ circle                              = i [ class "fa fa-circle" ] []
 
 {-| -}
 circle_o                            : IconBody msg
-circle_o                            = i [ class "fa fa-circleo" ] []
+circle_o                            = i [ class "fa fa-circle-o" ] []
 
 {-| -}
 circle_o_notch                      : IconBody msg
-circle_o_notch                      = i [ class "fa fa-circleonotch" ] []
+circle_o_notch                      = i [ class "fa fa-circle-o-notch" ] []
 
 {-| -}
 circle_thin                         : IconBody msg
-circle_thin                         = i [ class "fa fa-circlethin" ] []
+circle_thin                         = i [ class "fa fa-circle-thin" ] []
 
 {-| -}
 clock_o                             : IconBody msg
-clock_o                             = i [ class "fa fa-clocko" ] []
+clock_o                             = i [ class "fa fa-clock-o" ] []
 
 {-| -}
 clone                               : IconBody msg
@@ -423,11 +423,11 @@ cloud                               = i [ class "fa fa-cloud" ] []
 
 {-| -}
 cloud_download                      : IconBody msg
-cloud_download                      = i [ class "fa fa-clouddownload" ] []
+cloud_download                      = i [ class "fa fa-cloud-download" ] []
 
 {-| -}
 cloud_upload                        : IconBody msg
-cloud_upload                        = i [ class "fa fa-cloudupload" ] []
+cloud_upload                        = i [ class "fa fa-cloud-upload" ] []
 
 {-| -}
 code                                : IconBody msg
@@ -435,7 +435,7 @@ code                                = i [ class "fa fa-code" ] []
 
 {-| -}
 code_fork                           : IconBody msg
-code_fork                           = i [ class "fa fa-codefork" ] []
+code_fork                           = i [ class "fa fa-code-fork" ] []
 
 {-| -}
 coffee                              : IconBody msg
@@ -455,7 +455,7 @@ comment                             = i [ class "fa fa-comment" ] []
 
 {-| -}
 comment_o                           : IconBody msg
-comment_o                           = i [ class "fa fa-commento" ] []
+comment_o                           = i [ class "fa fa-comment-o" ] []
 
 {-| -}
 commenting                          : IconBody msg
@@ -463,7 +463,7 @@ commenting                          = i [ class "fa fa-commenting" ] []
 
 {-| -}
 commenting_o                        : IconBody msg
-commenting_o                        = i [ class "fa fa-commentingo" ] []
+commenting_o                        = i [ class "fa fa-commenting-o" ] []
 
 {-| -}
 comments                            : IconBody msg
@@ -471,7 +471,7 @@ comments                            = i [ class "fa fa-comments" ] []
 
 {-| -}
 comments_o                          : IconBody msg
-comments_o                          = i [ class "fa fa-commentso" ] []
+comments_o                          = i [ class "fa fa-comments-o" ] []
 
 {-| -}
 compass                             : IconBody msg
@@ -483,15 +483,15 @@ copyright                           = i [ class "fa fa-copyright" ] []
 
 {-| -}
 creative_commons                    : IconBody msg
-creative_commons                    = i [ class "fa fa-creativecommons" ] []
+creative_commons                    = i [ class "fa fa-creative-commons" ] []
 
 {-| -}
 credit_card                         : IconBody msg
-credit_card                         = i [ class "fa fa-creditcard" ] []
+credit_card                         = i [ class "fa fa-credit-card" ] []
 
 {-| -}
 credit_card_alt                     : IconBody msg
-credit_card_alt                     = i [ class "fa fa-creditcardalt" ] []
+credit_card_alt                     = i [ class "fa fa-credit-card-alt" ] []
 
 {-| -}
 crop                                : IconBody msg
@@ -539,7 +539,7 @@ diamond                             = i [ class "fa fa-diamond" ] []
 
 {-| -}
 dot_circle_o                        : IconBody msg
-dot_circle_o                        = i [ class "fa fa-dotcircleo" ] []
+dot_circle_o                        = i [ class "fa fa-dot-circle-o" ] []
 
 {-| -}
 download                            : IconBody msg
@@ -551,11 +551,11 @@ edit                                = i [ class "fa fa-edit" ] []
 
 {-| -}
 ellipsis_h                          : IconBody msg
-ellipsis_h                          = i [ class "fa fa-ellipsish" ] []
+ellipsis_h                          = i [ class "fa fa-ellipsis-h" ] []
 
 {-| -}
 ellipsis_v                          : IconBody msg
-ellipsis_v                          = i [ class "fa fa-ellipsisv" ] []
+ellipsis_v                          = i [ class "fa fa-ellipsis-v" ] []
 
 {-| -}
 envelope                            : IconBody msg
@@ -563,11 +563,11 @@ envelope                            = i [ class "fa fa-envelope" ] []
 
 {-| -}
 envelope_o                          : IconBody msg
-envelope_o                          = i [ class "fa fa-envelopeo" ] []
+envelope_o                          = i [ class "fa fa-envelope-o" ] []
 
 {-| -}
 envelope_square                     : IconBody msg
-envelope_square                     = i [ class "fa fa-envelopesquare" ] []
+envelope_square                     = i [ class "fa fa-envelope-square" ] []
 
 {-| -}
 eraser                              : IconBody msg
@@ -583,19 +583,19 @@ exclamation                         = i [ class "fa fa-exclamation" ] []
 
 {-| -}
 exclamation_circle                  : IconBody msg
-exclamation_circle                  = i [ class "fa fa-exclamationcircle" ] []
+exclamation_circle                  = i [ class "fa fa-exclamation-circle" ] []
 
 {-| -}
 exclamation_triangle                : IconBody msg
-exclamation_triangle                = i [ class "fa fa-exclamationtriangle" ] []
+exclamation_triangle                = i [ class "fa fa-exclamation-triangle" ] []
 
 {-| -}
 external_link                       : IconBody msg
-external_link                       = i [ class "fa fa-externallink" ] []
+external_link                       = i [ class "fa fa-external-link" ] []
 
 {-| -}
 external_link_square                : IconBody msg
-external_link_square                = i [ class "fa fa-externallinksquare" ] []
+external_link_square                = i [ class "fa fa-external-link-square" ] []
 
 {-| -}
 eye                                 : IconBody msg
@@ -603,7 +603,7 @@ eye                                 = i [ class "fa fa-eye" ] []
 
 {-| -}
 eye_slash                           : IconBody msg
-eye_slash                           = i [ class "fa fa-eyeslash" ] []
+eye_slash                           = i [ class "fa fa-eye-slash" ] []
 
 {-| -}
 eyedropper                          : IconBody msg
@@ -623,63 +623,63 @@ female                              = i [ class "fa fa-female" ] []
 
 {-| -}
 fighter_jet                         : IconBody msg
-fighter_jet                         = i [ class "fa fa-fighterjet" ] []
+fighter_jet                         = i [ class "fa fa-fighter-jet" ] []
 
 {-| -}
 file_archive_o                      : IconBody msg
-file_archive_o                      = i [ class "fa fa-filearchiveo" ] []
+file_archive_o                      = i [ class "fa fa-file-archive-o" ] []
 
 {-| -}
 file_audio_o                        : IconBody msg
-file_audio_o                        = i [ class "fa fa-fileaudioo" ] []
+file_audio_o                        = i [ class "fa fa-file-audio-o" ] []
 
 {-| -}
 file_code_o                         : IconBody msg
-file_code_o                         = i [ class "fa fa-filecodeo" ] []
+file_code_o                         = i [ class "fa fa-file-code-o" ] []
 
 {-| -}
 file_excel_o                        : IconBody msg
-file_excel_o                        = i [ class "fa fa-fileexcelo" ] []
+file_excel_o                        = i [ class "fa fa-file-excel-o" ] []
 
 {-| -}
 file_image_o                        : IconBody msg
-file_image_o                        = i [ class "fa fa-fileimageo" ] []
+file_image_o                        = i [ class "fa fa-file-image-o" ] []
 
 {-| -}
 file_movie_o                        : IconBody msg
-file_movie_o                        = i [ class "fa fa-filemovieo" ] []
+file_movie_o                        = i [ class "fa fa-file-movie-o" ] []
 
 {-| -}
 file_pdf_o                          : IconBody msg
-file_pdf_o                          = i [ class "fa fa-filepdfo" ] []
+file_pdf_o                          = i [ class "fa fa-file-pdf-o" ] []
 
 {-| -}
 file_photo_o                        : IconBody msg
-file_photo_o                        = i [ class "fa fa-filephotoo" ] []
+file_photo_o                        = i [ class "fa fa-file-photo-o" ] []
 
 {-| -}
 file_picture_o                      : IconBody msg
-file_picture_o                      = i [ class "fa fa-filepictureo" ] []
+file_picture_o                      = i [ class "fa fa-file-picture-o" ] []
 
 {-| -}
 file_powerpoint_o                   : IconBody msg
-file_powerpoint_o                   = i [ class "fa fa-filepowerpointo" ] []
+file_powerpoint_o                   = i [ class "fa fa-file-powerpoint-o" ] []
 
 {-| -}
 file_sound_o                        : IconBody msg
-file_sound_o                        = i [ class "fa fa-filesoundo" ] []
+file_sound_o                        = i [ class "fa fa-file-sound-o" ] []
 
 {-| -}
 file_video_o                        : IconBody msg
-file_video_o                        = i [ class "fa fa-filevideoo" ] []
+file_video_o                        = i [ class "fa fa-file-video-o" ] []
 
 {-| -}
 file_word_o                         : IconBody msg
-file_word_o                         = i [ class "fa fa-filewordo" ] []
+file_word_o                         = i [ class "fa fa-file-word-o" ] []
 
 {-| -}
 file_zip_o                          : IconBody msg
-file_zip_o                          = i [ class "fa fa-filezipo" ] []
+file_zip_o                          = i [ class "fa fa-file-zip-o" ] []
 
 {-| -}
 film                                : IconBody msg
@@ -695,7 +695,7 @@ fire                                = i [ class "fa fa-fire" ] []
 
 {-| -}
 fire_extinguisher                   : IconBody msg
-fire_extinguisher                   = i [ class "fa fa-fireextinguisher" ] []
+fire_extinguisher                   = i [ class "fa fa-fire-extinguisher" ] []
 
 {-| -}
 flag                                : IconBody msg
@@ -703,11 +703,11 @@ flag                                = i [ class "fa fa-flag" ] []
 
 {-| -}
 flag_checkered                      : IconBody msg
-flag_checkered                      = i [ class "fa fa-flagcheckered" ] []
+flag_checkered                      = i [ class "fa fa-flag-checkered" ] []
 
 {-| -}
 flag_o                              : IconBody msg
-flag_o                              = i [ class "fa fa-flago" ] []
+flag_o                              = i [ class "fa fa-flag-o" ] []
 
 {-| -}
 flash                               : IconBody msg
@@ -723,23 +723,23 @@ folder                              = i [ class "fa fa-folder" ] []
 
 {-| -}
 folder_o                            : IconBody msg
-folder_o                            = i [ class "fa fa-foldero" ] []
+folder_o                            = i [ class "fa fa-folder-o" ] []
 
 {-| -}
 folder_open                         : IconBody msg
-folder_open                         = i [ class "fa fa-folderopen" ] []
+folder_open                         = i [ class "fa fa-folder-open" ] []
 
 {-| -}
 folder_open_o                       : IconBody msg
-folder_open_o                       = i [ class "fa fa-folderopeno" ] []
+folder_open_o                       = i [ class "fa fa-folder-open-o" ] []
 
 {-| -}
 frown_o                             : IconBody msg
-frown_o                             = i [ class "fa fa-frowno" ] []
+frown_o                             = i [ class "fa fa-frown-o" ] []
 
 {-| -}
 futbol_o                            : IconBody msg
-futbol_o                            = i [ class "fa fa-futbolo" ] []
+futbol_o                            = i [ class "fa fa-futbol-o" ] []
 
 {-| -}
 gamepad                             : IconBody msg
@@ -771,7 +771,7 @@ globe                               = i [ class "fa fa-globe" ] []
 
 {-| -}
 graduation_cap                      : IconBody msg
-graduation_cap                      = i [ class "fa fa-graduationcap" ] []
+graduation_cap                      = i [ class "fa fa-graduation-cap" ] []
 
 {-| -}
 group                               : IconBody msg
@@ -779,43 +779,43 @@ group                               = i [ class "fa fa-group" ] []
 
 {-| -}
 hand_grab_o                         : IconBody msg
-hand_grab_o                         = i [ class "fa fa-handgrabo" ] []
+hand_grab_o                         = i [ class "fa fa-hand-grab-o" ] []
 
 {-| -}
 hand_lizard_o                       : IconBody msg
-hand_lizard_o                       = i [ class "fa fa-handlizardo" ] []
+hand_lizard_o                       = i [ class "fa fa-hand-lizard-o" ] []
 
 {-| -}
 hand_paper_o                        : IconBody msg
-hand_paper_o                        = i [ class "fa fa-handpapero" ] []
+hand_paper_o                        = i [ class "fa fa-hand-paper-o" ] []
 
 {-| -}
 hand_peace_o                        : IconBody msg
-hand_peace_o                        = i [ class "fa fa-handpeaceo" ] []
+hand_peace_o                        = i [ class "fa fa-hand-peace-o" ] []
 
 {-| -}
 hand_pointer_o                      : IconBody msg
-hand_pointer_o                      = i [ class "fa fa-handpointero" ] []
+hand_pointer_o                      = i [ class "fa fa-hand-pointer-o" ] []
 
 {-| -}
 hand_rock_o                         : IconBody msg
-hand_rock_o                         = i [ class "fa fa-handrocko" ] []
+hand_rock_o                         = i [ class "fa fa-hand-rock-o" ] []
 
 {-| -}
 hand_scissors_o                     : IconBody msg
-hand_scissors_o                     = i [ class "fa fa-handscissorso" ] []
+hand_scissors_o                     = i [ class "fa fa-hand-scissors-o" ] []
 
 {-| -}
 hand_spock_o                        : IconBody msg
-hand_spock_o                        = i [ class "fa fa-handspocko" ] []
+hand_spock_o                        = i [ class "fa fa-hand-spock-o" ] []
 
 {-| -}
 hand_stop_o                         : IconBody msg
-hand_stop_o                         = i [ class "fa fa-handstopo" ] []
+hand_stop_o                         = i [ class "fa fa-hand-stop-o" ] []
 
 {-| -}
 hard_of_hearing                     : IconBody msg
-hard_of_hearing                     = i [ class "fa fa-hardofhearing" ] []
+hard_of_hearing                     = i [ class "fa fa-hard-of-hearing" ] []
 
 {-| -}
 hashtag                             : IconBody msg
@@ -823,7 +823,7 @@ hashtag                             = i [ class "fa fa-hashtag" ] []
 
 {-| -}
 hdd_o                               : IconBody msg
-hdd_o                               = i [ class "fa fa-hddo" ] []
+hdd_o                               = i [ class "fa fa-hdd-o" ] []
 
 {-| -}
 headphones                          : IconBody msg
@@ -835,7 +835,7 @@ heart                               = i [ class "fa fa-heart" ] []
 
 {-| -}
 heart_o                             : IconBody msg
-heart_o                             = i [ class "fa fa-hearto" ] []
+heart_o                             = i [ class "fa fa-heart-o" ] []
 
 {-| -}
 heartbeat                           : IconBody msg
@@ -859,35 +859,35 @@ hourglass                           = i [ class "fa fa-hourglass" ] []
 
 {-| -}
 hourglass_1                         : IconBody msg
-hourglass_1                         = i [ class "fa fa-hourglass1" ] []
+hourglass_1                         = i [ class "fa fa-hourglass-1" ] []
 
 {-| -}
 hourglass_2                         : IconBody msg
-hourglass_2                         = i [ class "fa fa-hourglass2" ] []
+hourglass_2                         = i [ class "fa fa-hourglass-2" ] []
 
 {-| -}
 hourglass_3                         : IconBody msg
-hourglass_3                         = i [ class "fa fa-hourglass3" ] []
+hourglass_3                         = i [ class "fa fa-hourglass-3" ] []
 
 {-| -}
 hourglass_end                       : IconBody msg
-hourglass_end                       = i [ class "fa fa-hourglassend" ] []
+hourglass_end                       = i [ class "fa fa-hourglass-end" ] []
 
 {-| -}
 hourglass_half                      : IconBody msg
-hourglass_half                      = i [ class "fa fa-hourglasshalf" ] []
+hourglass_half                      = i [ class "fa fa-hourglass-half" ] []
 
 {-| -}
 hourglass_o                         : IconBody msg
-hourglass_o                         = i [ class "fa fa-hourglasso" ] []
+hourglass_o                         = i [ class "fa fa-hourglass-o" ] []
 
 {-| -}
 hourglass_start                     : IconBody msg
-hourglass_start                     = i [ class "fa fa-hourglassstart" ] []
+hourglass_start                     = i [ class "fa fa-hourglass-start" ] []
 
 {-| -}
 i_cursor                            : IconBody msg
-i_cursor                            = i [ class "fa fa-icursor" ] []
+i_cursor                            = i [ class "fa fa-i-cursor" ] []
 
 {-| -}
 image                               : IconBody msg
@@ -907,7 +907,7 @@ info                                = i [ class "fa fa-info" ] []
 
 {-| -}
 info_circle                         : IconBody msg
-info_circle                         = i [ class "fa fa-infocircle" ] []
+info_circle                         = i [ class "fa fa-info-circle" ] []
 
 {-| -}
 institution                         : IconBody msg
@@ -919,7 +919,7 @@ key                                 = i [ class "fa fa-key" ] []
 
 {-| -}
 keyboard_o                          : IconBody msg
-keyboard_o                          = i [ class "fa fa-keyboardo" ] []
+keyboard_o                          = i [ class "fa fa-keyboard-o" ] []
 
 {-| -}
 language                            : IconBody msg
@@ -939,43 +939,43 @@ legal                               = i [ class "fa fa-legal" ] []
 
 {-| -}
 lemon_o                             : IconBody msg
-lemon_o                             = i [ class "fa fa-lemono" ] []
+lemon_o                             = i [ class "fa fa-lemon-o" ] []
 
 {-| -}
 level_down                          : IconBody msg
-level_down                          = i [ class "fa fa-leveldown" ] []
+level_down                          = i [ class "fa fa-level-down" ] []
 
 {-| -}
 level_up                            : IconBody msg
-level_up                            = i [ class "fa fa-levelup" ] []
+level_up                            = i [ class "fa fa-level-up" ] []
 
 {-| -}
 life_bouy                           : IconBody msg
-life_bouy                           = i [ class "fa fa-lifebouy" ] []
+life_bouy                           = i [ class "fa fa-life-bouy" ] []
 
 {-| -}
 life_buoy                           : IconBody msg
-life_buoy                           = i [ class "fa fa-lifebuoy" ] []
+life_buoy                           = i [ class "fa fa-life-buoy" ] []
 
 {-| -}
 life_ring                           : IconBody msg
-life_ring                           = i [ class "fa fa-lifering" ] []
+life_ring                           = i [ class "fa fa-life-ring" ] []
 
 {-| -}
 life_saver                          : IconBody msg
-life_saver                          = i [ class "fa fa-lifesaver" ] []
+life_saver                          = i [ class "fa fa-life-saver" ] []
 
 {-| -}
 lightbulb_o                         : IconBody msg
-lightbulb_o                         = i [ class "fa fa-lightbulbo" ] []
+lightbulb_o                         = i [ class "fa fa-lightbulb-o" ] []
 
 {-| -}
 line_chart                          : IconBody msg
-line_chart                          = i [ class "fa fa-linechart" ] []
+line_chart                          = i [ class "fa fa-line-chart" ] []
 
 {-| -}
 location_arrow                      : IconBody msg
-location_arrow                      = i [ class "fa fa-locationarrow" ] []
+location_arrow                      = i [ class "fa fa-location-arrow" ] []
 
 {-| -}
 lock                                : IconBody msg
@@ -983,7 +983,7 @@ lock                                = i [ class "fa fa-lock" ] []
 
 {-| -}
 low_vision                          : IconBody msg
-low_vision                          = i [ class "fa fa-lowvision" ] []
+low_vision                          = i [ class "fa fa-low-vision" ] []
 
 {-| -}
 magic                               : IconBody msg
@@ -995,15 +995,15 @@ magnet                              = i [ class "fa fa-magnet" ] []
 
 {-| -}
 mail_forward                        : IconBody msg
-mail_forward                        = i [ class "fa fa-mailforward" ] []
+mail_forward                        = i [ class "fa fa-mail-forward" ] []
 
 {-| -}
 mail_reply                          : IconBody msg
-mail_reply                          = i [ class "fa fa-mailreply" ] []
+mail_reply                          = i [ class "fa fa-mail-reply" ] []
 
 {-| -}
 mail_reply_all                      : IconBody msg
-mail_reply_all                      = i [ class "fa fa-mailreplyall" ] []
+mail_reply_all                      = i [ class "fa fa-mail-reply-all" ] []
 
 {-| -}
 male                                : IconBody msg
@@ -1015,23 +1015,23 @@ map                                 = i [ class "fa fa-map" ] []
 
 {-| -}
 map_marker                          : IconBody msg
-map_marker                          = i [ class "fa fa-mapmarker" ] []
+map_marker                          = i [ class "fa fa-map-marker" ] []
 
 {-| -}
 map_o                               : IconBody msg
-map_o                               = i [ class "fa fa-mapo" ] []
+map_o                               = i [ class "fa fa-map-o" ] []
 
 {-| -}
 map_pin                             : IconBody msg
-map_pin                             = i [ class "fa fa-mappin" ] []
+map_pin                             = i [ class "fa fa-map-pin" ] []
 
 {-| -}
 map_signs                           : IconBody msg
-map_signs                           = i [ class "fa fa-mapsigns" ] []
+map_signs                           = i [ class "fa fa-map-signs" ] []
 
 {-| -}
 meh_o                               : IconBody msg
-meh_o                               = i [ class "fa fa-meho" ] []
+meh_o                               = i [ class "fa fa-meh-o" ] []
 
 {-| -}
 microphone                          : IconBody msg
@@ -1039,7 +1039,7 @@ microphone                          = i [ class "fa fa-microphone" ] []
 
 {-| -}
 microphone_slash                    : IconBody msg
-microphone_slash                    = i [ class "fa fa-microphoneslash" ] []
+microphone_slash                    = i [ class "fa fa-microphone-slash" ] []
 
 {-| -}
 minus                               : IconBody msg
@@ -1047,15 +1047,15 @@ minus                               = i [ class "fa fa-minus" ] []
 
 {-| -}
 minus_circle                        : IconBody msg
-minus_circle                        = i [ class "fa fa-minuscircle" ] []
+minus_circle                        = i [ class "fa fa-minus-circle" ] []
 
 {-| -}
 minus_square                        : IconBody msg
-minus_square                        = i [ class "fa fa-minussquare" ] []
+minus_square                        = i [ class "fa fa-minus-square" ] []
 
 {-| -}
 minus_square_o                      : IconBody msg
-minus_square_o                      = i [ class "fa fa-minussquareo" ] []
+minus_square_o                      = i [ class "fa fa-minus-square-o" ] []
 
 {-| -}
 mobile                              : IconBody msg
@@ -1063,7 +1063,7 @@ mobile                              = i [ class "fa fa-mobile" ] []
 
 {-| -}
 mobile_phone                        : IconBody msg
-mobile_phone                        = i [ class "fa fa-mobilephone" ] []
+mobile_phone                        = i [ class "fa fa-mobile-phone" ] []
 
 {-| -}
 money                               : IconBody msg
@@ -1071,11 +1071,11 @@ money                               = i [ class "fa fa-money" ] []
 
 {-| -}
 moon_o                              : IconBody msg
-moon_o                              = i [ class "fa fa-moono" ] []
+moon_o                              = i [ class "fa fa-moon-o" ] []
 
 {-| -}
 mortar_board                        : IconBody msg
-mortar_board                        = i [ class "fa fa-mortarboard" ] []
+mortar_board                        = i [ class "fa fa-mortar-board" ] []
 
 {-| -}
 motorcycle                          : IconBody msg
@@ -1083,7 +1083,7 @@ motorcycle                          = i [ class "fa fa-motorcycle" ] []
 
 {-| -}
 mouse_pointer                       : IconBody msg
-mouse_pointer                       = i [ class "fa fa-mousepointer" ] []
+mouse_pointer                       = i [ class "fa fa-mouse-pointer" ] []
 
 {-| -}
 music                               : IconBody msg
@@ -1095,27 +1095,27 @@ navicon                             = i [ class "fa fa-navicon" ] []
 
 {-| -}
 newspaper_o                         : IconBody msg
-newspaper_o                         = i [ class "fa fa-newspapero" ] []
+newspaper_o                         = i [ class "fa fa-newspaper-o" ] []
 
 {-| -}
 object_group                        : IconBody msg
-object_group                        = i [ class "fa fa-objectgroup" ] []
+object_group                        = i [ class "fa fa-object-group" ] []
 
 {-| -}
 object_ungroup                      : IconBody msg
-object_ungroup                      = i [ class "fa fa-objectungroup" ] []
+object_ungroup                      = i [ class "fa fa-object-ungroup" ] []
 
 {-| -}
 paint_brush                         : IconBody msg
-paint_brush                         = i [ class "fa fa-paintbrush" ] []
+paint_brush                         = i [ class "fa fa-paint-brush" ] []
 
 {-| -}
 paper_plane                         : IconBody msg
-paper_plane                         = i [ class "fa fa-paperplane" ] []
+paper_plane                         = i [ class "fa fa-paper-plane" ] []
 
 {-| -}
 paper_plane_o                       : IconBody msg
-paper_plane_o                       = i [ class "fa fa-paperplaneo" ] []
+paper_plane_o                       = i [ class "fa fa-paper-plane-o" ] []
 
 {-| -}
 paw                                 : IconBody msg
@@ -1127,11 +1127,11 @@ pencil                              = i [ class "fa fa-pencil" ] []
 
 {-| -}
 pencil_square                       : IconBody msg
-pencil_square                       = i [ class "fa fa-pencilsquare" ] []
+pencil_square                       = i [ class "fa fa-pencil-square" ] []
 
 {-| -}
 pencil_square_o                     : IconBody msg
-pencil_square_o                     = i [ class "fa fa-pencilsquareo" ] []
+pencil_square_o                     = i [ class "fa fa-pencil-square-o" ] []
 
 {-| -}
 percent                             : IconBody msg
@@ -1143,7 +1143,7 @@ phone                               = i [ class "fa fa-phone" ] []
 
 {-| -}
 phone_square                        : IconBody msg
-phone_square                        = i [ class "fa fa-phonesquare" ] []
+phone_square                        = i [ class "fa fa-phone-square" ] []
 
 {-| -}
 photo                               : IconBody msg
@@ -1151,11 +1151,11 @@ photo                               = i [ class "fa fa-photo" ] []
 
 {-| -}
 picture_o                           : IconBody msg
-picture_o                           = i [ class "fa fa-pictureo" ] []
+picture_o                           = i [ class "fa fa-picture-o" ] []
 
 {-| -}
 pie_chart                           : IconBody msg
-pie_chart                           = i [ class "fa fa-piechart" ] []
+pie_chart                           = i [ class "fa fa-pie-chart" ] []
 
 {-| -}
 plane                               : IconBody msg
@@ -1171,19 +1171,19 @@ plus                                = i [ class "fa fa-plus" ] []
 
 {-| -}
 plus_circle                         : IconBody msg
-plus_circle                         = i [ class "fa fa-pluscircle" ] []
+plus_circle                         = i [ class "fa fa-plus-circle" ] []
 
 {-| -}
 plus_square                         : IconBody msg
-plus_square                         = i [ class "fa fa-plussquare" ] []
+plus_square                         = i [ class "fa fa-plus-square" ] []
 
 {-| -}
 plus_square_o                       : IconBody msg
-plus_square_o                       = i [ class "fa fa-plussquareo" ] []
+plus_square_o                       = i [ class "fa fa-plus-square-o" ] []
 
 {-| -}
 power_off                           : IconBody msg
-power_off                           = i [ class "fa fa-poweroff" ] []
+power_off                           = i [ class "fa fa-power-off" ] []
 
 {-| -}
 print                               : IconBody msg
@@ -1191,7 +1191,7 @@ print                               = i [ class "fa fa-print" ] []
 
 {-| -}
 puzzle_piece                        : IconBody msg
-puzzle_piece                        = i [ class "fa fa-puzzlepiece" ] []
+puzzle_piece                        = i [ class "fa fa-puzzle-piece" ] []
 
 {-| -}
 qrcode                              : IconBody msg
@@ -1203,19 +1203,19 @@ question                            = i [ class "fa fa-question" ] []
 
 {-| -}
 question_circle                     : IconBody msg
-question_circle                     = i [ class "fa fa-questioncircle" ] []
+question_circle                     = i [ class "fa fa-question-circle" ] []
 
 {-| -}
 question_circle_o                   : IconBody msg
-question_circle_o                   = i [ class "fa fa-questioncircleo" ] []
+question_circle_o                   = i [ class "fa fa-question-circle-o" ] []
 
 {-| -}
 quote_left                          : IconBody msg
-quote_left                          = i [ class "fa fa-quoteleft" ] []
+quote_left                          = i [ class "fa fa-quote-left" ] []
 
 {-| -}
 quote_right                         : IconBody msg
-quote_right                         = i [ class "fa fa-quoteright" ] []
+quote_right                         = i [ class "fa fa-quote-right" ] []
 
 {-| -}
 random                              : IconBody msg
@@ -1247,7 +1247,7 @@ reply                               = i [ class "fa fa-reply" ] []
 
 {-| -}
 reply_all                           : IconBody msg
-reply_all                           = i [ class "fa fa-replyall" ] []
+reply_all                           = i [ class "fa fa-reply-all" ] []
 
 {-| -}
 retweet                             : IconBody msg
@@ -1267,7 +1267,7 @@ rss                                 = i [ class "fa fa-rss" ] []
 
 {-| -}
 rss_square                          : IconBody msg
-rss_square                          = i [ class "fa fa-rsssquare" ] []
+rss_square                          = i [ class "fa fa-rss-square" ] []
 
 {-| -}
 search                              : IconBody msg
@@ -1275,11 +1275,11 @@ search                              = i [ class "fa fa-search" ] []
 
 {-| -}
 search_minus                        : IconBody msg
-search_minus                        = i [ class "fa fa-searchminus" ] []
+search_minus                        = i [ class "fa fa-search-minus" ] []
 
 {-| -}
 search_plus                         : IconBody msg
-search_plus                         = i [ class "fa fa-searchplus" ] []
+search_plus                         = i [ class "fa fa-search-plus" ] []
 
 {-| -}
 send                                : IconBody msg
@@ -1287,7 +1287,7 @@ send                                = i [ class "fa fa-send" ] []
 
 {-| -}
 send_o                              : IconBody msg
-send_o                              = i [ class "fa fa-sendo" ] []
+send_o                              = i [ class "fa fa-send-o" ] []
 
 {-| -}
 server                              : IconBody msg
@@ -1299,19 +1299,19 @@ share                               = i [ class "fa fa-share" ] []
 
 {-| -}
 share_alt                           : IconBody msg
-share_alt                           = i [ class "fa fa-sharealt" ] []
+share_alt                           = i [ class "fa fa-share-alt" ] []
 
 {-| -}
 share_alt_square                    : IconBody msg
-share_alt_square                    = i [ class "fa fa-sharealtsquare" ] []
+share_alt_square                    = i [ class "fa fa-share-alt-square" ] []
 
 {-| -}
 share_square                        : IconBody msg
-share_square                        = i [ class "fa fa-sharesquare" ] []
+share_square                        = i [ class "fa fa-share-square" ] []
 
 {-| -}
 share_square_o                      : IconBody msg
-share_square_o                      = i [ class "fa fa-sharesquareo" ] []
+share_square_o                      = i [ class "fa fa-share-square-o" ] []
 
 {-| -}
 shield                              : IconBody msg
@@ -1323,27 +1323,27 @@ ship                                = i [ class "fa fa-ship" ] []
 
 {-| -}
 shopping_bag                        : IconBody msg
-shopping_bag                        = i [ class "fa fa-shoppingbag" ] []
+shopping_bag                        = i [ class "fa fa-shopping-bag" ] []
 
 {-| -}
 shopping_basket                     : IconBody msg
-shopping_basket                     = i [ class "fa fa-shoppingbasket" ] []
+shopping_basket                     = i [ class "fa fa-shopping-basket" ] []
 
 {-| -}
 shopping_cart                       : IconBody msg
-shopping_cart                       = i [ class "fa fa-shoppingcart" ] []
+shopping_cart                       = i [ class "fa fa-shopping-cart" ] []
 
 {-| -}
 sign_in                             : IconBody msg
-sign_in                             = i [ class "fa fa-signin" ] []
+sign_in                             = i [ class "fa fa-sign-in" ] []
 
 {-| -}
 sign_language                       : IconBody msg
-sign_language                       = i [ class "fa fa-signlanguage" ] []
+sign_language                       = i [ class "fa fa-sign-language" ] []
 
 {-| -}
 sign_out                            : IconBody msg
-sign_out                            = i [ class "fa fa-signout" ] []
+sign_out                            = i [ class "fa fa-sign-out" ] []
 
 {-| -}
 signal                              : IconBody msg
@@ -1363,11 +1363,11 @@ sliders                             = i [ class "fa fa-sliders" ] []
 
 {-| -}
 smile_o                             : IconBody msg
-smile_o                             = i [ class "fa fa-smileo" ] []
+smile_o                             = i [ class "fa fa-smile-o" ] []
 
 {-| -}
 soccer_ball_o                       : IconBody msg
-soccer_ball_o                       = i [ class "fa fa-soccerballo" ] []
+soccer_ball_o                       = i [ class "fa fa-soccer-ball-o" ] []
 
 {-| -}
 sort                                : IconBody msg
@@ -1375,47 +1375,47 @@ sort                                = i [ class "fa fa-sort" ] []
 
 {-| -}
 sort_alpha_asc                      : IconBody msg
-sort_alpha_asc                      = i [ class "fa fa-sortalphaasc" ] []
+sort_alpha_asc                      = i [ class "fa fa-sort-alpha-asc" ] []
 
 {-| -}
 sort_alpha_desc                     : IconBody msg
-sort_alpha_desc                     = i [ class "fa fa-sortalphadesc" ] []
+sort_alpha_desc                     = i [ class "fa fa-sort-alpha-desc" ] []
 
 {-| -}
 sort_amount_asc                     : IconBody msg
-sort_amount_asc                     = i [ class "fa fa-sortamountasc" ] []
+sort_amount_asc                     = i [ class "fa fa-sort-amount-asc" ] []
 
 {-| -}
 sort_amount_desc                    : IconBody msg
-sort_amount_desc                    = i [ class "fa fa-sortamountdesc" ] []
+sort_amount_desc                    = i [ class "fa fa-sort-amount-desc" ] []
 
 {-| -}
 sort_asc                            : IconBody msg
-sort_asc                            = i [ class "fa fa-sortasc" ] []
+sort_asc                            = i [ class "fa fa-sort-asc" ] []
 
 {-| -}
 sort_desc                           : IconBody msg
-sort_desc                           = i [ class "fa fa-sortdesc" ] []
+sort_desc                           = i [ class "fa fa-sort-desc" ] []
 
 {-| -}
 sort_down                           : IconBody msg
-sort_down                           = i [ class "fa fa-sortdown" ] []
+sort_down                           = i [ class "fa fa-sort-down" ] []
 
 {-| -}
 sort_numeric_asc                    : IconBody msg
-sort_numeric_asc                    = i [ class "fa fa-sortnumericasc" ] []
+sort_numeric_asc                    = i [ class "fa fa-sort-numeric-asc" ] []
 
 {-| -}
 sort_numeric_desc                   : IconBody msg
-sort_numeric_desc                   = i [ class "fa fa-sortnumericdesc" ] []
+sort_numeric_desc                   = i [ class "fa fa-sort-numeric-desc" ] []
 
 {-| -}
 sort_up                             : IconBody msg
-sort_up                             = i [ class "fa fa-sortup" ] []
+sort_up                             = i [ class "fa fa-sort-up" ] []
 
 {-| -}
 space_shuttle                       : IconBody msg
-space_shuttle                       = i [ class "fa fa-spaceshuttle" ] []
+space_shuttle                       = i [ class "fa fa-space-shuttle" ] []
 
 {-| -}
 spinner                             : IconBody msg
@@ -1431,7 +1431,7 @@ square                              = i [ class "fa fa-square" ] []
 
 {-| -}
 square_o                            : IconBody msg
-square_o                            = i [ class "fa fa-squareo" ] []
+square_o                            = i [ class "fa fa-square-o" ] []
 
 {-| -}
 star                                : IconBody msg
@@ -1439,35 +1439,35 @@ star                                = i [ class "fa fa-star" ] []
 
 {-| -}
 star_half                           : IconBody msg
-star_half                           = i [ class "fa fa-starhalf" ] []
+star_half                           = i [ class "fa fa-star-half" ] []
 
 {-| -}
 star_half_empty                     : IconBody msg
-star_half_empty                     = i [ class "fa fa-starhalfempty" ] []
+star_half_empty                     = i [ class "fa fa-star-half-empty" ] []
 
 {-| -}
 star_half_full                      : IconBody msg
-star_half_full                      = i [ class "fa fa-starhalffull" ] []
+star_half_full                      = i [ class "fa fa-star-half-full" ] []
 
 {-| -}
 star_half_o                         : IconBody msg
-star_half_o                         = i [ class "fa fa-starhalfo" ] []
+star_half_o                         = i [ class "fa fa-star-half-o" ] []
 
 {-| -}
 star_o                              : IconBody msg
-star_o                              = i [ class "fa fa-staro" ] []
+star_o                              = i [ class "fa fa-star-o" ] []
 
 {-| -}
 sticky_note                         : IconBody msg
-sticky_note                         = i [ class "fa fa-stickynote" ] []
+sticky_note                         = i [ class "fa fa-sticky-note" ] []
 
 {-| -}
 sticky_note_o                       : IconBody msg
-sticky_note_o                       = i [ class "fa fa-stickynoteo" ] []
+sticky_note_o                       = i [ class "fa fa-sticky-note-o" ] []
 
 {-| -}
 street_view                         : IconBody msg
-street_view                         = i [ class "fa fa-streetview" ] []
+street_view                         = i [ class "fa fa-street-view" ] []
 
 {-| -}
 suitcase                            : IconBody msg
@@ -1475,7 +1475,7 @@ suitcase                            = i [ class "fa fa-suitcase" ] []
 
 {-| -}
 sun_o                               : IconBody msg
-sun_o                               = i [ class "fa fa-suno" ] []
+sun_o                               = i [ class "fa fa-sun-o" ] []
 
 {-| -}
 support                             : IconBody msg
@@ -1515,23 +1515,23 @@ terminal                            = i [ class "fa fa-terminal" ] []
 
 {-| -}
 thumb_tack                          : IconBody msg
-thumb_tack                          = i [ class "fa fa-thumbtack" ] []
+thumb_tack                          = i [ class "fa fa-thumb-tack" ] []
 
 {-| -}
 thumbs_down                         : IconBody msg
-thumbs_down                         = i [ class "fa fa-thumbsdown" ] []
+thumbs_down                         = i [ class "fa fa-thumbs-down" ] []
 
 {-| -}
 thumbs_o_down                       : IconBody msg
-thumbs_o_down                       = i [ class "fa fa-thumbsodown" ] []
+thumbs_o_down                       = i [ class "fa fa-thumbs-o-down" ] []
 
 {-| -}
 thumbs_o_up                         : IconBody msg
-thumbs_o_up                         = i [ class "fa fa-thumbsoup" ] []
+thumbs_o_up                         = i [ class "fa fa-thumbs-o-up" ] []
 
 {-| -}
 thumbs_up                           : IconBody msg
-thumbs_up                           = i [ class "fa fa-thumbsup" ] []
+thumbs_up                           = i [ class "fa fa-thumbs-up" ] []
 
 {-| -}
 ticket                              : IconBody msg
@@ -1543,11 +1543,11 @@ times                               = i [ class "fa fa-times" ] []
 
 {-| -}
 times_circle                        : IconBody msg
-times_circle                        = i [ class "fa fa-timescircle" ] []
+times_circle                        = i [ class "fa fa-times-circle" ] []
 
 {-| -}
 times_circle_o                      : IconBody msg
-times_circle_o                      = i [ class "fa fa-timescircleo" ] []
+times_circle_o                      = i [ class "fa fa-times-circle-o" ] []
 
 {-| -}
 tint                                : IconBody msg
@@ -1555,27 +1555,27 @@ tint                                = i [ class "fa fa-tint" ] []
 
 {-| -}
 toggle_down                         : IconBody msg
-toggle_down                         = i [ class "fa fa-toggledown" ] []
+toggle_down                         = i [ class "fa fa-toggle-down" ] []
 
 {-| -}
 toggle_left                         : IconBody msg
-toggle_left                         = i [ class "fa fa-toggleleft" ] []
+toggle_left                         = i [ class "fa fa-toggle-left" ] []
 
 {-| -}
 toggle_off                          : IconBody msg
-toggle_off                          = i [ class "fa fa-toggleoff" ] []
+toggle_off                          = i [ class "fa fa-toggle-off" ] []
 
 {-| -}
 toggle_on                           : IconBody msg
-toggle_on                           = i [ class "fa fa-toggleon" ] []
+toggle_on                           = i [ class "fa fa-toggle-on" ] []
 
 {-| -}
 toggle_right                        : IconBody msg
-toggle_right                        = i [ class "fa fa-toggleright" ] []
+toggle_right                        = i [ class "fa fa-toggle-right" ] []
 
 {-| -}
 toggle_up                           : IconBody msg
-toggle_up                           = i [ class "fa fa-toggleup" ] []
+toggle_up                           = i [ class "fa fa-toggle-up" ] []
 
 {-| -}
 trademark                           : IconBody msg
@@ -1587,7 +1587,7 @@ trash                               = i [ class "fa fa-trash" ] []
 
 {-| -}
 trash_o                             : IconBody msg
-trash_o                             = i [ class "fa fa-trasho" ] []
+trash_o                             = i [ class "fa fa-trash-o" ] []
 
 {-| -}
 tree                                : IconBody msg
@@ -1615,7 +1615,7 @@ umbrella                            = i [ class "fa fa-umbrella" ] []
 
 {-| -}
 universal_access                    : IconBody msg
-universal_access                    = i [ class "fa fa-universalaccess" ] []
+universal_access                    = i [ class "fa fa-universal-access" ] []
 
 {-| -}
 university                          : IconBody msg
@@ -1627,7 +1627,7 @@ unlock                              = i [ class "fa fa-unlock" ] []
 
 {-| -}
 unlock_alt                          : IconBody msg
-unlock_alt                          = i [ class "fa fa-unlockalt" ] []
+unlock_alt                          = i [ class "fa fa-unlock-alt" ] []
 
 {-| -}
 unsorted                            : IconBody msg
@@ -1643,15 +1643,15 @@ user                                = i [ class "fa fa-user" ] []
 
 {-| -}
 user_plus                           : IconBody msg
-user_plus                           = i [ class "fa fa-userplus" ] []
+user_plus                           = i [ class "fa fa-user-plus" ] []
 
 {-| -}
 user_secret                         : IconBody msg
-user_secret                         = i [ class "fa fa-usersecret" ] []
+user_secret                         = i [ class "fa fa-user-secret" ] []
 
 {-| -}
 user_times                          : IconBody msg
-user_times                          = i [ class "fa fa-usertimes" ] []
+user_times                          = i [ class "fa fa-user-times" ] []
 
 {-| -}
 users                               : IconBody msg
@@ -1659,23 +1659,23 @@ users                               = i [ class "fa fa-users" ] []
 
 {-| -}
 video_camera                        : IconBody msg
-video_camera                        = i [ class "fa fa-videocamera" ] []
+video_camera                        = i [ class "fa fa-video-camera" ] []
 
 {-| -}
 volume_control_phone                : IconBody msg
-volume_control_phone                = i [ class "fa fa-volumecontrolphone" ] []
+volume_control_phone                = i [ class "fa fa-volume-control-phone" ] []
 
 {-| -}
 volume_down                         : IconBody msg
-volume_down                         = i [ class "fa fa-volumedown" ] []
+volume_down                         = i [ class "fa fa-volume-down" ] []
 
 {-| -}
 volume_off                          : IconBody msg
-volume_off                          = i [ class "fa fa-volumeoff" ] []
+volume_off                          = i [ class "fa fa-volume-off" ] []
 
 {-| -}
 volume_up                           : IconBody msg
-volume_up                           = i [ class "fa fa-volumeup" ] []
+volume_up                           = i [ class "fa fa-volume-up" ] []
 
 {-| -}
 warning                             : IconBody msg
@@ -1687,7 +1687,7 @@ wheelchair                          = i [ class "fa fa-wheelchair" ] []
 
 {-| -}
 wheelchair_alt                      : IconBody msg
-wheelchair_alt                      = i [ class "fa fa-wheelchairalt" ] []
+wheelchair_alt                      = i [ class "fa fa-wheelchair-alt" ] []
 
 {-| -}
 wifi                                : IconBody msg
@@ -1727,7 +1727,7 @@ behance                             = i [ class "fa fa-behance" ] []
 
 {-| -}
 behance_square                      : IconBody msg
-behance_square                      = i [ class "fa fa-behancesquare" ] []
+behance_square                      = i [ class "fa fa-behance-square" ] []
 
 {-| -}
 bitbucket                           : IconBody msg
@@ -1735,7 +1735,7 @@ bitbucket                           = i [ class "fa fa-bitbucket" ] []
 
 {-| -}
 bitbucket_square                    : IconBody msg
-bitbucket_square                    = i [ class "fa fa-bitbucketsquare" ] []
+bitbucket_square                    = i [ class "fa fa-bitbucket-square" ] []
 
 {-| -}
 bitcoin                             : IconBody msg
@@ -1743,7 +1743,7 @@ bitcoin                             = i [ class "fa fa-bitcoin" ] []
 
 {-| -}
 black_tie                           : IconBody msg
-black_tie                           = i [ class "fa fa-blacktie" ] []
+black_tie                           = i [ class "fa fa-black-tie" ] []
 
 {-| -}
 btc                                 : IconBody msg
@@ -1755,35 +1755,35 @@ buysellads                          = i [ class "fa fa-buysellads" ] []
 
 {-| -}
 cc_amex                             : IconBody msg
-cc_amex                             = i [ class "fa fa-ccamex" ] []
+cc_amex                             = i [ class "fa fa-cc-amex" ] []
 
 {-| -}
 cc_diners_club                      : IconBody msg
-cc_diners_club                      = i [ class "fa fa-ccdinersclub" ] []
+cc_diners_club                      = i [ class "fa fa-cc-diners-club" ] []
 
 {-| -}
 cc_discover                         : IconBody msg
-cc_discover                         = i [ class "fa fa-ccdiscover" ] []
+cc_discover                         = i [ class "fa fa-cc-discover" ] []
 
 {-| -}
 cc_jcb                              : IconBody msg
-cc_jcb                              = i [ class "fa fa-ccjcb" ] []
+cc_jcb                              = i [ class "fa fa-cc-jcb" ] []
 
 {-| -}
 cc_mastercard                       : IconBody msg
-cc_mastercard                       = i [ class "fa fa-ccmastercard" ] []
+cc_mastercard                       = i [ class "fa fa-cc-mastercard" ] []
 
 {-| -}
 cc_paypal                           : IconBody msg
-cc_paypal                           = i [ class "fa fa-ccpaypal" ] []
+cc_paypal                           = i [ class "fa fa-cc-paypal" ] []
 
 {-| -}
 cc_stripe                           : IconBody msg
-cc_stripe                           = i [ class "fa fa-ccstripe" ] []
+cc_stripe                           = i [ class "fa fa-cc-stripe" ] []
 
 {-| -}
 cc_visa                             : IconBody msg
-cc_visa                             = i [ class "fa fa-ccvisa" ] []
+cc_visa                             = i [ class "fa fa-cc-visa" ] []
 
 {-| -}
 chrome                              : IconBody msg
@@ -1807,7 +1807,7 @@ contao                              = i [ class "fa fa-contao" ] []
 
 {-| -}
 css3                                : IconBody msg
-css3                                = i [ class "fa fa-css3" ] []
+css3                                = i [ class "fa fa-css" ] []
 
 {-| -}
 dashcube                            : IconBody msg
@@ -1863,15 +1863,15 @@ facebook                            = i [ class "fa fa-facebook" ] []
 
 {-| -}
 facebook_f                          : IconBody msg
-facebook_f                          = i [ class "fa fa-facebookf" ] []
+facebook_f                          = i [ class "fa fa-facebook-f" ] []
 
 {-| -}
 facebook_official                   : IconBody msg
-facebook_official                   = i [ class "fa fa-facebookofficial" ] []
+facebook_official                   = i [ class "fa fa-facebook-official" ] []
 
 {-| -}
 facebook_square                     : IconBody msg
-facebook_square                     = i [ class "fa fa-facebooksquare" ] []
+facebook_square                     = i [ class "fa fa-facebook-square" ] []
 
 {-| -}
 firefox                             : IconBody msg
@@ -1879,7 +1879,7 @@ firefox                             = i [ class "fa fa-firefox" ] []
 
 {-| -}
 first_order                         : IconBody msg
-first_order                         = i [ class "fa fa-firstorder" ] []
+first_order                         = i [ class "fa fa-first-order" ] []
 
 {-| -}
 flickr                              : IconBody msg
@@ -1887,7 +1887,7 @@ flickr                              = i [ class "fa fa-flickr" ] []
 
 {-| -}
 font_awesome                        : IconBody msg
-font_awesome                        = i [ class "fa fa-fontawesome" ] []
+font_awesome                        = i [ class "fa fa-font-awesome" ] []
 
 {-| -}
 fonticons                           : IconBody msg
@@ -1895,7 +1895,7 @@ fonticons                           = i [ class "fa fa-fonticons" ] []
 
 {-| -}
 fort_awesome                        : IconBody msg
-fort_awesome                        = i [ class "fa fa-fortawesome" ] []
+fort_awesome                        = i [ class "fa fa-fort-awesome" ] []
 
 {-| -}
 forumbee                            : IconBody msg
@@ -1911,7 +1911,7 @@ ge                                  = i [ class "fa fa-ge" ] []
 
 {-| -}
 get_pocket                          : IconBody msg
-get_pocket                          = i [ class "fa fa-getpocket" ] []
+get_pocket                          = i [ class "fa fa-get-pocket" ] []
 
 {-| -}
 gg                                  : IconBody msg
@@ -1919,7 +1919,7 @@ gg                                  = i [ class "fa fa-gg" ] []
 
 {-| -}
 gg_circle                           : IconBody msg
-gg_circle                           = i [ class "fa fa-ggcircle" ] []
+gg_circle                           = i [ class "fa fa-gg-circle" ] []
 
 {-| -}
 git                                 : IconBody msg
@@ -1927,7 +1927,7 @@ git                                 = i [ class "fa fa-git" ] []
 
 {-| -}
 git_square                          : IconBody msg
-git_square                          = i [ class "fa fa-gitsquare" ] []
+git_square                          = i [ class "fa fa-git-square" ] []
 
 {-| -}
 github                              : IconBody msg
@@ -1935,11 +1935,11 @@ github                              = i [ class "fa fa-github" ] []
 
 {-| -}
 github_alt                          : IconBody msg
-github_alt                          = i [ class "fa fa-githubalt" ] []
+github_alt                          = i [ class "fa fa-github-alt" ] []
 
 {-| -}
 github_square                       : IconBody msg
-github_square                       = i [ class "fa fa-githubsquare" ] []
+github_square                       = i [ class "fa fa-github-square" ] []
 
 {-| -}
 gitlab                              : IconBody msg
@@ -1955,7 +1955,7 @@ glide                               = i [ class "fa fa-glide" ] []
 
 {-| -}
 glide_g                             : IconBody msg
-glide_g                             = i [ class "fa fa-glideg" ] []
+glide_g                             = i [ class "fa fa-glide-g" ] []
 
 {-| -}
 google                              : IconBody msg
@@ -1963,23 +1963,23 @@ google                              = i [ class "fa fa-google" ] []
 
 {-| -}
 google_plus                         : IconBody msg
-google_plus                         = i [ class "fa fa-googleplus" ] []
+google_plus                         = i [ class "fa fa-google-plus" ] []
 
 {-| -}
 google_plus_circle                  : IconBody msg
-google_plus_circle                  = i [ class "fa fa-googlepluscircle" ] []
+google_plus_circle                  = i [ class "fa fa-google-plus-circle" ] []
 
 {-| -}
 google_plus_official                : IconBody msg
-google_plus_official                = i [ class "fa fa-googleplusofficial" ] []
+google_plus_official                = i [ class "fa fa-google-plus-official" ] []
 
 {-| -}
 google_plus_square                  : IconBody msg
-google_plus_square                  = i [ class "fa fa-googleplussquare" ] []
+google_plus_square                  = i [ class "fa fa-google-plus-square" ] []
 
 {-| -}
 google_wallet                       : IconBody msg
-google_wallet                       = i [ class "fa fa-googlewallet" ] []
+google_wallet                       = i [ class "fa fa-google-wallet" ] []
 
 {-| -}
 gratipay                            : IconBody msg
@@ -1987,7 +1987,7 @@ gratipay                            = i [ class "fa fa-gratipay" ] []
 
 {-| -}
 hacker_news                         : IconBody msg
-hacker_news                         = i [ class "fa fa-hackernews" ] []
+hacker_news                         = i [ class "fa fa-hacker-news" ] []
 
 {-| -}
 houzz                               : IconBody msg
@@ -1995,7 +1995,7 @@ houzz                               = i [ class "fa fa-houzz" ] []
 
 {-| -}
 html5                               : IconBody msg
-html5                               = i [ class "fa fa-html5" ] []
+html5                               = i [ class "fa fa-html" ] []
 
 {-| -}
 instagram                           : IconBody msg
@@ -2003,7 +2003,7 @@ instagram                           = i [ class "fa fa-instagram" ] []
 
 {-| -}
 internet_explorer                   : IconBody msg
-internet_explorer                   = i [ class "fa fa-internetexplorer" ] []
+internet_explorer                   = i [ class "fa fa-internet-explorer" ] []
 
 {-| -}
 ioxhost                             : IconBody msg
@@ -2023,7 +2023,7 @@ lastfm                              = i [ class "fa fa-lastfm" ] []
 
 {-| -}
 lastfm_square                       : IconBody msg
-lastfm_square                       = i [ class "fa fa-lastfmsquare" ] []
+lastfm_square                       = i [ class "fa fa-lastfm-square" ] []
 
 {-| -}
 leanpub                             : IconBody msg
@@ -2035,7 +2035,7 @@ linkedin                            = i [ class "fa fa-linkedin" ] []
 
 {-| -}
 linkedin_square                     : IconBody msg
-linkedin_square                     = i [ class "fa fa-linkedinsquare" ] []
+linkedin_square                     = i [ class "fa fa-linkedin-square" ] []
 
 {-| -}
 linux                               : IconBody msg
@@ -2067,7 +2067,7 @@ odnoklassniki                       = i [ class "fa fa-odnoklassniki" ] []
 
 {-| -}
 odnoklassniki_square                : IconBody msg
-odnoklassniki_square                = i [ class "fa fa-odnoklassnikisquare" ] []
+odnoklassniki_square                = i [ class "fa fa-odnoklassniki-square" ] []
 
 {-| -}
 opencart                            : IconBody msg
@@ -2083,7 +2083,7 @@ opera                               = i [ class "fa fa-opera" ] []
 
 {-| -}
 optin_monster                       : IconBody msg
-optin_monster                       = i [ class "fa fa-optinmonster" ] []
+optin_monster                       = i [ class "fa fa-optin-monster" ] []
 
 {-| -}
 pagelines                           : IconBody msg
@@ -2095,15 +2095,15 @@ paypal                              = i [ class "fa fa-paypal" ] []
 
 {-| -}
 pied_piper                          : IconBody msg
-pied_piper                          = i [ class "fa fa-piedpiper" ] []
+pied_piper                          = i [ class "fa fa-pied-piper" ] []
 
 {-| -}
 pied_piper_alt                      : IconBody msg
-pied_piper_alt                      = i [ class "fa fa-piedpiperalt" ] []
+pied_piper_alt                      = i [ class "fa fa-pied-piper-alt" ] []
 
 {-| -}
 pied_piper_pp                       : IconBody msg
-pied_piper_pp                       = i [ class "fa fa-piedpiperpp" ] []
+pied_piper_pp                       = i [ class "fa fa-pied-piper-pp" ] []
 
 {-| -}
 pinterest                           : IconBody msg
@@ -2111,15 +2111,15 @@ pinterest                           = i [ class "fa fa-pinterest" ] []
 
 {-| -}
 pinterest_p                         : IconBody msg
-pinterest_p                         = i [ class "fa fa-pinterestp" ] []
+pinterest_p                         = i [ class "fa fa-pinterest-p" ] []
 
 {-| -}
 pinterest_square                    : IconBody msg
-pinterest_square                    = i [ class "fa fa-pinterestsquare" ] []
+pinterest_square                    = i [ class "fa fa-pinterest-square" ] []
 
 {-| -}
 product_hunt                        : IconBody msg
-product_hunt                        = i [ class "fa fa-producthunt" ] []
+product_hunt                        = i [ class "fa fa-product-hunt" ] []
 
 {-| -}
 qq                                  : IconBody msg
@@ -2139,11 +2139,11 @@ reddit                              = i [ class "fa fa-reddit" ] []
 
 {-| -}
 reddit_alien                        : IconBody msg
-reddit_alien                        = i [ class "fa fa-redditalien" ] []
+reddit_alien                        = i [ class "fa fa-reddit-alien" ] []
 
 {-| -}
 reddit_square                       : IconBody msg
-reddit_square                       = i [ class "fa fa-redditsquare" ] []
+reddit_square                       = i [ class "fa fa-reddit-square" ] []
 
 {-| -}
 renren                              : IconBody msg
@@ -2195,11 +2195,11 @@ snapchat                            = i [ class "fa fa-snapchat" ] []
 
 {-| -}
 snapchat_ghost                      : IconBody msg
-snapchat_ghost                      = i [ class "fa fa-snapchatghost" ] []
+snapchat_ghost                      = i [ class "fa fa-snapchat-ghost" ] []
 
 {-| -}
 snapchat_square                     : IconBody msg
-snapchat_square                     = i [ class "fa fa-snapchatsquare" ] []
+snapchat_square                     = i [ class "fa fa-snapchat-square" ] []
 
 {-| -}
 soundcloud                          : IconBody msg
@@ -2211,11 +2211,11 @@ spotify                             = i [ class "fa fa-spotify" ] []
 
 {-| -}
 stack_exchange                      : IconBody msg
-stack_exchange                      = i [ class "fa fa-stackexchange" ] []
+stack_exchange                      = i [ class "fa fa-stack-exchange" ] []
 
 {-| -}
 stack_overflow                      : IconBody msg
-stack_overflow                      = i [ class "fa fa-stackoverflow" ] []
+stack_overflow                      = i [ class "fa fa-stack-overflow" ] []
 
 {-| -}
 steam                               : IconBody msg
@@ -2223,7 +2223,7 @@ steam                               = i [ class "fa fa-steam" ] []
 
 {-| -}
 steam_square                        : IconBody msg
-steam_square                        = i [ class "fa fa-steamsquare" ] []
+steam_square                        = i [ class "fa fa-steam-square" ] []
 
 {-| -}
 stumbleupon                         : IconBody msg
@@ -2231,11 +2231,11 @@ stumbleupon                         = i [ class "fa fa-stumbleupon" ] []
 
 {-| -}
 stumbleupon_circle                  : IconBody msg
-stumbleupon_circle                  = i [ class "fa fa-stumbleuponcircle" ] []
+stumbleupon_circle                  = i [ class "fa fa-stumbleupon-circle" ] []
 
 {-| -}
 tencent_weibo                       : IconBody msg
-tencent_weibo                       = i [ class "fa fa-tencentweibo" ] []
+tencent_weibo                       = i [ class "fa fa-tencent-weibo" ] []
 
 {-| -}
 themeisle                           : IconBody msg
@@ -2255,7 +2255,7 @@ tumblr                              = i [ class "fa fa-tumblr" ] []
 
 {-| -}
 tumblr_square                       : IconBody msg
-tumblr_square                       = i [ class "fa fa-tumblrsquare" ] []
+tumblr_square                       = i [ class "fa fa-tumblr-square" ] []
 
 {-| -}
 twitch                              : IconBody msg
@@ -2267,7 +2267,7 @@ twitter                             = i [ class "fa fa-twitter" ] []
 
 {-| -}
 twitter_square                      : IconBody msg
-twitter_square                      = i [ class "fa fa-twittersquare" ] []
+twitter_square                      = i [ class "fa fa-twitter-square" ] []
 
 {-| -}
 usb                                 : IconBody msg
@@ -2283,7 +2283,7 @@ viadeo                              = i [ class "fa fa-viadeo" ] []
 
 {-| -}
 viadeo_square                       : IconBody msg
-viadeo_square                       = i [ class "fa fa-viadeosquare" ] []
+viadeo_square                       = i [ class "fa fa-viadeo-square" ] []
 
 {-| -}
 vimeo                               : IconBody msg
@@ -2291,7 +2291,7 @@ vimeo                               = i [ class "fa fa-vimeo" ] []
 
 {-| -}
 vimeo_square                        : IconBody msg
-vimeo_square                        = i [ class "fa fa-vimeosquare" ] []
+vimeo_square                        = i [ class "fa fa-vimeo-square" ] []
 
 {-| -}
 vine                                : IconBody msg
@@ -2319,7 +2319,7 @@ whatsapp                            = i [ class "fa fa-whatsapp" ] []
 
 {-| -}
 wikipedia_w                         : IconBody msg
-wikipedia_w                         = i [ class "fa fa-wikipediaw" ] []
+wikipedia_w                         = i [ class "fa fa-wikipedia-w" ] []
 
 {-| -}
 windows                             : IconBody msg
@@ -2343,15 +2343,15 @@ xing                                = i [ class "fa fa-xing" ] []
 
 {-| -}
 xing_square                         : IconBody msg
-xing_square                         = i [ class "fa fa-xingsquare" ] []
+xing_square                         = i [ class "fa fa-xing-square" ] []
 
 {-| -}
 y_combinator                        : IconBody msg
-y_combinator                        = i [ class "fa fa-ycombinator" ] []
+y_combinator                        = i [ class "fa fa-y-combinator" ] []
 
 {-| -}
 y_combinator_square                 : IconBody msg
-y_combinator_square                 = i [ class "fa fa-ycombinatorsquare" ] []
+y_combinator_square                 = i [ class "fa fa-y-combinator-square" ] []
 
 {-| -}
 yahoo                               : IconBody msg
@@ -2363,7 +2363,7 @@ yc                                  = i [ class "fa fa-yc" ] []
 
 {-| -}
 yc_square                           : IconBody msg
-yc_square                           = i [ class "fa fa-ycsquare" ] []
+yc_square                           = i [ class "fa fa-yc-square" ] []
 
 {-| -}
 yelp                                : IconBody msg
@@ -2379,8 +2379,8 @@ youtube                             = i [ class "fa fa-youtube" ] []
 
 {-| -}
 youtube_play                        : IconBody msg
-youtube_play                        = i [ class "fa fa-youtubeplay" ] []
+youtube_play                        = i [ class "fa fa-youtube-play" ] []
 
 {-| -}
 youtube_square                      : IconBody msg
-youtube_square                      = i [ class "fa fa-youtubesquare" ] []
+youtube_square                      = i [ class "fa fa-youtube-square" ] []
