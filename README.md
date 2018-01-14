@@ -8,21 +8,22 @@ Elm-Bulma is a simple and beautiful front-end library.
 ## Getting Started
 1. Make a new project: `mkdir bulma-example && cd bulma-example`.
 2. Install the package: `elm package install --yes surprisetalk/elm-bulma`.
-3. Create a new file `Main.elm` and copy the code below or [this example file](https://github.com/surprisetalk/elm-bulma/blob/master/src/Example.elm).
-4. Start `elm reactor` and navigate to [http://localhost:8000/Main.elm](http://localhost:8000).
+3. Create a new file `Example.elm` and copy [this example file](https://github.com/surprisetalk/elm-bulma/blob/master/src/Example.elm) or the code below.
+4. Start `elm reactor` and navigate to [http://localhost:8000/Example.elm](http://localhost:8000).
 
 ``` elm
-module Main exposing (..)
+module Example exposing (..)
 
 import Bulma.CDN exposing (..)
+import Bulma.Modifiers exposing (..)
 import Bulma.Elements exposing (..)
-import Bulma.Grid as Grid exposing (..)
+import Bulma.Columns exposing (..)
 import Bulma.Layout exposing (..)
 import Html exposing ( Html, main_, text )
 
-type Model = {}
+type alias Model = {}
 
-main : Program Never Model Msg
+main : Program Never Model msg
 main 
   = Html.beginnerProgram
     { model = {}
@@ -49,9 +50,9 @@ exampleHero
       ]
     ]
 
-exampleGrid : Html msg
-exampleGrid 
-  = Grid.columns columnsModifiers []
+exampleColumns : Html msg
+exampleColumns 
+  = columns columnsModifiers []
     [ column columnModifiers [] [ text "First Column" ]
     , column columnModifiers [] [ text "Second Column" ]
     , column columnModifiers [] [ text "Third Column" ]
