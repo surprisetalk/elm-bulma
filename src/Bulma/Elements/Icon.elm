@@ -54,7 +54,7 @@ icon size
     [ bulma.icon.container
     , case size of
         Small  -> bulma.icon.size.isSmall
-        Normal -> ""
+        Standard -> ""
         Medium -> bulma.icon.size.isMedium
         Large  -> bulma.icon.size.isLarge
     ] 
@@ -351,7 +351,7 @@ caret_square_o_up                   = i [ class "fa fa-caret-square-o-up" ] []
 
 {-| -}
 cart_arrow_down                     : IconBody msg
-cart_arrow_down                     = i [ class "fa fa-cart-arrow-down" ] []
+cart_arrow_down                     = i [ class "fa fa-caret-arrow-down" ] []
 
 {-| -}
 cart_plus                           : IconBody msg

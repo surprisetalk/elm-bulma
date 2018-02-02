@@ -217,7 +217,7 @@ breadcrumbModifiers : BreadcrumbModifiers
 breadcrumbModifiers
   = { separator = Slash
     , alignment = Left
-    , size      = Normal
+    , size      = Standard
     }
 
 {-| A navigation thingy.
@@ -248,7 +248,7 @@ breadcrumb {separator,alignment,size} attrs attrs_
         Succeeds -> "has-succeeds-separator"
     , case size of
         Small  -> "is-small"
-        Normal -> ""
+        Standard -> ""
         Medium -> "is-medium"
         Large  -> "is-large"
     , case alignment of
@@ -305,8 +305,8 @@ type alias CardPartition msg = Html msg
         [ cardTitle [] 
           [ text "Queen of Hearts"
           ]
-        , cardIcon [] []
-          [ icon Normal []
+        , cardIcon []
+          [ icon Standard []
             [ heart_o
             ]
           ]
@@ -319,7 +319,7 @@ cardHeader = node "header" [] [ bulma.card.header.container ]
     type Msg = ShowCard
 
     myIcon : Html msg
-    myIcon = icon Normal [] [ diamond ] 
+    myIcon = icon Standard [] [ diamond ] 
 
     myCardHeader : Html Msg
     myCardHeader
@@ -327,7 +327,7 @@ cardHeader = node "header" [] [ bulma.card.header.container ]
         { title       = [ text "4 of Diamonds" ]
         , icon        = [ myIcon               ]
         , onClickIcon = ShowCard
-        ]
+        }
 -}
 easyCardHeader : Attrs msg -> { title : Htmls msg, icon : Htmls msg, onClickIcon : msg } -> CardPartition msg
 easyCardHeader attrs {title,icon,onClickIcon}
@@ -628,7 +628,7 @@ type alias MessageModifiers
 messageModifiers : MessageModifiers
 messageModifiers
   = { color = Default
-    , size  = Normal
+    , size  = Standard
     }
 
 {-| 
@@ -661,7 +661,7 @@ message {color,size}
         Danger  -> bulma.message.color.isDanger
     , case size of
         Small  -> "is-small"
-        Normal -> ""
+        Standard -> ""
         Medium -> "is-medium"
         Large  -> "is-large"
         -- KLUDGE: add to BulmaClasses
@@ -730,7 +730,7 @@ easyModal active attrs close content
   = modal active attrs
     [ easyModalBackground   [] close
     , modalContent          [] content
-    , easyModalClose Normal [] close
+    , easyModalClose Standard [] close
     ]
 
 
@@ -759,7 +759,7 @@ modalClose size
     [ bulma.modal.close.ui
     , case size of
         Small  -> bulma.modal.close.size.isSmall
-        Normal -> ""
+        Standard -> ""
         Medium -> bulma.modal.close.size.isMedium
         Large  -> bulma.modal.close.size.isLarge
     ]
@@ -877,7 +877,7 @@ navbarModifiers
 -}
 navbar : NavbarModifiers -> Attrs msg -> List (NavbarSection msg) -> Navbar msg
 navbar {color,transparent}
-  = node "div" []
+  = node "nav" []
     [ "navbar"
     , case transparent of
         True -> "is-transparent"
@@ -945,7 +945,7 @@ When its first argument is `True`, it transforms into a `navbarCross`.
 
 -}
 navbarBurger : IsActive -> Attrs msg -> List (Html msg) -> NavbarBurger msg
-navbarBurger isActive = node "div" [] [ "navbar-burger", if isActive then "is-active" else ""  ]
+navbarBurger isActive = node "a" [] [ "navbar-burger", if isActive then "is-active" else ""  ]
 
 {-| A simple "X" character; the active version of `navbarBurger`.
 -}
@@ -994,7 +994,6 @@ navbarItemDropdown : IsActive -> VerticalDirection -> Attrs msg -> NavbarLink ms
 navbarItemDropdown isActive dir attrs link dropdowns
   = node "div" []
     [ "navbar-item"
-    , "is-hoverable"
     , case isActive of
         True -> "is-active"
         _    -> ""
@@ -1008,8 +1007,8 @@ navbarItemDropdown isActive dir attrs link dropdowns
 
 {-| A hoverable variant of `navbarItemDropdown`.
 -}
-hoverableNavbarItemDropdown : VerticalDirection -> Attrs msg -> NavbarLink msg -> NavbarDropdown msg -> NavbarItem msg
-hoverableNavbarItemDropdown dir attrs link dropdown
+hoverableNavbarItemDropdown : VerticalDirection -> Attrs msg -> NavbarLink msg -> List (NavbarDropdown msg) -> NavbarItem msg
+hoverableNavbarItemDropdown dir attrs link dropdowns
   = node "div" []
     [ "navbar-item"
     , "is-hoverable"
@@ -1018,9 +1017,8 @@ hoverableNavbarItemDropdown dir attrs link dropdown
         _  -> "has-dropdown"
     ]
     attrs
-    [ link
-    , dropdown
-    ]
+    <| link
+   :: dropdowns
 
 {-| This element represents `a.navbar-link`. It is only useful as a child of `navbarDropdown`.
 -}
@@ -1329,23 +1327,23 @@ type alias TabsModifiers = { style     : TabsStyle
 tabsModifiers : TabsModifiers
 tabsModifiers = { style     = Minimal
                 , alignment = Left
-                , size      = Normal
+                , size      = Standard
                 }
 
 {-| 
     myTabs : Html msg
     myTabs
-      = tabs myTabsModifiers []
-        [ tab False [] [ text "Pictures" ]
-        , tab False [] [ text "Music"    ]
-        , tab True  [] [ text "Videos"   ]
-        , tab False [] [ text "Docs"     ]
+      = tabs myTabsModifiers [] []
+        [ tab False [] [] [ text "Pictures" ]
+        , tab False [] [] [ text "Music"    ]
+        , tab True  [] [] [ text "Videos"   ]
+        , tab False [] [] [ text "Docs"     ]
         ]
 -}
 tabs : TabsModifiers -> Attrs msg -> Attrs msg -> List (Tab msg) -> Tabs msg
 tabs {style,alignment,size} attrs attrs_
   = node "div" []
-    [ bulma.tabs.container
+    [ "tabs"
     , case style of
         Minimal -> ""
         Boxed   -> "is-boxed"
@@ -1357,7 +1355,7 @@ tabs {style,alignment,size} attrs attrs_
         Right    -> bulma.tabs.alignment.isRight
     , case size of
         Small  -> bulma.tabs.size.isSmall
-        Normal -> ""
+        Standard -> ""
         Medium -> bulma.tabs.size.isMedium
         Large  -> bulma.tabs.size.isLarge
     ]
@@ -1371,12 +1369,16 @@ tabs {style,alignment,size} attrs attrs_
 type alias Tab msg = Html msg
 
 {-| -}
-tab : IsActive -> Attrs msg -> Htmls msg -> Tab msg
-tab active
-  = node "li" []
-    [ case active of
-        True  -> "is-active"
-        False -> ""
+tab : IsActive -> Attrs msg -> Attrs msg -> Htmls msg -> Tab msg
+tab active attrs attrs_ htmls
+  = li ( (::)
+         ( case active of
+          True  -> class "is-active"
+          False -> class ""
+         )
+         attrs
+       )
+    [ a attrs_ htmls
     ]
 
 

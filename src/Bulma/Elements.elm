@@ -121,6 +121,8 @@ box = node "div" [] [ bulma.box.container ]
 
 -- BUTTON ----------------------------------------------------------------------
 
+-- TODO: iconButton 
+
 {-| -}
 type alias Button msg = Html msg
 
@@ -145,7 +147,10 @@ type alias Button msg = Html msg
 button : ButtonModifiers msg -> Attrs msg -> Htmls msg -> Button msg
 button {disabled,outlined,inverted,rounded,size,state,color,static,iconLeft,iconRight} attrs htmls
   = let htmls_ : Htmls msg
-        htmls_ = iconLeft_ ++ htmls ++ iconRight_
+        htmls_
+          = case htmls of
+              []    -> iconLeft_ ++                      iconRight_
+              htmls -> iconLeft_ ++ [ span [] htmls ] ++ iconRight_
         iconLeft_ : Htmls msg
         iconLeft_
           = case iconLeft of
@@ -156,16 +161,16 @@ button {disabled,outlined,inverted,rounded,size,state,color,static,iconLeft,icon
           = case iconRight of
               Just ( size, attrs, body ) -> [ icon size attrs [ body ] ]
               Nothing                    -> [                          ]
-    in node "a" ( if disabled then [ Attr.disabled disabled ] else [] )
+    in node "button" [ Attr.disabled disabled ]
        [ bulma.button.ui
        , case static of
-           True  -> bulma.button.style.isStatic
+           True  -> "is-static"
            False -> ""
        , case outlined of
-           True  -> bulma.button.style.isOutlined
+           True  -> "is-outlined"
            False -> ""
        , case inverted of
-           True  -> bulma.button.style.isInverted
+           True  -> "is-inverted"
            False -> ""
        , case rounded of
            True  -> "is-rounded"
@@ -184,7 +189,7 @@ button {disabled,outlined,inverted,rounded,size,state,color,static,iconLeft,icon
            Danger  -> "is-selected " ++ bulma.button.color.isDanger
        , case size of
            Small  -> bulma.button.size.isSmall
-           Normal -> ""
+           Standard -> ""
            Medium -> bulma.button.size.isMedium
            Large  -> bulma.button.size.isLarge
        , case state of
@@ -268,7 +273,7 @@ type alias ButtonModifiers msg
 
     import Bulma.Modifiers exposing ( State(Blur) 
                                     , Color(Default)
-                                    , Size(Normal)
+                                    , Size(Standard)
                                     )
                                    
     myButtonModifiers : ButtonModifiers msg
@@ -276,7 +281,7 @@ type alias ButtonModifiers msg
       = { disabled = False
         , outlined = False
         , inverted = False
-        , size     = Normal
+        , size     = Standard
         , state    = Blur
         , color    = Default
         }
@@ -287,7 +292,7 @@ buttonModifiers = { disabled  = False
                   , inverted  = False
                   , rounded   = False
                   , static    = False
-                  , size      = Normal
+                  , size      = Standard
                   , state     = Blur
                   , color     = Default
                   , iconLeft  = Nothing
@@ -302,11 +307,11 @@ type alias Content msg = Html msg
 
 {-| A single class to handle WYSIWYG-generated content, where only HTML tags are available.
 
-    import Bulma.Modifiers exposing (Size(Normal))
+    import Bulma.Modifiers exposing (Size(Standard))
 
     myContent : Html msg
     myContent
-      = content Normal []
+      = content Standard []
         [ p [] [ text "Lorem ipsum..." ] 
         ]
         
@@ -324,7 +329,7 @@ content size
     [ bulma.content.container
     , case size of
         Small  -> bulma.content.size.isSmall
-        Normal -> ""
+        Standard -> ""
         Medium -> bulma.content.size.isMedium
         Large  -> bulma.content.size.isLarge
     ]
@@ -357,107 +362,88 @@ easyDelete attrs msg = delete (onClick msg :: attrs) []
 type alias Image msg = Html msg
 
 {-| -}
-type alias ImageModifiers = { size        : Maybe ImageSize
-                            , aspectRatio : Maybe ImageAspectRatio
-                            }
+type ImageShape
+  = Natural
+  | OneByOne ImageSize
+  | FourByThree
+  | ThreeByTwo
+  | SixteenByNine
+  | TwoByOne
 
 {-| -}
-type ImageSize = X16
-               | X24
-               | X32
-               | X48
-               | X64
-               | X96
-               | X128
-
-{-| -}
-type ImageAspectRatio = OneByOne
-                      | FourByThree
-                      | ThreeByTwo
-                      | SixteenByNine
-                      | TwoByOne
-
-{-| -}
-imageModifiers : ImageModifiers
-imageModifiers = { size        = Nothing
-                 , aspectRatio = Nothing
-                 }
+type ImageSize
+  = X16
+  | X24
+  | X32
+  | X48
+  | X64
+  | X96
+  | X128
+  | Unbounded
 
 {-| Use the `image` container to specify a precisely-sized container so that your layout isn't broken because of loading or broken images.
 
-    myImageModifiers : ImageModifiers
-    myImageModifiers
-      = { size        = Just X64
-        , aspectRatio = Just OneByOne
-        }
-
     myImage : Html msg
     myImage
-      = image myImageModifiers []
+      = image FourByThree []
         [ img [ src "https://i.imgur.com/pPjvmVS.jpg" ] []
         ]
 -}
-image : ImageModifiers -> Attrs msg -> Htmls msg -> Image msg
-image {size,aspectRatio}
+image : ImageShape -> Attrs msg -> Htmls msg -> Image msg
+image shape
   = node "figure" []
     [ bulma.image.container
-    , case size of
-        Just X16  -> bulma.image.size.is16x16
-        Just X24  -> bulma.image.size.is24x24
-        Just X32  -> bulma.image.size.is32x32
-        Just X48  -> bulma.image.size.is48x48
-        Just X64  -> bulma.image.size.is64x64
-        Just X96  -> bulma.image.size.is96x96
-        Just X128 -> bulma.image.size.is128x128
-        _         -> ""
-    , case aspectRatio of
-        Just OneByOne      -> bulma.image.size.is1by1
-        Just FourByThree   -> bulma.image.size.is4by3
-        Just ThreeByTwo    -> bulma.image.size.is3by2
-        Just SixteenByNine -> bulma.image.size.is16by9
-        Just TwoByOne      -> bulma.image.size.is2by1
-        _                  -> ""
+    , case shape of
+        OneByOne Unbounded -> bulma.image.size.is1by1
+        OneByOne X16       -> bulma.image.size.is16x16
+        OneByOne X24       -> bulma.image.size.is24x24
+        OneByOne X32       -> bulma.image.size.is32x32
+        OneByOne X48       -> bulma.image.size.is48x48
+        OneByOne X64       -> bulma.image.size.is64x64
+        OneByOne X96       -> bulma.image.size.is96x96
+        OneByOne X128      -> bulma.image.size.is128x128
+        FourByThree        -> bulma.image.size.is4by3
+        ThreeByTwo         -> bulma.image.size.is3by2
+        SixteenByNine      -> bulma.image.size.is16by9
+        TwoByOne           -> bulma.image.size.is2by1
+        Natural            -> ""
     ]
 
 {-| 
-    myImageModifiers : ImageModifiers
-    myImageModifiers
-      = { size        = Just X64
-        , aspectRatio = Just OneByOne
-        }
-
     myEasyImage : Html msg
     myEasyImage
-      = easyImage myImageModifiers []
+      = easyImage Natural []
         "http://i.imgur.com/I47PSAO.png"
 -}
-easyImage : ImageModifiers -> Attrs msg -> String -> Image msg
+easyImage : ImageShape -> Attrs msg -> String -> Image msg
 easyImage mods attrs src = image mods attrs [ img [ Attr.src src ] [] ]
 
 {-| 
     myEasyPlaceholderImage : Html msg
     myEasyPlaceholderImage
-      = easyPlaceholderImage myImageModifiers []
+      = easyPlaceholderImage (OneByOne Unbounded) []
 -}
-easyPlaceholderImage : ImageModifiers -> Attrs msg -> Image msg
-easyPlaceholderImage ({size,aspectRatio} as mods) attrs
-  = image mods attrs
+easyPlaceholderImage : ImageShape -> Attrs msg -> Image msg
+easyPlaceholderImage shape attrs
+-- TODO: document the sizes above...
+  = image shape attrs
     [ flip img []
       [ Attr.src
         <| (\(h,w) -> "http://bulma.io/images/placeholders/" ++ toString h ++ "x" ++ toString w ++ ".png")
-        <| case ( size, aspectRatio ) of
-            ( Just X16 , Just OneByOne      ) -> (  16,  16  )
-            ( Just X24 , Just OneByOne      ) -> (  24,  24  )
-            ( Just X32 , Just OneByOne      ) -> (  32,  32  )
-            ( Just X48 , Just OneByOne      ) -> (  48,  48  )
-            ( Just X64 , Just OneByOne      ) -> (  64,  64  )
-            ( Just X96 , Just OneByOne      ) -> (  96,  96  )
-            ( Just X128, Just OneByOne      ) -> ( 128, 128  )
-            (      _   , Just FourByThree   ) -> ( 640, 480  )
-            (      _   , Just ThreeByTwo    ) -> ( 480, 320  )
-            (      _   , Just SixteenByNine ) -> ( 640, 360  )
-            (      _   , Just TwoByOne      ) -> ( 640, 320  )
-            (      _   ,      _             ) -> ( 256, 256  )
+        <| case shape of
+            OneByOne X16       -> (  16,  16  )
+            OneByOne X24       -> (  24,  24  )
+            OneByOne X32       -> (  32,  32  )
+            OneByOne X48       -> (  48,  48  )
+            OneByOne X64       -> (  64,  64  )
+            OneByOne X96       -> (  96,  96  )
+            OneByOne X128      -> ( 128, 128  )
+            OneByOne Unbounded -> ( 256, 256  )
+            FourByThree        -> ( 640, 480  )
+            ThreeByTwo         -> ( 480, 320  )
+            SixteenByNine      -> ( 640, 360  )
+            TwoByOne           -> ( 640, 320  )
+            _                  -> ( 256, 256  )
       ]
     ]
 
@@ -523,7 +509,7 @@ type alias ProgressModifiers = { size  : Size
 
 {-| -}
 progressModifiers : ProgressModifiers
-progressModifiers = { size  = Normal
+progressModifiers = { size  = Standard
                     , color = Default
                     } 
 
@@ -542,7 +528,7 @@ progress {size,color}
     [ bulma.progress.ui
     , case size of
         Small  -> bulma.progress.size.isSmall
-        Normal -> ""
+        Standard -> ""
         Medium -> bulma.progress.size.isMedium
         Large  -> bulma.progress.size.isLarge
     , case color of
@@ -714,14 +700,16 @@ tableCellHead = node "th" [] []
 type alias Tag msg = Html msg
 
 {-| -}
-type alias TagModifiers = { size  : Size
-                          , color : Color
+type alias TagModifiers = { size   : Size
+                          , color  : Color
+                          , isLink : Bool
                           }
 
 {-| -}
 tagModifiers : TagModifiers
-tagModifiers = { size  = Normal
-               , color = Default
+tagModifiers = { size   = Standard
+               , color  = Default
+               , isLink = False
                } 
 
 {-| 
@@ -732,12 +720,15 @@ tagModifiers = { size  = Normal
         ]
 -}
 tag : TagModifiers -> Attrs msg -> Htmls msg -> Tag msg
-tag {size,color}
-  = node "span" []
+tag {size,color,isLink}
+  = node (if isLink then "a" else "span") []
     [ bulma.tag.ui
+    -- , case isLink of
+    --     True  -> "is-link"
+    --     False -> ""
     , case size of
         Small  -> "" -- KLUDGE
-        Normal -> ""
+        Standard -> ""
         Medium -> bulma.tag.size.isMedium
         Large  -> bulma.tag.size.isLarge
     , case color of
@@ -773,6 +764,32 @@ roundedTag mods attrs
 -}
 easyTag : TagModifiers -> Attrs msg -> String -> Tag msg
 easyTag mods attrs = text >> ls >> tag mods attrs 
+
+{-| TODO
+-}
+deleteTag : TagModifiers -> Attrs msg -> Htmls msg -> Tag msg
+deleteTag {size,color}
+  = node "a" []
+    [ bulma.tag.ui
+    , "is-delete"
+    , case size of
+        Small  -> "" -- KLUDGE
+        Standard -> ""
+        Medium -> bulma.tag.size.isMedium
+        Large  -> bulma.tag.size.isLarge
+    , case color of
+        Default -> ""
+        White   -> bulma.tag.color.isWhite
+        Light   -> bulma.tag.color.isLight
+        Dark    -> bulma.tag.color.isDark
+        Black   -> bulma.tag.color.isBlack
+        Primary -> bulma.tag.color.isPrimary
+        Link    -> "is-link"
+        Info    -> bulma.tag.color.isInfo
+        Success -> bulma.tag.color.isSuccess
+        Warning -> bulma.tag.color.isWarning
+        Danger  -> bulma.tag.color.isDanger
+    ]
 
 {-| -}
 easyRoundedTag : TagModifiers -> Attrs msg -> String -> Tag msg
@@ -850,6 +867,8 @@ tags = node "div" [] [ "tags" ]
 multitag : Attrs msg -> List (Tag msg) -> Html msg
 multitag = node "div" [] [ "tags", "has-addons" ]
 
+-- TODO: multi-multitags with field.is-grouped.is-grouped-multiline < control
+
 
 -- TITLE -----------------------------------------------------------------------
 
@@ -873,7 +892,16 @@ type TitleSize = H1
 -}
 title : TitleSize -> Attrs msg -> Htmls msg -> Title msg
 title size
-  = node "p" []
+  = node 
+    ( case size of
+        H1 -> "h1"
+        H2 -> "h2"
+        H3 -> "h3"
+        H4 -> "h4"
+        H5 -> "h5"
+        H6 -> "h6"
+    )
+    []
     [ bulma.heading.title
     , case size of
         H1 -> bulma.heading.size.is1
@@ -934,7 +962,7 @@ easyTitleWithSubtitle spacing size title subtitle
   = [ node "p" []
       [ bulma.heading.title
       , case spacing of
-          True  -> bulma.heading.spacing.isNormal
+          True  -> bulma.heading.spacing.isStandard
           False -> ""
       , case size of
           H1 -> bulma.heading.size.is1

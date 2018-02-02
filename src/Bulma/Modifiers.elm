@@ -84,24 +84,25 @@ import String exposing ( join )
 {-| -}
 type Size
   = Small
-  | Normal
+  | Standard
   | Medium
   | Large
 
 {-| -}
-type Width = Auto
-           | Width1
-           | Width2
-           | Width3
-           | Width4
-           | Width5
-           | Width6
-           | Width7
-           | Width8
-           | Width9
-           | Width10
-           | Width11
-
+type Width
+  = Auto
+  | Width1
+  | Width2
+  | Width3
+  | Width4
+  | Width5
+  | Width6
+  | Width7
+  | Width8
+  | Width9
+  | Width10
+  | Width11
+    
 {-| -}
 type State
   = Blur

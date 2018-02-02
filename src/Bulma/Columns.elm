@@ -25,7 +25,7 @@ Learn more about columnar grids in the [official docs](http://bulma.io/documenta
           ]
         ]
 
-@docs ColumnsModifiers, Display, columnsModifiers
+@docs ColumnsModifiers, Display, Gap, columnsModifiers
 @docs columns
 
 ## Column
@@ -47,16 +47,14 @@ import Html exposing ( Html, text, div, a )
 
 -- COLUMNS ---------------------------------------------------------------------
 
--- TODO: replace gapless with gapSize (0-8)
-
 {-| Make a columnar grid! The widths of all your columns should be no greater than twelve.
 -}
 columns : ColumnsModifiers -> Attrs msg -> List (Column msg) -> Html msg
-columns {centered,multiline,gapless,display}
+columns {centered,multiline,gap,display}
   = node "div" []
     [ bulma.columns.container
     , case centered of
-        True  -> bulma.columns.alignment.isCentered
+        True  -> "is-centered"
         False -> ""
     -- , case verticallyCentered of
     --     True  -> bulma.columns.alignment.isVCentered
@@ -64,9 +62,16 @@ columns {centered,multiline,gapless,display}
     , case multiline of
         True  -> bulma.columns.spacing.isMultiline
         False -> ""
-    , case gapless of
-        True  -> bulma.columns.spacing.isGapless
-        False -> ""
+    , case gap of
+        Gap0 -> "is-variable is-0 is-gapless"
+        Gap1 -> "is-variable is-1"
+        Gap2 -> "is-variable is-2"
+        Gap3 -> "is-variable is-3"
+        Gap4 -> "is-variable is-4"
+        Gap5 -> "is-variable is-5"
+        Gap6 -> "is-variable is-6"
+        Gap7 -> "is-variable is-7"
+        Gap8 -> "is-variable is-8"
     , case display of
         MobileAndBeyond  -> bulma.columns.display.onMobile
         TabletAndBeyond  -> ""
@@ -78,11 +83,23 @@ columns {centered,multiline,gapless,display}
 
 {-| -}
 type alias ColumnsModifiers = { multiline          : Bool
-                              , gapless            : Bool
+                              , gap                : Gap
                               , display            : Display
                               , centered           : Bool
                               -- , verticallyCentered : Bool
                               }
+
+{-| -}
+type Gap
+  = Gap0
+  | Gap1
+  | Gap2
+  | Gap3
+  | Gap4
+  | Gap5
+  | Gap6
+  | Gap7
+  | Gap8
 
 {-| -}
 type Display = MobileAndBeyond
@@ -103,7 +120,7 @@ type Display = MobileAndBeyond
 -}
 columnsModifiers : ColumnsModifiers
 columnsModifiers = { multiline          = False
-                   , gapless            = False
+                   , gap                = Gap3
                    , display            = TabletAndBeyond
                    , centered           = False
                    -- , verticallyCentered = False
@@ -229,6 +246,7 @@ narrowColumn offset
 -- TODO: narrow columns by device
   = node "div" []
     [ bulma.columns.column.container
+    , "is-narrow" 
     , case offset of
          Auto    -> ""
          Width1  -> bulma.columns.column.offset.is1

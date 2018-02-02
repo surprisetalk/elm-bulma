@@ -66,84 +66,87 @@ italicize = class "is-italic"
 
 -- TEXT SIZE -------------------------------------------------------------------
 
+type Size
+  = Largest
+  | EvenLarger
+  | Larger
+  | Large
+  | Medium
+  | Standard
+  | Small
+
 {-| There are 7 font sizes to choose from:
-- `textSize 1`: 3.00rem
-- `textSize 2`: 2.50rem
-- `textSize 3`: 2.00rem
-- `textSize 4`: 1.50rem
-- `textSize 5`: 1.25rem
-- `textSize 6`: 1.00rem
-- `textSize 7`: 0.75rem
+- `textSize Largest   `: 3.00rem
+- `textSize EvenLarger`: 2.50rem
+- `textSize Larger    `: 2.00rem
+- `textSize Large     `: 1.50rem
+- `textSize Medium    `: 1.25rem
+- `textSize Standard  `: 1.00rem
+- `textSize Small     `: 0.75rem
 -}
-textSize : Int -> Attribute msg
+textSize : Size -> Attribute msg
 textSize ts
   = class
-    <| case clamp 1 7 ts of
-        1 -> "is-size-1"
-        2 -> "is-size-2"
-        3 -> "is-size-3"
-        4 -> "is-size-4"
-        5 -> "is-size-5"
-        6 -> "is-size-6"
-        7 -> "is-size-7"
-        _ -> ""
+    <| case ts of
+        Largest    -> "is-size-1"
+        EvenLarger -> "is-size-2"
+        Larger     -> "is-size-3"
+        Large      -> "is-size-4"
+        Medium     -> "is-size-5"
+        Standard   -> "is-size-6"
+        Small      -> "is-size-7"
         -- KLUDGE: add to BulmaClasses
 
 {-| You can choose a font specific size for each viewport width.
 -}
-textSizeByDevice : Devices Int -> Attribute msg
+textSizeByDevice : Devices Size -> Attribute msg
 textSizeByDevice {mobile,tablet,desktop,widescreen,fullHD}
   = class
   <| join " "
-    [ case clamp 1 7 mobile of
-        1 -> "is-size-1-mobile"
-        2 -> "is-size-2-mobile"
-        3 -> "is-size-3-mobile"
-        4 -> "is-size-4-mobile"
-        5 -> "is-size-5-mobile"
-        6 -> "is-size-6-mobile"
-        7 -> "is-size-7-mobile"
-        _ -> ""
+    [ case mobile of
+        Largest    -> "is-size-1-mobile"
+        EvenLarger -> "is-size-2-mobile"
+        Larger     -> "is-size-3-mobile"
+        Large      -> "is-size-4-mobile"
+        Medium     -> "is-size-5-mobile"
+        Standard   -> "is-size-6-mobile"
+        Small      -> "is-size-7-mobile"
         -- KLUDGE: add to BulmaClasses
-    , case clamp 1 7 tablet of
-        1 -> "is-size-1-tablet"
-        2 -> "is-size-2-tablet"
-        3 -> "is-size-3-tablet"
-        4 -> "is-size-4-tablet"
-        5 -> "is-size-5-tablet"
-        6 -> "is-size-6-tablet"
-        7 -> "is-size-7-tablet"
-        _ -> ""
+    , case tablet of
+        Largest    -> "is-size-1-tablet"
+        EvenLarger -> "is-size-2-tablet"
+        Larger     -> "is-size-3-tablet"
+        Large      -> "is-size-4-tablet"
+        Medium     -> "is-size-5-tablet"
+        Standard   -> "is-size-6-tablet"
+        Small      -> "is-size-7-tablet"
         -- KLUDGE: add to BulmaClasses
-    , case clamp 1 7 desktop of
-        1 -> "is-size-1-desktop"
-        2 -> "is-size-2-desktop"
-        3 -> "is-size-3-desktop"
-        4 -> "is-size-4-desktop"
-        5 -> "is-size-5-desktop"
-        6 -> "is-size-6-desktop"
-        7 -> "is-size-7-desktop"
-        _ -> ""
+    , case desktop of
+        Largest    -> "is-size-1-desktop"
+        EvenLarger -> "is-size-2-desktop"
+        Larger     -> "is-size-3-desktop"
+        Large      -> "is-size-4-desktop"
+        Medium     -> "is-size-5-desktop"
+        Standard   -> "is-size-6-desktop"
+        Small      -> "is-size-7-desktop"
         -- KLUDGE: add to BulmaClasses
-    , case clamp 1 7 widescreen of
-        1 -> "is-size-1-widescreen"
-        2 -> "is-size-2-widescreen"
-        3 -> "is-size-3-widescreen"
-        4 -> "is-size-4-widescreen"
-        5 -> "is-size-5-widescreen"
-        6 -> "is-size-6-widescreen"
-        7 -> "is-size-7-widescreen"
-        _ -> ""
+    , case widescreen of
+        Largest    -> "is-size-1-widescreen"
+        EvenLarger -> "is-size-2-widescreen"
+        Larger     -> "is-size-3-widescreen"
+        Large      -> "is-size-4-widescreen"
+        Medium     -> "is-size-5-widescreen"
+        Standard   -> "is-size-6-widescreen"
+        Small      -> "is-size-7-widescreen"
         -- KLUDGE: add to BulmaClasses
-    , case clamp 1 7 fullHD of
-        1 -> "is-size-1-fullhd"
-        2 -> "is-size-2-fullhd"
-        3 -> "is-size-3-fullhd"
-        4 -> "is-size-4-fullhd"
-        5 -> "is-size-5-fullhd"
-        6 -> "is-size-6-fullhd"
-        7 -> "is-size-7-fullhd"
-        _ -> ""
+    , case fullHD of
+        Largest    -> "is-size-1-fullhd"
+        EvenLarger -> "is-size-2-fullhd"
+        Larger     -> "is-size-3-fullhd"
+        Large      -> "is-size-4-fullhd"
+        Medium     -> "is-size-5-fullhd"
+        Standard   -> "is-size-6-fullhd"
+        Small      -> "is-size-7-fullhd"
         -- KLUDGE: add to BulmaClasses
     ]
 
@@ -216,7 +219,7 @@ textAlignmentByDevice {mobile,tablet,desktop,widescreen,fullHD}
 -- TEXT WEIGHT -----------------------------------------------------------------
 
 {-| -}
-type TextWeight
+type Weight
   = Light
   | Normal
   | Semibold
@@ -224,7 +227,7 @@ type TextWeight
 
 {-| You can set any text to one of four font-weights.
 -}
-textWeight : TextWeight -> Attribute msg
+textWeight : Weight -> Attribute msg
 textWeight weight
   = class
   <| case weight of
@@ -237,7 +240,7 @@ textWeight weight
 -- TEXT COLOR ------------------------------------------------------------------
 
 {-| -}
-type TextColor
+type Color
   = Black
   | BlackLight
   | BlackLighter
@@ -257,7 +260,7 @@ type TextColor
 
 {-| You can set any text to one of the 5 colors or 11 shades of grey.
 -}
-textColor : TextColor -> Attribute msg
+textColor : Color -> Attribute msg
 textColor color
   = class
   <| case color of

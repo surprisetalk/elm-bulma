@@ -335,7 +335,7 @@ hero {bold,size,color}
         False -> ""
     , case size of
         Small  -> ""
-        Normal -> bulma.hero.size.isMedium
+        Standard -> bulma.hero.size.isMedium
         Medium -> bulma.hero.size.isLarge
         Large  -> bulma.hero.size.isFullheight
     , case color of
@@ -379,7 +379,7 @@ type alias HeroModifiers = { bold  : Bool
 
     TODO: explain that normal=medium, medium=large, and large=fullheight
 
-    import Bulma.Modifiers exposing ( Size(Normal)
+    import Bulma.Modifiers exposing ( Size(Standard)
                                     , Color(Default)
                                     )
 
@@ -397,7 +397,7 @@ heroModifiers = { bold  = False
                 }
 
 -- {-| -}
--- type HeroSize = Normal
+-- type HeroSize = Standard
 --               | Medium
 --               | Large
 --               | FullHeight
@@ -537,11 +537,11 @@ verticalTile width
     myGrid : Html msg
     myGrid
       = tileAncestor Auto []
-        [ tileParent Auto [] 
+        [ tileParent Width8 [] 
           [ tileChild Auto [] []
           , tileChild Auto [] []
           ]
-        [ tileParent Auto [] 
+        , verticalTileParent Width4 [] 
           [ tileChild Auto [] []
           , tileChild Auto [] []
           ]

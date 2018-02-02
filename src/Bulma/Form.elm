@@ -189,18 +189,20 @@ multilineFieldGroup : Attrs msg -> List (Control msg) -> Field msg
 multilineFieldGroup
   = node "div" []
     [ bulma.field.container
+    , "is-grouped"
+      -- TODO: addon tags want both, but should we always have both?
     , "is-grouped-multiline"
       -- KLUDGE: add this to BulmaClasses
     ]
 
 {-| The `horizontalFieldGroup` expects a `fieldLabel` and a `fieldBody`.
 
-    import Bulma.Modifiers exposing (Size(Normal))
+    import Bulma.Modifiers exposing (Size(Standard))
 
     myFieldGroup : Html msg
     myFieldGroup
       = horizontalFieldGroup []
-        [ fieldLabel Normal []
+        [ fieldLabel Standard []
           [ label [] 
             [ text "name"
             ]
@@ -249,7 +251,7 @@ fieldLabel size
     [ bulma.field.label
     , case size of
         Small  -> bulma.label.size.isSmall
-        Normal -> ""
+        Standard -> ""
         Medium -> bulma.label.size.isMedium
         Large  -> bulma.label.size.isLarge
     ]
@@ -376,7 +378,8 @@ type alias ControlInputModifiers msg
 {-| -}
 controlInputModifiers : ControlInputModifiers msg
 controlInputModifiers 
-  = { size      = Normal
+-- TODO: placeholder?
+  = { size      = Standard
     , state     = Blur
     , color     = Default
     , expanded  = False
@@ -425,7 +428,7 @@ controlInput ({size,state,color,expanded,rounded,readonly,disabled,iconLeft,icon
        [ bulma.input.ui
        , case size of
            Small  -> bulma.input.size.isSmall
-           Normal -> ""
+           Standard -> ""
            Medium -> bulma.input.size.isMedium
            Large  -> bulma.input.size.isLarge
        , case state of
@@ -492,7 +495,7 @@ type alias ControlTextAreaModifiers
 {-| -}
 controlTextAreaModifiers : ControlTextAreaModifiers
 controlTextAreaModifiers 
-  = { size      = Normal
+  = { size      = Standard
     , state     = Blur
     , color     = Default
     , readonly  = False
@@ -537,7 +540,7 @@ controlTextArea ({size,state,color,readonly,disabled} as mods) attrs attrs_
        [ bulma.textarea.ui
        , case size of
            Small  -> bulma.textarea.size.isSmall
-           Normal -> ""
+           Standard -> ""
            Medium -> bulma.textarea.size.isMedium
            Large  -> bulma.textarea.size.isLarge
        , case state of
@@ -576,7 +579,7 @@ type alias ControlSelectModifiers msg
 {-| -}
 controlSelectModifiers : ControlSelectModifiers msg
 controlSelectModifiers 
-  = { size      = Normal
+  = { size      = Standard
     , state     = Blur
     , color     = Default
     , expanded  = False
@@ -625,7 +628,7 @@ controlSelect ({size,state,color,expanded,iconLeft} as mods) attrs attrs_
      << node "select" []
        [ case size of
            Small  -> bulma.select.size.isSmall
-           Normal -> ""
+           Standard -> ""
            Medium -> bulma.select.size.isMedium
            Large  -> bulma.select.size.isLarge
        , case state of
