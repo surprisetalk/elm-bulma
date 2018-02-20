@@ -10,15 +10,15 @@ It's really handy have attributes like `textCentered` and `Text.danger` to throw
 @docs capitalize, uppercase, lowercase, italicize
 
 # Size
-@docs Display
+@docs Size
 @docs textSize, textSizeByDevice
 
 # Weight
-@docs TextWeight
+@docs Weight
 @docs textWeight
 
 # Colors
-@docs TextColor
+@docs Color
 @docs textColor
 
 # Alignment
@@ -67,6 +67,7 @@ italicize = class "is-italic"
 
 -- TEXT SIZE -------------------------------------------------------------------
 
+{-| -}
 type Size
   = Largest
   | EvenLarger

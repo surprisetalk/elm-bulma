@@ -5,9 +5,6 @@ module Bulma.Columns exposing (..)
 
 {-| A simple way to build responsive grids.
 
-# Table of Contents
-- [Columns](#columns)
-
 # Columns
 Learn more about columnar grids in the [official docs](http://bulma.io/documentation/grid/columns/).
 

@@ -9,6 +9,7 @@
     "exposed-modules": [
         "Bulma.CDN",
         "Bulma.Modifiers",
+        "Bulma.Modifiers.Typography",
         "Bulma.Form",
         "Bulma.Columns",
         "Bulma.Elements",
