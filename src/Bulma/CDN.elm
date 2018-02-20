@@ -1,12 +1,11 @@
 
-module Bulma.CDN exposing ( stylesheet, fontAwesome )
+module Bulma.CDN exposing (..)
 
 
 -- DOCS ------------------------------------------------------------------------
 
 {-| 
 @docs stylesheet
-@docs fontAwesome
 -}
 
 -- IMPORTS ---------------------------------------------------------------------
@@ -34,32 +33,5 @@ stylesheet =
   node "link"
   [ rel  "stylesheet"
   , href "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"
-  ]
-  []
-
-
--- FONT AWESOME ----------------------------------------------------------------
-
-{-| Include Font Awesome 4.7.0 in your Elm project.
-
-    import Bulma.CDN exposing (fontAwesome)
-    import Bulma.Modifiers exposing (Size(Large))
-    import Bulma.Elements.Icon exposing (icon,meh_o)
-
-    view : Model -> Html msg
-    view model
-      = div []
-        [ fontAwesome
-        , icon Large [] 
-          [ meh_o
-          ]
-        ]
-
--}
-fontAwesome : Html msg
-fontAwesome =
-  node "link"
-  [ rel "stylesheet"
-  , href "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
   ]
   []

@@ -184,8 +184,7 @@ import BulmaClasses exposing (..)
 
 import Bulma.Modifiers exposing ( Color(..), Size(..), HorizontalAlignment(..), VerticalAlignment(..), VerticalDirection(..) )
 
-import Bulma.Elements exposing ( Image, easyDelete, Button, ButtonModifiers, button ) 
-import Bulma.Elements.Icon exposing ( Icon, IconBody ) 
+import Bulma.Elements exposing ( Image, easyDelete, Button, ButtonModifiers, button, Icon, IconBody ) 
 
 import Html exposing ( Html, Attribute, text, div, p, a, ul, li, span, input )
 import Html.Events exposing ( onClick )

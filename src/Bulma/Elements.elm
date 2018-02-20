@@ -34,6 +34,10 @@ module Bulma.Elements exposing (..)
 @docs Delete
 @docs delete, easyDelete
 
+# Icon
+@docs Icon, IconBody
+@docs icon
+
 # Image
 @docs Image, ImageSize, ImageShape 
 @docs image, easyImage, easyPlaceholderImage
@@ -88,8 +92,6 @@ import Helpers exposing (..)
 import BulmaClasses exposing (..)
 
 import Bulma.Modifiers as Modifiers exposing (..)
-
-import Bulma.Elements.Icon as Icon exposing ( Icon, IconBody, icon )
 
 -- import Bulma.Form as Form exposing ( Control )
 
@@ -354,6 +356,46 @@ delete = node "a" [] [ bulma.delete.ui ]
 -}
 easyDelete : List (Attribute msg) -> msg -> Delete msg
 easyDelete attrs msg = delete (onClick msg :: attrs) []
+
+-- ICON ------------------------------------------------------------------------
+
+{-| -}
+type alias Icon msg = Html msg
+
+{-| import Icon.FontAwesome exposing ( fontAwesomeCDN, meh_o )
+    -- see http://package.elm-lang.org/packages/surprisetalk/elm-icon/latest
+
+    import Bulma.Modifiers exposing (Size(Large))
+
+    myIconModifiers : IconModifiers
+    myIconModifiers
+      = FontAwesome
+        { size : Large
+        , 
+        }
+
+    view : Model -> Html msg
+    view model
+      = div []
+        [ fontAwesomeCDN
+        , icon myIconModifiers [] [               meh_o       ]
+        , icon myIconModifiers [] [ i [ class    "meh-o" ] [] ]
+        , icon myIconModifiers [] [ i [ class "fa-meh-o" ] [] ]
+        ]
+-}
+icon : Size -> List (Attribute msg) -> List (IconBody msg) -> Icon msg
+icon size
+  = node "span" []
+    [ bulma.icon.container
+    , case size of
+        Small  -> bulma.icon.size.isSmall
+        Standard -> ""
+        Medium -> bulma.icon.size.isMedium
+        Large  -> bulma.icon.size.isLarge
+    ] 
+
+{-| -}
+type alias IconBody msg = Html msg
 
 
 -- IMAGE -----------------------------------------------------------------------

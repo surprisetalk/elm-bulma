@@ -84,9 +84,7 @@ import BulmaClasses exposing (..)
 
 import Bulma.Modifiers as Modifiers exposing (..)
 
-import Bulma.Elements exposing ( ButtonModifiers, button )
-
-import Bulma.Elements.Icon as Icon exposing ( Icon, IconBody, icon )
+import Bulma.Elements exposing ( ButtonModifiers, button, IconBody, icon )
 
 import Html exposing ( Html, Attribute, text, div, a, img, span )
 import Html.Attributes as Attr exposing ( class, readonly, disabled )
