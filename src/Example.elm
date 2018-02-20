@@ -6,13 +6,12 @@ import Bulma.Modifiers exposing (..)
 import Bulma.Modifiers.Typography exposing (textCentered)
 import Bulma.Form exposing (..)
 import Bulma.Elements exposing (..)
-import Bulma.Elements.Icon as Icon exposing ( icon )
 import Bulma.Components exposing (..)
 import Bulma.Columns as Columns exposing (..)
 import Bulma.Layout exposing (..)
 
-import Html exposing (Html, Attribute, main_, span, a, p, img ,br, text, strong, option, small, input)
-import Html.Attributes exposing (attribute, style, src, placeholder, type_, href)
+import Html exposing ( Html, Attribute, main_, span, a, p, img ,br, text, strong, option, small, input, i )
+import Html.Attributes exposing ( attribute, style, src, placeholder, type_, href, rel, class )
 
 (=>) = (,)
 
@@ -28,11 +27,18 @@ main
     , update = \msg -> \model -> model
     }
 
+fontAwesomeCDN
+  = Html.node "link"
+    [ rel "stylesheet"
+    , href "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    ]
+    []
+
 view : Model -> Html Msg
 view model
   = main_ []
     [ stylesheet
-    , fontAwesome
+    , fontAwesomeCDN
     , exampleNavbar
     , exampleHero
     -- , exampleColumns
@@ -70,9 +76,9 @@ exampleNavbar
         ]
       , navbarEnd [] 
         [ navbarItem False []
-          [ fieldGroup Left []
-            [ controlButton { buttonModifiers | color = Info    } [] [] [ icon Standard [] [ Icon.twitter  ], span [] [ text "Tweet"    ] ]
-            , controlButton { buttonModifiers | color = Primary } [] [] [ icon Standard [] [ Icon.download ], span [] [ text "Download" ] ]
+          [ fields Left []
+            [ controlButton { buttonModifiers | color = Info    } [] [] [ icon Standard [] [ i [ class "fa fa-twitter"  ] [] ], span [] [ text "Tweet"    ] ]
+            , controlButton { buttonModifiers | color = Primary } [] [] [ icon Standard [] [ i [ class "fa fa-download" ] [] ], span [] [ text "Download" ] ]
             ]
           ]
         ]
@@ -90,9 +96,9 @@ exampleHero
       ]
     ]
 
-myColumnModifiers : Width -> Width -> ColumnModifiers
+myColumnModifiers : Width -> Maybe Width -> ColumnModifiers
 myColumnModifiers offset width
-  = let widths : Devices Width
+  = let widths : Devices (Maybe Width)
         widths = columnModifiers.widths
     in { columnModifiers
          | offset
@@ -109,20 +115,20 @@ myColumnModifiers offset width
 demoArticle : String -> List (Html Msg) -> Html Msg
 demoArticle aTitle someHtmls
   = columns columnsModifiers []
-    [ column (myColumnModifiers Auto Width2) []
+    [ column (myColumnModifiers Auto (Just Width2)) []
       [ title H4 [] [ strong [] [ text aTitle ] ]
       ]
-    , column (myColumnModifiers Auto Auto) []
+    , column (myColumnModifiers Auto (Just Auto)) []
       someHtmls
     ]
 
 demoSection : String -> List (Attribute Msg) -> List (Html Msg) -> Html Msg
 demoSection aSubtitle someAttrs someHtmls
   = columns columnsModifiers someAttrs
-    [ column (myColumnModifiers Auto Width3) []
+    [ column (myColumnModifiers Auto (Just Width3)) []
       [ subtitle H4 [] [ text aSubtitle ]
       ]
-    , column (myColumnModifiers Auto Auto) []
+    , column (myColumnModifiers Auto (Just Auto)) []
       someHtmls
     ]
 
@@ -130,7 +136,7 @@ exampleMediaObject : Html Msg
 exampleMediaObject
   = media []
     [ mediaLeft []
-      [ image { imageModifiers | size = Just X64 } []
+      [ image ( OneByOne X64 ) []
         [ img [ src "https://bulma.io/images/placeholders/128x128.png" ] []
         ]
       ]
@@ -148,9 +154,9 @@ exampleMediaObject
         ]
       , horizontalLevel []
         [ levelLeft []
-          [ levelItemLink [] [ icon Small [] [ Icon.reply   ] ]
-          , levelItemLink [] [ icon Small [] [ Icon.retweet ] ]
-          , levelItemLink [] [ icon Small [] [ Icon.heart   ] ]
+          [ levelItemLink [] [ icon Small [] [ i [ class "fa fa-reply"   ] [] ] ]
+          , levelItemLink [] [ icon Small [] [ i [ class "fa fa-retweet" ] [] ] ]
+          , levelItemLink [] [ icon Small [] [ i [ class "fa fa-heart"   ] [] ] ]
           ]
         ]
       ]
@@ -254,14 +260,14 @@ exampleElementsAndComponents
             [ column columnModifiers []
               [ card []
                 [ cardImage []
-                  [ image { imageModifiers | aspectRatio = Just FourByThree } []
+                  [ image FourByThree []
                     [ img [ src "https://bulma.io/images/placeholders/1280x960.png" ] []
                     ]
                   ]
                 , cardContent []
                   [ media []
                     [ mediaLeft []
-                      [ image { imageModifiers | size = Just X48 } []
+                      [ image (OneByOne X48) []
                         [ img [ src "https://bulma.io/images/placeholders/96x96.png" ] []
                         ] 
                       ]
@@ -349,10 +355,10 @@ exampleElementsAndComponents
           ]
         , demoSection "Tabs" []
           [ tabs { tabsModifiers | style = Boxed } [] []
-            [ tab True  [] [ a [] [ icon Standard [] [ Icon.image      ], text "Pictures"  ] ]
-            , tab False [] [ a [] [ icon Standard [] [ Icon.music      ], text "Music"     ] ]
-            , tab False [] [ a [] [ icon Standard [] [ Icon.film       ], text "Videos"    ] ]
-            , tab False [] [ a [] [ icon Standard [] [ Icon.file_pdf_o ], text "Documents" ] ]
+            [ tab True  [] [] [ icon Standard [] [ i [ class "fa fa-image"      ] [] ], text "Pictures"  ]
+            , tab False [] [] [ icon Standard [] [ i [ class "fa fa-music"      ] [] ], text "Music"     ]
+            , tab False [] [] [ icon Standard [] [ i [ class "fa fa-film"       ] [] ], text "Videos"    ]
+            , tab False [] [] [ icon Standard [] [ i [ class "fa fa-file-pdf-o" ] [] ], text "Documents" ]
             ]
           ]
         , demoSection "Media Object" []
@@ -411,13 +417,13 @@ exampleElementsAndComponents
                   , panelTab True  [] [ text "Sources" ]
                   , panelTab True  [] [ text "Forks" ]
                   ]
-                , panelLinkWithIcon True  [] [] [ Icon.book      ] [ text "bulma"                ]
-                , panelLinkWithIcon False [] [] [ Icon.book      ] [ text "marksheet"            ]
-                , panelLinkWithIcon False [] [] [ Icon.book      ] [ text "minireset.css"        ]
-                , panelLinkWithIcon False [] [] [ Icon.book      ] [ text "jgthms.github.io"     ]
-                , panelLinkWithIcon False [] [] [ Icon.code_fork ] [ text "daniellowtw/infBoard" ]
-                , panelLinkWithIcon False [] [] [ Icon.code_fork ] [ text "mojs"                 ]
-                , panelCheckbox     False [] []                    [ text "Remember Me"          ]
+                , panelLinkWithIcon True  [] [] [ i [ class "fa fa-book"      ] [] ] [ text "bulma"                ]
+                , panelLinkWithIcon False [] [] [ i [ class "fa fa-book"      ] [] ] [ text "marksheet"            ]
+                , panelLinkWithIcon False [] [] [ i [ class "fa fa-book"      ] [] ] [ text "minireset.css"        ]
+                , panelLinkWithIcon False [] [] [ i [ class "fa fa-book"      ] [] ] [ text "jgthms.github.io"     ]
+                , panelLinkWithIcon False [] [] [ i [ class "fa fa-code-fork" ] [] ] [ text "daniellowtw/infBoard" ]
+                , panelLinkWithIcon False [] [] [ i [ class "fa fa-code-fork" ] [] ] [ text "mojs"                 ]
+                , panelCheckbox     False [] []                                      [ text "Remember Me"          ]
                 , panelBlock        False []
                   [ button { buttonModifiers | color = Link } [ fullWidth ]
                     [ text "Reset all filters"

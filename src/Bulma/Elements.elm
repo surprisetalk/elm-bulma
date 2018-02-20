@@ -365,22 +365,14 @@ type alias Icon msg = Html msg
 {-| import Icon.FontAwesome exposing ( fontAwesomeCDN, meh_o )
     -- see http://package.elm-lang.org/packages/surprisetalk/elm-icon/latest
 
-    import Bulma.Modifiers exposing (Size(Large))
-
-    myIconModifiers : IconModifiers
-    myIconModifiers
-      = FontAwesome
-        { size : Large
-        , 
-        }
+    import Bulma.Modifiers exposing ( Size(Large) )
 
     view : Model -> Html msg
     view model
       = div []
         [ fontAwesomeCDN
-        , icon myIconModifiers [] [               meh_o       ]
-        , icon myIconModifiers [] [ i [ class    "meh-o" ] [] ]
-        , icon myIconModifiers [] [ i [ class "fa-meh-o" ] [] ]
+        , icon Large [] [                   meh_o       ]
+        , icon Large [] [ i [ class "fas fa-meh-o" ] [] ]
         ]
 -}
 icon : Size -> List (Attribute msg) -> List (IconBody msg) -> Icon msg
