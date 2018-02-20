@@ -41,7 +41,7 @@ view model
 
 exampleHero : Html msg
 exampleHero 
-  = hero { heroModifiers | size = Medium } []
+  = hero { heroModifiers | size = Medium, color = Primary } []
     [ heroBody []
       [ container []
           [ title H1 [] [ text "Hero Title" ]
@@ -52,10 +52,14 @@ exampleHero
 
 exampleColumns : Html msg
 exampleColumns 
-  = columns columnsModifiers []
-    [ column columnModifiers [] [ text "First Column" ]
-    , column columnModifiers [] [ text "Second Column" ]
-    , column columnModifiers [] [ text "Third Column" ]
+  = section NotSpaced []
+    [ container []
+      [ columns columnsModifiers []
+        [ column columnModifiers [] [ text "First Column" ]
+        , column columnModifiers [] [ text "Second Column" ]
+        , column columnModifiers [] [ text "Third Column" ]
+        ]
+      ]
     ]
 ```
 
@@ -68,14 +72,14 @@ exampleColumns
 - [elm-bulma-classes](http://package.elm-lang.org/packages/danielnarey/elm-bulma-classes/latest/BulmaClasses)
 
 ## Next Steps
-- [ ] Fix the hacky `Attrs msg` stuff (sorry!).
+- [X] Fix the hacky `Attrs msg` stuff (sorry!).
+- [X] Upgrade to `0.6.2`.
+- [X] Example/test page with all the Bulma features.
+- [X] Improve documentation.
 - [ ] Rethink position on modifiers: giant global record or more args.
 - [ ] Reconsider stance on "easy" things.
 - [ ] Argument arrangement/consistency review.
-- [-] Upgrade to `0.6.2`.
-- [ ] Example/test page with all the Bulma features.
 - [ ] Remove `elm-bulma-classes` as dependency.
-- [ ] Improve documentation.
 - [ ] Talk to the Bulma peeps about featuring this package!
-- [-] Clean the codebase.
+- [ ] Clean the codebase.
 - [ ] Make the library web-accessible by default, using the [elm-html-a11y](http://package.elm-lang.org/packages/tesk9/elm-html-a11y/latest) package.
