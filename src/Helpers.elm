@@ -24,15 +24,6 @@ import String exposing ( join )
 (>>>) = (>>>)
 
 
--- ALIASES ---------------------------------------------------------------------
-
-type alias Htmls msg = List (Html msg)
-
-type alias Attr msg = Attribute msg
-
-type alias Attrs msg = List (Attribute msg)
-
-
 -- COMBINATORS -----------------------------------------------------------------
 
 y : a -> b -> a
@@ -95,7 +86,7 @@ ls = fl (::) []
 
 -- HTML ------------------------------------------------------------------------
 
-node : String -> Attrs msg -> List String -> Attrs msg -> Htmls msg -> Html msg
+node : String -> List (Attribute msg) -> List String -> List (Attribute msg) -> List (Html msg) -> Html msg
 node tag attrs_ classes attrs
   = Html.node tag
   <| (++) attrs

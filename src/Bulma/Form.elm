@@ -16,7 +16,7 @@ module Bulma.Form exposing (..)
     - [Help](#help)
     - [Button](#button)
     - [File](#file)
-  - [Field Group](#field-group)
+  - [Fields](#fields)
 
 # Field
 @docs Field
@@ -65,10 +65,10 @@ module Bulma.Form exposing (..)
 ### File
 Coming Soon!
 
-## Field Group
-@docs fieldGroup, connectedFieldGroup
-@docs multilineFieldGroup
-@docs horizontalFieldGroup
+## Fields
+@docs fields, connectedFields
+@docs multilineFields
+@docs horizontalFields
 
 ### Horizontal Field Partition
 @docs HorizontalFieldPartition
@@ -88,7 +88,7 @@ import Bulma.Elements exposing ( ButtonModifiers, button )
 
 import Bulma.Elements.Icon as Icon exposing ( Icon, IconBody, icon )
 
-import Html exposing ( Html, text, div, a, img, span )
+import Html exposing ( Html, Attribute, text, div, a, img, span )
 import Html.Attributes as Attr exposing ( class, readonly, disabled )
 
 import List exposing ( filter )
@@ -117,28 +117,26 @@ Usually this will be a single `control`, with optional an `label` and `help`.
         , controlHelp Default [] []
         ]
 -}
-field : Attrs msg -> List (Control msg) -> Field msg
+field : List (Attribute msg) -> List (Control msg) -> Field msg
 field = node "div" [] [ bulma.field.container ]
 
 
 -- FIELD GROUPS --
 
--- TODO: rename to fields?
-
 {-| This is a container for gluing controls together on the same line. 
 This variation will leave spaces between each control.
 
-    myFieldGroup : Html msg
-    myFieldGroup
-      = fieldGroup Right []
+    myFields : Html msg
+    myFields
+      = fields Right []
         [ controlInput myControlInputModifiers [] [] [] 
         , control myControlModifiers []
           [ button myButtonModifiers [] []
           ]
         ]
 -}
-fieldGroup : HorizontalAlignment -> Attrs msg -> List (Control msg) -> Field msg
-fieldGroup alignment
+fields : HorizontalAlignment -> List (Attribute msg) -> List (Control msg) -> Field msg
+fields alignment
   = node "div" []
     [ bulma.field.container
     , case alignment of
@@ -150,17 +148,17 @@ fieldGroup alignment
 {-| This is a container for gluing controls together on the same line. 
 This variation will connect them as "addons".
 
-    myFieldGroup : Html msg
-    myFieldGroup
-      = fieldGroup Centered []
+    myFields : Html msg
+    myFields
+      = fields Centered []
         [ controlInput myControlInputModifiers [] [] [] 
         , control myControlModifiers []
           [ button myButtonModifiers [] []
           ]
         ]
 -}
-connectedFieldGroup : HorizontalAlignment -> Attrs msg -> List (Control msg) -> Field msg
-connectedFieldGroup alignment
+connectedFields : HorizontalAlignment -> List (Attribute msg) -> List (Control msg) -> Field msg
+connectedFields alignment
   = node "div" []
     [ bulma.field.container
     , case alignment of
@@ -178,15 +176,15 @@ connectedFieldGroup alignment
           [ text buttonText ]
         ]
 
-    myFieldGroup : Html msg
-    myFieldGroup
-      = multilineFieldGroup []
+    myFields : Html msg
+    myFields
+      = multilineFields []
      <| List.map myControlButton
      <| List.map toString
      <| List.range 0 10
 -}
-multilineFieldGroup : Attrs msg -> List (Control msg) -> Field msg
-multilineFieldGroup
+multilineFields : List (Attribute msg) -> List (Control msg) -> Field msg
+multilineFields
   = node "div" []
     [ bulma.field.container
     , "is-grouped"
@@ -195,13 +193,13 @@ multilineFieldGroup
       -- KLUDGE: add this to BulmaClasses
     ]
 
-{-| The `horizontalFieldGroup` expects a `fieldLabel` and a `fieldBody`.
+{-| The `horizontalFields` expects a `fieldLabel` and a `fieldBody`.
 
     import Bulma.Modifiers exposing (Size(Standard))
 
-    myFieldGroup : Html msg
-    myFieldGroup
-      = horizontalFieldGroup []
+    myFields : Html msg
+    myFields
+      = horizontalFields []
         [ fieldLabel Standard []
           [ label [] 
             [ text "name"
@@ -217,8 +215,8 @@ multilineFieldGroup
           ]
         ]
 -}
-horizontalFieldGroup : Attrs msg -> List (HorizontalFieldPartition msg) -> Field msg
-horizontalFieldGroup
+horizontalFields : List (Attribute msg) -> List (HorizontalFieldPartition msg) -> Field msg
+horizontalFields
   = node "div" []
     [ bulma.field.container
     , bulma.field.layout.isHorizontal
@@ -245,7 +243,7 @@ type alias HorizontalFieldPartition msg = Html msg
           ]
         ]
 -}
-fieldLabel : Size -> Attrs msg -> List (Control msg) -> HorizontalFieldPartition msg
+fieldLabel : Size -> List (Attribute msg) -> List (Control msg) -> HorizontalFieldPartition msg
 fieldLabel size
   = node "div" []
     [ bulma.field.label
@@ -270,7 +268,7 @@ fieldLabel size
           ]
         ]
 -}
-fieldBody : Attrs msg -> List (Field msg) -> HorizontalFieldPartition msg
+fieldBody : List (Attribute msg) -> List (Field msg) -> HorizontalFieldPartition msg
 fieldBody = node "div" [] [ "field-body" ]
 
 
@@ -280,8 +278,8 @@ fieldBody = node "div" [] [ "field-body" ]
 type alias ControlModifiers msg
   = { loading   : Maybe Size
     , expanded  : Bool
-    , iconLeft  : Maybe (Size, Attrs msg, IconBody msg)
-    , iconRight : Maybe (Size, Attrs msg, IconBody msg)
+    , iconLeft  : Maybe (Size, List (Attribute msg), IconBody msg)
+    , iconRight : Maybe (Size, List (Attribute msg), IconBody msg)
     }
 
 {-| -}
@@ -307,7 +305,7 @@ They can only contain the folling elements:
 You really shouldn't need to use this function.
 `controlLabel`, `controlButton`, `controlInput`, etc. should be everything you need.
 -}
-control : ControlModifiers msg -> Attrs msg -> Htmls msg -> Control msg
+control : ControlModifiers msg -> List (Attribute msg) -> List (Html msg) -> Control msg
 control {loading,expanded,iconLeft,iconRight} attrs htmls
   = node "p" []
     [ bulma.control.container
@@ -349,7 +347,7 @@ control {loading,expanded,iconLeft,iconRight} attrs htmls
     myLabel
       = label [] [ text "hi" ]
 -}
-label : Attrs msg -> Htmls msg -> Html msg
+label : List (Attribute msg) -> List (Html msg) -> Html msg
 label = node "label" [] [ bulma.label.ui ]
 
 {-| Secretly the same thing as a label. This is just for consistency's sake.
@@ -358,7 +356,7 @@ label = node "label" [] [ bulma.label.ui ]
     myLabel
       = controlLabel [] [ text "hello" ]
 -}
-controlLabel : Attrs msg -> Htmls msg -> Control msg
+controlLabel : List (Attribute msg) -> List (Html msg) -> Control msg
 controlLabel 
   = label
 
@@ -371,8 +369,8 @@ type alias ControlInputModifiers msg
     , rounded   : Bool
     , readonly  : Bool
     , disabled  : Bool
-    , iconLeft  : Maybe (Size, Attrs msg, IconBody msg)
-    , iconRight : Maybe (Size, Attrs msg, IconBody msg)
+    , iconLeft  : Maybe (Size, List (Attribute msg), IconBody msg)
+    , iconRight : Maybe (Size, List (Attribute msg), IconBody msg)
     }
 
 {-| -}
@@ -407,7 +405,7 @@ controlInputModifiers
             myInputAttrs
             []
 -}
-controlInput : ControlInputModifiers msg -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
+controlInput : ControlInputModifiers msg -> List (Attribute msg) -> List (Attribute msg) -> List (Html msg) -> Control msg
 controlInput ({size,state,color,expanded,rounded,readonly,disabled,iconLeft,iconRight} as mods) attrs attrs_
   = let controlMods : ControlModifiers msg
         controlMods
@@ -457,28 +455,28 @@ controlInput ({size,state,color,expanded,rounded,readonly,disabled,iconLeft,icon
 
 {-| Just like `controlInput`, but with the `type="text"` attribute added to the input.
 -}
-controlText : ControlInputModifiers msg -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
+controlText : ControlInputModifiers msg -> List (Attribute msg) -> List (Attribute msg) -> List (Html msg) -> Control msg
 controlText mods attrs attrs_
   = controlInput mods attrs
     <| Attr.type_ "text" :: attrs_
 
 {-| Just like `controlInput`, but with the `type="password"` attribute added to the input.
 -}
-controlPassword : ControlInputModifiers msg -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
+controlPassword : ControlInputModifiers msg -> List (Attribute msg) -> List (Attribute msg) -> List (Html msg) -> Control msg
 controlPassword mods attrs attrs_
   = controlInput mods attrs
     <| Attr.type_ "password" :: attrs_
 
 {-| Just like `controlInput`, but with the `type="email"` attribute added to the input.
 -}
-controlEmail : ControlInputModifiers msg -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
+controlEmail : ControlInputModifiers msg -> List (Attribute msg) -> List (Attribute msg) -> List (Html msg) -> Control msg
 controlEmail mods attrs attrs_
   = controlInput mods attrs
     <| Attr.type_ "email" :: attrs_
 
 {-| Just like `controlInput`, but with the `type="tel"` attribute added to the input.
 -}
-controlPhone : ControlInputModifiers msg -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
+controlPhone : ControlInputModifiers msg -> List (Attribute msg) -> List (Attribute msg) -> List (Html msg) -> Control msg
 controlPhone mods attrs attrs_
   = controlInput mods attrs
     <| Attr.type_ "tel" :: attrs_
@@ -519,7 +517,7 @@ controlTextAreaModifiers
             myTextAreaAttrs
             []
 -}
-controlTextArea : ControlTextAreaModifiers -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
+controlTextArea : ControlTextAreaModifiers -> List (Attribute msg) -> List (Attribute msg) -> List (Html msg) -> Control msg
 controlTextArea ({size,state,color,readonly,disabled} as mods) attrs attrs_
   = let controlMods : ControlModifiers msg
         controlMods
@@ -573,7 +571,7 @@ type alias ControlSelectModifiers msg
     , state     : State
     , color     : Color
     , expanded  : Bool
-    , iconLeft  : Maybe (Size, Attrs msg, IconBody msg)
+    , iconLeft  : Maybe (Size, List (Attribute msg), IconBody msg)
     }
 
 {-| -}
@@ -610,7 +608,7 @@ controlSelectModifiers
             , ( "shrink", "drink me" )
             ]
 -}
-controlSelect : ControlSelectModifiers msg -> Attrs msg -> Attrs msg -> List (Option msg) -> Control msg
+controlSelect : ControlSelectModifiers msg -> List (Attribute msg) -> List (Attribute msg) -> List (Option msg) -> Control msg
 controlSelect ({size,state,color,expanded,iconLeft} as mods) attrs attrs_
   = let controlMods : ControlModifiers msg
         controlMods
@@ -658,14 +656,14 @@ controlSelect ({size,state,color,expanded,iconLeft} as mods) attrs attrs_
 
 {-| A rounded variation of `controlSelect`.
 -}
-controlSelectRounded : ControlSelectModifiers msg -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
+controlSelectRounded : ControlSelectModifiers msg -> List (Attribute msg) -> List (Attribute msg) -> List (Html msg) -> Control msg
 controlSelectRounded mods attrs attrs_
   = controlSelect mods attrs
     <| class "is-rounded" :: attrs_
 
 {-| Accepts options just like `controlSelect`, except it allows you to select multiple list items.
 -}
-controlMultiselect : ControlSelectModifiers msg -> Attrs msg -> Attrs msg -> List (Option msg) -> Control msg
+controlMultiselect : ControlSelectModifiers msg -> List (Attribute msg) -> List (Attribute msg) -> List (Option msg) -> Control msg
 controlMultiselect mods attrs attrs_
   = controlSelect mods attrs
     <| class "is-multiple" :: attrs_
@@ -695,7 +693,7 @@ type alias IsDisabled
             [ text "I don't agree to the terms and conditions"
             ]
 -}
-controlCheckBox : IsDisabled -> Attrs msg -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
+controlCheckBox : IsDisabled -> List (Attribute msg) -> List (Attribute msg) -> List (Attribute msg) -> List (Html msg) -> Control msg
 controlCheckBox disabled attrs attrs_ attrs__ htmls
   = control controlModifiers attrs
   <| ls
@@ -737,12 +735,12 @@ type alias RadioButton msg = Html msg
               [ text "uhh" ]
             ]
 -}
-controlRadio : Attrs msg -> List (RadioButton msg) -> Control msg
+controlRadio : List (Attribute msg) -> List (RadioButton msg) -> Control msg
 controlRadio
   = control controlModifiers
 
 {-| -}
-controlRadioButton : IsDisabled -> IsChecked -> String -> Attrs msg -> Attrs msg -> Htmls msg -> RadioButton msg
+controlRadioButton : IsDisabled -> IsChecked -> String -> List (Attribute msg) -> List (Attribute msg) -> List (Html msg) -> RadioButton msg
 controlRadioButton disabled checked name attrs attrs_ htmls
   = let inputAttrs : List (Html.Attribute msg)
         inputAttrs
@@ -761,7 +759,7 @@ controlRadioButton disabled checked name attrs attrs_ htmls
 
 -- TODO: {-| TODO
 -- TODO: -}
--- TODO: easyControlRadio : String -> ControlModifiers -> Attrs msg -> List (String, String -> msg, Htmls msg) -> Control msg
+-- TODO: easyControlRadio : String -> ControlModifiers -> List (Attribute msg) -> List (String, String -> msg, List (Html msg)) -> Control msg
 -- TODO: easyControlRadio name mods attrs controls
 
 {-|
@@ -780,7 +778,7 @@ controlRadioButton disabled checked name attrs attrs_ htmls
             [ text "Click me!"
             ]
 -}
-controlButton : ButtonModifiers msg -> Attrs msg -> Attrs msg -> Htmls msg -> Control msg
+controlButton : ButtonModifiers msg -> List (Attribute msg) -> List (Attribute msg) -> List (Html msg) -> Control msg
 controlButton mods attrs attrs_
   = control controlModifiers attrs
   << ls
@@ -795,7 +793,7 @@ controlButton mods attrs attrs_
         [ text "This field is required."
         ]
 -}
-help : Color -> Attrs msg -> Htmls msg -> Html msg
+help : Color -> List (Attribute msg) -> List (Html msg) -> Html msg
 help color
   = node "p" []
     [ bulma.help.ui
@@ -815,7 +813,7 @@ help color
 
 {-| Secretly just `help`. Created this just for consistency.
 -}
-controlHelp : Color -> Attrs msg -> Htmls msg -> Control msg
+controlHelp : Color -> List (Attribute msg) -> List (Html msg) -> Control msg
 controlHelp = help
 
 

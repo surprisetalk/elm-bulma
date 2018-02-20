@@ -3,7 +3,8 @@ module Bulma.Modifiers.Typography exposing (..)
 
 -- DOCS ------------------------------------------------------------------------
 
-{-| TODO
+{-| This module includes all the modifiers that apply exclusively to text!
+It's really handy have attributes like `textCentered` and `Text.danger` to throw at all your Html elements.
 
 # Transformations
 @docs capitalize, uppercase, lowercase, italicize

@@ -187,7 +187,7 @@ import Bulma.Modifiers exposing ( Color(..), Size(..), HorizontalAlignment(..), 
 import Bulma.Elements exposing ( Image, easyDelete, Button, ButtonModifiers, button ) 
 import Bulma.Elements.Icon exposing ( Icon, IconBody ) 
 
-import Html exposing ( Html, text, div, p, a, ul, li, span, input )
+import Html exposing ( Html, Attribute, text, div, p, a, ul, li, span, input )
 import Html.Events exposing ( onClick )
 import Html.Attributes exposing ( attribute, class, type_ )
 
@@ -236,7 +236,7 @@ The first list of attributes is for a `nav.breadcrumb` tag. The second is for an
         , crumblet True  [] [                ]
         ]
 -}
-breadcrumb : BreadcrumbModifiers -> Attrs msg -> Attrs msg -> List (Crumblet msg) -> Breadcrumb msg
+breadcrumb : BreadcrumbModifiers -> List (Attribute msg) -> List (Attribute msg) -> List (Crumblet msg) -> Breadcrumb msg
 breadcrumb {separator,alignment,size} attrs attrs_
   = node "nav" [ attribute "aria-label" "breadcrumb" ]
     [ "breadcrumb"
@@ -266,7 +266,7 @@ type alias Crumblet msg = Html msg
 {-| A convenience element for `breadcrumb`.
 The first attribute list applies to the outer `li` tag. The second attribute list applies to the inner `a` tag.
 -}
-crumblet : IsActive -> Attrs msg -> Attrs msg -> Htmls msg -> Crumblet msg
+crumblet : IsActive -> List (Attribute msg) -> List (Attribute msg) -> List (Html msg) -> Crumblet msg
 crumblet isActive attrs attrs_
   = li ( if isActive then class "is-active" :: attrs else attrs )
     << ls
@@ -288,7 +288,7 @@ type alias Card msg = Html msg
         , cardContent [] []
         ]
 -}
-card : Attrs msg -> List (CardPartition msg) -> Card msg
+card : List (Attribute msg) -> List (CardPartition msg) -> Card msg
 card = node "div" [] [ bulma.card.container ]
 
 
@@ -312,7 +312,7 @@ type alias CardPartition msg = Html msg
           ]
         ]
 -}
-cardHeader : Attrs msg -> Htmls msg -> CardPartition msg
+cardHeader : List (Attribute msg) -> List (Html msg) -> CardPartition msg
 cardHeader = node "header" [] [ bulma.card.header.container ]
 
 {-|
@@ -329,7 +329,7 @@ cardHeader = node "header" [] [ bulma.card.header.container ]
         , onClickIcon = ShowCard
         }
 -}
-easyCardHeader : Attrs msg -> { title : Htmls msg, icon : Htmls msg, onClickIcon : msg } -> CardPartition msg
+easyCardHeader : List (Attribute msg) -> { title : List (Html msg), icon : List (Html msg), onClickIcon : msg } -> CardPartition msg
 easyCardHeader attrs {title,icon,onClickIcon}
   = cardHeader attrs
     [ cardTitle    [                     ] title
@@ -337,7 +337,7 @@ easyCardHeader attrs {title,icon,onClickIcon}
     ]
   
 {-| -}
-easierCardHeader : Attrs msg -> { title : String, icon : Icon msg, onClickIcon : msg } -> CardPartition msg
+easierCardHeader : List (Attribute msg) -> { title : String, icon : Icon msg, onClickIcon : msg } -> CardPartition msg
 easierCardHeader attrs {title,icon,onClickIcon}
   = cardHeader attrs
     [ easyCardTitle    []             title
@@ -348,23 +348,23 @@ easierCardHeader attrs {title,icon,onClickIcon}
 type alias CardHeaderItem msg = Html msg
 
 {-| -}
-cardTitle : Attrs msg -> Htmls msg -> CardHeaderItem msg
+cardTitle : List (Attribute msg) -> List (Html msg) -> CardHeaderItem msg
 cardTitle = node "p" [] [ bulma.card.header.title ]
 
 {-| -}
-easyCardTitle : Attrs msg -> String -> CardHeaderItem msg
+easyCardTitle : List (Attribute msg) -> String -> CardHeaderItem msg
 easyCardTitle attrs = text >> ls >> cardTitle attrs
 
 {-| -}
-cardIcon : Attrs msg -> List (Icon msg) -> CardHeaderItem msg
+cardIcon : List (Attribute msg) -> List (Icon msg) -> CardHeaderItem msg
 cardIcon = node "p" [] [ bulma.card.header.icon ]
 
 {-| -}
-cardIconLink : Attrs msg -> List (Icon msg) -> CardHeaderItem msg
+cardIconLink : List (Attribute msg) -> List (Icon msg) -> CardHeaderItem msg
 cardIconLink = node "a" [] [ bulma.card.header.icon ]
 
 {-| -}
-easyCardIconLink : Attrs msg -> msg -> Icon msg -> CardHeaderItem msg
+easyCardIconLink : List (Attribute msg) -> msg -> Icon msg -> CardHeaderItem msg
 easyCardIconLink attrs msg
   = cardIcon (onClick msg :: attrs) << ls
 
@@ -381,11 +381,11 @@ easyCardIconLink attrs msg
     myCardImage
       = cardImage [] [ myImage ]
 -}
-cardImage : Attrs msg -> List (Image msg) -> CardPartition msg
+cardImage : List (Attribute msg) -> List (Image msg) -> CardPartition msg
 cardImage = node "div" [] [ bulma.card.image ]
 
 {-| -}
-cardContent : Attrs msg -> Htmls msg -> CardPartition msg
+cardContent : List (Attribute msg) -> List (Html msg) -> CardPartition msg
 cardContent = node "div" [] [ bulma.card.content ]
 
 {-| 
@@ -397,18 +397,18 @@ cardContent = node "div" [] [ bulma.card.content ]
         , cardFooterItemLink [] [ text "Delete" ]
         ]
 -}
-cardFooter : Attrs msg -> List (CardFooterItem msg) -> CardPartition msg
+cardFooter : List (Attribute msg) -> List (CardFooterItem msg) -> CardPartition msg
 cardFooter = node "footer" [] [ bulma.card.footer.container ]
 
 {-| -}
 type alias CardFooterItem msg = Html msg
 
 {-| -}
-cardFooterItem : Attrs msg -> Htmls msg -> CardFooterItem msg
+cardFooterItem : List (Attribute msg) -> List (Html msg) -> CardFooterItem msg
 cardFooterItem = node "p" [] [ bulma.card.footer.item ]
 
 {-| -}
-cardFooterItemLink : Attrs msg -> Htmls msg -> CardFooterItem msg
+cardFooterItemLink : List (Attribute msg) -> List (Html msg) -> CardFooterItem msg
 cardFooterItemLink = node "a" [] [ bulma.card.footer.item ]
 
 
@@ -468,7 +468,7 @@ dropdownModifiers
         , myDropdownMenu
         ]
 -}
-dropdown : IsActive -> DropdownModifiers -> Attrs msg -> List (DropdownContent msg) -> Dropdown msg
+dropdown : IsActive -> DropdownModifiers -> List (Attribute msg) -> List (DropdownContent msg) -> Dropdown msg
 dropdown isActive {horizontalAlignment,verticalDirection}
   = node "div" []
     [ "dropdown"
@@ -485,7 +485,7 @@ dropdown isActive {horizontalAlignment,verticalDirection}
 
 {-| A hoverable variant of `dropdown`.
 -}
-hoverableDropdown : DropdownModifiers -> Attrs msg -> List (DropdownContent msg) -> Dropdown msg
+hoverableDropdown : DropdownModifiers -> List (Attribute msg) -> List (DropdownContent msg) -> Dropdown msg
 hoverableDropdown {horizontalAlignment,verticalDirection}
   = node "div" []
     [ "dropdown"
@@ -500,12 +500,12 @@ hoverableDropdown {horizontalAlignment,verticalDirection}
 
 {-| The container for the button/link that activates the dropdown menu.
 -}
-dropdownTrigger : Attrs msg -> List (Button msg) -> DropdownContent msg
+dropdownTrigger : List (Attribute msg) -> List (Button msg) -> DropdownContent msg
 dropdownTrigger = node "div" [] [ "dropdown-trigger" ]
 
 -- {-| TODO 
 -- -}
--- dropdownTriggerButton : ButtonModifiers msg -> Attrs msg -> List (Html msg) -> Button msg
+-- dropdownTriggerButton : ButtonModifiers msg -> List (Attribute msg) -> List (Html msg) -> Button msg
 -- dropdownTriggerButton mods 
 --   = button mods
 --     << (++)
@@ -516,7 +516,7 @@ dropdownTrigger = node "div" [] [ "dropdown-trigger" ]
 {-| The container for the dropdown's items.
 The first attributes list is for the outer `div.dropdown-menu`. The inner list is for the `dropdown-content`.
 -}
-dropdownMenu : Attrs msg -> Attrs msg -> List (DropdownItem msg) -> DropdownContent msg
+dropdownMenu : List (Attribute msg) -> List (Attribute msg) -> List (DropdownItem msg) -> DropdownContent msg
 dropdownMenu attrs attrs_ items
   = div ( attrs
        ++ [ class "dropdown-menu"
@@ -529,17 +529,17 @@ dropdownMenu attrs attrs_ items
 
 {-| A synonym for `a.dropdown-item.is-active`.
 -}
-dropdownItemLink : IsActive -> Attrs msg -> List (Html msg) -> DropdownItem msg
+dropdownItemLink : IsActive -> List (Attribute msg) -> List (Html msg) -> DropdownItem msg
 dropdownItemLink isActive = node "a" [] [ "dropdown-item", if isActive then "is-active" else "" ]
 
 {-| A synonym for `div.dropdown-item.is-active`.
 -}
-dropdownItem : IsActive -> Attrs msg -> List (Html msg) -> DropdownItem msg
+dropdownItem : IsActive -> List (Attribute msg) -> List (Html msg) -> DropdownItem msg
 dropdownItem isActive = node "div" [] [ "dropdown-item", if isActive then "is-active" else "" ]
 
 {-| An empty `hr.dropdown-divider` element.
 -}
-dropdownDivider : Attrs msg -> List (Html msg) -> DropdownItem msg
+dropdownDivider : List (Attribute msg) -> List (Html msg) -> DropdownItem msg
 dropdownDivider = node "hr" [] [ "dropdown-divider" ]
 
 
@@ -572,7 +572,7 @@ type alias Menu msg = Html msg
           ]
         ]
 -}
-menu : Attrs msg -> List (MenuPart msg) -> Menu msg
+menu : List (Attribute msg) -> List (MenuPart msg) -> Menu msg
 menu = node "aside" [] [ bulma.menu.container ]
 
 
@@ -582,11 +582,11 @@ menu = node "aside" [] [ bulma.menu.container ]
 type alias MenuPart msg = Html msg
 
 {-| -}
-menuLabel : Attrs msg -> Htmls msg -> MenuPart msg
+menuLabel : List (Attribute msg) -> List (Html msg) -> MenuPart msg
 menuLabel = node "p" [] [ bulma.menu.label ]
 
 {-| -}
-menuList : Attrs msg -> List (MenuListItem msg) -> MenuPart msg
+menuList : List (Attribute msg) -> List (MenuListItem msg) -> MenuPart msg
 menuList = node "ul" [] [ bulma.menu.list ]
 
 
@@ -596,16 +596,16 @@ menuList = node "ul" [] [ bulma.menu.list ]
 type alias MenuListItem msg = Html msg
 
 {-| -}
-menuListItem : Attrs msg -> Htmls msg -> MenuListItem msg
+menuListItem : List (Attribute msg) -> List (Html msg) -> MenuListItem msg
 menuListItem = li
 
 {-| -}
-menuListItemLink : IsActive -> Attrs msg -> Htmls msg -> MenuListItem msg
+menuListItemLink : IsActive -> List (Attribute msg) -> List (Html msg) -> MenuListItem msg
 menuListItemLink active = a << (::) (class (if active then "is-active" else ""))
 -- KLUDGE
 
 {-| -}
-easyMenuListItemLink : IsActive -> Attrs msg -> msg -> Icon msg -> String -> MenuListItem msg
+easyMenuListItemLink : IsActive -> List (Attribute msg) -> msg -> Icon msg -> String -> MenuListItem msg
 easyMenuListItemLink active attrs msg icon str
   = menuListItemLink active (onClick msg :: attrs)
     [ icon
@@ -643,7 +643,7 @@ messageModifiers
           ]
         ]
 -}
-message : MessageModifiers -> Attrs msg -> List (MessagePartition msg) -> Message msg
+message : MessageModifiers -> List (Attribute msg) -> List (MessagePartition msg) -> Message msg
 message {color,size}
   = node "article" []
     [ bulma.message.container
@@ -674,17 +674,17 @@ message {color,size}
 type alias MessagePartition msg = Html msg
 
 {-| -}
-messageHeader : Attrs msg -> Htmls msg -> MessagePartition msg
+messageHeader : List (Attribute msg) -> List (Html msg) -> MessagePartition msg
 messageHeader = node "div" [] [ bulma.message.header ]
 
 {-| -}
-messageHeaderWithDelete : Attrs msg -> msg -> Htmls msg -> MessagePartition msg
+messageHeaderWithDelete : List (Attribute msg) -> msg -> List (Html msg) -> MessagePartition msg
 messageHeaderWithDelete attrs msg
   = node "div" [] [ bulma.message.header ] attrs
   << flip (++) [ easyDelete [] msg ]
 
 {-| -}
-messageBody : Attrs msg -> Htmls msg -> MessagePartition msg
+messageBody : List (Attribute msg) -> List (Html msg) -> MessagePartition msg
 messageBody = node "div" [] [ bulma.message.body ]
 
 
@@ -707,7 +707,7 @@ type alias IsModalOpen = Bool
         , modalClose Large [] []
         ]
 -}
-modal : IsModalOpen -> Attrs msg -> List (ModalPartition msg) -> Modal msg
+modal : IsModalOpen -> List (Attribute msg) -> List (ModalPartition msg) -> Modal msg
 modal active
   = node "div" []
     [ bulma.modal.container
@@ -725,7 +725,7 @@ modal active
         [ text "Your content goes here."
         ]
 -}
-easyModal : IsModalOpen -> Attrs msg -> msg -> Htmls msg -> Modal msg
+easyModal : IsModalOpen -> List (Attribute msg) -> msg -> List (Html msg) -> Modal msg
 easyModal active attrs close content
   = modal active attrs
     [ easyModalBackground   [] close
@@ -740,20 +740,20 @@ easyModal active attrs close content
 type alias ModalPartition msg = Html msg
 
 {-| -}
-modalBackground : Attrs msg -> Htmls msg -> ModalPartition msg
+modalBackground : List (Attribute msg) -> List (Html msg) -> ModalPartition msg
 modalBackground = node "div" [] [ bulma.modal.background ]
 
 {-| -}
-easyModalBackground : Attrs msg -> msg -> ModalPartition msg
+easyModalBackground : List (Attribute msg) -> msg -> ModalPartition msg
 easyModalBackground attrs onClickBackground
   = modalBackground (onClick onClickBackground :: attrs) []
 
 {-| -}
-modalContent : Attrs msg -> Htmls msg -> ModalPartition msg
+modalContent : List (Attribute msg) -> List (Html msg) -> ModalPartition msg
 modalContent = node "div" [] [ bulma.modal.content ]
 
 {-| -}
-modalClose : Size -> Attrs msg -> Htmls msg -> ModalPartition msg
+modalClose : Size -> List (Attribute msg) -> List (Html msg) -> ModalPartition msg
 modalClose size
   = node "button" []
     [ bulma.modal.close.ui
@@ -765,12 +765,12 @@ modalClose size
     ]
 
 {-| -}
-easyModalClose : Size -> Attrs msg -> msg -> ModalPartition msg
+easyModalClose : Size -> List (Attribute msg) -> msg -> ModalPartition msg
 easyModalClose size attrs onClickModal
   = modalClose size (onClick onClickModal :: attrs) []
 
 {-| -}
-modalCard : Attrs msg -> List (ModalCardPartition msg) -> ModalPartition msg
+modalCard : List (Attribute msg) -> List (ModalCardPartition msg) -> ModalPartition msg
 modalCard = node "div" [] [ bulma.modal.card.container ]
 
 
@@ -780,19 +780,19 @@ modalCard = node "div" [] [ bulma.modal.card.container ]
 type alias ModalCardPartition msg = Html msg
 
 {-| -}
-modalCardHead : Attrs msg -> Htmls msg -> ModalCardPartition msg
+modalCardHead : List (Attribute msg) -> List (Html msg) -> ModalCardPartition msg
 modalCardHead = node "div" [] [ bulma.modal.card.head ]
 
 {-| -}
-modalCardTitle : Attrs msg -> Htmls msg -> Html msg
+modalCardTitle : List (Attribute msg) -> List (Html msg) -> Html msg
 modalCardTitle = node "div" [] [ bulma.modal.card.title ]
 
 {-| -}
-modalCardBody : Attrs msg -> Htmls msg -> ModalCardPartition msg
+modalCardBody : List (Attribute msg) -> List (Html msg) -> ModalCardPartition msg
 modalCardBody = node "div" [] [ bulma.modal.card.body ]
 
 {-| -}
-modalCardFoot : Attrs msg -> Htmls msg -> ModalCardPartition msg
+modalCardFoot : List (Attribute msg) -> List (Html msg) -> ModalCardPartition msg
 modalCardFoot = node "div" [] [ bulma.modal.card.foot ]
 
 
@@ -875,7 +875,7 @@ navbarModifiers
           ]
         ]
 -}
-navbar : NavbarModifiers -> Attrs msg -> List (NavbarSection msg) -> Navbar msg
+navbar : NavbarModifiers -> List (Attribute msg) -> List (NavbarSection msg) -> Navbar msg
 navbar {color,transparent}
   = node "nav" []
     [ "navbar"
@@ -899,7 +899,7 @@ navbar {color,transparent}
 {-| A sticky variant of `navbar`.
 Remember to change your root `<html>` tag to `<html class="has-navbar-fixed-top">` or `<html class="has-navbar-fixed-bottom">`.
 -}
-fixedNavbar : VerticalAlignment -> NavbarModifiers -> Attrs msg -> List (NavbarSection msg) -> Navbar msg
+fixedNavbar : VerticalAlignment -> NavbarModifiers -> List (Attribute msg) -> List (NavbarSection msg) -> Navbar msg
 fixedNavbar dir mods
   = navbar mods
     << (::)
@@ -910,7 +910,7 @@ fixedNavbar dir mods
 
 -- {-| TODO 
 -- -}
--- fixedNavbarContainer : VerticalAlignment -> Attrs msg -> List (Html msg) -> Navbar msg
+-- fixedNavbarContainer : VerticalAlignment -> List (Attribute msg) -> List (Html msg) -> Navbar msg
 -- fixedNavbarContainer dir attrs
 --   = div
 --     <| (::)
@@ -926,7 +926,7 @@ fixedNavbar dir mods
 This element stays to the left side of the `navbar`.
 This section is always visible, so try not to place too many links in here -- they'll overflow past the right side of the screen on mobile devices.
 -}
-navbarBrand : Attrs msg -> NavbarBurger msg -> List (NavbarItem msg) -> NavbarSection msg
+navbarBrand : List (Attribute msg) -> NavbarBurger msg -> List (NavbarItem msg) -> NavbarSection msg
 navbarBrand attrs burger items
   = div ( class "navbar-brand" :: attrs )
     <| items ++ [ burger ]
@@ -944,45 +944,45 @@ When its first argument is `True`, it transforms into a `navbarCross`.
         ]
 
 -}
-navbarBurger : IsActive -> Attrs msg -> List (Html msg) -> NavbarBurger msg
+navbarBurger : IsActive -> List (Attribute msg) -> List (Html msg) -> NavbarBurger msg
 navbarBurger isActive = node "a" [] [ "navbar-burger", if isActive then "is-active" else ""  ]
 
 {-| A simple "X" character; the active version of `navbarBurger`.
 -}
-navbarCross : Attrs msg -> NavbarBurger msg
+navbarCross : List (Attribute msg) -> NavbarBurger msg
 navbarCross attrs = navbarBurger True attrs []
 
 {-| This is a child of `navbar`, and a sibling to `navbarBrand`.
 On small screens, passing `True` to `navbarMenu` will show the mobile-device menu.
 Its third argument should be `[ navbarStart [] [], navbarEnd [] [] ]`.
 -}
-navbarMenu : IsActive -> Attrs msg -> List (NavbarSide msg) -> NavbarSection msg
+navbarMenu : IsActive -> List (Attribute msg) -> List (NavbarSide msg) -> NavbarSection msg
 navbarMenu isActive attrs
   = node "div" [] [ "navbar-menu", if isActive then "is-active" else "" ] attrs
 
 {-| This element is a child of `navbarMenu`.
 On normal screens, this section will appear on the left of the `navbar`.
 -}
-navbarStart : Attrs msg -> List (NavbarItem msg) -> NavbarSide msg
+navbarStart : List (Attribute msg) -> List (NavbarItem msg) -> NavbarSide msg
 navbarStart = node "div" [] [ "navbar-start" ]
 
 {-| This element is a child of `navbarMenu`.
 On normal screens, this section will appear on the left of the `navbar`.
 -}
-navbarEnd : Attrs msg -> List (NavbarItem msg) -> NavbarSide msg
+navbarEnd : List (Attribute msg) -> List (NavbarItem msg) -> NavbarSide msg
 navbarEnd = node "div" [] [ "navbar-end" ]
 
 {-| This is a synonym for `div.navbar-item`.
 You can use this element in `navbarStart`, `navbarEnd`, `navbarBrand`, and `navbarDropdown`.
 -}
-navbarItem : IsActive -> Attrs msg -> List (Html msg) -> NavbarItem msg
+navbarItem : IsActive -> List (Attribute msg) -> List (Html msg) -> NavbarItem msg
 navbarItem isActive = node "div" [] [ "navbar-item", if isActive then "is-active" else "" ]
 
 {-| This is a synonym for `a.navbar-item`.
 You can use this element in `navbarStart`, `navbarEnd`, `navbarBrand`, and `navbarDropdown`.
 When the first argument is `True`, the link will be highlighted.
 -}
-navbarItemLink : IsActive -> Attrs msg -> List (Html msg) -> NavbarItem msg
+navbarItemLink : IsActive -> List (Attribute msg) -> List (Html msg) -> NavbarItem msg
 navbarItemLink isActive = node "a" [] [ "navbar-item", if isActive then "is-active" else "" ]
 
 {-| This is a dropdown item that expects `navbarLink` and `navbarDropdown` tags.
@@ -990,7 +990,7 @@ When the first argument is `True` the menu contents will be visible.
 The second argument determines which way its child dropdown opens vertically.
 You can use this element in `navbarStart`, `navbarEnd`, `navbarBrand`, and `navbarDropdown`.
 -}
-navbarItemDropdown : IsActive -> VerticalDirection -> Attrs msg -> NavbarLink msg -> List (NavbarDropdown msg) -> NavbarItem msg
+navbarItemDropdown : IsActive -> VerticalDirection -> List (Attribute msg) -> NavbarLink msg -> List (NavbarDropdown msg) -> NavbarItem msg
 navbarItemDropdown isActive dir attrs link dropdowns
   = node "div" []
     [ "navbar-item"
@@ -1007,7 +1007,7 @@ navbarItemDropdown isActive dir attrs link dropdowns
 
 {-| A hoverable variant of `navbarItemDropdown`.
 -}
-hoverableNavbarItemDropdown : VerticalDirection -> Attrs msg -> NavbarLink msg -> List (NavbarDropdown msg) -> NavbarItem msg
+hoverableNavbarItemDropdown : VerticalDirection -> List (Attribute msg) -> NavbarLink msg -> List (NavbarDropdown msg) -> NavbarItem msg
 hoverableNavbarItemDropdown dir attrs link dropdowns
   = node "div" []
     [ "navbar-item"
@@ -1022,7 +1022,7 @@ hoverableNavbarItemDropdown dir attrs link dropdowns
 
 {-| This element represents `a.navbar-link`. It is only useful as a child of `navbarDropdown`.
 -}
-navbarLink : Attrs msg -> List (Html msg) -> NavbarLink msg
+navbarLink : List (Attribute msg) -> List (Html msg) -> NavbarLink msg
 navbarLink = node "a" [] [ "navbar-link" ]
 
 {-| -}
@@ -1033,7 +1033,7 @@ It is intended to be a child of `navbarItemDropdown`.
 When its first argument is `True`, it will add a border on the top of the menu. This is most useful when you're using a transparent menu.
 Its second argument determines which side of the button the menu aligns with.
 -}
-navbarDropdown : IsBoxed -> HorizontalAlignment -> Attrs msg -> List (NavbarItem msg) -> NavbarDropdown msg
+navbarDropdown : IsBoxed -> HorizontalAlignment -> List (Attribute msg) -> List (NavbarItem msg) -> NavbarDropdown msg
 navbarDropdown isBoxed alignment
   = node "div" []
     [ "navbar-dropdown"
@@ -1047,7 +1047,7 @@ navbarDropdown isBoxed alignment
 
 {-| A tiny 'lil `hr.navbar-divider`.
 -}
-navbarDivider : Attrs msg -> List (Html msg) -> NavbarItem msg
+navbarDivider : List (Attribute msg) -> List (Html msg) -> NavbarItem msg
 navbarDivider = node "hr" [] [ "navbar-divider" ]
    
 -- MODIFIERS --
@@ -1077,7 +1077,7 @@ type alias Pagination msg = Html msg
           , paginationLink False [] [ text "83" ]
           ]
 -}
-pagination : HorizontalAlignment -> Attrs msg -> List (PaginationPartition msg) -> Pagination msg
+pagination : HorizontalAlignment -> List (Attribute msg) -> List (PaginationPartition msg) -> Pagination msg
 pagination alignment
   = node "div" []
     [ bulma.pagination.container
@@ -1089,7 +1089,7 @@ pagination alignment
 
 {-| A rounded variant of `pagination`.
 -}
-roundedPagination : HorizontalAlignment -> Attrs msg -> List (PaginationPartition msg) -> Pagination msg
+roundedPagination : HorizontalAlignment -> List (Attribute msg) -> List (PaginationPartition msg) -> Pagination msg
 roundedPagination alignment = pagination alignment << (::) (class "is-rounded")
 
 
@@ -1099,25 +1099,25 @@ roundedPagination alignment = pagination alignment << (::) (class "is-rounded")
 type alias PaginationPartition msg = Html msg
 
 {-| -}
-paginationPrev : Attrs msg -> Htmls msg -> PaginationPartition msg
+paginationPrev : List (Attribute msg) -> List (Html msg) -> PaginationPartition msg
 paginationPrev = node "a" [] [ bulma.pagination.previous ]
 
 {-| -}
-easyPaginationPrev : Attrs msg -> msg -> String -> PaginationPartition msg
+easyPaginationPrev : List (Attribute msg) -> msg -> String -> PaginationPartition msg
 easyPaginationPrev attrs msg
   = text >> ls >> paginationPrev (onClick msg :: attrs)
 
 {-| -}
-paginationNext : Attrs msg -> Htmls msg -> PaginationPartition msg
+paginationNext : List (Attribute msg) -> List (Html msg) -> PaginationPartition msg
 paginationNext = node "a" [] [ bulma.pagination.next ]
 
 {-| -}
-easyPaginationNext : Attrs msg -> msg -> String -> PaginationPartition msg
+easyPaginationNext : List (Attribute msg) -> msg -> String -> PaginationPartition msg
 easyPaginationNext attrs msg
   = text >> ls >> paginationNext (onClick msg :: attrs)
 
 {-| -}
-paginationList : Attrs msg -> List (PaginationListItem msg) -> PaginationPartition msg
+paginationList : List (Attribute msg) -> List (PaginationListItem msg) -> PaginationPartition msg
 paginationList attrs
   = List.map (ls >> li []) >> node "ul" [] [ bulma.pagination.list.container ] attrs
 
@@ -1133,7 +1133,7 @@ type alias PaginationListItem msg = Html msg
 type alias IsCurrent = Bool
 
 {-| -}
-paginationLink : IsCurrent -> Attrs msg -> Htmls msg -> PaginationListItem msg
+paginationLink : IsCurrent -> List (Attribute msg) -> List (Html msg) -> PaginationListItem msg
 paginationLink current
   = node "a" []
     [ bulma.pagination.list.link.ui
@@ -1143,16 +1143,16 @@ paginationLink current
     ]
 
 {-| -}
-easyPaginationLink : IsCurrent -> Attrs msg -> msg -> Int -> PaginationListItem msg
+easyPaginationLink : IsCurrent -> List (Attribute msg) -> msg -> Int -> PaginationListItem msg
 easyPaginationLink current attrs msg
   = toString >> text >> ls >> paginationLink current (onClick msg :: attrs)
 
 {-| -}
-paginationEllipsis : Attrs msg -> Htmls msg -> PaginationListItem msg
+paginationEllipsis : List (Attribute msg) -> List (Html msg) -> PaginationListItem msg
 paginationEllipsis = node "span" [] [ bulma.pagination.list.ellipsis ]
 
 {-| -}
-easyPaginationEllipsis : Attrs msg -> PaginationListItem msg
+easyPaginationEllipsis : List (Attribute msg) -> PaginationListItem msg
 easyPaginationEllipsis attrs = paginationEllipsis attrs [ text "…" ]
 
 
@@ -1181,7 +1181,7 @@ type alias Panel msg = Html msg
         ]
 
 -}
-panel : Attrs msg -> List (PanelPartition msg) -> Panel msg
+panel : List (Attribute msg) -> List (PanelPartition msg) -> Panel msg
 panel = node "div" [] [ bulma.panel.container ]
 
 -- TODO: easyPanel
@@ -1193,15 +1193,15 @@ panel = node "div" [] [ bulma.panel.container ]
 type alias PanelPartition msg = Html msg
 
 {-| -}
-panelHeading : Attrs msg  -> Htmls msg -> PanelPartition msg
+panelHeading : List (Attribute msg)  -> List (Html msg) -> PanelPartition msg
 panelHeading = node "p" [] [ bulma.panel.heading ]
 
 {-| -}
-panelTabs : Attrs msg -> List (PanelTab msg) -> PanelPartition msg
+panelTabs : List (Attribute msg) -> List (PanelTab msg) -> PanelPartition msg
 panelTabs = node "p" [] [ bulma.panel.tabs.container ]
 
 {-| -}
-panelBlock : IsActive -> Attrs msg -> Htmls msg -> PanelPartition msg
+panelBlock : IsActive -> List (Attribute msg) -> List (Html msg) -> PanelPartition msg
 panelBlock active
   = node "div" []
     [ bulma.panel.block.container
@@ -1211,7 +1211,7 @@ panelBlock active
     ]
 
 {-| -}
-panelLink : IsActive -> Attrs msg -> Htmls msg -> PanelPartition msg
+panelLink : IsActive -> List (Attribute msg) -> List (Html msg) -> PanelPartition msg
 panelLink active
   = node "a" []
     [ bulma.panel.block.container
@@ -1235,7 +1235,7 @@ panelLink active
         [ Bulma.Elements.Icon.book ]
         [ text "github.com/evancz" ]
 -}
-panelLinkWithIcon : IsActive -> Attrs msg -> Attrs msg -> List (IconBody msg) -> Htmls msg -> PanelPartition msg
+panelLinkWithIcon : IsActive -> List (Attribute msg) -> List (Attribute msg) -> List (IconBody msg) -> List (Html msg) -> PanelPartition msg
 panelLinkWithIcon active attrs attrs_ iconBodies htmls
   = a ( ( case active of
             True  -> class "panel-block is-active"
@@ -1247,14 +1247,14 @@ panelLinkWithIcon active attrs attrs_ iconBodies htmls
    :: htmls 
     
 
--- easyPanelLink : IsActive -> Attrs msg -> msg -> Icon msg -> String -> PanelPartition msg
+-- easyPanelLink : IsActive -> List (Attribute msg) -> msg -> Icon msg -> String -> PanelPartition msg
 -- easyPanelLink active attrs msg icon str
 --   = panelBlockLink active (onClick msg :: attrs) [ panelLinkIcon icon ]
 
--- TODO: panelLinkIcon : (Attrs msg -> Htmls msg -> Icon msg) -> Attrs msg -> Htmls msg -> Icon msg
+-- TODO: panelLinkIcon : (List (Attribute msg) -> List (Html msg) -> Icon msg) -> List (Attribute msg) -> List (Html msg) -> Icon msg
 
 {-| -}
-panelLabel : IsActive -> Attrs msg -> Htmls msg -> PanelPartition msg
+panelLabel : IsActive -> List (Attribute msg) -> List (Html msg) -> PanelPartition msg
 panelLabel active
   = node "label" []
     [ bulma.panel.block.container
@@ -1277,7 +1277,7 @@ panelLabel active
         myPanelCheckboxInputAttrs
         [ text "Remember Me" ]
 -}
-panelCheckbox : IsActive -> Attrs msg -> Attrs msg -> Htmls msg -> PanelPartition msg
+panelCheckbox : IsActive -> List (Attribute msg) -> List (Attribute msg) -> List (Html msg) -> PanelPartition msg
 panelCheckbox active attrs attrs_ htmls
   = a ( ( case active of
             True  -> class "panel-block is-active"
@@ -1297,7 +1297,7 @@ panelCheckbox active attrs attrs_ htmls
 type alias PanelTab msg = Html msg
 
 {-| -}
-panelTab : IsActive -> Attrs msg -> Htmls msg -> PanelTab msg
+panelTab : IsActive -> List (Attribute msg) -> List (Html msg) -> PanelTab msg
 panelTab active
   = node "a" []
     [ case active of
@@ -1340,7 +1340,7 @@ tabsModifiers = { style     = Minimal
         , tab False [] [] [ text "Docs"     ]
         ]
 -}
-tabs : TabsModifiers -> Attrs msg -> Attrs msg -> List (Tab msg) -> Tabs msg
+tabs : TabsModifiers -> List (Attribute msg) -> List (Attribute msg) -> List (Tab msg) -> Tabs msg
 tabs {style,alignment,size} attrs attrs_
   = node "div" []
     [ "tabs"
@@ -1369,7 +1369,7 @@ tabs {style,alignment,size} attrs attrs_
 type alias Tab msg = Html msg
 
 {-| -}
-tab : IsActive -> Attrs msg -> Attrs msg -> Htmls msg -> Tab msg
+tab : IsActive -> List (Attribute msg) -> List (Attribute msg) -> List (Html msg) -> Tab msg
 tab active attrs attrs_ htmls
   = li ( (::)
          ( case active of

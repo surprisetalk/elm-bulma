@@ -104,7 +104,7 @@ import BulmaClasses exposing (..)
 
 import Bulma.Modifiers as Modifiers exposing (..)
 
-import Html exposing ( Html, div, p, text )
+import Html exposing ( Html, Attribute, div, p, text )
 import Html.Attributes as Attr exposing ( class )
 
 
@@ -129,7 +129,7 @@ Containers can be used in any context, but mostly as a direct child of:
 - `section`
 - `footer`
 -}
-container : Attrs msg -> Htmls msg -> Container msg
+container : List (Attribute msg) -> List (Html msg) -> Container msg
 container = node "div" [] [ bulma.feature.container ]
 
 {-| If you don't want to have a maximum width, but want to keep the 24px margin on the left and right sides, `fluidContainer` is for you!
@@ -145,7 +145,7 @@ container = node "div" [] [ bulma.feature.container ]
           ]
         ]
 -}
-fluidContainer : Attrs msg -> Htmls msg -> Container msg
+fluidContainer : List (Attribute msg) -> List (Html msg) -> Container msg
 fluidContainer = node "div" [] [ bulma.feature.container
                                , bulma.feature.sizing.isFluid
                                ]
@@ -159,7 +159,7 @@ fluidContainer = node "div" [] [ bulma.feature.container
         , p [] [ text "...until it hits the widescreen breakpoint." ]
         ]
 -}
-widescreenContainer : Attrs msg -> Htmls msg -> Container msg
+widescreenContainer : List (Attribute msg) -> List (Html msg) -> Container msg
 widescreenContainer = node "div" [] [ bulma.feature.container
                                     , "is-widescreen"
                                       -- KLUDGE: add to BulmaClasses
@@ -174,7 +174,7 @@ widescreenContainer = node "div" [] [ bulma.feature.container
         , p [] [ text "...until it hits the fullHD breakpoint." ]
         ]
 -}
-fullHDContainer : Attrs msg -> Htmls msg -> Container msg
+fullHDContainer : List (Attribute msg) -> List (Html msg) -> Container msg
 fullHDContainer = node "div" [] [ bulma.feature.container
                                 , "is-fullhd"
                                   -- KLUDGE: add to BulmaClasses
@@ -202,11 +202,11 @@ type alias Level msg = Html msg
           ]
         ]
 -}
-level : Attrs msg -> List (LevelPartition msg) -> Level msg
+level : List (Attribute msg) -> List (LevelPartition msg) -> Level msg
 level = node "nav" [] [ bulma.level.container ]
 
 {-| -}
-horizontalLevel : Attrs msg -> List (LevelPartition msg) -> Level msg
+horizontalLevel : List (Attribute msg) -> List (LevelPartition msg) -> Level msg
 horizontalLevel = node "nav" [] [ bulma.level.container
                                 , bulma.level.mobile.isHorizontal
                                 ]
@@ -219,7 +219,7 @@ horizontalLevel = node "nav" [] [ bulma.level.container
         , levelItem [] []
         ]
 -}
-centeredLevel : Attrs msg -> List (LevelItem msg) -> Level msg
+centeredLevel : List (Attribute msg) -> List (LevelItem msg) -> Level msg
 centeredLevel = level
 
 
@@ -229,11 +229,11 @@ centeredLevel = level
 type alias LevelPartition msg = Html msg
 
 {-| -}
-levelLeft : Attrs msg -> List (LevelItem msg) -> LevelPartition msg
+levelLeft : List (Attribute msg) -> List (LevelItem msg) -> LevelPartition msg
 levelLeft = node "div" [] [ bulma.level.left ]
 
 {-| -}
-levelRight : Attrs msg -> List (LevelItem msg) -> LevelPartition msg
+levelRight : List (Attribute msg) -> List (LevelItem msg) -> LevelPartition msg
 levelRight = node "div" [] [ bulma.level.right ]
 
 -- LEVEL ITEMS --
@@ -242,19 +242,19 @@ levelRight = node "div" [] [ bulma.level.right ]
 type alias LevelItem msg = Html msg
 
 {-| -}
-levelItem : Attrs msg -> Htmls msg -> LevelItem msg
+levelItem : List (Attribute msg) -> List (Html msg) -> LevelItem msg
 levelItem = node "div" [] [ bulma.level.item ]
 
 {-| -}
-levelItemText : Attrs msg -> Htmls msg -> LevelItem msg
+levelItemText : List (Attribute msg) -> List (Html msg) -> LevelItem msg
 levelItemText = node "p" [] [ bulma.level.item ]
 
 {-| -}
-levelItemLink : Attrs msg -> Htmls msg -> LevelItem msg
+levelItemLink : List (Attribute msg) -> List (Html msg) -> LevelItem msg
 levelItemLink = node "a" [] [ bulma.level.item ]
 
 {-| -}
-easyLevelItemWithHeading : Attrs msg -> String -> String -> LevelItem msg
+easyLevelItemWithHeading : List (Attribute msg) -> String -> String -> LevelItem msg
 easyLevelItemWithHeading attrs heading title
   = levelItem attrs
     [ div []
@@ -278,11 +278,11 @@ type alias Media msg = Html msg
         , mediaRight   [] []
         ]
 -}
-media : Attrs msg -> List (MediaPartition msg) -> Media msg
+media : List (Attribute msg) -> List (MediaPartition msg) -> Media msg
 media = node "article" [] [ bulma.media.container ]
 
 -- {-| -}
--- largeMedia : Attrs msg -> List (MediaPartition msg) -> Media msg
+-- largeMedia : List (Attribute msg) -> List (MediaPartition msg) -> Media msg
 -- largeMedia = node "article" [] [ bulma.media.container
 --                                , bulma.media.size.isLarge
 --                                ]
@@ -293,15 +293,15 @@ media = node "article" [] [ bulma.media.container ]
 type alias MediaPartition msg = Html msg
 
 {-| -}
-mediaLeft : Attrs msg -> Htmls msg -> MediaPartition msg
+mediaLeft : List (Attribute msg) -> List (Html msg) -> MediaPartition msg
 mediaLeft = node "div" [] [ bulma.media.left ]
 
 {-| -}
-mediaContent : Attrs msg -> Htmls msg -> MediaPartition msg
+mediaContent : List (Attribute msg) -> List (Html msg) -> MediaPartition msg
 mediaContent = node "div" [] [ bulma.media.content ]
 
 {-| -}
-mediaRight : Attrs msg -> Htmls msg -> MediaPartition msg
+mediaRight : List (Attribute msg) -> List (Html msg) -> MediaPartition msg
 mediaRight = node "div" [] [ bulma.media.right ]
 
 
@@ -326,7 +326,7 @@ type alias Hero msg = Html msg
           ]
         ]
 -}
-hero : HeroModifiers -> Attrs msg -> List (HeroPartition msg) -> Hero msg
+hero : HeroModifiers -> List (Attribute msg) -> List (HeroPartition msg) -> Hero msg
 hero {bold,size,color}
   = node "section" []
     [ bulma.hero.container
@@ -362,7 +362,7 @@ hero {bold,size,color}
         , foot = heroFoot [] []
         }
 -}
-easyHero : HeroModifiers -> Attrs msg -> { head : HeroPartition msg, body : HeroPartition msg, foot : HeroPartition msg } -> Hero msg
+easyHero : HeroModifiers -> List (Attribute msg) -> { head : HeroPartition msg, body : HeroPartition msg, foot : HeroPartition msg } -> Hero msg
 easyHero mods attrs {head,body,foot}
   = hero mods attrs [ head, body, foot ]
 
@@ -377,11 +377,14 @@ type alias HeroModifiers = { bold  : Bool
 
 {-| These are the stylistic defaults for `hero` containers.
 
-    TODO: explain that normal=medium, medium=large, and large=fullheight
-
     import Bulma.Modifiers exposing ( Size(Standard)
                                     , Color(Default)
                                     )
+
+    -- Small    -> "is-small"
+    -- Standard -> "is-medium"
+    -- Medium   -> "is-large"
+    -- Large    -> "is-fullheight"
 
     myHeroModifiers : HeroModifiers
     myHeroModifiers
@@ -409,15 +412,15 @@ heroModifiers = { bold  = False
 type alias HeroPartition msg = Html msg
 
 {-| -}
-heroHead : Attrs msg -> Htmls msg -> HeroPartition msg
+heroHead : List (Attribute msg) -> List (Html msg) -> HeroPartition msg
 heroHead = node "div" [] [ bulma.hero.head ]
 
 {-| -}
-heroBody : Attrs msg -> Htmls msg -> HeroPartition msg
+heroBody : List (Attribute msg) -> List (Html msg) -> HeroPartition msg
 heroBody = node "div" [] [ bulma.hero.body ]
 
 {-| -}
-heroFoot : Attrs msg -> Htmls msg -> HeroPartition msg
+heroFoot : List (Attribute msg) -> List (Html msg) -> HeroPartition msg
 heroFoot = node "div" [] [ bulma.hero.foot ]
 
 
@@ -438,7 +441,7 @@ type alias Section msg = Html msg
           ]
         ]
 -}
-section : SectionSpacing -> Attrs msg -> Htmls msg -> Section msg
+section : SectionSpacing -> List (Attribute msg) -> List (Html msg) -> Section msg
 section spacing
   = node "section" []
     [ bulma.section.container
@@ -476,7 +479,7 @@ type alias Footer msg = Html msg
         ]
 
 -}
-footer : Attrs msg -> Htmls msg -> Footer msg
+footer : List (Attribute msg) -> List (Html msg) -> Footer msg
 footer = node "footer" [] [ bulma.footer.container ]
 
 
@@ -491,7 +494,7 @@ type alias Tile msg = Html msg
 It's best used as an intermediate tile in a 2D grid. 
 You can also add "is-ancestor", "is-parent", "is-child", and "is-vertical" classes to to make a custom Bulma-grid implementation.
 -}
-tile : Width -> Attrs msg -> List (Tile msg) -> Tile msg
+tile : Width -> List (Attribute msg) -> List (Tile msg) -> Tile msg
 tile width
   = node "div" []
     [ bulma.tile.container
@@ -512,7 +515,7 @@ tile width
 
 {-| If you want to stack tiles vertically, use a vertical tile!
 -}
-verticalTile : Width -> Attrs msg -> List (Tile msg) -> Tile msg
+verticalTile : Width -> List (Attribute msg) -> List (Tile msg) -> Tile msg
 verticalTile width
   = node "div" []
     [ bulma.tile.container
@@ -547,7 +550,7 @@ verticalTile width
           ]
         ]
 -}
-tileAncestor : Width -> Attrs msg -> List (Tile msg) -> Html msg
+tileAncestor : Width -> List (Attribute msg) -> List (Tile msg) -> Html msg
 tileAncestor width
   = node "div" []
     [ bulma.tile.container
@@ -569,7 +572,7 @@ tileAncestor width
 
 {-| Your tile-children must always be accompanied by a parent!
 -}
-tileParent : Width -> Attrs msg -> List (Tile msg) -> Tile msg
+tileParent : Width -> List (Attribute msg) -> List (Tile msg) -> Tile msg
 tileParent width
   = node "div" []
     [ bulma.tile.container
@@ -591,7 +594,7 @@ tileParent width
 
 {-| Your tile-children must always be accompanied by a parent!
 -}
-verticalTileParent : Width -> Attrs msg -> List (Tile msg) -> Tile msg
+verticalTileParent : Width -> List (Attribute msg) -> List (Tile msg) -> Tile msg
 verticalTileParent width
   = node "div" []
     [ bulma.tile.container
@@ -614,7 +617,7 @@ verticalTileParent width
 
 {-| This tile holds your content! Its parent should always be `tileParent` or `verticalTileParent`.
 -}
-tileChild : Width -> Attrs msg -> Htmls msg -> Tile msg
+tileChild : Width -> List (Attribute msg) -> List (Html msg) -> Tile msg
 tileChild width
   = node "div" []
     [ bulma.tile.container

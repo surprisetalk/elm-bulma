@@ -48,7 +48,7 @@ import Html.Attributes as Attr exposing ( class )
 type alias Icon msg = Html msg
 
 {-| -}
-icon : Size -> Attrs msg -> List (IconBody msg) -> Icon msg
+icon : Size -> List (Attribute msg) -> List (IconBody msg) -> Icon msg
 icon size
   = node "span" []
     [ bulma.icon.container

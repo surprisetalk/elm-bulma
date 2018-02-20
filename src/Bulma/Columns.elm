@@ -29,8 +29,8 @@ Learn more about columnar grids in the [official docs](http://bulma.io/documenta
 @docs columns
 
 ## Column
-@docs Column, ColumnModifiers, columnModifiers
-@docs column, narrowColumn
+@docs Column, ColumnModifiers, Offset, columnModifiers, narrowColumnModifiers
+@docs column
 
 -}
 
@@ -42,14 +42,14 @@ import BulmaClasses exposing (..)
 
 import Bulma.Modifiers exposing ( Devices, Width(..) )
 
-import Html exposing ( Html, text, div, a )
+import Html exposing ( Html, Attribute, text, div, a )
 
 
 -- COLUMNS ---------------------------------------------------------------------
 
 {-| Make a columnar grid! The widths of all your columns should be no greater than twelve.
 -}
-columns : ColumnsModifiers -> Attrs msg -> List (Column msg) -> Html msg
+columns : ColumnsModifiers -> List (Attribute msg) -> List (Column msg) -> Html msg
 columns {centered,multiline,gap,display}
   = node "div" []
     [ bulma.columns.container
@@ -132,6 +132,9 @@ columnsModifiers = { multiline          = False
 {-| -}
 type alias Column msg = Html msg
 
+{-| -}
+type alias Offset = Width
+
 {-| A column element that is meant to be placed in `columns`.
 
     myColumn : Html msg
@@ -144,75 +147,80 @@ type alias Column msg = Html msg
         , h5 [] [ text "amet" ]
         ]
 -}
-column : ColumnModifiers -> Attrs msg -> Htmls msg -> Column msg
+column : ColumnModifiers -> List (Attribute msg) -> List (Html msg) -> Column msg
 column {widths,offset}
   = node "div" []
     [ bulma.columns.column.container
     , case widths.mobile of
-         Auto    -> ""
-         Width1  -> flip (++) "-mobile" bulma.columns.column.width.is1
-         Width2  -> flip (++) "-mobile" bulma.columns.column.width.is2
-         Width3  -> flip (++) "-mobile" bulma.columns.column.width.is3
-         Width4  -> flip (++) "-mobile" bulma.columns.column.width.is4
-         Width5  -> flip (++) "-mobile" bulma.columns.column.width.is5
-         Width6  -> flip (++) "-mobile" bulma.columns.column.width.is6
-         Width7  -> flip (++) "-mobile" bulma.columns.column.width.is7
-         Width8  -> flip (++) "-mobile" bulma.columns.column.width.is8
-         Width9  -> flip (++) "-mobile" bulma.columns.column.width.is9
-         Width10 -> flip (++) "-mobile" bulma.columns.column.width.is10
-         Width11 -> flip (++) "-mobile" bulma.columns.column.width.is11
+         Just Auto    -> ""
+         Just Width1  -> flip (++) "-mobile" bulma.columns.column.width.is1
+         Just Width2  -> flip (++) "-mobile" bulma.columns.column.width.is2
+         Just Width3  -> flip (++) "-mobile" bulma.columns.column.width.is3
+         Just Width4  -> flip (++) "-mobile" bulma.columns.column.width.is4
+         Just Width5  -> flip (++) "-mobile" bulma.columns.column.width.is5
+         Just Width6  -> flip (++) "-mobile" bulma.columns.column.width.is6
+         Just Width7  -> flip (++) "-mobile" bulma.columns.column.width.is7
+         Just Width8  -> flip (++) "-mobile" bulma.columns.column.width.is8
+         Just Width9  -> flip (++) "-mobile" bulma.columns.column.width.is9
+         Just Width10 -> flip (++) "-mobile" bulma.columns.column.width.is10
+         Just Width11 -> flip (++) "-mobile" bulma.columns.column.width.is11
+         Nothing      -> flip (++) "-mobile" "is-narrow"
     , case widths.tablet of
-         Auto    -> ""
-         Width1  -> flip (++) "-tablet" bulma.columns.column.width.is1
-         Width2  -> flip (++) "-tablet" bulma.columns.column.width.is2
-         Width3  -> flip (++) "-tablet" bulma.columns.column.width.is3
-         Width4  -> flip (++) "-tablet" bulma.columns.column.width.is4
-         Width5  -> flip (++) "-tablet" bulma.columns.column.width.is5
-         Width6  -> flip (++) "-tablet" bulma.columns.column.width.is6
-         Width7  -> flip (++) "-tablet" bulma.columns.column.width.is7
-         Width8  -> flip (++) "-tablet" bulma.columns.column.width.is8
-         Width9  -> flip (++) "-tablet" bulma.columns.column.width.is9
-         Width10 -> flip (++) "-tablet" bulma.columns.column.width.is10
-         Width11 -> flip (++) "-tablet" bulma.columns.column.width.is11
+         Just Auto    -> ""
+         Just Width1  -> flip (++) "-tablet" bulma.columns.column.width.is1
+         Just Width2  -> flip (++) "-tablet" bulma.columns.column.width.is2
+         Just Width3  -> flip (++) "-tablet" bulma.columns.column.width.is3
+         Just Width4  -> flip (++) "-tablet" bulma.columns.column.width.is4
+         Just Width5  -> flip (++) "-tablet" bulma.columns.column.width.is5
+         Just Width6  -> flip (++) "-tablet" bulma.columns.column.width.is6
+         Just Width7  -> flip (++) "-tablet" bulma.columns.column.width.is7
+         Just Width8  -> flip (++) "-tablet" bulma.columns.column.width.is8
+         Just Width9  -> flip (++) "-tablet" bulma.columns.column.width.is9
+         Just Width10 -> flip (++) "-tablet" bulma.columns.column.width.is10
+         Just Width11 -> flip (++) "-tablet" bulma.columns.column.width.is11
+         Nothing      -> flip (++) "-tablet" "is-narrow"
     , case widths.desktop of
-         Auto    -> ""
-         Width1  -> flip (++) "-desktop" bulma.columns.column.width.is1
-         Width2  -> flip (++) "-desktop" bulma.columns.column.width.is2
-         Width3  -> flip (++) "-desktop" bulma.columns.column.width.is3
-         Width4  -> flip (++) "-desktop" bulma.columns.column.width.is4
-         Width5  -> flip (++) "-desktop" bulma.columns.column.width.is5
-         Width6  -> flip (++) "-desktop" bulma.columns.column.width.is6
-         Width7  -> flip (++) "-desktop" bulma.columns.column.width.is7
-         Width8  -> flip (++) "-desktop" bulma.columns.column.width.is8
-         Width9  -> flip (++) "-desktop" bulma.columns.column.width.is9
-         Width10 -> flip (++) "-desktop" bulma.columns.column.width.is10
-         Width11 -> flip (++) "-desktop" bulma.columns.column.width.is11
+         Just Auto    -> ""
+         Just Width1  -> flip (++) "-desktop" bulma.columns.column.width.is1
+         Just Width2  -> flip (++) "-desktop" bulma.columns.column.width.is2
+         Just Width3  -> flip (++) "-desktop" bulma.columns.column.width.is3
+         Just Width4  -> flip (++) "-desktop" bulma.columns.column.width.is4
+         Just Width5  -> flip (++) "-desktop" bulma.columns.column.width.is5
+         Just Width6  -> flip (++) "-desktop" bulma.columns.column.width.is6
+         Just Width7  -> flip (++) "-desktop" bulma.columns.column.width.is7
+         Just Width8  -> flip (++) "-desktop" bulma.columns.column.width.is8
+         Just Width9  -> flip (++) "-desktop" bulma.columns.column.width.is9
+         Just Width10 -> flip (++) "-desktop" bulma.columns.column.width.is10
+         Just Width11 -> flip (++) "-desktop" bulma.columns.column.width.is11
+         Nothing      -> flip (++) "-desktop" "is-narrow"
     , case widths.widescreen of
-         Auto    -> ""
-         Width1  -> flip (++) "-widescreen" bulma.columns.column.width.is1
-         Width2  -> flip (++) "-widescreen" bulma.columns.column.width.is2
-         Width3  -> flip (++) "-widescreen" bulma.columns.column.width.is3
-         Width4  -> flip (++) "-widescreen" bulma.columns.column.width.is4
-         Width5  -> flip (++) "-widescreen" bulma.columns.column.width.is5
-         Width6  -> flip (++) "-widescreen" bulma.columns.column.width.is6
-         Width7  -> flip (++) "-widescreen" bulma.columns.column.width.is7
-         Width8  -> flip (++) "-widescreen" bulma.columns.column.width.is8
-         Width9  -> flip (++) "-widescreen" bulma.columns.column.width.is9
-         Width10 -> flip (++) "-widescreen" bulma.columns.column.width.is10
-         Width11 -> flip (++) "-widescreen" bulma.columns.column.width.is11
+         Just Auto    -> ""
+         Just Width1  -> flip (++) "-widescreen" bulma.columns.column.width.is1
+         Just Width2  -> flip (++) "-widescreen" bulma.columns.column.width.is2
+         Just Width3  -> flip (++) "-widescreen" bulma.columns.column.width.is3
+         Just Width4  -> flip (++) "-widescreen" bulma.columns.column.width.is4
+         Just Width5  -> flip (++) "-widescreen" bulma.columns.column.width.is5
+         Just Width6  -> flip (++) "-widescreen" bulma.columns.column.width.is6
+         Just Width7  -> flip (++) "-widescreen" bulma.columns.column.width.is7
+         Just Width8  -> flip (++) "-widescreen" bulma.columns.column.width.is8
+         Just Width9  -> flip (++) "-widescreen" bulma.columns.column.width.is9
+         Just Width10 -> flip (++) "-widescreen" bulma.columns.column.width.is10
+         Just Width11 -> flip (++) "-widescreen" bulma.columns.column.width.is11
+         Nothing      -> flip (++) "-widscreen" "is-narrow"
     , case widths.fullHD of
-         Auto    -> ""
-         Width1  -> flip (++) "-fullhd" bulma.columns.column.width.is1
-         Width2  -> flip (++) "-fullhd" bulma.columns.column.width.is2
-         Width3  -> flip (++) "-fullhd" bulma.columns.column.width.is3
-         Width4  -> flip (++) "-fullhd" bulma.columns.column.width.is4
-         Width5  -> flip (++) "-fullhd" bulma.columns.column.width.is5
-         Width6  -> flip (++) "-fullhd" bulma.columns.column.width.is6
-         Width7  -> flip (++) "-fullhd" bulma.columns.column.width.is7
-         Width8  -> flip (++) "-fullhd" bulma.columns.column.width.is8
-         Width9  -> flip (++) "-fullhd" bulma.columns.column.width.is9
-         Width10 -> flip (++) "-fullhd" bulma.columns.column.width.is10
-         Width11 -> flip (++) "-fullhd" bulma.columns.column.width.is11
+         Just Auto    -> ""
+         Just Width1  -> flip (++) "-fullhd" bulma.columns.column.width.is1
+         Just Width2  -> flip (++) "-fullhd" bulma.columns.column.width.is2
+         Just Width3  -> flip (++) "-fullhd" bulma.columns.column.width.is3
+         Just Width4  -> flip (++) "-fullhd" bulma.columns.column.width.is4
+         Just Width5  -> flip (++) "-fullhd" bulma.columns.column.width.is5
+         Just Width6  -> flip (++) "-fullhd" bulma.columns.column.width.is6
+         Just Width7  -> flip (++) "-fullhd" bulma.columns.column.width.is7
+         Just Width8  -> flip (++) "-fullhd" bulma.columns.column.width.is8
+         Just Width9  -> flip (++) "-fullhd" bulma.columns.column.width.is9
+         Just Width10 -> flip (++) "-fullhd" bulma.columns.column.width.is10
+         Just Width11 -> flip (++) "-fullhd" bulma.columns.column.width.is11
+         Nothing      -> flip (++) "-fullhd" "is-narrow"
     , case offset of
          Auto    -> ""
          Width1  -> bulma.columns.column.offset.is1
@@ -228,58 +236,39 @@ column {widths,offset}
          Width11 -> bulma.columns.column.offset.is11
     ]
 
-
-{-| Narrow columns are used just like other columns, but they only take up as much space as they need.
-
-The other non-narrow columns will take up the remaining space.
-
-    myNarrowColumn : Html msg
-    myNarrowColumn
-      = let offset : Width
-            offset = Auto
-        in narrowColumn offset []
-           [ text "I only take what I need!"
-           ]
--}
-narrowColumn : Width -> Attrs msg -> Htmls msg -> Column msg
-narrowColumn offset
--- TODO: narrow columns by device
-  = node "div" []
-    [ bulma.columns.column.container
-    , "is-narrow" 
-    , case offset of
-         Auto    -> ""
-         Width1  -> bulma.columns.column.offset.is1
-         Width2  -> bulma.columns.column.offset.is2
-         Width3  -> bulma.columns.column.offset.is3
-         Width4  -> bulma.columns.column.offset.is4
-         Width5  -> bulma.columns.column.offset.is5
-         Width6  -> bulma.columns.column.offset.is6
-         Width7  -> bulma.columns.column.offset.is7
-         Width8  -> bulma.columns.column.offset.is8
-         Width9  -> bulma.columns.column.offset.is9
-         Width10 -> bulma.columns.column.offset.is10
-         Width11 -> bulma.columns.column.offset.is11
-    ]
 
 -- MODIFIERS --
 
-{-| -}
+{-| The `widths` field requires a `Maybe Width` for each device size.
+`Nothing` will create a narrow column for that device range.
+-}
 type alias ColumnModifiers = { offset : Width
-                             , widths : Devices Width
+                             , widths : Devices (Maybe Width)
                              }
 
-{-| Default offsets and widths for individiual columns. 
-Everything defaults to `Auto`.
+{-| Default offsets and widths for an individiual column. 
+The offset defaults to `Auto`. Each device defaults to `Just Auto`. 
 -}
 columnModifiers : ColumnModifiers
 columnModifiers = { offset = Auto
-                  , widths = { mobile     = Auto
-                             , tablet     = Auto
-                             , desktop    = Auto
-                             , widescreen = Auto
-                             , fullHD     = Auto
+                  , widths = { mobile     = Just Auto
+                             , tablet     = Just Auto
+                             , desktop    = Just Auto
+                             , widescreen = Just Auto
+                             , fullHD     = Just Auto
                              }
                   }
 
-
+{-| Default offsets and widths for an individiual column. 
+The offset defaults to `Auto`. Each device defaults to `Nothing`. 
+-}
+narrowColumnModifiers : ColumnModifiers
+narrowColumnModifiers
+  = { offset = Auto
+    , widths = { mobile     = Nothing
+               , tablet     = Nothing
+               , desktop    = Nothing
+               , widescreen = Nothing
+               , fullHD     = Nothing
+               }
+    }

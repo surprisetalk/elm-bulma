@@ -35,7 +35,7 @@ module Bulma.Elements exposing (..)
 @docs delete, easyDelete
 
 # Image
-@docs Image, ImageModifiers, ImageSize, ImageAspectRatio, imageModifiers
+@docs Image, ImageSize, ImageShape 
 @docs image, easyImage, easyPlaceholderImage
 
 # Notification
@@ -64,11 +64,11 @@ module Bulma.Elements exposing (..)
 
 # Tag
 @docs Tag, TagModifiers, tagModifiers
-@docs tag, easyTag
+@docs tag, easyTag, deleteTag
 @docs roundedTag, easyRoundedTag
 @docs tagWithDelete, easyTagWithDelete, easyRoundedTagWithDelete
 
-## Tag Groups
+## Tags
 @docs tags
 @docs multitag
 
@@ -93,7 +93,7 @@ import Bulma.Elements.Icon as Icon exposing ( Icon, IconBody, icon )
 
 -- import Bulma.Form as Form exposing ( Control )
 
-import Html exposing ( Html, text, div, a, img, span )
+import Html exposing ( Html, Attribute, text, div, a, img, span )
 import Html.Events exposing ( onClick )
 import Html.Attributes as Attr exposing ( class )
 
@@ -115,7 +115,7 @@ The box is simply a container with a shadow, a border, a radius, and some paddin
           [ text "I'm the box ghost!" ]
         ]
 -}
-box : Attrs msg -> Htmls msg -> Box msg
+box : List (Attribute msg) -> List (Html msg) -> Box msg
 box = node "div" [] [ bulma.box.container ]
 
 
@@ -144,19 +144,19 @@ type alias Button msg = Html msg
         , span [] [ text "No, click me!" ]
         ]
 -}
-button : ButtonModifiers msg -> Attrs msg -> Htmls msg -> Button msg
+button : ButtonModifiers msg -> List (Attribute msg) -> List (Html msg) -> Button msg
 button {disabled,outlined,inverted,rounded,size,state,color,static,iconLeft,iconRight} attrs htmls
-  = let htmls_ : Htmls msg
+  = let htmls_ : List (Html msg)
         htmls_
           = case htmls of
               []    -> iconLeft_ ++                      iconRight_
               htmls -> iconLeft_ ++ [ span [] htmls ] ++ iconRight_
-        iconLeft_ : Htmls msg
+        iconLeft_ : List (Html msg)
         iconLeft_
           = case iconLeft of
               Just ( size, attrs, body ) -> [ icon size attrs [ body ] ]
               Nothing                    -> [                          ]
-        iconRight_ : Htmls msg
+        iconRight_ : List (Html msg)
         iconRight_
           = case iconRight of
               Just ( size, attrs, body ) -> [ icon size attrs [ body ] ]
@@ -214,7 +214,7 @@ button {disabled,outlined,inverted,rounded,size,state,color,static,iconLeft,icon
         DoSomethingElse
         "Click me!"
 -}
-easyButton : ButtonModifiers msg -> Attrs msg -> msg -> String -> Button msg
+easyButton : ButtonModifiers msg -> List (Attribute msg) -> msg -> String -> Button msg
 easyButton mods attrs msg str
   = button mods
     (onClick msg :: attrs)
@@ -231,7 +231,7 @@ easyButton mods attrs msg str
         , button { buttonModifiers | color = Danger  } [ text "Cancel"            ]
         ]
 -}
-buttons: HorizontalAlignment -> Attrs msg -> List (Button msg) -> Html msg
+buttons: HorizontalAlignment -> List (Attribute msg) -> List (Button msg) -> Html msg
 buttons alignment
   = node "div" []
     [ "buttons"
@@ -250,7 +250,7 @@ buttons alignment
         , button   buttonModifiers                     [ text "No"    ]
         ]
 -}
-connectedButtons: HorizontalAlignment -> Attrs msg -> List (Button msg) -> Html msg
+connectedButtons: HorizontalAlignment -> List (Attribute msg) -> List (Button msg) -> Html msg
 connectedButtons alignment = buttons alignment << (::) (class "has-addons")
 
 -- MODIFIERS --
@@ -265,8 +265,8 @@ type alias ButtonModifiers msg
     , size      : Size
     , state     : State
     , color     : Color
-    , iconLeft  : Maybe (Size, Attrs msg, IconBody msg)
-    , iconRight : Maybe (Size, Attrs msg, IconBody msg)
+    , iconLeft  : Maybe (Size, List (Attribute msg), IconBody msg)
+    , iconRight : Maybe (Size, List (Attribute msg), IconBody msg)
     }
 
 {-| The basic defaults for buttons.
@@ -323,7 +323,7 @@ It can handle almost any HTML element, including:
 - `em` & `strong`
 - `table`, `tr`, `th`, and `td` tables
 -}
-content : Size -> Attrs msg -> Htmls msg -> Content msg
+content : Size -> List (Attribute msg) -> List (Html msg) -> Content msg
 content size
   = node "div" []
     [ bulma.content.container
@@ -342,7 +342,7 @@ type alias Delete msg = Html msg
 
 {-| Versatile delete cross.
 -}
-delete : Attrs msg -> Htmls msg -> Delete msg
+delete : List (Attribute msg) -> List (Html msg) -> Delete msg
 delete = node "a" [] [ bulma.delete.ui ]
 
 {-| 
@@ -352,7 +352,7 @@ delete = node "a" [] [ bulma.delete.ui ]
     myEasyDelete
       = easyDelete [] DeleteMsg
 -}
-easyDelete : Attrs msg -> msg -> Delete msg
+easyDelete : List (Attribute msg) -> msg -> Delete msg
 easyDelete attrs msg = delete (onClick msg :: attrs) []
 
 
@@ -389,7 +389,7 @@ type ImageSize
         [ img [ src "https://i.imgur.com/pPjvmVS.jpg" ] []
         ]
 -}
-image : ImageShape -> Attrs msg -> Htmls msg -> Image msg
+image : ImageShape -> List (Attribute msg) -> List (Html msg) -> Image msg
 image shape
   = node "figure" []
     [ bulma.image.container
@@ -415,17 +415,31 @@ image shape
       = easyImage Natural []
         "http://i.imgur.com/I47PSAO.png"
 -}
-easyImage : ImageShape -> Attrs msg -> String -> Image msg
+easyImage : ImageShape -> List (Attribute msg) -> String -> Image msg
 easyImage mods attrs src = image mods attrs [ img [ Attr.src src ] [] ]
 
-{-| 
+{-| This is a quick and dirty way to make placeholder images, using sources like http://bulma.io/images/placeholders/16x16.png .
+
+    -- OneByOne X16       ->  16 X  16
+    -- OneByOne X24       ->  24 X  24
+    -- OneByOne X32       ->  32 X  32
+    -- OneByOne X48       ->  48 X  48
+    -- OneByOne X64       ->  64 X  64
+    -- OneByOne X96       ->  96 X  96
+    -- OneByOne X128      -> 128 X 128
+    -- OneByOne Unbounded -> 256 X 256
+    -- FourByThree        -> 640 X 480
+    -- ThreeByTwo         -> 480 X 320
+    -- SixteenByNine      -> 640 X 360
+    -- TwoByOne           -> 640 X 320
+    -- _                  -> 256 X 256
+
     myEasyPlaceholderImage : Html msg
     myEasyPlaceholderImage
       = easyPlaceholderImage (OneByOne Unbounded) []
 -}
-easyPlaceholderImage : ImageShape -> Attrs msg -> Image msg
+easyPlaceholderImage : ImageShape -> List (Attribute msg) -> Image msg
 easyPlaceholderImage shape attrs
--- TODO: document the sizes above...
   = image shape attrs
     [ flip img []
       [ Attr.src
@@ -462,7 +476,7 @@ type alias Notification msg = Html msg
         [ text "Something went wrong!"
         ]
 -}
-notification : Color -> Attrs msg -> Htmls msg -> Notification msg
+notification : Color -> List (Attribute msg) -> List (Html msg) -> Notification msg
 notification color
   = node "div" []
     [ bulma.notification.ui
@@ -492,7 +506,7 @@ notification color
         [ text "Something went right!"
         ]
 -}
-notificationWithDelete : Color -> Attrs msg -> msg -> Htmls msg -> Notification msg
+notificationWithDelete : Color -> List (Attribute msg) -> msg -> List (Html msg) -> Notification msg
 notificationWithDelete color attrs msg
   = notification color attrs << (::) (easyDelete [] msg)
 
@@ -522,7 +536,7 @@ progressModifiers = { size  = Standard
         ] 
         []
 -}
-progress : ProgressModifiers -> Attrs msg -> Htmls msg -> Progress msg
+progress : ProgressModifiers -> List (Attribute msg) -> List (Html msg) -> Progress msg
 progress {size,color}
   = node "progress" [] 
     [ bulma.progress.ui
@@ -551,7 +565,7 @@ progress {size,color}
       = progress myProgressModifiers []
         percentCompleted
 -}
-easyProgress : ProgressModifiers -> Attrs msg -> Float -> Progress msg
+easyProgress : ProgressModifiers -> List (Attribute msg) -> Float -> Progress msg
 easyProgress mods attrs val
   = progress mods (Attr.value (toString (round (val * 100))) :: (Attr.max "100" :: attrs)) []
 
@@ -587,7 +601,7 @@ tableModifiers = { bordered  = False
         , tableFoot [] []
         ]
 -}
-table : TableModifiers -> Attrs msg -> List (TablePartition msg) -> Table msg
+table : TableModifiers -> List (Attribute msg) -> List (TablePartition msg) -> Table msg
 table {bordered,striped,narrow,hoverable,fullWidth}
   = node "table" []
     [ bulma.table.container
@@ -625,7 +639,7 @@ type alias TablePartition msg = Html msg
           ]
         ]
 -}
-tableHead : Attrs msg -> List (TableRow msg) -> TablePartition msg
+tableHead : List (Attribute msg) -> List (TableRow msg) -> TablePartition msg
 tableHead = node "thead" [] []
 
 {-|
@@ -644,7 +658,7 @@ tableHead = node "thead" [] []
           ]
         ]
 -}
-tableBody : Attrs msg -> List (TableRow msg) -> TablePartition msg
+tableBody : List (Attribute msg) -> List (TableRow msg) -> TablePartition msg
 tableBody = node "tbody" [] []
 
 {-|
@@ -658,7 +672,7 @@ tableBody = node "tbody" [] []
           ]
         ]
 -}
-tableFoot : Attrs msg -> List (TableRow msg) -> TablePartition msg
+tableFoot : List (Attribute msg) -> List (TableRow msg) -> TablePartition msg
 tableFoot = node "tfoot" [] []
 
 
@@ -671,7 +685,7 @@ type alias TableRow msg = Html msg
 type alias IsHighlighted = Bool
 
 {-| -}
-tableRow : IsHighlighted -> Attrs msg -> List (TableCell msg) -> TableRow msg
+tableRow : IsHighlighted -> List (Attribute msg) -> List (TableCell msg) -> TableRow msg
 tableRow highlighted
   = node "tr" []
     [ case highlighted of
@@ -686,11 +700,11 @@ tableRow highlighted
 type alias TableCell msg = Html msg
 
 {-| -}
-tableCell : Attrs msg -> Htmls msg -> TableCell msg
+tableCell : List (Attribute msg) -> List (Html msg) -> TableCell msg
 tableCell = node "td" [] []
 
 {-| -}
-tableCellHead : Attrs msg -> Htmls msg -> TableCell msg
+tableCellHead : List (Attribute msg) -> List (Html msg) -> TableCell msg
 tableCellHead = node "th" [] []
 
 
@@ -719,7 +733,7 @@ tagModifiers = { size   = Standard
         [ text "Hip to Be Square"
         ]
 -}
-tag : TagModifiers -> Attrs msg -> Htmls msg -> Tag msg
+tag : TagModifiers -> List (Attribute msg) -> List (Html msg) -> Tag msg
 tag {size,color,isLink}
   = node (if isLink then "a" else "span") []
     [ bulma.tag.ui
@@ -752,7 +766,7 @@ tag {size,color,isLink}
         [ text "Behold! I'm circlular!"
         ]
 -}
-roundedTag : TagModifiers -> Attrs msg -> Htmls msg -> Tag msg
+roundedTag : TagModifiers -> List (Attribute msg) -> List (Html msg) -> Tag msg
 roundedTag mods attrs
   = tag mods <| class "is-rounded" :: attrs
 
@@ -762,12 +776,23 @@ roundedTag mods attrs
       = easyTag myTagModifiers []
         "That was easy."
 -}
-easyTag : TagModifiers -> Attrs msg -> String -> Tag msg
+easyTag : TagModifiers -> List (Attribute msg) -> String -> Tag msg
 easyTag mods attrs = text >> ls >> tag mods attrs 
 
-{-| TODO
+{-| 
+    myMultitag : Html msg
+    myMultitag
+      = multitag []
+        [ myMainTag
+        , myDeleteTag
+        ]
+
+    myDeleteTag : Html msg
+    myDeleteTag
+      = deleteTag myTagModifiers [ onClick DeleteTag ]
+        "Delete me!"
 -}
-deleteTag : TagModifiers -> Attrs msg -> Htmls msg -> Tag msg
+deleteTag : TagModifiers -> List (Attribute msg) -> List (Html msg) -> Tag msg
 deleteTag {size,color}
   = node "a" []
     [ bulma.tag.ui
@@ -792,7 +817,7 @@ deleteTag {size,color}
     ]
 
 {-| -}
-easyRoundedTag : TagModifiers -> Attrs msg -> String -> Tag msg
+easyRoundedTag : TagModifiers -> List (Attribute msg) -> String -> Tag msg
 easyRoundedTag mods attrs = text >> ls >> roundedTag mods attrs 
 
 {-|
@@ -805,7 +830,7 @@ easyRoundedTag mods attrs = text >> ls >> roundedTag mods attrs
         [ text "cool"
         ]
 -}
-tagWithDelete : TagModifiers -> Attrs msg -> msg -> Htmls msg -> Tag msg
+tagWithDelete : TagModifiers -> List (Attribute msg) -> msg -> List (Html msg) -> Tag msg
 tagWithDelete mods attrs msg
   = flip (++) [ easyDelete [] msg ] >> tag mods attrs
 
@@ -818,12 +843,12 @@ tagWithDelete mods attrs msg
         (DeleteTag id)
         "cooler"
 -}
-easyTagWithDelete : TagModifiers -> Attrs msg -> msg -> String -> Tag msg
+easyTagWithDelete : TagModifiers -> List (Attribute msg) -> msg -> String -> Tag msg
 easyTagWithDelete mods attrs msg str
   = tag mods attrs [ text str, easyDelete [] msg ]
 
 {-| -}
-easyRoundedTagWithDelete : TagModifiers -> Attrs msg -> msg -> String -> Tag msg
+easyRoundedTagWithDelete : TagModifiers -> List (Attribute msg) -> msg -> String -> Tag msg
 easyRoundedTagWithDelete mods attrs msg str
   = roundedTag mods attrs [ text str, easyDelete [] msg ]
 
@@ -838,7 +863,7 @@ easyRoundedTagWithDelete mods attrs msg str
         , mySecondTag
         ]
 -}
-tags : Attrs msg -> List (Tag msg) -> Html msg
+tags : List (Attribute msg) -> List (Tag msg) -> Html msg
 tags = node "div" [] [ "tags" ]
 -- KLUDGE: add to BulmaClasses
 
@@ -852,7 +877,7 @@ tags = node "div" [] [ "tags" ]
 
     myMultitags : Html msg
     myMultitags
-      = multilineFieldGroup []
+      = multilineFields []
         [ control myControlModifiers []
           [ myMultiTag 
           ]
@@ -864,7 +889,7 @@ tags = node "div" [] [ "tags" ]
           ]
         ]
 -}
-multitag : Attrs msg -> List (Tag msg) -> Html msg
+multitag : List (Attribute msg) -> List (Tag msg) -> Html msg
 multitag = node "div" [] [ "tags", "has-addons" ]
 
 -- TODO: multi-multitags with field.is-grouped.is-grouped-multiline < control
@@ -890,7 +915,7 @@ type TitleSize = H1
         [ text "Hullo"
         ]
 -}
-title : TitleSize -> Attrs msg -> Htmls msg -> Title msg
+title : TitleSize -> List (Attribute msg) -> List (Html msg) -> Title msg
 title size
   = node 
     ( case size of
@@ -922,7 +947,7 @@ title size
         [ text "World"
         ]
 -}
-subtitle : TitleSize -> Attrs msg -> Htmls msg -> Title msg
+subtitle : TitleSize -> List (Attribute msg) -> List (Html msg) -> Title msg
 subtitle size
   = node 
     ( case size of
@@ -957,12 +982,12 @@ type alias TitleSpacing = Bool
         [ text "EPISODE V" ]
         [ text "THE EMPIRE STRIKES BACK" ]
 -}
-easyTitleWithSubtitle : TitleSpacing -> TitleSize -> Htmls msg -> Htmls msg -> List (Title msg)
+easyTitleWithSubtitle : TitleSpacing -> TitleSize -> List (Html msg) -> List (Html msg) -> List (Title msg)
 easyTitleWithSubtitle spacing size title subtitle
   = [ node "p" []
       [ bulma.heading.title
       , case spacing of
-          True  -> bulma.heading.spacing.isStandard
+          True  -> bulma.heading.spacing.isNormal
           False -> ""
       , case size of
           H1 -> bulma.heading.size.is1
