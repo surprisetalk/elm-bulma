@@ -246,7 +246,7 @@ buttons alignment
 {-| 
     myConnectedButtons : Html Msg
     myConnectedButtons
-      = buttons Left []
+      = connectedButtons Left []
         [ button   buttonModifiers                     [ text "Yes"   ]
         , button { buttonModifiers | color = Primary } [ text "Maybe" ]
         , button   buttonModifiers                     [ text "No"    ]

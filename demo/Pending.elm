@@ -1,0 +1,76 @@
+module Pending exposing (..) 
+
+
+--------------
+-- Modifiers
+------------
+
+-- SHADOW ------------------------------------------------------------------
+
+{-| Adds shadow.
+-}
+shadow : Attribute msg
+shadow = class "has-shadow"
+
+
+-------------
+-- Components
+---------
+
+type alias NavbarModifiers
+   = { color       : Color
+     , transparent : Bool
+     , shadow      : Bool
+     }
+
+navbarModifiers : NavbarModifiers
+navbarModifiers
+   = { color       = Default
+     , transparent = False
+     , shadow      = False
+     }
+
+
+navbar : NavbarModifiers -> List (Attribute msg) -> List (NavbarSection msg) -> Navbar msg
+navbar {color,transparent,shadow}
+  = node "nav" []
+    [ "navbar"
+    , case transparent of
+        True -> "is-transparent"
+        _    -> ""
+    , case color of
+        Default -> ""
+        White   -> "is-white"
+        Light   -> "is-light"
+        Dark    -> "is-dark"
+        Black   -> "is-black"
+        Primary -> "is-primary"
+        Link    -> "is-link"
+        Info    -> "is-info"
+        Success -> "is-success"
+        Warning -> "is-warning"
+        Danger  -> "is-danger"
+    , case shadow of
+        True -> "has-shadow"
+        _ -> ""
+    ]
+
++{-| A tab variant of `navbar`.
++-}
++navbarTabs : List(Attribute msg) -> List (Html msg) -> NavbarItem msg
++navbarTabs = node "div" [] [ "navbar-tabs" ]
++
++{-| This element is a child of `navbarTabs`.
++   based on an <div> tag
++-}
++navbarTab : IsActive -> List(Attribute msg) -> List (Html msg) -> NavbarItem msg
++navbarTab isActive = node "div" [] [ "navbar-item is-tab", if isActive then "is-active" else "" ]
++
++{-| This element is a child of `navbarTabs`.
++   based on an <a> tag
++-}
++navbarTabLink : IsActive -> List(Attribute msg) -> List (Html msg) -> NavbarItem msg
++navbarTabLink isActive = node "a" [] [ "navbar-item is-tab", if isActive then "is-active" else "" ]
++
+
+
