@@ -70,16 +70,3 @@ exampleColumns
 ## Friends
 - [elm-bootstrap](http://package.elm-lang.org/packages/rundis/elm-bootstrap/latest)
 - [elm-bulma-classes](http://package.elm-lang.org/packages/danielnarey/elm-bulma-classes/latest/BulmaClasses)
-
-## Next Steps
-- [X] Fix the hacky `Attrs msg` stuff (sorry!).
-- [X] Upgrade to `0.6.2`.
-- [X] Example/test page with all the Bulma features.
-- [X] Improve documentation.
-- [ ] Rethink position on modifiers: giant global record or more args.
-- [ ] Reconsider stance on "easy" things.
-- [ ] Argument arrangement/consistency review.
-- [ ] Remove `elm-bulma-classes` as dependency.
-- [ ] Talk to the Bulma peeps about featuring this package!
-- [ ] Clean the codebase.
-- [ ] Make the library web-accessible by default, using the [elm-html-a11y](http://package.elm-lang.org/packages/tesk9/elm-html-a11y/latest) package.
