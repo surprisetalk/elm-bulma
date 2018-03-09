@@ -1,6 +1,11 @@
 module Pending exposing (..) 
 
 
+import Bulma.Modifiers exposing ( Color(..) )
+import Bulma.Components as Base
+import Helpers exposing (..)
+import Html exposing ( Html, Attribute )
+import Html.Attributes exposing ( class )
 --------------
 -- Modifiers
 ------------
@@ -23,15 +28,15 @@ type alias NavbarModifiers
      , shadow      : Bool
      }
 
-navbarModifiers : NavbarModifiers
-navbarModifiers
+pendingNavbarModifiers : NavbarModifiers
+pendingNavbarModifiers
    = { color       = Default
      , transparent = False
      , shadow      = False
      }
 
 
-navbar : NavbarModifiers -> List (Attribute msg) -> List (NavbarSection msg) -> Navbar msg
+navbar : NavbarModifiers -> List (Attribute msg) -> List (Base.NavbarSection msg) -> Base.Navbar msg
 navbar {color,transparent,shadow}
   = node "nav" []
     [ "navbar"
@@ -55,22 +60,22 @@ navbar {color,transparent,shadow}
         _ -> ""
     ]
 
-+{-| A tab variant of `navbar`.
-+-}
-+navbarTabs : List(Attribute msg) -> List (Html msg) -> NavbarItem msg
-+navbarTabs = node "div" [] [ "navbar-tabs" ]
-+
-+{-| This element is a child of `navbarTabs`.
-+   based on an <div> tag
-+-}
-+navbarTab : IsActive -> List(Attribute msg) -> List (Html msg) -> NavbarItem msg
-+navbarTab isActive = node "div" [] [ "navbar-item is-tab", if isActive then "is-active" else "" ]
-+
-+{-| This element is a child of `navbarTabs`.
-+   based on an <a> tag
-+-}
-+navbarTabLink : IsActive -> List(Attribute msg) -> List (Html msg) -> NavbarItem msg
-+navbarTabLink isActive = node "a" [] [ "navbar-item is-tab", if isActive then "is-active" else "" ]
-+
+{-| A tab variant of `navbar`.
+-}
+navbarTabs : List(Attribute msg) -> List (Html msg) -> Base.NavbarItem msg
+navbarTabs = node "div" [] [ "navbar-tabs" ]
+
+{-| This element is a child of `navbarTabs`.
+   based on an <div> tag
+-}
+navbarTab : Base.IsActive -> List(Attribute msg) -> List (Html msg) -> Base.NavbarItem msg
+navbarTab isActive = node "div" [] [ "navbar-item is-tab", if isActive then "is-active" else "" ]
+
+{-| This element is a child of `navbarTabs`.
+   based on an <a> tag
+-}
+navbarTabLink : Base.IsActive -> List(Attribute msg) -> List (Html msg) -> Base.NavbarItem msg
+navbarTabLink isActive = node "a" [] [ "navbar-item is-tab", if isActive then "is-active" else "" ]
+
 
 

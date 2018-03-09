@@ -16,6 +16,8 @@ import Bulma.Modifiers as Modifiers exposing (..)
 import RouteUrl
 import Navigation
 
+import Pending
+
 import NotFound404
 import Overview.Start as Start
 import Elements.Box as Box
@@ -215,12 +217,13 @@ demoNavBar model =
         |> Maybe.withDefault ("", [])
     navs = navList
         |> List.indexedMap (\i (name, _) ->
-                              navbarTabLink (i == selectedNav) []
+                              Pending.navbarTabLink (i == selectedNav) []
                               [ Html.a [ href (urlString tab name) ] [ text name ] ])
+    modifiers = Pending.pendingNavbarModifiers
   in
-  navbar { navbarModifiers | shadow = True } []
+  Pending.navbar { modifiers | shadow = True } []
     [ container []
-        [ navbarTabs [] navs ]
+        [ Pending.navbarTabs [] navs ]
     ]
 
 pageView : Model -> Html msg
