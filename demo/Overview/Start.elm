@@ -1,21 +1,25 @@
 module Overview.Start exposing (..)
 
-import Bulma.Elements as Elements exposing (..)
 import Bulma.Components as Components exposing (..)
+import Bulma.Elements as Elements exposing (..)
 import Bulma.Layout as Layout exposing (..)
 import Bulma.Modifiers as Modifiers exposing (..)
-import Html exposing ( Html, text, p, img, strong, small, br, code, a, ul, li)
-import Html.Attributes exposing ( href )
+import Html exposing (Html, a, br, code, img, li, p, small, strong, text, ul)
+import Html.Attributes exposing (href)
 import Page
 
-import Page
 
 view : Html msg
 view =
-  let
-    title = "Getting Started"
-    subtitle = "Elm-Bulma is a simple and beautiful front-end library."
-    code = Page.formatElmCode """
+    let
+        title =
+            "Getting Started"
+
+        subtitle =
+            "Elm-Bulma is a simple and beautiful front-end library."
+
+        code =
+            Page.formatElmCode """
 module Example exposing (..)
 
 import Bulma.CDN exposing (..)
@@ -28,7 +32,7 @@ import Html exposing ( Html, main_, text )
 type alias Model = {}
 
 main : Program Never Model msg
-main 
+main
   = Html.beginnerProgram
     { model = {}
     , view = view
@@ -36,7 +40,7 @@ main
     }
 
 view : Model -> Html msg
-view model 
+view model
   = main_ []
     [ stylesheet
     , exampleHero
@@ -44,7 +48,7 @@ view model
     ]
 
 exampleHero : Html msg
-exampleHero 
+exampleHero
   = hero { heroModifiers | size = Medium, color = Primary } []
     [ heroBody []
       [ container []
@@ -67,23 +71,32 @@ exampleColumns
     ]
 
             """
-    body = content Standard []
-           [ Elements.title H4 [] [text "Documentation"]
-           , ul []
-             [ li [] [text "learn about the components at " 
-                     , a [ href "bulma.io" ] [ text "bulma.io." ] ]
-             , li [] [text "for api information, head over to the "
-                     , a [href "http://package.elm-lang.org/packages/surprisetalk/elm-bulma/latest"] [ text "elm package."]]
-             ]
-           , Elements.title H4 [] [text "Getting Started"]
-           , ul []
-             [ li [] [ text "Make a new project: mkdir bulma-example && cd bulma-example" ]
-             , li [] [ text "Install the package: elm package install --yes surprisetalk/elm-bulma." ]
-             , li [] [ text "Create a new file Main.elm and copy the code below." ]
-             , li [] [text "Start elm reactor and navigate to "
-                     , a [href "http://localhost:8000/"] [ text "http://localhost:8000/"]]
-             ]
-           , code
-           ]
-  in
+
+        body =
+            content Standard
+                []
+                [ Elements.title H4 [] [ text "Documentation" ]
+                , ul []
+                    [ li []
+                        [ text "learn about the components at "
+                        , a [ href "bulma.io" ] [ text "bulma.io." ]
+                        ]
+                    , li []
+                        [ text "for api information, head over to the "
+                        , a [ href "http://package.elm-lang.org/packages/surprisetalk/elm-bulma/latest" ] [ text "elm package." ]
+                        ]
+                    ]
+                , Elements.title H4 [] [ text "Getting Started" ]
+                , ul []
+                    [ li [] [ text "Make a new project: mkdir bulma-example && cd bulma-example" ]
+                    , li [] [ text "Install the package: elm package install --yes surprisetalk/elm-bulma." ]
+                    , li [] [ text "Create a new file Main.elm and copy the code below." ]
+                    , li []
+                        [ text "Start elm reactor and navigate to "
+                        , a [ href "http://localhost:8000/" ] [ text "http://localhost:8000/" ]
+                        ]
+                    ]
+                , code
+                ]
+    in
     Page.template title subtitle body
