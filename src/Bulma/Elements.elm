@@ -724,7 +724,7 @@ tableRow highlighted
   = node "tr" []
     [ case highlighted of
         True  -> bulma.table.row.state.isSelected
-        False -> bulma.table.row.state.isSelected
+        False -> ""
     ]
 
 
