@@ -9,7 +9,6 @@ import Html.Attributes exposing ( class, href, src )
 
 import Bulma.Components as Components exposing (..)
 import Bulma.Elements as Elements exposing (..)
-import Bulma.Form as Form exposing (..)
 import Bulma.Layout as Layout exposing (..)
 import Bulma.Modifiers as Modifiers exposing (..)
 
@@ -22,6 +21,9 @@ import NotFound404
 import Overview.Start as Start
 import Elements.Box as Box
 import Elements.Button as Button
+import Elements.Content as Content
+import Elements.Delete as Delete
+import Elements.Icon as Icon
 
 type alias Model =
   { selectedTab : ( Int, Int )
@@ -41,6 +43,9 @@ defTabs =
   , ("Elements",
       [("Box", Box.view)
       , ("Button", Button.view)
+      , ("Content", Content.view)
+      , ("Delete", Delete.view)
+      , ("Icon", Icon.view)
       ])
   ]
 

@@ -1,6 +1,5 @@
 module Elements.Box exposing (..)
 
-import Bulma.Components as Components exposing (..)
 import Bulma.Elements as Elements exposing (..)
 import Bulma.Layout as Layout exposing (..)
 import Bulma.Modifiers as Modifiers exposing (..)
