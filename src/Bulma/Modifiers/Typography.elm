@@ -160,12 +160,12 @@ textSizeByDevice {mobile,tablet,desktop,widescreen,fullHD}
 textLeft : Attribute msg
 textLeft = class bulma.properties.alignment.hasTextLeft
 
-{-| Aligns text to the right.
+{-| Centers text.
 -}
 textCentered : Attribute msg
 textCentered = class bulma.properties.alignment.hasTextCentered
 
-{-| Centers text.
+{-| Aligns text to the right.
 -}
 textRight : Attribute msg
 textRight = class bulma.properties.alignment.hasTextRight
