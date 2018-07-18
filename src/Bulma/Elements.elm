@@ -89,7 +89,7 @@ module Bulma.Elements exposing (..)
 
 import Helpers exposing (..)
 
-import BulmaClasses exposing (..)
+import Bulma.Classes as B
 
 import Bulma.Modifiers as Modifiers exposing (..)
 
@@ -118,7 +118,7 @@ The box is simply a container with a shadow, a border, a radius, and some paddin
         ]
 -}
 box : List (Attribute msg) -> List (Html msg) -> Box msg
-box = node "div" [] [ bulma.box.container ]
+box = node "div" [ B.box ]
 
 
 -- BUTTON ----------------------------------------------------------------------
@@ -163,44 +163,47 @@ button {disabled,outlined,inverted,rounded,size,state,color,static,iconLeft,icon
           = case iconRight of
               Just ( size, attrs, body ) -> [ icon size attrs [ body ] ]
               Nothing                    -> [                          ]
-    in node "button" [ Attr.disabled disabled ]
-       [ bulma.button.ui
+    in node "button"
+       [ Attr.disabled disabled
+       , B.button
        , case static of
-           True  -> "is-static"
-           False -> ""
+           True  -> B.isStatic
+           False -> B.none
        , case outlined of
-           True  -> "is-outlined"
-           False -> ""
+           True  -> B.isOutlined
+           False -> B.none
        , case inverted of
-           True  -> "is-inverted"
-           False -> ""
+           True  -> B.isInverted
+           False -> B.none
        , case rounded of
-           True  -> "is-rounded"
-           False -> ""
+           True  -> B.isRounded
+           False -> B.none
        , case color of
-           Default -> ""
-           White   -> "is-selected " ++ bulma.button.color.isWhite
-           Light   -> "is-selected " ++ bulma.button.color.isLight
-           Dark    -> "is-selected " ++ bulma.button.color.isDark
-           Black   -> "is-selected " ++ bulma.button.color.isBlack
-           Primary -> "is-selected " ++ bulma.button.color.isPrimary
-           Link    -> "is-selected " ++ "is-link"
-           Info    -> "is-selected " ++ bulma.button.color.isInfo
-           Success -> "is-selected " ++ bulma.button.color.isSuccess
-           Warning -> "is-selected " ++ bulma.button.color.isWarning
-           Danger  -> "is-selected " ++ bulma.button.color.isDanger
+           Default -> B.none
+           _       -> B.isSelected
+       , case color of
+           Default -> B.none
+           White   -> B.isWhite
+           Light   -> B.isLight
+           Dark    -> B.isDark
+           Black   -> B.isBlack
+           Primary -> B.isPrimary
+           Link    -> B.isLink
+           Info    -> B.isInfo
+           Success -> B.isSuccess
+           Warning -> B.isWarning
+           Danger  -> B.isDanger
        , case size of
-           Small  -> bulma.button.size.isSmall
-           Standard -> ""
-           Medium -> bulma.button.size.isMedium
-           Large  -> bulma.button.size.isLarge
+           Small  -> B.isSmall
+           Standard -> B.none
+           Medium -> B.isMedium
+           Large  -> B.isLarge
        , case state of
-           Blur    -> ""
-           Hover   -> "is-hovered"
-           Focus   -> "is-focused"
-           Active  -> "is-active"
-           Loading -> "is-loading"
-           -- KLUDGE: add to BulmaClasses
+           Blur    -> B.none
+           Hover   -> B.isHovered
+           Focus   -> B.isFocused
+           Active  -> B.isActive
+           Loading -> B.isLoading
        ]
        attrs
        htmls_
@@ -235,12 +238,12 @@ easyButton mods attrs msg str
 -}
 buttons: HorizontalAlignment -> List (Attribute msg) -> List (Button msg) -> Html msg
 buttons alignment
-  = node "div" []
-    [ "buttons"
+  = node "div"
+    [ B.buttons
     , case alignment of
-        Left     -> ""
-        Centered -> "is-centered"
-        Right    -> "is-right"
+        Left     -> B.none
+        Centered -> B.isCentered
+        Right    -> B.isRight
     ]
 
 {-| 
@@ -327,13 +330,13 @@ It can handle almost any HTML element, including:
 -}
 content : Size -> List (Attribute msg) -> List (Html msg) -> Content msg
 content size
-  = node "div" []
-    [ bulma.content.container
+  = node "div" 
+    [ B.content
     , case size of
-        Small  -> bulma.content.size.isSmall
-        Standard -> ""
-        Medium -> bulma.content.size.isMedium
-        Large  -> bulma.content.size.isLarge
+        Small    -> B.isSmall
+        Standard -> B.none
+        Medium   -> B.isMedium
+        Large    -> B.isLarge
     ]
 
 
@@ -345,7 +348,7 @@ type alias Delete msg = Html msg
 {-| Versatile delete cross.
 -}
 delete : List (Attribute msg) -> List (Html msg) -> Delete msg
-delete = node "a" [] [ bulma.delete.ui ]
+delete = node "a" [ B.delete ]
 
 {-| 
     type Msg = DeleteMsg
@@ -377,13 +380,13 @@ type alias Icon msg = Html msg
 -}
 icon : Size -> List (Attribute msg) -> List (IconBody msg) -> Icon msg
 icon size
-  = node "span" []
-    [ bulma.icon.container
+  = node "span" 
+    [ B.icon
     , case size of
-        Small  -> bulma.icon.size.isSmall
-        Standard -> ""
-        Medium -> bulma.icon.size.isMedium
-        Large  -> bulma.icon.size.isLarge
+        Small    -> B.isSmall
+        Standard -> B.none
+        Medium   -> B.isMedium
+        Large    -> B.isLarge
     ] 
 
 {-| -}
@@ -425,22 +428,22 @@ type ImageSize
 -}
 image : ImageShape -> List (Attribute msg) -> List (Html msg) -> Image msg
 image shape
-  = node "figure" []
-    [ bulma.image.container
+  = node "figure"
+    [ B.image
     , case shape of
-        OneByOne Unbounded -> bulma.image.size.is1by1
-        OneByOne X16       -> bulma.image.size.is16x16
-        OneByOne X24       -> bulma.image.size.is24x24
-        OneByOne X32       -> bulma.image.size.is32x32
-        OneByOne X48       -> bulma.image.size.is48x48
-        OneByOne X64       -> bulma.image.size.is64x64
-        OneByOne X96       -> bulma.image.size.is96x96
-        OneByOne X128      -> bulma.image.size.is128x128
-        FourByThree        -> bulma.image.size.is4by3
-        ThreeByTwo         -> bulma.image.size.is3by2
-        SixteenByNine      -> bulma.image.size.is16by9
-        TwoByOne           -> bulma.image.size.is2by1
-        Natural            -> ""
+        OneByOne Unbounded -> B.is1by1
+        OneByOne X16       -> B.is16x16
+        OneByOne X24       -> B.is24x24
+        OneByOne X32       -> B.is32x32
+        OneByOne X48       -> B.is48x48
+        OneByOne X64       -> B.is64x64
+        OneByOne X96       -> B.is96x96
+        OneByOne X128      -> B.is128x128
+        FourByThree        -> B.is4by3
+        ThreeByTwo         -> B.is3by2
+        SixteenByNine      -> B.is16by9
+        TwoByOne           -> B.is2by1
+        Natural            -> B.none
     ]
 
 {-| 
@@ -512,20 +515,20 @@ type alias Notification msg = Html msg
 -}
 notification : Color -> List (Attribute msg) -> List (Html msg) -> Notification msg
 notification color
-  = node "div" []
-    [ bulma.notification.ui
+  = node "div"
+    [ B.notification
     , case color of
-        Default -> ""
-        White   -> bulma.notification.color.isWhite
-        Light   -> bulma.notification.color.isLight
-        Dark    -> bulma.notification.color.isDark
-        Black   -> bulma.notification.color.isBlack
-        Primary -> bulma.notification.color.isPrimary
-        Link    -> "is-link"
-        Info    -> bulma.notification.color.isInfo
-        Success -> bulma.notification.color.isSuccess
-        Warning -> bulma.notification.color.isWarning
-        Danger  -> bulma.notification.color.isDanger
+        Default -> B.none
+        White   -> B.isWhite
+        Light   -> B.isLight
+        Dark    -> B.isDark
+        Black   -> B.isBlack
+        Primary -> B.isPrimary
+        Info    -> B.isInfo
+        Success -> B.isSuccess
+        Warning -> B.isWarning
+        Danger  -> B.isDanger
+        Link    -> B.isLink
     ]
 
 {-| 
@@ -572,25 +575,25 @@ progressModifiers = { size  = Standard
 -}
 progress : ProgressModifiers -> List (Attribute msg) -> List (Html msg) -> Progress msg
 progress {size,color}
-  = node "progress" [] 
-    [ bulma.progress.ui
+  = node "progress"
+    [ B.progress
     , case size of
-        Small  -> bulma.progress.size.isSmall
-        Standard -> ""
-        Medium -> bulma.progress.size.isMedium
-        Large  -> bulma.progress.size.isLarge
+        Small    -> B.isSmall
+        Standard -> B.none
+        Medium   -> B.isMedium
+        Large    -> B.isLarge
     , case color of
-        Default -> ""
-        White   -> bulma.progress.color.isWhite
-        Light   -> bulma.progress.color.isLight
-        Dark    -> bulma.progress.color.isDark
-        Black   -> bulma.progress.color.isBlack
-        Primary -> bulma.progress.color.isPrimary
-        Link    -> "is-link"
-        Info    -> bulma.progress.color.isInfo
-        Success -> bulma.progress.color.isSuccess
-        Warning -> bulma.progress.color.isWarning
-        Danger  -> bulma.progress.color.isDanger
+        Default -> B.none
+        White   -> B.isWhite
+        Light   -> B.isLight
+        Dark    -> B.isDark
+        Black   -> B.isBlack
+        Primary -> B.isPrimary
+        Info    -> B.isInfo
+        Success -> B.isSuccess
+        Warning -> B.isWarning
+        Danger  -> B.isDanger
+        Link    -> B.isLink
     ]
 
 {-|
@@ -637,23 +640,23 @@ tableModifiers = { bordered  = False
 -}
 table : TableModifiers -> List (Attribute msg) -> List (TablePartition msg) -> Table msg
 table {bordered,striped,narrow,hoverable,fullWidth}
-  = node "table" []
-    [ bulma.table.container
+  = node "table"
+    [ B.table
     , case bordered of
-        True  -> bulma.table.style.isBordered
-        False -> ""
+        True  -> B.isBordered
+        False -> B.none
     , case striped of
-        True  -> bulma.table.style.isStriped
-        False -> ""
+        True  -> B.isStriped
+        False -> B.none
     , case narrow of
-        True  -> bulma.table.spacing.isNarrow
-        False -> ""
+        True  -> B.isNarrow
+        False -> B.none
     , case hoverable of
-        True  -> "is-hoverable"
-        False -> ""
+        True  -> B.isHoverable
+        False -> B.none
     , case fullWidth of
-        True  -> "is-fullwidth"
-        False -> ""
+        True  -> B.isFullWidth
+        False -> B.none
     ]
 
 
@@ -674,7 +677,7 @@ type alias TablePartition msg = Html msg
         ]
 -}
 tableHead : List (Attribute msg) -> List (TableRow msg) -> TablePartition msg
-tableHead = node "thead" [] []
+tableHead = node "thead" []
 
 {-|
     myTableBody : Html msg
@@ -693,7 +696,7 @@ tableHead = node "thead" [] []
         ]
 -}
 tableBody : List (Attribute msg) -> List (TableRow msg) -> TablePartition msg
-tableBody = node "tbody" [] []
+tableBody = node "tbody" []
 
 {-|
     myTableFoot : Html msg
@@ -707,7 +710,7 @@ tableBody = node "tbody" [] []
         ]
 -}
 tableFoot : List (Attribute msg) -> List (TableRow msg) -> TablePartition msg
-tableFoot = node "tfoot" [] []
+tableFoot = node "tfoot" []
 
 
 -- TABLE ROW --
@@ -721,10 +724,10 @@ type alias IsHighlighted = Bool
 {-| -}
 tableRow : IsHighlighted -> List (Attribute msg) -> List (TableCell msg) -> TableRow msg
 tableRow highlighted
-  = node "tr" []
+  = node "tr"
     [ case highlighted of
-        True  -> bulma.table.row.state.isSelected
-        False -> ""
+        True  -> B.isSelected
+        False -> B.none
     ]
 
 
@@ -735,11 +738,11 @@ type alias TableCell msg = Html msg
 
 {-| -}
 tableCell : List (Attribute msg) -> List (Html msg) -> TableCell msg
-tableCell = node "td" [] []
+tableCell = node "td" []
 
 {-| -}
 tableCellHead : List (Attribute msg) -> List (Html msg) -> TableCell msg
-tableCellHead = node "th" [] []
+tableCellHead = node "th" []
 
 
 -- TAG -------------------------------------------------------------------------
@@ -769,28 +772,28 @@ tagModifiers = { size   = Standard
 -}
 tag : TagModifiers -> List (Attribute msg) -> List (Html msg) -> Tag msg
 tag {size,color,isLink}
-  = node (if isLink then "a" else "span") []
-    [ bulma.tag.ui
+  = node (if isLink then "a" else "span")
+    [ B.tag
     -- , case isLink of
-    --     True  -> "is-link"
-    --     False -> ""
+    --     True  -> B.isLink
+    --     False -> B.none
     , case size of
-        Small  -> "" -- KLUDGE
-        Standard -> ""
-        Medium -> bulma.tag.size.isMedium
-        Large  -> bulma.tag.size.isLarge
+        Small    -> B.none -- KLUDGE
+        Standard -> B.none
+        Medium   -> B.isMedium
+        Large    -> B.isLarge
     , case color of
-        Default -> ""
-        White   -> bulma.tag.color.isWhite
-        Light   -> bulma.tag.color.isLight
-        Dark    -> bulma.tag.color.isDark
-        Black   -> bulma.tag.color.isBlack
-        Primary -> bulma.tag.color.isPrimary
-        Link    -> "is-link"
-        Info    -> bulma.tag.color.isInfo
-        Success -> bulma.tag.color.isSuccess
-        Warning -> bulma.tag.color.isWarning
-        Danger  -> bulma.tag.color.isDanger
+        Default -> B.none
+        White   -> B.isWhite
+        Light   -> B.isLight
+        Dark    -> B.isDark
+        Black   -> B.isBlack
+        Primary -> B.isPrimary
+        Info    -> B.isInfo
+        Success -> B.isSuccess
+        Warning -> B.isWarning
+        Danger  -> B.isDanger
+        Link    -> B.isLink
     ]
 
 {-| 
@@ -802,7 +805,7 @@ tag {size,color,isLink}
 -}
 roundedTag : TagModifiers -> List (Attribute msg) -> List (Html msg) -> Tag msg
 roundedTag mods attrs
-  = tag mods <| class "is-rounded" :: attrs
+  = tag mods <| B.isRounded :: attrs
 
 {-| 
     myTag : Html msg
@@ -828,26 +831,26 @@ easyTag mods attrs = text >> ls >> tag mods attrs
 -}
 deleteTag : TagModifiers -> List (Attribute msg) -> List (Html msg) -> Tag msg
 deleteTag {size,color}
-  = node "a" []
-    [ bulma.tag.ui
-    , "is-delete"
+  = node "a"
+    [ B.tag
+    , B.isDelete
     , case size of
-        Small  -> "" -- KLUDGE
-        Standard -> ""
-        Medium -> bulma.tag.size.isMedium
-        Large  -> bulma.tag.size.isLarge
+        Small    -> B.none -- KLUDGE
+        Standard -> B.none
+        Medium   -> B.isMedium
+        Large    -> B.isLarge
     , case color of
-        Default -> ""
-        White   -> bulma.tag.color.isWhite
-        Light   -> bulma.tag.color.isLight
-        Dark    -> bulma.tag.color.isDark
-        Black   -> bulma.tag.color.isBlack
-        Primary -> bulma.tag.color.isPrimary
-        Link    -> "is-link"
-        Info    -> bulma.tag.color.isInfo
-        Success -> bulma.tag.color.isSuccess
-        Warning -> bulma.tag.color.isWarning
-        Danger  -> bulma.tag.color.isDanger
+        Default -> B.none
+        White   -> B.isWhite
+        Light   -> B.isLight
+        Dark    -> B.isDark
+        Black   -> B.isBlack
+        Primary -> B.isPrimary
+        Info    -> B.isInfo
+        Success -> B.isSuccess
+        Warning -> B.isWarning
+        Danger  -> B.isDanger
+        Link    -> B.isLink
     ]
 
 {-| -}
@@ -898,8 +901,7 @@ easyRoundedTagWithDelete mods attrs msg str
         ]
 -}
 tags : List (Attribute msg) -> List (Tag msg) -> Html msg
-tags = node "div" [] [ "tags" ]
--- KLUDGE: add to BulmaClasses
+tags = node "div" [ B.tags ]
 
 {-| 
     myMultitag : Html msg
@@ -924,7 +926,7 @@ tags = node "div" [] [ "tags" ]
         ]
 -}
 multitag : List (Attribute msg) -> List (Tag msg) -> Html msg
-multitag = node "div" [] [ "tags", "has-addons" ]
+multitag = node "div" [ B.tags, B.hasAddons ]
 
 -- TODO: multi-multitags with field.is-grouped.is-grouped-multiline < control
 
@@ -960,15 +962,14 @@ title size
         H5 -> "h5"
         H6 -> "h6"
     )
-    []
-    [ bulma.heading.title
+    [ B.title
     , case size of
-        H1 -> bulma.heading.size.is1
-        H2 -> bulma.heading.size.is2
-        H3 -> bulma.heading.size.is3
-        H4 -> bulma.heading.size.is4
-        H5 -> bulma.heading.size.is5
-        H6 -> bulma.heading.size.is6
+        H1 -> B.is1
+        H2 -> B.is2
+        H3 -> B.is3
+        H4 -> B.is4
+        H5 -> B.is5
+        H6 -> B.is6
     ]
 
 
@@ -992,15 +993,14 @@ subtitle size
         H5 -> "h5"
         H6 -> "h6"
     )
-    [] 
-    [ bulma.heading.subtitle
+    [ B.subtitle
     , case size of
-        H1 -> bulma.heading.size.is1
-        H2 -> bulma.heading.size.is2
-        H3 -> bulma.heading.size.is3
-        H4 -> bulma.heading.size.is4
-        H5 -> bulma.heading.size.is5
-        H6 -> bulma.heading.size.is6
+        H1 -> B.is1
+        H2 -> B.is2
+        H3 -> B.is3
+        H4 -> B.is4
+        H5 -> B.is5
+        H6 -> B.is6
     ]
 
 
@@ -1018,29 +1018,29 @@ type alias TitleSpacing = Bool
 -}
 easyTitleWithSubtitle : TitleSpacing -> TitleSize -> List (Html msg) -> List (Html msg) -> List (Title msg)
 easyTitleWithSubtitle spacing size title subtitle
-  = [ node "p" []
-      [ bulma.heading.title
+  = [ node "p"
+      [ B.title
       , case spacing of
-          True  -> bulma.heading.spacing.isNormal
-          False -> ""
+          True  -> B.isNormal
+          False -> B.none
       , case size of
-          H1 -> bulma.heading.size.is1
-          H2 -> bulma.heading.size.is2
-          H3 -> bulma.heading.size.is3
-          H4 -> bulma.heading.size.is4
-          H5 -> bulma.heading.size.is5
-          H6 -> bulma.heading.size.is6
+          H1 -> B.is1
+          H2 -> B.is2
+          H3 -> B.is3
+          H4 -> B.is4
+          H5 -> B.is5
+          H6 -> B.is6
       ]
       [
       ]
       title
-    , node "p" [] 
-      [ bulma.heading.subtitle
+    , node "p"
+      [ B.subtitle
       , case size of
-          H1 -> bulma.heading.size.is3
-          H2 -> bulma.heading.size.is4
-          H3 -> bulma.heading.size.is5
-          _  -> bulma.heading.size.is6
+          H1 -> B.is3
+          H2 -> B.is4
+          H3 -> B.is5
+          _  -> B.is6
       ]
       [
       ]

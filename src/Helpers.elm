@@ -86,14 +86,8 @@ ls = fl (::) []
 
 -- HTML ------------------------------------------------------------------------
 
-node : String -> List (Attribute msg) -> List String -> List (Attribute msg) -> List (Html msg) -> Html msg
-node tag attrs_ classes attrs
+node : String -> List (Attribute msg) -> List (Attribute msg) -> List (Html msg) -> Html msg
+node tag attrs_ attrs
   = Html.node tag
-  <| (++) attrs
-  <| (++) attrs_
-  <| ls
-  <| class
-  <| join " "
-  <| filter ((/=) "")
-  <| classes
+    <| attrs ++ attrs_
 

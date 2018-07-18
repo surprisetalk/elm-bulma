@@ -69,4 +69,3 @@ exampleColumns
 
 ## Friends
 - [elm-bootstrap](http://package.elm-lang.org/packages/rundis/elm-bootstrap/latest)
-- [elm-bulma-classes](http://package.elm-lang.org/packages/danielnarey/elm-bulma-classes/latest/BulmaClasses)

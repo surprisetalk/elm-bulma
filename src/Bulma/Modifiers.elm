@@ -59,7 +59,7 @@ Also included are a set of helpers for style, layout.
 @docs clipped
 
 ### Style
-@docs radiusless, shadowless, invisible
+@docs radiusless, shadowless, invisible, screenReaderOnly
 
 ## Display
 @docs Devices, Display
@@ -72,7 +72,7 @@ See [Bulma.Modifiiers.Typography](http://package.elm-lang.org/packages/surpriset
 
 -- IMPORTS ---------------------------------------------------------------------
 
-import BulmaClasses exposing (..)
+import Bulma.Classes as B
 
 import Html exposing ( Attribute )
 import Html.Attributes exposing ( class )
@@ -152,17 +152,17 @@ type alias IsActive
 {-| Fixes an element's floating children.
 -}
 clearfix : Attribute msg
-clearfix = class bulma.properties.float.isClearfix
+clearfix = B.isClearfix
 
 {-| Moves an element to the left.
 -}
 pulledLeft : Attribute msg
-pulledLeft = class bulma.properties.float.isPulledLeft
+pulledLeft = B.isPulledLeft
 
 {-| Moves an element to the right.
 -}
 pulledRight : Attribute msg
-pulledRight = class bulma.properties.float.isPulledRight
+pulledRight = B.isPulledRight
 
 
 -- INTERACTION -----------------------------------------------------------------
@@ -170,7 +170,7 @@ pulledRight = class bulma.properties.float.isPulledRight
 {-| Prevents text from being selectable.
 -}
 unselectable : Attribute msg
-unselectable = class bulma.properties.interaction.isUnselectable
+unselectable = B.isUnselectable
                                                                                                                                 
 
 -- OVERLAY----------------------------------------------------------------------
@@ -178,7 +178,7 @@ unselectable = class bulma.properties.interaction.isUnselectable
 {-| Completely covers the first-positioned parent.
 -}
 overlay : Attribute msg
-overlay = class bulma.properties.sizing.isOverlay
+overlay = B.isOverlay
 
 
 -- SIZING ----------------------------------------------------------------------
@@ -186,7 +186,7 @@ overlay = class bulma.properties.sizing.isOverlay
 {-| Takes up the whole width (100%).
 -}
 fullWidth : Attribute msg
-fullWidth = class bulma.properties.sizing.isFullwidth
+fullWidth = B.isFullWidth
 
 
 -- SPACING ---------------------------------------------------------------------
@@ -194,12 +194,12 @@ fullWidth = class bulma.properties.sizing.isFullwidth
 {-| Removes all margins.
 -}
 marginless : Attribute msg
-marginless = class bulma.properties.sizing.isMarginless
+marginless = B.isMarginless
 
 {-| Removes all paddings.
 -}
 paddingless : Attribute msg
-paddingless = class bulma.properties.sizing.isPaddingless
+paddingless = B.isPaddingless
 
 
 -- CLIPPED ---------------------------------------------------------------------
@@ -207,8 +207,7 @@ paddingless = class bulma.properties.sizing.isPaddingless
 {-| Adds overflow:hidden.
 -}
 clipped : Attribute msg
-clipped = class "is-clipped"
--- KLUDGE: add "is-clipped" to BulmaClasses
+clipped = B.isClipped
 
 
 -- RADIUSLESS ------------------------------------------------------------------
@@ -216,8 +215,7 @@ clipped = class "is-clipped"
 {-| Removes any radius.
 -}
 radiusless : Attribute msg
-radiusless = class "is-radiusless"
--- KLUDGE: add "is-radiusless" to BulmaClasses
+radiusless = B.isRadiusless
 
 
 -- SHADOWLESS ------------------------------------------------------------------
@@ -225,8 +223,7 @@ radiusless = class "is-radiusless"
 {-| Removes any shadow.
 -}
 shadowless : Attribute msg
-shadowless = class "is-shadowless"
--- KLUDGE: add "is-shadowless" to BulmaClasses
+shadowless = B.isShadowless
 
 
 -- INVISIBLE -------------------------------------------------------------------
@@ -234,8 +231,12 @@ shadowless = class "is-shadowless"
 {-| Makes it disappear.
 -}
 invisible : Attribute msg
-invisible = class "is-invisible"
--- KLUDGE: add "is-invisible" to BulmaClasses
+invisible = B.isInvisible
+
+{-| Hides element visually, but keeps the element available to be announced by a screen reader.
+-}
+screenReaderOnly : Attribute msg
+screenReaderOnly = B.isSROnly
 
 
 -- DISPLAY ---------------------------------------------------------------------
@@ -261,12 +262,12 @@ type Display = Block
 display : Display -> Attribute msg
 display d
   = case d of
-      Block       -> class bulma.properties.display.isBlock.always
-      Flex        -> class bulma.properties.display.isFlex.always
-      Inline      -> class bulma.properties.display.isInline.always
-      InlineBlock -> class bulma.properties.display.isInlineBlock.always
-      InlineFlex  -> class bulma.properties.display.isInlineFlex.always
-      Hidden      -> class bulma.properties.visibility.isHidden.always
+      Block       -> B.isBlock
+      Flex        -> B.isFlex
+      Inline      -> B.isInline
+      InlineBlock -> B.isInlineBlock
+      InlineFlex  -> B.isInlineFlex
+      Hidden      -> B.isHidden
 
 {-| This sets display attributes per-device.
 
@@ -285,26 +286,26 @@ displayByDevice {mobile,tablet,desktop,widescreen,fullHD}
   = class
   <| join " "
     [ case mobile of
-        Block       -> bulma.properties.display.isBlock.mobile
-        Flex        -> bulma.properties.display.isFlex.mobile
-        Inline      -> bulma.properties.display.isInline.mobile
-        InlineBlock -> bulma.properties.display.isInlineBlock.mobile
-        InlineFlex  -> bulma.properties.display.isInlineFlex.mobile
-        Hidden      -> bulma.properties.visibility.isHidden.mobile
+        Block       -> "is-block-mobile"
+        Flex        -> "is-flex-mobile"
+        Inline      -> "is-inline-mobile"
+        InlineBlock -> "is-inline-block-mobile"
+        InlineFlex  -> "is-inline-flex-mobile"
+        Hidden      -> "is-hidden-mobile"
     , case tablet of
-        Block       -> bulma.properties.display.isBlock.tabletOnly
-        Flex        -> bulma.properties.display.isFlex.tabletOnly
-        Inline      -> bulma.properties.display.isInline.tabletOnly
-        InlineBlock -> bulma.properties.display.isInlineBlock.tabletOnly
-        InlineFlex  -> bulma.properties.display.isInlineFlex.tabletOnly
-        Hidden      -> bulma.properties.visibility.isHidden.tabletOnly
+        Block       -> "is-block-tablet-only"
+        Flex        -> "is-flex-tablet-only"
+        Inline      -> "is-inline-tablet-only"
+        InlineBlock -> "is-inline-block-tablet-only"
+        InlineFlex  -> "is-inline-flex-tablet-only"
+        Hidden      -> "is-hidden-tablet-only"
     , case desktop of
-        Block       -> bulma.properties.display.isBlock.desktopOnly
-        Flex        -> bulma.properties.display.isFlex.desktopOnly
-        Inline      -> bulma.properties.display.isInline.desktopOnly
-        InlineBlock -> bulma.properties.display.isInlineBlock.desktopOnly
-        InlineFlex  -> bulma.properties.display.isInlineFlex.desktopOnly
-        Hidden      -> bulma.properties.visibility.isHidden.desktopOnly
+        Block       -> "is-block-desktop-only"
+        Flex        -> "is-flex-desktop-only"
+        Inline      -> "is-inline-desktop-only"
+        InlineBlock -> "is-inline-block-desktop-only"
+        InlineFlex  -> "is-inline-flex-desktop-only"
+        Hidden      -> "is-hidden-desktop-only"
     , case widescreen of
         Block       -> "is-block-widescreen-only"
         Flex        -> "is-flex-widescreen-only"

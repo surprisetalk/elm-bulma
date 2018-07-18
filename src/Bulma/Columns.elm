@@ -35,7 +35,7 @@ Learn more about columnar grids in the [official docs](http://bulma.io/documenta
 
 import Helpers exposing (..)
 
-import BulmaClasses exposing (..)
+import Bulma.Classes as B
 
 import Bulma.Modifiers exposing ( Devices, Width(..) )
 
@@ -48,31 +48,35 @@ import Html exposing ( Html, Attribute, text, div, a )
 -}
 columns : ColumnsModifiers -> List (Attribute msg) -> List (Column msg) -> Html msg
 columns {centered,multiline,gap,display}
-  = node "div" []
-    [ bulma.columns.container
+  = node "div"
+    [ B.columns
     , case centered of
-        True  -> "is-centered"
-        False -> ""
+        True  -> B.isCentered
+        False -> B.none
     -- , case verticallyCentered of
-    --     True  -> bulma.columns.alignment.isVCentered
-    --     False -> ""
+    --     True  -> B.isVCentered
+    --     False -> B.none
     , case multiline of
-        True  -> bulma.columns.spacing.isMultiline
-        False -> ""
+        True  -> B.isMultiline
+        False -> B.none
+    -- , B.isVariable
     , case gap of
-        Gap0 -> "is-variable is-0 is-gapless"
-        Gap1 -> "is-variable is-1"
-        Gap2 -> "is-variable is-2"
-        Gap3 -> "is-variable is-3"
-        Gap4 -> "is-variable is-4"
-        Gap5 -> "is-variable is-5"
-        Gap6 -> "is-variable is-6"
-        Gap7 -> "is-variable is-7"
-        Gap8 -> "is-variable is-8"
+        Gap0 -> B.isGapless
+        _    -> B.none
+    , case gap of
+        Gap0 -> B.is0
+        Gap1 -> B.is1
+        Gap2 -> B.is2
+        Gap3 -> B.none
+        Gap4 -> B.is4
+        Gap5 -> B.is5
+        Gap6 -> B.is6
+        Gap7 -> B.is7
+        Gap8 -> B.is8
     , case display of
-        MobileAndBeyond  -> bulma.columns.display.onMobile
-        TabletAndBeyond  -> ""
-        DesktopAndBeyond -> bulma.columns.display.onlyDesktop
+        MobileAndBeyond  -> B.isMobile
+        TabletAndBeyond  -> B.none
+        DesktopAndBeyond -> B.isDesktop
     ]
 
 
@@ -146,91 +150,91 @@ type alias Offset = Width
 -}
 column : ColumnModifiers -> List (Attribute msg) -> List (Html msg) -> Column msg
 column {widths,offset}
-  = node "div" []
-    [ bulma.columns.column.container
+  = node "div"
+    [ B.column
     , case widths.mobile of
-         Just Auto    -> ""
-         Just Width1  -> flip (++) "-mobile" bulma.columns.column.width.is1
-         Just Width2  -> flip (++) "-mobile" bulma.columns.column.width.is2
-         Just Width3  -> flip (++) "-mobile" bulma.columns.column.width.is3
-         Just Width4  -> flip (++) "-mobile" bulma.columns.column.width.is4
-         Just Width5  -> flip (++) "-mobile" bulma.columns.column.width.is5
-         Just Width6  -> flip (++) "-mobile" bulma.columns.column.width.is6
-         Just Width7  -> flip (++) "-mobile" bulma.columns.column.width.is7
-         Just Width8  -> flip (++) "-mobile" bulma.columns.column.width.is8
-         Just Width9  -> flip (++) "-mobile" bulma.columns.column.width.is9
-         Just Width10 -> flip (++) "-mobile" bulma.columns.column.width.is10
-         Just Width11 -> flip (++) "-mobile" bulma.columns.column.width.is11
-         Nothing      -> flip (++) "-mobile" "is-narrow"
+         Just Auto    -> B.none
+         Just Width1  -> B.is01Mobile
+         Just Width2  -> B.is02Mobile
+         Just Width3  -> B.is03Mobile
+         Just Width4  -> B.is04Mobile
+         Just Width5  -> B.is05Mobile
+         Just Width6  -> B.is06Mobile
+         Just Width7  -> B.is07Mobile
+         Just Width8  -> B.is08Mobile
+         Just Width9  -> B.is09Mobile
+         Just Width10 -> B.is10Mobile
+         Just Width11 -> B.is11Mobile
+         Nothing      -> B.isNarrowMobile
     , case widths.tablet of
-         Just Auto    -> ""
-         Just Width1  -> flip (++) "-tablet" bulma.columns.column.width.is1
-         Just Width2  -> flip (++) "-tablet" bulma.columns.column.width.is2
-         Just Width3  -> flip (++) "-tablet" bulma.columns.column.width.is3
-         Just Width4  -> flip (++) "-tablet" bulma.columns.column.width.is4
-         Just Width5  -> flip (++) "-tablet" bulma.columns.column.width.is5
-         Just Width6  -> flip (++) "-tablet" bulma.columns.column.width.is6
-         Just Width7  -> flip (++) "-tablet" bulma.columns.column.width.is7
-         Just Width8  -> flip (++) "-tablet" bulma.columns.column.width.is8
-         Just Width9  -> flip (++) "-tablet" bulma.columns.column.width.is9
-         Just Width10 -> flip (++) "-tablet" bulma.columns.column.width.is10
-         Just Width11 -> flip (++) "-tablet" bulma.columns.column.width.is11
-         Nothing      -> flip (++) "-tablet" "is-narrow"
+         Just Auto    -> B.none
+         Just Width1  -> B.is01Tablet
+         Just Width2  -> B.is02Tablet
+         Just Width3  -> B.is03Tablet
+         Just Width4  -> B.is04Tablet
+         Just Width5  -> B.is05Tablet
+         Just Width6  -> B.is06Tablet
+         Just Width7  -> B.is07Tablet
+         Just Width8  -> B.is08Tablet
+         Just Width9  -> B.is09Tablet
+         Just Width10 -> B.is10Tablet
+         Just Width11 -> B.is11Tablet
+         Nothing      -> B.isNarrowTablet
     , case widths.desktop of
-         Just Auto    -> ""
-         Just Width1  -> flip (++) "-desktop" bulma.columns.column.width.is1
-         Just Width2  -> flip (++) "-desktop" bulma.columns.column.width.is2
-         Just Width3  -> flip (++) "-desktop" bulma.columns.column.width.is3
-         Just Width4  -> flip (++) "-desktop" bulma.columns.column.width.is4
-         Just Width5  -> flip (++) "-desktop" bulma.columns.column.width.is5
-         Just Width6  -> flip (++) "-desktop" bulma.columns.column.width.is6
-         Just Width7  -> flip (++) "-desktop" bulma.columns.column.width.is7
-         Just Width8  -> flip (++) "-desktop" bulma.columns.column.width.is8
-         Just Width9  -> flip (++) "-desktop" bulma.columns.column.width.is9
-         Just Width10 -> flip (++) "-desktop" bulma.columns.column.width.is10
-         Just Width11 -> flip (++) "-desktop" bulma.columns.column.width.is11
-         Nothing      -> flip (++) "-desktop" "is-narrow"
+         Just Auto    -> B.none
+         Just Width1  -> B.is01Desktop
+         Just Width2  -> B.is02Desktop
+         Just Width3  -> B.is03Desktop
+         Just Width4  -> B.is04Desktop
+         Just Width5  -> B.is05Desktop
+         Just Width6  -> B.is06Desktop
+         Just Width7  -> B.is07Desktop
+         Just Width8  -> B.is08Desktop
+         Just Width9  -> B.is09Desktop
+         Just Width10 -> B.is10Desktop
+         Just Width11 -> B.is11Desktop
+         Nothing      -> B.isNarrowDesktop
     , case widths.widescreen of
-         Just Auto    -> ""
-         Just Width1  -> flip (++) "-widescreen" bulma.columns.column.width.is1
-         Just Width2  -> flip (++) "-widescreen" bulma.columns.column.width.is2
-         Just Width3  -> flip (++) "-widescreen" bulma.columns.column.width.is3
-         Just Width4  -> flip (++) "-widescreen" bulma.columns.column.width.is4
-         Just Width5  -> flip (++) "-widescreen" bulma.columns.column.width.is5
-         Just Width6  -> flip (++) "-widescreen" bulma.columns.column.width.is6
-         Just Width7  -> flip (++) "-widescreen" bulma.columns.column.width.is7
-         Just Width8  -> flip (++) "-widescreen" bulma.columns.column.width.is8
-         Just Width9  -> flip (++) "-widescreen" bulma.columns.column.width.is9
-         Just Width10 -> flip (++) "-widescreen" bulma.columns.column.width.is10
-         Just Width11 -> flip (++) "-widescreen" bulma.columns.column.width.is11
-         Nothing      -> flip (++) "-widscreen" "is-narrow"
+         Just Auto    -> B.none
+         Just Width1  -> B.is01Widescreen
+         Just Width2  -> B.is02Widescreen
+         Just Width3  -> B.is03Widescreen
+         Just Width4  -> B.is04Widescreen
+         Just Width5  -> B.is05Widescreen
+         Just Width6  -> B.is06Widescreen
+         Just Width7  -> B.is07Widescreen
+         Just Width8  -> B.is08Widescreen
+         Just Width9  -> B.is09Widescreen
+         Just Width10 -> B.is10Widescreen
+         Just Width11 -> B.is11Widescreen
+         Nothing      -> B.isNarrowWidescreen
     , case widths.fullHD of
-         Just Auto    -> ""
-         Just Width1  -> flip (++) "-fullhd" bulma.columns.column.width.is1
-         Just Width2  -> flip (++) "-fullhd" bulma.columns.column.width.is2
-         Just Width3  -> flip (++) "-fullhd" bulma.columns.column.width.is3
-         Just Width4  -> flip (++) "-fullhd" bulma.columns.column.width.is4
-         Just Width5  -> flip (++) "-fullhd" bulma.columns.column.width.is5
-         Just Width6  -> flip (++) "-fullhd" bulma.columns.column.width.is6
-         Just Width7  -> flip (++) "-fullhd" bulma.columns.column.width.is7
-         Just Width8  -> flip (++) "-fullhd" bulma.columns.column.width.is8
-         Just Width9  -> flip (++) "-fullhd" bulma.columns.column.width.is9
-         Just Width10 -> flip (++) "-fullhd" bulma.columns.column.width.is10
-         Just Width11 -> flip (++) "-fullhd" bulma.columns.column.width.is11
-         Nothing      -> flip (++) "-fullhd" "is-narrow"
+         Just Auto    -> B.none
+         Just Width1  -> B.is01FullHD
+         Just Width2  -> B.is02FullHD
+         Just Width3  -> B.is03FullHD
+         Just Width4  -> B.is04FullHD
+         Just Width5  -> B.is05FullHD
+         Just Width6  -> B.is06FullHD
+         Just Width7  -> B.is07FullHD
+         Just Width8  -> B.is08FullHD
+         Just Width9  -> B.is09FullHD
+         Just Width10 -> B.is10FullHD
+         Just Width11 -> B.is11FullHD
+         Nothing      -> B.isNarrowFullHD
     , case offset of
-         Auto    -> ""
-         Width1  -> bulma.columns.column.offset.is1
-         Width2  -> bulma.columns.column.offset.is2
-         Width3  -> bulma.columns.column.offset.is3
-         Width4  -> bulma.columns.column.offset.is4
-         Width5  -> bulma.columns.column.offset.is5
-         Width6  -> bulma.columns.column.offset.is6
-         Width7  -> bulma.columns.column.offset.is7
-         Width8  -> bulma.columns.column.offset.is8
-         Width9  -> bulma.columns.column.offset.is9
-         Width10 -> bulma.columns.column.offset.is10
-         Width11 -> bulma.columns.column.offset.is11
+         Auto    -> B.none
+         Width1  -> B.isOffset01
+         Width2  -> B.isOffset02
+         Width3  -> B.isOffset03
+         Width4  -> B.isOffset04
+         Width5  -> B.isOffset05
+         Width6  -> B.isOffset06
+         Width7  -> B.isOffset07
+         Width8  -> B.isOffset08
+         Width9  -> B.isOffset09
+         Width10 -> B.isOffset10
+         Width11 -> B.isOffset11
     ]
 
 

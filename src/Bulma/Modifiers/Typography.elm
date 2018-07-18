@@ -29,7 +29,7 @@ It's really handy have attributes like `textCentered` and `Text.danger` to throw
 
 -- IMPORTS ---------------------------------------------------------------------
 
-import BulmaClasses exposing (..)
+import Bulma.Classes as B
 
 import Bulma.Modifiers exposing ( Devices, HorizontalAlignment(..) )
 
@@ -43,26 +43,22 @@ import String exposing ( join )
 {-| Transforms the first character to each word to uppercase.
 -}
 capitalize : Attribute msg
-capitalize = class "is-capitalized"
--- KLUDGE: add to BulmaClasses
+capitalize = B.isCapitalized
 
 {-| Transforms all characters to lowercase.
 -}
 lowercase : Attribute msg
-lowercase = class "is-lowercase"
--- KLUDGE: add to BulmaClasses
+lowercase = B.isLowercase
 
 {-| Transforms all characters to uppercase.
 -}
 uppercase : Attribute msg
-uppercase = class "is-uppercase"
--- KLUDGE: add to BulmaClasses
+uppercase = B.isUppercase
 
 {-| Italicizes text.
 -}
 italicize : Attribute msg
-italicize = class "is-italic"
--- KLUDGE: add to BulmaClasses
+italicize = B.isItalic
 
 
 -- TEXT SIZE -------------------------------------------------------------------
@@ -88,16 +84,14 @@ type Size
 -}
 textSize : Size -> Attribute msg
 textSize ts
-  = class
-    <| case ts of
-        Largest    -> "is-size-1"
-        EvenLarger -> "is-size-2"
-        Larger     -> "is-size-3"
-        Large      -> "is-size-4"
-        Medium     -> "is-size-5"
-        Standard   -> "is-size-6"
-        Small      -> "is-size-7"
-        -- KLUDGE: add to BulmaClasses
+  = case ts of
+      Largest    -> B.isSize1
+      EvenLarger -> B.isSize2
+      Larger     -> B.isSize3
+      Large      -> B.isSize4
+      Medium     -> B.isSize5
+      Standard   -> B.isSize6
+      Small      -> B.isSize7
 
 {-| You can choose a font specific size for each viewport width.
 -}
@@ -158,22 +152,22 @@ textSizeByDevice {mobile,tablet,desktop,widescreen,fullHD}
 {-| Aligns text to the left.
 -}
 textLeft : Attribute msg
-textLeft = class bulma.properties.alignment.hasTextLeft
+textLeft = B.hasTextLeft
 
 {-| Centers text.
 -}
 textCentered : Attribute msg
-textCentered = class bulma.properties.alignment.hasTextCentered
+textCentered = B.hasTextCentered
 
 {-| Aligns text to the right.
 -}
 textRight : Attribute msg
-textRight = class bulma.properties.alignment.hasTextRight
+textRight = B.hasTextRight
 
 {-| Justifies text.
 -}
 textJustified : Attribute msg
-textJustified = class "has-text-justified"
+textJustified = B.hasTextJustified
 
 {-| Aligns text.
 -}

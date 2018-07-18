@@ -80,7 +80,7 @@ Coming Soon!
 
 import Helpers exposing (..)
 
-import BulmaClasses exposing (..)
+import Bulma.Classes as B
 
 import Bulma.Modifiers as Modifiers exposing (..)
 
@@ -116,7 +116,7 @@ Usually this will be a single `control`, with optional an `label` and `help`.
         ]
 -}
 field : List (Attribute msg) -> List (Control msg) -> Field msg
-field = node "div" [] [ bulma.field.container ]
+field = node "div" [ B.field ]
 
 
 -- FIELD GROUPS --
@@ -135,12 +135,13 @@ This variation will leave spaces between each control.
 -}
 fields : HorizontalAlignment -> List (Attribute msg) -> List (Control msg) -> Field msg
 fields alignment
-  = node "div" []
-    [ bulma.field.container
+  = node "div"
+    [ B.field
+    , B.isGrouped
     , case alignment of
-        Left     -> bulma.field.isGrouped.left
-        Centered -> bulma.field.isGrouped.centered
-        Right    -> bulma.field.isGrouped.right
+        Left     -> B.none
+        Centered -> B.isGroupedCentered
+        Right    -> B.isGroupedRight
     ]
 
 {-| This is a container for gluing controls together on the same line. 
@@ -157,12 +158,13 @@ This variation will connect them as "addons".
 -}
 connectedFields : HorizontalAlignment -> List (Attribute msg) -> List (Control msg) -> Field msg
 connectedFields alignment
-  = node "div" []
-    [ bulma.field.container
+  = node "div"
+    [ B.field
+    , B.hasAddons
     , case alignment of
-        Left     -> bulma.field.hasAddons.left
-        Centered -> bulma.field.hasAddons.centered
-        Right    -> bulma.field.hasAddons.right
+        Left     -> B.none
+        Centered -> B.hasAddonsCentered
+        Right    -> B.hasAddonsRight
     ]
 
 {-| This is a container for gluing controls together when you expect it to take up multiple lines.
@@ -183,17 +185,16 @@ connectedFields alignment
 -}
 multilineFields : List (Attribute msg) -> List (Control msg) -> Field msg
 multilineFields
-  = node "div" []
-    [ bulma.field.container
-    , "is-grouped"
+  = node "div"
+    [ B.field
+    , B.isGrouped
       -- TODO: addon tags want both, but should we always have both?
-    , "is-grouped-multiline"
-      -- KLUDGE: add this to BulmaClasses
+    , B.isGroupedMultiline
     ]
 
 {-| The `horizontalFields` expects a `fieldLabel` and a `fieldBody`.
 
-    import Bulma.Modifiers exposing (Size(Standard))
+    import B.Modifiers exposing (Size(Standard))
 
     myFields : Html msg
     myFields
@@ -215,9 +216,9 @@ multilineFields
 -}
 horizontalFields : List (Attribute msg) -> List (HorizontalFieldPartition msg) -> Field msg
 horizontalFields
-  = node "div" []
-    [ bulma.field.container
-    , bulma.field.layout.isHorizontal
+  = node "div"
+    [ B.field
+    , B.isHorizontal
     ]
 
 
@@ -228,8 +229,8 @@ type alias HorizontalFieldPartition msg = Html msg
 
 {-| `fieldLabel` expects a Bulma label element.
 
-    import Bulma.Modifiers exposing (Size(Large))
-    import Bulma.Form exposing ( label
+    import B.Modifiers exposing (Size(Large))
+    import B.Form exposing ( label
                                , fieldLabel
                                )
 
@@ -243,13 +244,13 @@ type alias HorizontalFieldPartition msg = Html msg
 -}
 fieldLabel : Size -> List (Attribute msg) -> List (Control msg) -> HorizontalFieldPartition msg
 fieldLabel size
-  = node "div" []
-    [ bulma.field.label
+  = node "div"
+    [ B.fieldLabel
     , case size of
-        Small  -> bulma.label.size.isSmall
-        Standard -> ""
-        Medium -> bulma.label.size.isMedium
-        Large  -> bulma.label.size.isLarge
+        Small    -> B.isSmall
+        Standard -> B.none
+        Medium   -> B.isMedium
+        Large    -> B.isLarge
     ]
 
 -- TODO: easyFieldLabel
@@ -267,7 +268,7 @@ fieldLabel size
         ]
 -}
 fieldBody : List (Attribute msg) -> List (Field msg) -> HorizontalFieldPartition msg
-fieldBody = node "div" [] [ "field-body" ]
+fieldBody = node "div" [ B.fieldBody ]
 
 
 -- CONTROLS --
@@ -305,26 +306,25 @@ You really shouldn't need to use this function.
 -}
 control : ControlModifiers msg -> List (Attribute msg) -> List (Html msg) -> Control msg
 control {loading,expanded,iconLeft,iconRight} attrs htmls
-  = node "p" []
-    [ bulma.control.container
+  = node "p"
+    [ B.control
     , case loading of
-        Just _  -> bulma.control.state.isLoading
-        Nothing -> ""
+        Just _  -> B.isLoading
+        Nothing -> B.none
     , case loading of
-        Just Small  -> "is-small"
-        Just Medium -> "is-medium"
-        Just Large  -> "is-large"
-        _           -> ""
-        -- KLUDGE: add to BulmaClasses
+        Just Small  -> B.isSmall
+        Just Medium -> B.isMedium
+        Just Large  -> B.isLarge
+        _           -> B.none
     , case expanded of
-        True  -> bulma.control.sizing.isExpanded
-        False -> ""
+        True  -> B.isExpanded
+        False -> B.none
     , case iconLeft of
-        Just  _ -> bulma.control.hasIcons.left
-        Nothing -> ""
+        Just  _ -> B.hasIconsLeft
+        Nothing -> B.none
     , case iconRight of
-        Just  _ -> bulma.control.hasIcons.right
-        Nothing -> ""
+        Just  _ -> B.hasIconsRight
+        Nothing -> B.none
     ]
     attrs
   <| htmls
@@ -346,7 +346,7 @@ control {loading,expanded,iconLeft,iconRight} attrs htmls
       = label [] [ text "hi" ]
 -}
 label : List (Attribute msg) -> List (Html msg) -> Html msg
-label = node "label" [] [ bulma.label.ui ]
+label = node "label" [ B.label ]
 
 {-| Secretly the same thing as a label. This is just for consistency's sake.
 
@@ -417,37 +417,37 @@ controlInput ({size,state,color,expanded,rounded,readonly,disabled,iconLeft,icon
     in control controlMods attrs
      << ls
      << node "input"
-       ( if readonly
-         then [ Attr.disabled disabled, Attr.readonly readonly ]
-         else [ Attr.disabled disabled                         ]
-       )
-       [ bulma.input.ui
+       [ B.input
+       , Attr.disabled disabled
+       , case readonly of
+           True  -> Attr.readonly readonly
+           False -> B.none
        , case size of
-           Small  -> bulma.input.size.isSmall
-           Standard -> ""
-           Medium -> bulma.input.size.isMedium
-           Large  -> bulma.input.size.isLarge
+           Small    -> B.isSmall
+           Standard -> B.none
+           Medium   -> B.isMedium
+           Large    -> B.isLarge
        , case state of
-           Hover   -> bulma.input.state.isHovered
-           Focus   -> bulma.input.state.isFocused
-           Active  -> bulma.input.state.isActive
-           Loading -> bulma.input.state.isLoading
-           _       -> ""
+           Hover   -> B.isHovered
+           Focus   -> B.isFocused
+           Active  -> B.isActive
+           Loading -> B.isLoading
+           _       -> B.none
        , case color of
-           Default -> ""
-           White   -> bulma.input.color.isWhite
-           Light   -> bulma.input.color.isLight
-           Dark    -> bulma.input.color.isDark
-           Black   -> bulma.input.color.isBlack
-           Primary -> bulma.input.color.isPrimary
-           Link    -> "is-link"
-           Info    -> bulma.input.color.isInfo
-           Success -> bulma.input.color.isSuccess
-           Warning -> bulma.input.color.isWarning
-           Danger  -> bulma.input.color.isDanger
+           Default -> B.none
+           White   -> B.isWhite
+           Light   -> B.isLight
+           Dark    -> B.isDark
+           Black   -> B.isBlack
+           Primary -> B.isPrimary
+           Info    -> B.isInfo
+           Success -> B.isSuccess
+           Warning -> B.isWarning
+           Danger  -> B.isDanger
+           Link    -> B.isLink
        , case rounded of
-           False   -> ""
-           True    -> "is-rounded"
+           False   -> B.none
+           True    -> B.isRounded
        ]
        attrs_
 
@@ -529,34 +529,34 @@ controlTextArea ({size,state,color,readonly,disabled} as mods) attrs attrs_
     in control controlMods attrs
      << ls
      << node "textarea"
-       ( if readonly
-         then [ Attr.disabled disabled, Attr.readonly readonly ]
-         else [ Attr.disabled disabled                         ]
-       )
-       [ bulma.textarea.ui
+       [ B.textarea
+       , Attr.disabled disabled
+       , case readonly of
+           True  -> Attr.readonly readonly
+           False -> B.none
        , case size of
-           Small  -> bulma.textarea.size.isSmall
-           Standard -> ""
-           Medium -> bulma.textarea.size.isMedium
-           Large  -> bulma.textarea.size.isLarge
+           Small    -> B.isSmall
+           Standard -> B.none
+           Medium   -> B.isMedium
+           Large    -> B.isLarge
        , case state of
-           Hover   -> bulma.textarea.state.isHovered
-           Focus   -> bulma.textarea.state.isFocused
-           Active  -> bulma.textarea.state.isActive
-           Loading -> bulma.textarea.state.isLoading
-           _       -> ""
+           Hover   -> B.isHovered
+           Focus   -> B.isFocused
+           Active  -> B.isActive
+           Loading -> B.isLoading
+           _       -> B.none
        , case color of
-           Default -> ""
-           White   -> bulma.textarea.color.isWhite
-           Light   -> bulma.textarea.color.isLight
-           Dark    -> bulma.textarea.color.isDark
-           Black   -> bulma.textarea.color.isBlack
-           Primary -> bulma.textarea.color.isPrimary
-           Link    -> "is-link"
-           Info    -> bulma.textarea.color.isInfo
-           Success -> bulma.textarea.color.isSuccess
-           Warning -> bulma.textarea.color.isWarning
-           Danger  -> bulma.textarea.color.isDanger
+           Default -> B.none
+           White   -> B.isWhite
+           Light   -> B.isLight
+           Dark    -> B.isDark
+           Black   -> B.isBlack
+           Primary -> B.isPrimary
+           Info    -> B.isInfo
+           Success -> B.isSuccess
+           Warning -> B.isWarning
+           Danger  -> B.isDanger
+           Link    -> B.isLink
        ]
        attrs_
 
@@ -619,36 +619,35 @@ controlSelect ({size,state,color,expanded,iconLeft} as mods) attrs attrs_
             }
     in control controlMods attrs
      << ls
-     << node "span" [] [ bulma.select.ui ] []
+     << node "span" [ B.select ] []
      << ls
-     << node "select" []
+     << node "select"
        [ case size of
-           Small  -> bulma.select.size.isSmall
-           Standard -> ""
-           Medium -> bulma.select.size.isMedium
-           Large  -> bulma.select.size.isLarge
+           Small    -> B.isSmall
+           Standard -> B.none
+           Medium   -> B.isMedium
+           Large    -> B.isLarge
        , case state of
-           Hover   -> bulma.select.state.isHovered
-           Focus   -> bulma.select.state.isFocused
-           Active  -> bulma.select.state.isActive
-           Loading -> bulma.select.state.isLoading
-           _       -> ""
+           Hover   -> B.isHovered
+           Focus   -> B.isFocused
+           Active  -> B.isActive
+           Loading -> B.isLoading
+           _       -> B.none
        , case color of
-           Default -> ""
-           White   -> bulma.input.color.isWhite
-           Light   -> bulma.input.color.isLight
-           Dark    -> bulma.input.color.isDark
-           Black   -> bulma.input.color.isBlack
-           Primary -> bulma.input.color.isPrimary
-           Link    -> "is-link"
-           Info    -> bulma.input.color.isInfo
-           Success -> bulma.input.color.isSuccess
-           Warning -> bulma.input.color.isWarning
-           Danger  -> bulma.input.color.isDanger
-           -- KLUDGE: add to BulmaClass
+           Default -> B.none
+           White   -> B.isWhite
+           Light   -> B.isLight
+           Dark    -> B.isDark
+           Black   -> B.isBlack
+           Primary -> B.isPrimary
+           Info    -> B.isInfo
+           Success -> B.isSuccess
+           Warning -> B.isWarning
+           Danger  -> B.isDanger
+           Link    -> B.isLink
        , case expanded of
-           True    -> "is-fullwidth"
-           False   -> ""
+           True    -> B.isFullWidth
+           False   -> B.none
        ]
        attrs_
 
@@ -695,8 +694,8 @@ controlCheckBox : IsDisabled -> List (Attribute msg) -> List (Attribute msg) -> 
 controlCheckBox disabled attrs attrs_ attrs__ htmls
   = control controlModifiers attrs
   <| ls
-  <| node "label" [ Attr.disabled disabled                        ] [ "checkbox" ] attrs_
-  <| node "input" [ Attr.disabled disabled, Attr.type_ "checkbox" ] [            ] attrs__ []
+  <| node "label" [ Attr.disabled disabled, B.checkbox            ] attrs_
+  <| node "input" [ Attr.disabled disabled, Attr.type_ "checkbox" ] attrs__ []
  :: (text " " :: htmls)
     -- KLUDGE: it looks much better with the space, but should we force that on the developer?
 
@@ -749,10 +748,11 @@ controlRadioButton disabled checked name attrs attrs_ htmls
             ]
         labelAttrs : List (Html.Attribute msg)
         labelAttrs
-          = [ Attr.disabled disabled
+          = [ B.radio
+            , Attr.disabled disabled
             ]
-    in node "label" labelAttrs [ bulma.radio.ui ] attrs
-     <| node "input" inputAttrs [                ] attrs_ []
+    in node "label" labelAttrs attrs
+    <| node "input" inputAttrs attrs_ []
     :: (text " " :: htmls)
 
 -- TODO: {-| TODO
@@ -783,7 +783,7 @@ controlButton mods attrs attrs_
   << button mods attrs_
 
 {-| 
-    import Bulma.Modifiers exposing (Color(Danger))
+    import B.Modifiers exposing (Color(Danger))
 
     myHelp : Html msg
     myHelp
@@ -793,20 +793,20 @@ controlButton mods attrs attrs_
 -}
 help : Color -> List (Attribute msg) -> List (Html msg) -> Html msg
 help color
-  = node "p" []
-    [ bulma.help.ui
+  = node "p"
+    [ B.help
     , case color of
-        Default -> ""
-        White   -> bulma.help.color.isWhite
-        Light   -> bulma.help.color.isLight
-        Dark    -> bulma.help.color.isDark
-        Black   -> bulma.help.color.isBlack
-        Primary -> bulma.help.color.isPrimary
-        Link    -> "is-link"
-        Info    -> bulma.help.color.isInfo
-        Success -> bulma.help.color.isSuccess
-        Warning -> bulma.help.color.isWarning
-        Danger  -> bulma.help.color.isDanger
+        Default -> B.none
+        White   -> B.isWhite
+        Light   -> B.isLight
+        Dark    -> B.isDark
+        Black   -> B.isBlack
+        Primary -> B.isPrimary
+        Link    -> B.isLink
+        Info    -> B.isInfo
+        Success -> B.isSuccess
+        Warning -> B.isWarning
+        Danger  -> B.isDanger
     ]
 
 {-| Secretly just `help`. Created this just for consistency.

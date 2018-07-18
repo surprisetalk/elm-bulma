@@ -100,7 +100,7 @@ Learn more about tiled grids in the [official docs](http://bulma.io/documentatio
 
 import Helpers exposing (..)
 
-import BulmaClasses exposing (..)
+import Bulma.Classes as B
 
 import Bulma.Modifiers as Modifiers exposing (..)
 
@@ -130,7 +130,7 @@ Containers can be used in any context, but mostly as a direct child of:
 - `footer`
 -}
 container : List (Attribute msg) -> List (Html msg) -> Container msg
-container = node "div" [] [ bulma.feature.container ]
+container = node "div" [ B.container ]
 
 {-| If you don't want to have a maximum width, but want to keep the 24px margin on the left and right sides, `fluidContainer` is for you!
 
@@ -146,9 +146,7 @@ container = node "div" [] [ bulma.feature.container ]
         ]
 -}
 fluidContainer : List (Attribute msg) -> List (Html msg) -> Container msg
-fluidContainer = node "div" [] [ bulma.feature.container
-                               , bulma.feature.sizing.isFluid
-                               ]
+fluidContainer = node "div" [ B.container, B.isFluid ]
 
 {-| This container is full-width until the "widescreen" breakpoint.
 
@@ -160,10 +158,7 @@ fluidContainer = node "div" [] [ bulma.feature.container
         ]
 -}
 widescreenContainer : List (Attribute msg) -> List (Html msg) -> Container msg
-widescreenContainer = node "div" [] [ bulma.feature.container
-                                    , "is-widescreen"
-                                      -- KLUDGE: add to BulmaClasses
-                                    ]
+widescreenContainer = node "div" [ B.container, B.isWidescreen ]
 
 {-| This container is full-width until the "fullHD" breakpoint.
 
@@ -175,10 +170,7 @@ widescreenContainer = node "div" [] [ bulma.feature.container
         ]
 -}
 fullHDContainer : List (Attribute msg) -> List (Html msg) -> Container msg
-fullHDContainer = node "div" [] [ bulma.feature.container
-                                , "is-fullhd"
-                                  -- KLUDGE: add to BulmaClasses
-                                ]
+fullHDContainer = node "div" [ B.container, B.isFullHD ]
 
 
 -- LEVEL -----------------------------------------------------------------------
@@ -203,13 +195,12 @@ type alias Level msg = Html msg
         ]
 -}
 level : List (Attribute msg) -> List (LevelPartition msg) -> Level msg
-level = node "nav" [] [ bulma.level.container ]
+level = node "nav" [ B.level ]
 
 {-| -}
 horizontalLevel : List (Attribute msg) -> List (LevelPartition msg) -> Level msg
-horizontalLevel = node "nav" [] [ bulma.level.container
-                                , bulma.level.mobile.isHorizontal
-                                ]
+horizontalLevel = node "nav" [ B.level, B.isHorizontal ]
+
 {-|
     myLevel : Html msg
     myLevel
@@ -230,11 +221,11 @@ type alias LevelPartition msg = Html msg
 
 {-| -}
 levelLeft : List (Attribute msg) -> List (LevelItem msg) -> LevelPartition msg
-levelLeft = node "div" [] [ bulma.level.left ]
+levelLeft = node "div" [ B.levelLeft ]
 
 {-| -}
 levelRight : List (Attribute msg) -> List (LevelItem msg) -> LevelPartition msg
-levelRight = node "div" [] [ bulma.level.right ]
+levelRight = node "div" [ B.levelRight ]
 
 -- LEVEL ITEMS --
 
@@ -243,15 +234,15 @@ type alias LevelItem msg = Html msg
 
 {-| -}
 levelItem : List (Attribute msg) -> List (Html msg) -> LevelItem msg
-levelItem = node "div" [] [ bulma.level.item ]
+levelItem = node "div" [ B.levelItem ]
 
 {-| -}
 levelItemText : List (Attribute msg) -> List (Html msg) -> LevelItem msg
-levelItemText = node "p" [] [ bulma.level.item ]
+levelItemText = node "p" [ B.levelItem ]
 
 {-| -}
 levelItemLink : List (Attribute msg) -> List (Html msg) -> LevelItem msg
-levelItemLink = node "a" [] [ bulma.level.item ]
+levelItemLink = node "a" [ B.levelItem ]
 
 {-| -}
 easyLevelItemWithHeading : List (Attribute msg) -> String -> String -> LevelItem msg
@@ -279,12 +270,12 @@ type alias Media msg = Html msg
         ]
 -}
 media : List (Attribute msg) -> List (MediaPartition msg) -> Media msg
-media = node "article" [] [ bulma.media.container ]
+media = node "article" [ B.media ]
 
 -- {-| -}
 -- largeMedia : List (Attribute msg) -> List (MediaPartition msg) -> Media msg
--- largeMedia = node "article" [] [ bulma.media.container
---                                , bulma.media.size.isLarge
+-- largeMedia = node "article" [] [ B.media.container
+--                                , B.media.size.isLarge
 --                                ]
 
 -- MEDIA PARTITION --
@@ -294,15 +285,15 @@ type alias MediaPartition msg = Html msg
 
 {-| -}
 mediaLeft : List (Attribute msg) -> List (Html msg) -> MediaPartition msg
-mediaLeft = node "div" [] [ bulma.media.left ]
+mediaLeft = node "div" [ B.mediaLeft ]
 
 {-| -}
 mediaContent : List (Attribute msg) -> List (Html msg) -> MediaPartition msg
-mediaContent = node "div" [] [ bulma.media.content ]
+mediaContent = node "div" [ B.mediaContent ]
 
 {-| -}
 mediaRight : List (Attribute msg) -> List (Html msg) -> MediaPartition msg
-mediaRight = node "div" [] [ bulma.media.right ]
+mediaRight = node "div" [ B.mediaRight ]
 
 
 -- HERO ------------------------------------------------------------------------
@@ -312,8 +303,8 @@ type alias Hero msg = Html msg
 
 {-| An imposing Hero banner to showcase something.
 
-    import Bulma.Layout exposing (hero,heroBody,container)
-    import Bulma.Elements exposing (TitleSize(H1,H2),title)
+    import B.Layout exposing (hero,heroBody,container)
+    import B.Elements exposing (TitleSize(H1,H2),title)
 
     myHero : Html msg
     myHero
@@ -328,28 +319,28 @@ type alias Hero msg = Html msg
 -}
 hero : HeroModifiers -> List (Attribute msg) -> List (HeroPartition msg) -> Hero msg
 hero {bold,size,color}
-  = node "section" []
-    [ bulma.hero.container
+  = node "section"
+    [ B.hero
     , case bold of
-        True  -> bulma.hero.style.isBold
-        False -> ""
+        True  -> B.isBold
+        False -> B.none
     , case size of
-        Small  -> ""
-        Standard -> bulma.hero.size.isMedium
-        Medium -> bulma.hero.size.isLarge
-        Large  -> bulma.hero.size.isFullheight
+        Small    -> B.none
+        Standard -> B.isMedium
+        Medium   -> B.isLarge
+        Large    -> B.isFullHeight
     , case color of
-        Default -> ""
-        White   -> bulma.hero.color.isWhite
-        Black   -> bulma.hero.color.isBlack
-        Light   -> bulma.hero.color.isLight
-        Dark    -> bulma.hero.color.isDark
-        Primary -> bulma.hero.color.isPrimary
-        Link    -> "is-link"
-        Info    -> bulma.hero.color.isInfo
-        Success -> bulma.hero.color.isSuccess
-        Warning -> bulma.hero.color.isWarning
-        Danger  -> bulma.hero.color.isDanger
+        Default -> B.none
+        White   -> B.isWhite
+        Black   -> B.isBlack
+        Light   -> B.isLight
+        Dark    -> B.isDark
+        Primary -> B.isPrimary
+        Info    -> B.isInfo
+        Success -> B.isSuccess
+        Warning -> B.isWarning
+        Danger  -> B.isDanger
+        Link    -> B.isLink
     ]
 
 {-| The `hero` element with some added guard-rails.
@@ -377,7 +368,7 @@ type alias HeroModifiers = { bold  : Bool
 
 {-| These are the stylistic defaults for `hero` containers.
 
-    import Bulma.Modifiers exposing ( Size(Standard)
+    import B.Modifiers exposing ( Size(Standard)
                                     , Color(Default)
                                     )
 
@@ -413,15 +404,15 @@ type alias HeroPartition msg = Html msg
 
 {-| -}
 heroHead : List (Attribute msg) -> List (Html msg) -> HeroPartition msg
-heroHead = node "div" [] [ bulma.hero.head ]
+heroHead = node "div" [ B.heroHead ]
 
 {-| -}
 heroBody : List (Attribute msg) -> List (Html msg) -> HeroPartition msg
-heroBody = node "div" [] [ bulma.hero.body ]
+heroBody = node "div" [ B.heroBody ]
 
 {-| -}
 heroFoot : List (Attribute msg) -> List (Html msg) -> HeroPartition msg
-heroFoot = node "div" [] [ bulma.hero.foot ]
+heroFoot = node "div" [ B.heroFoot ]
 
 
 -- SECTION ---------------------------------------------------------------------
@@ -443,12 +434,12 @@ type alias Section msg = Html msg
 -}
 section : SectionSpacing -> List (Attribute msg) -> List (Html msg) -> Section msg
 section spacing
-  = node "section" []
-    [ bulma.section.container
+  = node "section" 
+    [ B.section
     , case spacing of
-        NotSpaced  -> ""
-        Spaced     -> bulma.section.spacing.isMedium
-        VerySpaced -> bulma.section.spacing.isLarge
+        NotSpaced  -> B.none
+        Spaced     -> B.isMedium
+        VerySpaced -> B.isLarge
     ]
 
 -- MODIFIERS --
@@ -480,7 +471,7 @@ type alias Footer msg = Html msg
 
 -}
 footer : List (Attribute msg) -> List (Html msg) -> Footer msg
-footer = node "footer" [] [ bulma.footer.container ]
+footer = node "footer" [ B.footer ]
 
 
 -- TILES -----------------------------------------------------------------------
@@ -496,43 +487,43 @@ You can also add "is-ancestor", "is-parent", "is-child", and "is-vertical" class
 -}
 tile : Width -> List (Attribute msg) -> List (Tile msg) -> Tile msg
 tile width
-  = node "div" []
-    [ bulma.tile.container
+  = node "div"
+    [ B.tile
     , case width of
-        Auto    -> ""
-        Width1  -> bulma.tile.width.is1
-        Width2  -> bulma.tile.width.is2
-        Width3  -> bulma.tile.width.is3
-        Width4  -> bulma.tile.width.is4
-        Width5  -> bulma.tile.width.is5
-        Width6  -> bulma.tile.width.is6
-        Width7  -> bulma.tile.width.is7
-        Width8  -> bulma.tile.width.is8
-        Width9  -> bulma.tile.width.is9
-        Width10 -> bulma.tile.width.is10
-        Width11 -> bulma.tile.width.is11
+        Auto    -> B.none
+        Width1  -> B.is1
+        Width2  -> B.is2
+        Width3  -> B.is3
+        Width4  -> B.is4
+        Width5  -> B.is5
+        Width6  -> B.is6
+        Width7  -> B.is7
+        Width8  -> B.is8
+        Width9  -> B.is9
+        Width10 -> B.is10
+        Width11 -> B.is11
     ]
 
 {-| If you want to stack tiles vertically, use a vertical tile!
 -}
 verticalTile : Width -> List (Attribute msg) -> List (Tile msg) -> Tile msg
 verticalTile width
-  = node "div" []
-    [ bulma.tile.container
-    , bulma.tile.orientation.isVertical
+  = node "div"
+    [ B.tile
+    , B.isVertical
     , case width of
-        Auto    -> ""
-        Width1  -> bulma.tile.width.is1
-        Width2  -> bulma.tile.width.is2
-        Width3  -> bulma.tile.width.is3
-        Width4  -> bulma.tile.width.is4
-        Width5  -> bulma.tile.width.is5
-        Width6  -> bulma.tile.width.is6
-        Width7  -> bulma.tile.width.is7
-        Width8  -> bulma.tile.width.is8
-        Width9  -> bulma.tile.width.is9
-        Width10 -> bulma.tile.width.is10
-        Width11 -> bulma.tile.width.is11
+        Auto    -> B.none
+        Width1  -> B.is1
+        Width2  -> B.is2
+        Width3  -> B.is3
+        Width4  -> B.is4
+        Width5  -> B.is5
+        Width6  -> B.is6
+        Width7  -> B.is7
+        Width8  -> B.is8
+        Width9  -> B.is9
+        Width10 -> B.is10
+        Width11 -> B.is11
     ]
 
 {-| This should always be your outer-most tile.
@@ -552,87 +543,87 @@ verticalTile width
 -}
 tileAncestor : Width -> List (Attribute msg) -> List (Tile msg) -> Html msg
 tileAncestor width
-  = node "div" []
-    [ bulma.tile.container
-    , bulma.tile.level.isAncestor
+  = node "div"
+    [ B.tile
+    , B.isAncestor
     , case width of
-        Auto    -> ""
-        Width1  -> bulma.tile.width.is1
-        Width2  -> bulma.tile.width.is2
-        Width3  -> bulma.tile.width.is3
-        Width4  -> bulma.tile.width.is4
-        Width5  -> bulma.tile.width.is5
-        Width6  -> bulma.tile.width.is6
-        Width7  -> bulma.tile.width.is7
-        Width8  -> bulma.tile.width.is8
-        Width9  -> bulma.tile.width.is9
-        Width10 -> bulma.tile.width.is10
-        Width11 -> bulma.tile.width.is11
+        Auto    -> B.none
+        Width1  -> B.is1
+        Width2  -> B.is2
+        Width3  -> B.is3
+        Width4  -> B.is4
+        Width5  -> B.is5
+        Width6  -> B.is6
+        Width7  -> B.is7
+        Width8  -> B.is8
+        Width9  -> B.is9
+        Width10 -> B.is10
+        Width11 -> B.is11
     ]
 
 {-| Your tile-children must always be accompanied by a parent!
 -}
 tileParent : Width -> List (Attribute msg) -> List (Tile msg) -> Tile msg
 tileParent width
-  = node "div" []
-    [ bulma.tile.container
-    , bulma.tile.level.isParent
+  = node "div"
+    [ B.tile
+    , B.isParent
     , case width of
-        Auto    -> ""
-        Width1  -> bulma.tile.width.is1
-        Width2  -> bulma.tile.width.is2
-        Width3  -> bulma.tile.width.is3
-        Width4  -> bulma.tile.width.is4
-        Width5  -> bulma.tile.width.is5
-        Width6  -> bulma.tile.width.is6
-        Width7  -> bulma.tile.width.is7
-        Width8  -> bulma.tile.width.is8
-        Width9  -> bulma.tile.width.is9
-        Width10 -> bulma.tile.width.is10
-        Width11 -> bulma.tile.width.is11
+        Auto    -> B.none
+        Width1  -> B.is1
+        Width2  -> B.is2
+        Width3  -> B.is3
+        Width4  -> B.is4
+        Width5  -> B.is5
+        Width6  -> B.is6
+        Width7  -> B.is7
+        Width8  -> B.is8
+        Width9  -> B.is9
+        Width10 -> B.is10
+        Width11 -> B.is11
     ]
 
 {-| Your tile-children must always be accompanied by a parent!
 -}
 verticalTileParent : Width -> List (Attribute msg) -> List (Tile msg) -> Tile msg
 verticalTileParent width
-  = node "div" []
-    [ bulma.tile.container
-    , bulma.tile.level.isParent
-    , bulma.tile.orientation.isVertical
+  = node "div"
+    [ B.tile
+    , B.isParent
+    , B.isVertical
     , case width of
-        Auto    -> ""
-        Width1  -> bulma.tile.width.is1
-        Width2  -> bulma.tile.width.is2
-        Width3  -> bulma.tile.width.is3
-        Width4  -> bulma.tile.width.is4
-        Width5  -> bulma.tile.width.is5
-        Width6  -> bulma.tile.width.is6
-        Width7  -> bulma.tile.width.is7
-        Width8  -> bulma.tile.width.is8
-        Width9  -> bulma.tile.width.is9
-        Width10 -> bulma.tile.width.is10
-        Width11 -> bulma.tile.width.is11
+        Auto    -> B.none
+        Width1  -> B.is1
+        Width2  -> B.is2
+        Width3  -> B.is3
+        Width4  -> B.is4
+        Width5  -> B.is5
+        Width6  -> B.is6
+        Width7  -> B.is7
+        Width8  -> B.is8
+        Width9  -> B.is9
+        Width10 -> B.is10
+        Width11 -> B.is11
     ]
 
 {-| This tile holds your content! Its parent should always be `tileParent` or `verticalTileParent`.
 -}
 tileChild : Width -> List (Attribute msg) -> List (Html msg) -> Tile msg
 tileChild width
-  = node "div" []
-    [ bulma.tile.container
-    , bulma.tile.level.isChild
+  = node "div"
+    [ B.tile
+    , B.isChild
     , case width of
-        Auto    -> ""
-        Width1  -> bulma.tile.width.is1
-        Width2  -> bulma.tile.width.is2
-        Width3  -> bulma.tile.width.is3
-        Width4  -> bulma.tile.width.is4
-        Width5  -> bulma.tile.width.is5
-        Width6  -> bulma.tile.width.is6
-        Width7  -> bulma.tile.width.is7
-        Width8  -> bulma.tile.width.is8
-        Width9  -> bulma.tile.width.is9
-        Width10 -> bulma.tile.width.is10
-        Width11 -> bulma.tile.width.is11
+        Auto    -> B.none
+        Width1  -> B.is1
+        Width2  -> B.is2
+        Width3  -> B.is3
+        Width4  -> B.is4
+        Width5  -> B.is5
+        Width6  -> B.is6
+        Width7  -> B.is7
+        Width8  -> B.is8
+        Width9  -> B.is9
+        Width10 -> B.is10
+        Width11 -> B.is11
     ]
