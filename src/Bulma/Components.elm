@@ -646,7 +646,8 @@ messageModifiers
 message : MessageModifiers -> List (Attribute msg) -> List (MessagePartition msg) -> Message msg
 message {color,size}
   = node "article"
-    [ case color of
+    [ B.message
+    , case color of
         Default -> B.none
         White   -> B.isWhite
         Light   -> B.isLight
