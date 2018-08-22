@@ -1,6 +1,7 @@
 
 module Example exposing (..)
 
+import Browser
 import Bulma.CDN exposing (..)
 import Bulma.Modifiers exposing (..)
 import Bulma.Modifiers.Typography exposing (textCentered)
@@ -13,16 +14,14 @@ import Bulma.Layout exposing (..)
 import Html exposing ( Html, Attribute, main_, span, a, p, img ,br, text, strong, option, small, input, i )
 import Html.Attributes exposing ( attribute, style, src, placeholder, type_, href, rel, class )
 
-(=>) = (,)
-
 type alias Model = {}
 
 type Msg = NoOp
 
-main : Program Never Model Msg
+main : Program () Model Msg
 main
-  = Html.beginnerProgram
-    { model = {}
+  = Browser.sandbox
+    { init = {}
     , view = view
     , update = \msg -> \model -> model
     }
@@ -65,8 +64,8 @@ exampleNavbar
     , navbarMenu False []
       [ navbarStart [] 
         [ navbarItemLink False [] [ text "Home"  ]
-        , navbarItemDropdown False Down [] ( navbarLink [] [ text "Docs" ] )
-          [ navbarDropdown False Left [] 
+        , navbarItemDropdown True Down [] ( navbarLink [] [ text "Docs" ] )
+          [ navbarDropdown True Left [] 
             [ navbarItemLink False [] [ text "Crud"     ]
             , navbarItemLink False [] [ text "Detritus" ]
             , navbarItemLink True  [] [ text "Refuse"   ]
@@ -312,7 +311,7 @@ exampleElementsAndComponents
               ]
             ]
           ]
-        , demoSection "Dropdown" [ style [ "height" => "16rem" ] ]
+        , demoSection "Dropdown" [ style "height" "16rem" ]
           [ dropdown True dropdownModifiers []
             [ dropdownTrigger []
               [ button buttonModifiers 

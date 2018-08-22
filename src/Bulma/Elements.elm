@@ -1,5 +1,70 @@
 
-module Bulma.Elements exposing (..)
+module Bulma.Elements exposing
+  ( Box
+  , box
+  , Button
+  , ButtonModifiers
+  , buttonModifiers
+  , button
+  , easyButton
+  , buttons
+  , connectedButtons 
+  , Content
+  , content
+  , Delete
+  , delete
+  , easyDelete
+  , Icon
+  , IconBody
+  , icon
+  , Image
+  , ImageSize(..)
+  , ImageShape(..)
+  , image
+  , easyImage
+  , easyPlaceholderImage
+  , Notification
+  , notification
+  , notificationWithDelete
+  , Progress
+  , ProgressModifiers
+  , progressModifiers
+  , progress
+  , easyProgress
+  , Table
+  , TableModifiers
+  , tableModifiers
+  , table
+  , TablePartition
+  , tableBody
+  , tableHead
+  , tableFoot
+  , TableRow
+  , IsHighlighted
+  , tableRow
+  , TableCell
+  , tableCell
+  , tableCellHead
+  , Tag
+  , TagModifiers
+  , tagModifiers
+  , tag
+  , easyTag
+  , deleteTag
+  , roundedTag
+  , easyRoundedTag
+  , tagWithDelete
+  , easyTagWithDelete
+  , easyRoundedTagWithDelete
+  , tags
+  , multitag
+  , Title
+  , TitleSize(..)
+  , title
+  , subtitle
+  , TitleSpacing
+  , easyTitleWithSubtitle
+  )
 
 -- DOCS ------------------------------------------------------------------------
 
@@ -151,18 +216,18 @@ button {disabled,outlined,inverted,rounded,size,state,color,static,iconLeft,icon
   = let htmls_ : List (Html msg)
         htmls_
           = case htmls of
-              []    -> iconLeft_ ++                      iconRight_
-              htmls -> iconLeft_ ++ [ span [] htmls ] ++ iconRight_
+              []      -> iconLeft_ ++                        iconRight_
+              htmls__ -> iconLeft_ ++ [ span [] htmls__ ] ++ iconRight_
         iconLeft_ : List (Html msg)
         iconLeft_
           = case iconLeft of
-              Just ( size, attrs, body ) -> [ icon size attrs [ body ] ]
-              Nothing                    -> [                          ]
+              Just ( size_, attrs_, body ) -> [ icon size_ attrs_ [ body ] ]
+              Nothing                      -> [                            ]
         iconRight_ : List (Html msg)
         iconRight_
           = case iconRight of
-              Just ( size, attrs, body ) -> [ icon size attrs [ body ] ]
-              Nothing                    -> [                          ]
+              Just ( size_, attrs_, body ) -> [ icon size_ attrs_ [ body ] ]
+              Nothing                      -> [                            ]
     in node "button"
        [ Attr.disabled disabled
        , B.button
@@ -480,7 +545,7 @@ easyPlaceholderImage shape attrs
   = image shape attrs
     [ flip img []
       [ Attr.src
-        <| (\(h,w) -> "http://bulma.io/images/placeholders/" ++ toString h ++ "x" ++ toString w ++ ".png")
+        <| (\(h,w) -> "http://bulma.io/images/placeholders/" ++ String.fromInt h ++ "x" ++ String.fromInt w ++ ".png")
         <| case shape of
             OneByOne X16       -> (  16,  16  )
             OneByOne X24       -> (  24,  24  )
@@ -604,7 +669,7 @@ progress {size,color}
 -}
 easyProgress : ProgressModifiers -> List (Attribute msg) -> Float -> Progress msg
 easyProgress mods attrs val
-  = progress mods (Attr.value (toString (round (val * 100))) :: (Attr.max "100" :: attrs)) []
+  = progress mods (Attr.value (String.fromInt (round (val * 100))) :: (Attr.max "100" :: attrs)) []
 
 
 -- TABLE -----------------------------------------------------------------------
@@ -1017,7 +1082,7 @@ type alias TitleSpacing = Bool
         [ text "THE EMPIRE STRIKES BACK" ]
 -}
 easyTitleWithSubtitle : TitleSpacing -> TitleSize -> List (Html msg) -> List (Html msg) -> List (Title msg)
-easyTitleWithSubtitle spacing size title subtitle
+easyTitleWithSubtitle spacing size title_ subt
   = [ node "p"
       [ B.title
       , case spacing of
@@ -1033,7 +1098,7 @@ easyTitleWithSubtitle spacing size title subtitle
       ]
       [
       ]
-      title
+      title_
     , node "p"
       [ B.subtitle
       , case size of
@@ -1044,6 +1109,6 @@ easyTitleWithSubtitle spacing size title subtitle
       ]
       [
       ]
-      subtitle
+      subt
     ]
 

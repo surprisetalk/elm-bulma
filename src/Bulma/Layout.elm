@@ -1,5 +1,50 @@
 
-module Bulma.Layout exposing (..)
+module Bulma.Layout exposing
+  ( Container
+  , container
+  , fluidContainer
+  , widescreenContainer
+  , fullHDContainer
+  , Level
+  , level
+  , horizontalLevel
+  , centeredLevel
+  , LevelPartition
+  , levelLeft
+  , levelRight
+  , LevelItem
+  , levelItem
+  , levelItemLink
+  , levelItemText
+  , easyLevelItemWithHeading 
+  , Media
+  , media
+  , MediaPartition
+  , mediaContent
+  , mediaLeft
+  , mediaRight
+  , Hero
+  , HeroModifiers
+  , heroModifiers
+  , hero
+  , easyHero
+  , HeroPartition
+  , heroBody
+  , heroFoot
+  , heroHead
+  , Section
+  , SectionSpacing(..)
+  , section
+  , Footer
+  , footer
+  , Tile
+  , tile
+  , tileAncestor
+  , tileParent
+  , tileChild
+  , verticalTile
+  , verticalTileParent
+  )
 
 -- DOCS ------------------------------------------------------------------------
 

@@ -1,5 +1,23 @@
 
-module Bulma.Modifiers.Typography exposing (..)
+module Bulma.Modifiers.Typography exposing
+  ( capitalize
+  , uppercase
+  , lowercase
+  , italicize
+  , Size(..)
+  , textSize
+  , textSizeByDevice
+  , Weight(..)
+  , textWeight
+  , Color(..)
+  , textColor
+  , textLeft
+  , textCentered
+  , textRight
+  , textJustified
+  , textAlignment
+  , textAlignmentByDevice
+  )
 
 -- DOCS ------------------------------------------------------------------------
 

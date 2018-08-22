@@ -1,10 +1,52 @@
 
-module Bulma.Form exposing (..)
+module Bulma.Form exposing
+  ( Field
+  , field
+  , Control
+  , ControlModifiers
+  , controlModifiers
+  , control
+  , controlInput
+  , ControlInputModifiers
+  , controlInputModifiers
+  , controlText
+  , controlPassword
+  , controlEmail
+  , controlPhone
+  , ControlTextAreaModifiers
+  , controlTextAreaModifiers
+  , controlTextArea
+  , ControlSelectModifiers
+  , controlSelectModifiers
+  , Option
+  , controlSelect
+  , controlSelectRounded
+  , controlMultiselect
+  , controlLabel 
+  , label
+  , controlCheckBox 
+  , IsChecked
+  , IsDisabled
+  , RadioButton
+  , controlRadio
+  , controlRadioButton 
+  , controlButton
+  , controlHelp
+  , help
+  , fields
+  , connectedFields
+  , multilineFields
+  , horizontalFields
+  , HorizontalFieldPartition
+  , fieldLabel
+  , fieldBody
+  )
 
 -- DOCS ------------------------------------------------------------------------
 
 {-| 
 # Table of Contents
+- [Aliases](#aliases)
 - [Field](#field)
   - [Control](#control)
     - [Input](#input)
@@ -18,6 +60,9 @@ module Bulma.Form exposing (..)
     - [File](#file)
   - [Fields](#fields)
 
+# Aliases
+@docs IsDisabled
+
 # Field
 @docs Field
 @docs field
@@ -29,7 +74,6 @@ module Bulma.Form exposing (..)
 ### Input
 @docs ControlInputModifiers, controlInputModifiers
 @docs controlInput
-@docs ControlInputModifiers, controlInputModifiers
 @docs controlText, controlPassword, controlEmail, controlPhone
 
 ### TextArea
@@ -47,11 +91,10 @@ module Bulma.Form exposing (..)
 @docs label
 
 ### CheckBox
-@docs IsDisabled
 @docs controlCheckBox 
 
 ### Radio
-@docs IsChecked, IsDisabled
+@docs IsChecked
 @docs RadioButton
 @docs controlRadio, controlRadioButton 
 
@@ -329,11 +372,11 @@ control {loading,expanded,iconLeft,iconRight} attrs htmls
     attrs
   <| htmls
  ++ ( iconLeft
-    |> Maybe.map (\(size, attrs, iconBody) -> [ icon size (class "is-left"  :: attrs) [ iconBody ] ])
+    |> Maybe.map (\(size_, attrs_, iconBody) -> [ icon size_ (class "is-left"  :: attrs_) [ iconBody ] ])
     |> Maybe.withDefault []
     )
  ++ ( iconRight
-    |> Maybe.map (\(size, attrs, iconBody) -> [ icon size (class "is-right" :: attrs) [ iconBody ] ])
+    |> Maybe.map (\(size_, attrs_, iconBody) -> [ icon size_ (class "is-right" :: attrs_) [ iconBody ] ])
     |> Maybe.withDefault []
     )
  ++ [

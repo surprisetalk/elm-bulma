@@ -12,49 +12,31 @@ import List exposing ( foldr, filter )
 import String exposing ( join )
 
 
--- INFIX OPERATORS -------------------------------------------------------------
-
-(=>) : a -> b -> ( a, b )
-(=>) = (,)
-
-(<<<) : (c -> d) -> (a -> b -> c) -> a -> b -> d
-(<<<) = (<<<)
-
-(>>>) : (a -> b -> c) -> (c -> d) -> a -> b -> d
-(>>>) = (>>>)
-
-
 -- COMBINATORS -----------------------------------------------------------------
 
 y : a -> b -> a
 y = always
 
-fl : (a -> b -> c) -> b -> a -> c
-fl = flip
+-- fl : (a -> b -> c) -> b -> a -> c
+-- fl a b = b a
 
-curry3 : ((a,b,c) -> d) -> a -> b -> c -> d
-curry3 f a b c = f (a,b,c)
+-- curry3 : ((a,b,c) -> d) -> a -> b -> c -> d
+-- curry3 f a b c = f (a,b,c)
 
-uncurry3 : (a -> b -> c -> d) -> (a,b,c) -> d
-uncurry3 f (a,b,c) = f a b c 
+-- uncurry3 : (a -> b -> c -> d) -> (a,b,c) -> d
+-- uncurry3 f (a,b,c) = f a b c 
 
-curry4 : ((a,b,c,d) -> e) -> a -> b -> c -> d -> e
-curry4 f a b c d = f (a,b,c,d)
+-- curry4 : ((a,b,c,d) -> e) -> a -> b -> c -> d -> e
+-- curry4 f a b c d = f (a,b,c,d)
 
-uncurry4 : (a -> b -> c -> d -> e) -> (a,b,c,d) -> e
-uncurry4 f (a,b,c,d) = f a b c d
+-- uncurry4 : (a -> b -> c -> d -> e) -> (a,b,c,d) -> e
+-- uncurry4 f (a,b,c,d) = f a b c d
 
 
 -- MAYBES ----------------------------------------------------------------------
 
-(?.) : Maybe a -> a -> a
-(?.) = fl Maybe.withDefault
-
-(*?) : (a -> b) -> Maybe a -> Maybe b
-(*?) = Maybe.map
-
-(?*) : Maybe a -> (a -> b) -> Maybe b
-(?*) = fl (*?)
+flip : (a -> b -> c) -> b -> a -> c
+flip f a b = f b a
 
 mvalues : List (Maybe a) -> List a
 mvalues
@@ -77,11 +59,8 @@ setSecond = mapSecond << y
 
 -- LISTS -----------------------------------------------------------------------
 
-(+:) : List a -> a -> List a
-(+:) xs x = xs ++ [ x ]
-
 ls : a -> List a
-ls = fl (::) []
+ls x = [ x ]
 
 
 -- HTML ------------------------------------------------------------------------

@@ -1,5 +1,7 @@
 
-module Bulma.CDN exposing (..)
+module Bulma.CDN exposing
+  ( stylesheet
+  )
 
 
 -- DOCS ------------------------------------------------------------------------

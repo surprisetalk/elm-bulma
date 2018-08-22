@@ -1,10 +1,142 @@
 
-module Bulma.Components exposing (..)
+module Bulma.Components exposing
+  ( Breadcrumb
+  , BreadcrumbModifiers
+  , BreadcrumbSeparator(..)
+  , breadcrumbModifiers
+  , breadcrumb
+  , Crumblet
+  , crumblet
+  , Card
+  , card
+  , CardPartition
+  , cardHeader
+  , easyCardHeader
+  , easierCardHeader
+  , CardHeaderItem
+  , cardTitle
+  , easyCardTitle
+  , cardIcon
+  , cardIconLink
+  , easyCardIconLink
+  , cardImage
+  , cardContent
+  , cardFooter
+  , CardFooterItem
+  , cardFooterItem
+  , cardFooterItemLink
+  , Dropdown
+  , DropdownModifiers
+  , dropdownModifiers
+  , dropdown
+  , hoverableDropdown
+  , DropdownContent
+  , dropdownTrigger
+  , dropdownMenu
+  , DropdownItem
+  , dropdownItem
+  , dropdownItemLink
+  , dropdownDivider
+  , Menu
+  , menu
+  , MenuPart
+  , menuLabel
+  , menuList
+  , MenuListItem
+  , menuListItem 
+  , menuListItemLink
+  , easyMenuListItemLink
+  , Message
+  , MessageModifiers
+  , messageModifiers
+  , message
+  , MessagePartition
+  , messageBody 
+  , messageHeader
+  , messageHeaderWithDelete
+  , Modal
+  , IsModalOpen
+  , modal
+  , easyModal
+  , ModalPartition
+  , modalContent
+  , modalBackground
+  , easyModalBackground
+  , modalClose
+  , easyModalClose
+  , modalCard
+  , ModalCardPartition
+  , modalCardBody
+  , modalCardHead
+  , modalCardTitle
+  , modalCardFoot
+  , Navbar
+  , NavbarModifiers
+  , navbarModifiers
+  , navbar
+  , fixedNavbar
+  , NavbarBurger
+  , navbarBurger
+  , navbarCross
+  , NavbarSection
+  , navbarMenu
+  , navbarBrand
+  , NavbarSide
+  , navbarStart
+  , navbarEnd
+  , NavbarItem
+  , navbarItem
+  , navbarItemLink
+  , navbarDivider
+  , navbarItemDropdown
+  , hoverableNavbarItemDropdown
+  , NavbarDropdown
+  , IsBoxed
+  , navbarDropdown
+  , NavbarLink
+  , navbarLink
+  , Pagination
+  , pagination
+  , roundedPagination
+  , PaginationPartition
+  , paginationPrev
+  , easyPaginationPrev
+  , paginationNext
+  , easyPaginationNext
+  , paginationList
+  , PaginationListItem
+  , IsCurrent
+  , paginationLink
+  , easyPaginationLink
+  , paginationEllipsis
+  , easyPaginationEllipsis
+  , Panel
+  , panel
+  , PanelPartition
+  , panelHeading
+  , panelBlock
+  , panelLabel
+  , panelLink
+  , panelLinkWithIcon
+  , panelCheckbox
+  , panelTabs
+  , PanelTab
+  , IsActive
+  , panelTab
+  , Tabs
+  , TabsModifiers
+  , TabsStyle(..)
+  , tabsModifiers
+  , tabs
+  , Tab
+  , tab
+  )
 
 -- DOCS ------------------------------------------------------------------------
 
 {-| 
 # Table of Contents
+- [Aliases](#aliases)
 - [Breadcrumb](#breadcrumb)
 - [Card](#card)
 - [Dropdown](#dropdown)
@@ -15,6 +147,9 @@ module Bulma.Components exposing (..)
 - [Pagination](#pagination)
 - [Panel](#panel)
 - [Tabs](#tabs)
+
+# Aliases
+@docs IsActive
 
 # Breadcrumb
 @docs Breadcrumb, BreadcrumbModifiers, BreadcrumbSeparator, breadcrumbModifiers
@@ -56,12 +191,9 @@ module Bulma.Components exposing (..)
 @docs Dropdown, DropdownModifiers, dropdownModifiers
 @docs dropdown, hoverableDropdown
 
-## Dropdown Trigger
+## Dropdown Content
 @docs DropdownContent
 @docs dropdownTrigger
-
-## Dropdown Menu
-@docs DropdownContent
 @docs dropdownMenu
 
 ### Dropdown Item
@@ -117,17 +249,14 @@ module Bulma.Components exposing (..)
 @docs navbar
 @docs fixedNavbar
 
-## Navbar Brand
-@docs NavbarSection, navbarBrand
+## Navbar Sections
+@docs NavbarSection
+@docs navbarBrand, navbarMenu
+@docs NavbarSide, navbarStart, navbarEnd
 
 ### Navbar Burger
 @docs NavbarBurger
 @docs navbarBurger, navbarCross
-
-## Navbar Menu
-@docs NavbarSection, navbarMenu
-
-@docs NavbarSide, navbarStart, navbarEnd
 
 ### Navbar Item
 @docs NavbarItem
@@ -158,13 +287,13 @@ module Bulma.Components exposing (..)
 @docs panel
 
 ## Panel Partition
-@docs PanelPartition, IsActive
+@docs PanelPartition
 @docs panelHeading
 @docs panelBlock, panelLabel, panelLink, panelLinkWithIcon, panelCheckbox
 @docs panelTabs
 
 ### Panel Tab
-@docs PanelTab, IsActive
+@docs PanelTab
 @docs panelTab
 
 # Tabs
@@ -172,7 +301,7 @@ module Bulma.Components exposing (..)
 @docs tabs
 
 ## Tab
-@docs Tab, IsActive
+@docs Tab
 @docs tab
 -}
 
@@ -1146,7 +1275,7 @@ paginationLink current
 {-| -}
 easyPaginationLink : IsCurrent -> List (Attribute msg) -> msg -> Int -> PaginationListItem msg
 easyPaginationLink current attrs msg
-  = toString >> text >> ls >> paginationLink current (onClick msg :: attrs)
+  = String.fromInt >> text >> ls >> paginationLink current (onClick msg :: attrs)
 
 {-| -}
 paginationEllipsis : List (Attribute msg) -> List (Html msg) -> PaginationListItem msg

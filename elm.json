@@ -1,11 +1,9 @@
 {
-    "version": "6.1.1",
+    "type": "package",
+    "name": "surprisetalk/elm-bulma",
     "summary": "Bulma HTML/CSS Framework for Elm",
-    "repository": "https://github.com/surprisetalk/elm-bulma.git",
-    "license": "BSD3",
-    "source-directories": [
-        "src"
-    ],
+    "license": "MIT",
+    "version": "6.1.2",
     "exposed-modules": [
         "Bulma.CDN",
         "Bulma.Modifiers",
@@ -16,9 +14,10 @@
         "Bulma.Components",
         "Bulma.Layout"
     ],
+    "elm-version": "0.19.0 <= v < 0.20.0",
     "dependencies": {
-        "elm-lang/core": "5.1.1 <= v < 6.0.0",
-        "elm-lang/html": "2.0.0 <= v < 3.0.0"
+        "elm/core": "1.0.0 <= v < 2.0.0",
+        "elm/html": "1.0.0 <= v < 2.0.0"
     },
-    "elm-version": "0.18.0 <= v < 0.19.0"
+    "test-dependencies": {}
 }

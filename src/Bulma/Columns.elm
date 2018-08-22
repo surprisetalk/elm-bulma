@@ -1,5 +1,17 @@
 
-module Bulma.Columns exposing (..)
+module Bulma.Columns exposing
+  ( ColumnsModifiers
+  , Display(..)
+  , Gap(..)
+  , columnsModifiers
+  , columns
+  , Column
+  , ColumnModifiers
+  , Offset
+  , columnModifiers
+  , narrowColumnModifiers
+  , column
+  )
 
 -- DOCS ------------------------------------------------------------------------
 
