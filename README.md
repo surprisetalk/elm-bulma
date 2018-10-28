@@ -14,6 +14,7 @@ Elm-Bulma is a simple and beautiful front-end library.
 ``` elm
 module Example exposing (..)
 
+import Browser
 import Bulma.CDN exposing (..)
 import Bulma.Modifiers exposing (..)
 import Bulma.Elements exposing (..)
@@ -23,10 +24,10 @@ import Html exposing ( Html, main_, text )
 
 type alias Model = {}
 
-main : Program Never Model msg
-main 
-  = Html.beginnerProgram
-    { model = {}
+main : Program () Model Msg
+main
+  = Browser.sandbox
+    { init = {}
     , view = view
     , update = \msg -> \model -> model
     }
