@@ -228,7 +228,7 @@ button {disabled,outlined,inverted,rounded,size,state,color,static,iconLeft,icon
           = case iconRight of
               Just ( size_, attrs_, body ) -> [ icon size_ attrs_ [ body ] ]
               Nothing                      -> [                            ]
-    in node "button"
+    in node "a"
        [ Attr.disabled disabled
        , B.button
        , case static of

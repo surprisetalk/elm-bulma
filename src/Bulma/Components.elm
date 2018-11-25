@@ -883,7 +883,7 @@ modalContent = node "div" [ B.modalContent ]
 {-| -}
 modalClose : Size -> List (Attribute msg) -> List (Html msg) -> ModalPartition msg
 modalClose size
-  = node "button"
+  = node "a"
     [ B.modalClose
     , case size of
         Small    -> B.isSmall
