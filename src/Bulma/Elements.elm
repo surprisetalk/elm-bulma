@@ -511,6 +511,8 @@ image shape
         Natural            -> B.none
     ]
 
+-- TODO: roundedImage
+
 {-| 
     myEasyImage : Html msg
     myEasyImage
