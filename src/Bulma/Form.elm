@@ -192,7 +192,7 @@ This variation will connect them as "addons".
 
     myFields : Html msg
     myFields
-      = fields Centered []
+      = connectedFields Centered []
         [ controlInput myControlInputModifiers [] [] [] 
         , control myControlModifiers []
           [ button myButtonModifiers [] []
