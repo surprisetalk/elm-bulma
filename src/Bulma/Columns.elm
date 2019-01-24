@@ -124,7 +124,7 @@ type Display = MobileAndBeyond
     myColumnsModifiers : ColumnsModifiers
     myColumnsModifiers 
       = { multiline          = False
-        , gapless            = False             
+        , gap                = Gap3             
         , display            = TabletAndBeyond
         , centered           = False
         }
